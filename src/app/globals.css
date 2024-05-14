@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: "Nimbus";
+	font-display: swap;
+	src: url("./assets/fonts/nimbus.ttf");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	color: white;
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(37, 0, 61, 1));
