@@ -8,9 +8,16 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      gray:"#D9D9D9"
+      gray:"#D9D9D9",
+      purple: "#7209B7",
+      neonBlue: "#4361EE",
+      lightBlue: "#4CC9F0",
+      white: "#FFFFFF"
     },
     extend: {
+      fontFamily: {
+        "nimbus": ["Nimbus"]
+      }
     },
   },
   plugins: [],

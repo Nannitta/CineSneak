@@ -19,4 +19,4 @@ export default function RootLayout({
       <body className={onest.className}>{children}</body>
     </html>
   );
-}
+};
