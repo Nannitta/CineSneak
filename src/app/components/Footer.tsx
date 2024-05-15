@@ -3,19 +3,9 @@
 import CheckWindowWidth from '../hooks/useWindowWidth';
 import { Figma, Github, Gmail, Linkedin } from '../lib/Svg';
 import Logo from './Logo';
-import { useState } from 'react';
 
 export default function Footer() {
   const {screenSize} = CheckWindowWidth();
-  const [color, setColor] = useState<string>("#C3C3C3");
-
-  const handleMouseEnter = () => {
-    setColor("white");
-  };
-
-  const handleMouseLeave = () => {
-    setColor("#C3C3C3");
-  };
 
   return(
     <footer className='flex flex-col place-items-center gap-4 p-4 md:flex-row md:gap-36 md:pb-6 lg:items-start lg:gap-32 lg:pb-6 lg:px-6'>
@@ -48,28 +38,28 @@ export default function Footer() {
               <Github
                 width={screenSize === "sm" ? "16" : "24"}
                 height={screenSize === "sm" ? "16" : "24"}
-                color={screenSize === "sm" ? "white" : color}
+                fill={screenSize === "sm" ? "white" : "#C3C3C3"}
               />
             </li>
             <li>
               <Linkedin
                 width={screenSize === "sm" ? "16" : "24"}
                 height={screenSize === "sm" ? "16" : "24"}
-                color={screenSize === "sm" ? "white" : color}
+                fill={screenSize === "sm" ? "white" : "#C3C3C3"}
               />
             </li>
             <li>
               <Gmail
                 width={screenSize === "sm" ? "16" : "24"}
                 height={screenSize === "sm" ? "16" : "24"}
-                color={screenSize === "sm" ? "white" : color}
+                fill={screenSize === "sm" ? "white" : "#C3C3C3"}
               />
             </li>
             <li>
               <Figma
                 width={screenSize === "sm" ? "16" : "24"}
                 height={screenSize === "sm" ? "16" : "24"}
-                color={screenSize === "sm" ? "white" : color}
+                fill={screenSize === "sm" ? "white" : "#C3C3C3"}
               />
             </li>
           </ul>

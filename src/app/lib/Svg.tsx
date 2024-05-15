@@ -27,11 +27,11 @@ export function Avatar({width, height, fill}: SvgProps) {
   );
 };
 
-export function Github({width, height, color}: SvgProps) {
+export function Github({width, height, fill}: SvgProps) {
   return(
     <Link href={"https://github.com/Nannitta"} target='_blank' title='GitHub'>
       <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 32 32">
-        <path fill={color} d="M16 .396c-8.839 0-16 7.167-16 16c0 7.073 4.584 13.068 10.937
+        <path fill={fill} d="M16 .396c-8.839 0-16 7.167-16 16c0 7.073 4.584 13.068 10.937
         15.183c.803.151 1.093-.344 1.093-.772c0-.38-.009-1.385-.015-2.719c-4.453.964-5.391-2.151-5.391-2.151c-.729-1.844-1.781-2.339-1.781-2.339c-1.448-.989.115-.968.115-.968c1.604.109
         2.448 1.645 2.448 1.645c1.427 2.448 3.744 1.74 4.661 1.328c.14-1.031.557-1.74
         1.011-2.135c-3.552-.401-7.287-1.776-7.287-7.907c0-1.751.62-3.177 1.645-4.297c-.177-.401-.719-2.031.141-4.235c0
@@ -44,11 +44,11 @@ export function Github({width, height, color}: SvgProps) {
   );
 };
 
-export function Linkedin({width, height, color}: SvgProps) {
+export function Linkedin({width, height, fill}: SvgProps) {
   return(
     <Link href={"https://www.linkedin.com/in/nairglez/"} target='_blank' title='Linkedin'>
       <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 16 16">
-        <path fill={color} d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 
+        <path fill={fill} d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 
         .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 
         0 1.358-.554 1.358-1.248c-.015-.709-.52-1.248-1.342-1.248c-.822 0-1.359.54-1.359 1.248c0 .694.521 
         1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586c.173-.431.568-.878 1.232-.878c.869 0 
@@ -59,21 +59,21 @@ export function Linkedin({width, height, color}: SvgProps) {
   );
 };
 
-export function Gmail({width, height, color}: SvgProps) {
+export function Gmail({width, height, fill}: SvgProps) {
   return(
     <Link href={"mailto:nanaa.gonzalez@gmail.com"} title='Email'>
       <svg width={width} height={height} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.32 7.28V9.46667H13.5467C13.3867 10.6933 12.978 11.5913 12.3553 12.222C11.5907 12.9867 10.4 13.822 8.32 13.822C5.102 13.822 2.58667 11.2267 2.58667 8.00867C2.58667 4.79067 5.102 2.19533 8.32 2.19533C10.0533 2.19533 11.3247 2.88 12.258 3.76L13.796 2.222C12.498 0.96 10.7553 0 8.32 0C3.91133 0 0.204666 3.59133 0.204666 8C0.204666 12.4087 3.91133 16 8.32 16C10.702 16 12.498 15.218 13.902 13.76C15.342 12.32 15.7953 10.2847 15.7953 8.64867C15.7953 8.142 15.76 7.67067 15.68 7.28H8.32Z" fill={color}/>
+        <path d="M8.32 7.28V9.46667H13.5467C13.3867 10.6933 12.978 11.5913 12.3553 12.222C11.5907 12.9867 10.4 13.822 8.32 13.822C5.102 13.822 2.58667 11.2267 2.58667 8.00867C2.58667 4.79067 5.102 2.19533 8.32 2.19533C10.0533 2.19533 11.3247 2.88 12.258 3.76L13.796 2.222C12.498 0.96 10.7553 0 8.32 0C3.91133 0 0.204666 3.59133 0.204666 8C0.204666 12.4087 3.91133 16 8.32 16C10.702 16 12.498 15.218 13.902 13.76C15.342 12.32 15.7953 10.2847 15.7953 8.64867C15.7953 8.142 15.76 7.67067 15.68 7.28H8.32Z" fill={fill}/>
       </svg>
     </Link>
   );
 };
 
-export function Figma({width, height, color}: SvgProps) {
+export function Figma({width, height, fill}: SvgProps) {
   return(
     <Link href={"https://www.figma.com/@nairgonzalez"} target='_blank' title='Figma Community'>
       <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 256 256">
-        <path fill={color} d="M192 96a40 40 0 0 0-24-72H96a40 40 0 0 0-24 72a40 40 0 0 0 1.37 65A44 44 0 1 0 144 196v-36a40 40 0 1 0 48-64m0-32a24 24 0 0 1-24 24h-24V40h24a24 24 0 0 1 24 24M72 64a24 24 0 0 1 24-24h32v48H96a24 24 0 0 1-24-24m24 88a24 24 0 0 1 0-48h32v48zm32 44a28 28 0 1 1-28-28h28Zm40-44a24 24 0 1 1 24-24a24 24 0 0 1-24 24"/>
+        <path fill={fill} d="M192 96a40 40 0 0 0-24-72H96a40 40 0 0 0-24 72a40 40 0 0 0 1.37 65A44 44 0 1 0 144 196v-36a40 40 0 1 0 48-64m0-32a24 24 0 0 1-24 24h-24V40h24a24 24 0 0 1 24 24M72 64a24 24 0 0 1 24-24h32v48H96a24 24 0 0 1-24-24m24 88a24 24 0 0 1 0-48h32v48zm32 44a28 28 0 1 1-28-28h28Zm40-44a24 24 0 1 1 24-24a24 24 0 0 1-24 24"/>
       </svg>
     </Link>
   );
