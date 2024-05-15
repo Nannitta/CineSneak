@@ -18,3 +18,14 @@ body {
 	color: white;
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(37, 0, 61, 1));
 }
+
+:hover.primaryButton::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	inset: 0px;
+	background: linear-gradient(263deg, #7209b7 0%, #4361ee 51.5%, #4cc9f0 100%);
+	filter: blur(16px);
+	border-radius: inherit;
+	pointer-events: none;
+}
