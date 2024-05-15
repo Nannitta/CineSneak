@@ -12,4 +12,5 @@ export type SvgProps = {
 export type ButtonProps = {
   text: string
   img: ReactNode
+  title: string
 }
