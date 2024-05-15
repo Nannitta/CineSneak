@@ -29,3 +29,7 @@ body {
 	border-radius: inherit;
 	pointer-events: none;
 }
+
+li:hover a svg path {
+	fill: white;
+}
