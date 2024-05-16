@@ -16,7 +16,7 @@
 
 body {
 	color: white;
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(37, 0, 61, 1));
+	background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(37, 0, 61, 1));
 }
 
 :hover.primaryButton::before {
