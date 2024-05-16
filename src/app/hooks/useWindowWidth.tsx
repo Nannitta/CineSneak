@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 function CheckWindowWidth() {
   const [screenSize, setScreenSize] = useState<string>("");
+  const [screenWidth, setScreenWidth] = useState<number>(0);
   
   useEffect(() => {
     const handleSize = async () => {
@@ -14,6 +15,8 @@ function CheckWindowWidth() {
       } else {
         setScreenSize("lg");
       }
+
+      setScreenWidth(screenWidth);
     };
 
     handleSize();
@@ -24,7 +27,7 @@ function CheckWindowWidth() {
     };
   }, []);
 
-  return { screenSize }; 
+  return { screenSize, screenWidth }; 
 };
 
 export default CheckWindowWidth;
