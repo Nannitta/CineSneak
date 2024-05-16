@@ -9,5 +9,16 @@ export async function getMoviesNowPlaying() {
   });
 
   const response = await data.json(); 
-  return response.results.slice(0,9);
+  return response.results.slice(0,10);
+}
+
+export async function getMovieGenres() {
+  const data = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=es', {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();  
+  return response.genres;
 }
