@@ -5,7 +5,7 @@ import { Figma, Github, Gmail, Linkedin } from '../lib/Svg';
 import Logo from './Logo';
 
 export default function Footer() {
-  const {screenSize} = CheckWindowWidth();
+  const {screenSize} = CheckWindowWidth();  
 
   return(
     <footer className='flex flex-col place-items-center gap-4 p-4 md:flex-row md:gap-36 md:pb-6 lg:items-start lg:gap-32 lg:pb-6 lg:px-6'>
