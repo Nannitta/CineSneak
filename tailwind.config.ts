@@ -12,7 +12,8 @@ const config: Config = {
       purple: "#7209B7",
       neonBlue: "#4361EE",
       lightBlue: "#4CC9F0",
-      white: "#FFFFFF"
+      white: "#FFFFFF",
+      black: "#000000"
     },
     extend: {
       fontFamily: {

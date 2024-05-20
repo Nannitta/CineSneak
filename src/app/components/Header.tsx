@@ -6,10 +6,12 @@ import PrimaryButton from './PrimaryButton';
 import CheckWindowWidth from '../hooks/useWindowWidth';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useSideMenuStore } from '../store/sideMenu';
 
 export default function Header() {
   const {screenSize} = CheckWindowWidth();
   const [color, setColor] = useState<string>("#C3C3C3");
+  const openSideMenu = useSideMenuStore(state => state.openSideMenu);
 
   const handleMouseEnter = () => {
     setColor("white");
@@ -27,11 +29,7 @@ export default function Header() {
           height={screenSize === "sm" ? "16" : (screenSize === "md" ? "25" : "40")}
           fill={"white"}
         />
-        { screenSize &&
-          (screenSize !== "sm")
-            ? null
-            : <button><Menu/></button>
-        }
+        <button onClick={openSideMenu} className='md:hidden'><Menu/></button>
       </div>
       { screenSize &&
         screenSize !== "sm"
