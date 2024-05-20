@@ -1,3 +1,7 @@
+.embla {
+	position: relative;
+}
+
 .embla__viewport {
 	overflow: hidden;
 }
@@ -18,39 +22,46 @@
 	font-weight: 600;
 	display: flex;
 	flex-direction: column;
-	height: 240px;
+	justify-content: end;
+}
+
+.overlay {
+	position: absolute;
+	padding: 0.5rem;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-start;
+	background: linear-gradient(to top, #000000, transparent 100%);
+	z-index: 1;
 }
 
 .embla__controls {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	justify-content: space-between;
-	gap: 1.2rem;
-	margin-top: 1.8rem;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
 }
 
 .embla__dots {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-end;
+	gap: 0.5rem;
 	align-items: center;
-	margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
-	color: black;
+	color: white;
 }
 
 .embla__dot {
 	-webkit-tap-highlight-color: rgba(var(--admonition-danger));
 	-webkit-appearance: none;
 	appearance: none;
-	background-color: white;
+	background-color: #c3c3c3;
 	touch-action: manipulation;
 	display: inline-flex;
 	text-decoration: none;
 	cursor: pointer;
-	padding: 0;
-	margin: 0;
-	width: 2.6rem;
-	height: 2.6rem;
+	width: 0.5rem;
+	height: 0.5rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -58,5 +69,5 @@
 }
 
 .embla__dot--selected {
-	background-color: black;
+	background-color: white;
 }
