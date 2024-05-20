@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { Genre, MoviesNowPalying } from '../types/types';
-import { getBackDropMovie, getMovieGenres, getMoviesNowPlaying } from '../services';
+import { getMovieGenres, getMoviesNowPlaying } from '../services';
 
 interface State {
   moviesNowPlaying: MoviesNowPalying[]
