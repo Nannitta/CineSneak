@@ -11,7 +11,7 @@ export default function Button({ text, img }: ButtonProps) {
       { screenSize &&
           screenSize === "lg"
             ? <button className={`primaryButton flex place-items-center gap-2 bg-gradient-to-r from-lightBlue from-0% via-neonBlue via-51.5% to-purple to-100% rounded text-sm px-4 py-2 font-semibold relative tran`}
-                title='Iniciar sesión'
+                title={text}
               >
                 {img}
                 {text}
@@ -19,7 +19,7 @@ export default function Button({ text, img }: ButtonProps) {
             : <button className={`flex place-items-center gap-2 bg-gradient-to-r from-lightBlue from-0% via-neonBlue via-51.5% to-purple to-100% rounded 
                 ${screenSize !== "sm" ? "text-sm px-4 py-2" : "text-xs px-2 py-[0.3rem]"}
                 font-semibold`}
-                title='Iniciar sesión'
+                title={text}
               >
                 {img}
                 {text}

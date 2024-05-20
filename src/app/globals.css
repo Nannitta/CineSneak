@@ -39,7 +39,7 @@ li:hover a svg path {
 	position: absolute;
 	inset: 0;
 	border-radius: 0.35rem;
-	border: 1px solid transparent;
+	border: 2px solid transparent;
 	background: linear-gradient(to left, #7209b7 0%, #4361ee 51.5%, #4cc9f0 100%)
 		border-box;
 	mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
