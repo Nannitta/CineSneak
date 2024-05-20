@@ -25,7 +25,7 @@ body {
 	z-index: -1;
 	inset: 0px;
 	background: linear-gradient(263deg, #7209b7 0%, #4361ee 51.5%, #4cc9f0 100%);
-	filter: blur(16px);
+	filter: blur(8px);
 	border-radius: inherit;
 	pointer-events: none;
 }
