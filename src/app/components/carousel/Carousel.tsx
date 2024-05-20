@@ -46,15 +46,16 @@ const Carousel: React.FC<PropType> = (props) => {
           {slides.map((movie) => (
             <div className="embla__slide" key={movie.id}>
               <article className={`embla__slide__number w-full h-60 md:h-[420px] lg:h-[556px] bg-cover bg-no-repeat bg-center relative ${screenSize === "sm" ? "px-2 pb-4" : "px-4 pb-8"}`} style={{backgroundImage: `url('${imgURL + movie.backdrop_path}')`}}>
-                <div className="overlay">
-                <h2 className={`uppercase text-sm font-black ${league.className} md:text-2xl`}>{movie.title}</h2>
-                <p className='text-[10px] font-normal text-gray text-balance md:w-3/4 lg:text-wrap md:text-sm'>{movie.overview}</p>
-                <p className='flex gap-1 place-items-center self-end md:self-start py-2 md:pt-2 md:pb-4'>
+                <div className="overlay p-4 md:pb-8 lg:p-6 lg:pb-10">
+                <h2 className={`uppercase text-sm font-black ${league.className} md:text-2xl lg:text-4xl`}>{movie.title}</h2>
+                <p className='text-[10px] font-normal text-gray text-balance md:w-3/4 lg:text-wrap md:text-sm lg:text-base'>{movie.overview}</p>
+                <div className='flex gap-1 place-items-center text-[8px] font-light self-end md:self-start py-2 md:pt-2 md:pb-4 md:text-xs lg:text-sm'>
                   <Calendar 
                     width={screenSize === "sm" ? "8" : (screenSize === "md" ? "12" : "15")} 
                     height={screenSize === "sm" ? "8" : (screenSize === "md" ? "12" : "15")}
                   />
-                  <span className='text-gray font-light'>{formatDate(movie.release_date)}</span></p>
+                  <span className='text-gray'>{formatDate(movie.release_date)}</span>
+                </div>
                 {screenSize && screenSize === "sm"
                   ? <div className='flex items-baseline relative w-full justify-between'>
                       <PrimaryButton 
@@ -68,30 +69,30 @@ const Carousel: React.FC<PropType> = (props) => {
                         }
                         title={"Ver tráiler"}
                       />
-                      <div className={`flex ${screenSize === "sm" ? "gap-2" : "gap-4"}`}>
+                      <div className={`flex font-light ${screenSize === "sm" ? "gap-2 text-[10px]" : "gap-4 text-sm"}`}>
                         {
                           getGenreNames(movie.genre_ids)
                         }
                       </div>
                     </div>
                   : <>
-                  <div className={`flex ${screenSize === "sm" ? "gap-2" : "gap-4"}`}>
-                    {
-                      getGenreNames(movie.genre_ids)
-                    }
-                  </div>
-                  <PrimaryButton 
-                    text={"Ver tráiler"} 
-                    img={
-                      <Play 
-                        width={screenSize === "sm" ? "12" : "16"}
-                        height={screenSize === "sm" ? "12" : "16"}
-                        fill={"white"}
+                      <div className={`flex ${screenSize === "sm" ? "gap-2" : "gap-4 mb-4 text-sm"}`}>
+                        {
+                          getGenreNames(movie.genre_ids)
+                        }
+                      </div>
+                      <PrimaryButton 
+                        text={"Ver tráiler"} 
+                        img={
+                          <Play 
+                            width={screenSize === "sm" ? "12" : "16"}
+                            height={screenSize === "sm" ? "12" : "16"}
+                            fill={"white"}
+                          />
+                        }
+                        title={"Ver tráiler"}
                       />
-                    }
-                    title={"Ver tráiler"}
-                  />
-                  </>
+                    </>
                 }
                 </div>
               </article>
