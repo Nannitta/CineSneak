@@ -25,8 +25,8 @@ export default function Header() {
     <header className='flex justify-between p-4 lg:p-6'>
       <div className='flex place-items-center gap-2'>
         <Logo
-          width={screenSize === "sm" ? "16" : (screenSize === "md" ? "25" : "40")}
-          height={screenSize === "sm" ? "16" : (screenSize === "md" ? "25" : "40")}
+          width={screenSize === "sm" ? "24" : (screenSize === "md" ? "25" : "40")}
+          height={screenSize === "sm" ? "24" : (screenSize === "md" ? "25" : "40")}
           fill={"white"}
         />
         <button onClick={openSideMenu} className='md:hidden'><Menu/></button>
@@ -43,8 +43,8 @@ export default function Header() {
       <div className='flex place-items-center gap-4'>
         <button title='Buscar'>
           <Search 
-            width={screenSize === "sm" ? "16" : "24"}
-            height={screenSize === "sm" ? "16" : "24"}
+            width={"24"}
+            height={"24"}
             color={screenSize === "sm" ? "white" : color}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

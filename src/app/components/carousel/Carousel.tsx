@@ -45,14 +45,14 @@ const Carousel: React.FC<PropType> = (props) => {
         <div className="embla__container">
           {slides.map((movie) => (
             <div className="embla__slide" key={movie.id}>
-              <article className={`embla__slide__number w-full h-60 md:h-[420px] lg:h-[556px] bg-cover bg-no-repeat bg-center relative ${screenSize === "sm" ? "px-2 pb-4" : "px-4 pb-8"}`} style={{backgroundImage: `url('${imgURL + movie.backdrop_path}')`}}>
+              <article className={`embla__slide__number w-full h-80 md:h-[420px] lg:h-[556px] bg-cover bg-no-repeat bg-center relative ${screenSize === "sm" ? "px-2 pb-4" : "px-4 pb-8"}`} style={{backgroundImage: `url('${imgURL + movie.backdrop_path}')`}}>
                 <div className="overlay px-4 pt-4 pb-8 lg:p-6 md:pb-10">
-                <h2 className={`uppercase text-sm font-black ${league.className} md:text-2xl lg:text-4xl`}>{movie.title}</h2>
-                <p className='text-[10px] font-normal text-gray text-balance md:w-3/4 lg:text-wrap md:text-sm lg:text-base'>{movie.overview}</p>
-                <div className='flex gap-1 place-items-center text-[8px] font-light self-end md:self-start py-2 md:pt-2 md:pb-4 md:text-xs lg:text-sm'>
+                <h2 className={`uppercase font-black ${league.className} md:text-2xl lg:text-4xl`}>{movie.title}</h2>
+                <p className='text-sm font-normal text-gray text-balance line-clamp-6 md:w-3/4 lg:text-wrap md:text-base'>{movie.overview}</p>
+                <div className='flex gap-1 place-items-center text-xs font-light self-end md:self-start py-2 md:pt-2 md:pb-4 lg:text-sm'>
                   <Calendar 
-                    width={screenSize === "sm" ? "8" : (screenSize === "md" ? "12" : "15")} 
-                    height={screenSize === "sm" ? "8" : (screenSize === "md" ? "12" : "15")}
+                    width={screenSize === "lg" ? "15" : "12"} 
+                    height={screenSize === "lg" ? "15" : "12"}
                   />
                   <span className='text-gray'>{formatDate(movie.release_date)}</span>
                 </div>
