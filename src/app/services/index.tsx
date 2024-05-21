@@ -22,3 +22,14 @@ export async function getMovieGenres() {
   const response = await data.json();  
   return response.genres;
 }
+
+export async function getMovieTrailer(id: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=es-ES`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();  
+  return response.results;
+}
