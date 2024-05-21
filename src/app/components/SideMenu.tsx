@@ -14,12 +14,12 @@ export default function SideMenu() {
           ? <div className='bg-black fixed z-10 w-full flex flex-col place-items-center p-4 shadow-lg'>
               <button onClick={closeSideMenu} className='self-end'>
                 <Close 
-                  width={"16"}
-                  height={"16"}
-                  fill='#C3C3C3'
+                  width={"24"}
+                  height={"24"}
+                  fill='white'
                 />
               </button>
-              <ul className='flex jus gap-5 *:text-gray *:text-[10px]'>
+              <ul className='flex jus gap-5 *:text-sm'>
                 <li><Link href={"/"} title='Página principal' onClick={closeSideMenu}>Home</Link></li>
                 <li><Link href={"/"} title='Películas' onClick={closeSideMenu}>Películas</Link></li>
                 <li><Link href={"/"} title='Series' onClick={closeSideMenu}>Series</Link></li>
