@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useMoviesStore } from './store/movies';
-import Carousel from './components/carousel/Carousel';
+import CarouselOnTheatres from './components/carouselOnTheatres/Carousel';
 import { EmblaOptionsType } from 'embla-carousel'
 import { useSideMenuStore } from './store/sideMenu';
 
@@ -23,7 +23,7 @@ export default function HomePageNotLog() {
   
   return (
     <main className='flex-grow' onClick={closeSideMenu}>
-      <Carousel slides={SLIDES} options={OPTIONS} genres={genres}/>
+      <CarouselOnTheatres slides={SLIDES} options={OPTIONS} genres={genres}/>
       <h2 className='font-black text-xs pt-4 px-2 md:text-xl md:pt-[30px] md:px-4 lg:text-2xl lg:pt-9 lg:px-6'>Éxitos en taquilla ¡No te los pierdas!</h2>
     </main>
   );
