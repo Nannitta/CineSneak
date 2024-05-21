@@ -1,4 +1,4 @@
-import { MouseEventHandler, ReactNode } from 'react'
+import { EventHandler, MouseEventHandler, ReactNode } from 'react'
 
 export type SvgProps = {
   width: string
@@ -13,6 +13,7 @@ export type ButtonProps = {
   text: string
   img: ReactNode
   title: string
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 export interface MoviesNowPalying {
@@ -39,4 +40,17 @@ export type Genre = {
 
 export type TagProps = {
   text: string
+}
+
+export type MovieTrailer = {
+  iso_639_1: string
+  iso_3166_1: string
+  name: string
+  key: string
+  site: string
+  size: number
+  type: string
+  official: boolean
+  published_at: Date
+  id: string
 }
