@@ -24,7 +24,7 @@ export async function getMovieGenres() {
 }
 
 export async function getMovieTrailer(id: number) {
-  const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=es-ES`, {
+  const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-EN`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }
