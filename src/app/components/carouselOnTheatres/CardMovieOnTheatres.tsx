@@ -1,12 +1,13 @@
-import { Calendar, Play } from '../lib/Svg';
-import PrimaryButton from "./PrimaryButton";
-import { formatDate } from '../lib/formatDate';
-import { MoviesNowPalying } from '../types/types';
+import { Calendar, Play } from '../../lib/Svg';
+import PrimaryButton from "../PrimaryButton";
+import { formatDate } from '../../lib/formatDate';
+import { MoviesNowPalying } from '../../types/types';
 import { League_Spartan } from "next/font/google";
-import CheckWindowWidth from '../hooks/useWindowWidth';
-import Tag from './Tag';
-import { Genre } from '../types/types';
-import { useMoviesStore } from '../store/movies';
+import CheckWindowWidth from '../../hooks/useWindowWidth';
+import Tag from '../Tag';
+import { Genre } from '../../types/types';
+import { useMoviesStore } from '../../store/movies';
+import { useInPictureModeStore } from '@/app/store/inPictureMode';
 
 const league = League_Spartan({ subsets: ["latin"] });
 
@@ -18,7 +19,8 @@ interface CardMovieOnTheatresProps {
 export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatresProps) {
   const {screenSize} = CheckWindowWidth();
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
-  const movieVideos = useMoviesStore(state => state);
+  const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
+  const openInPictureMode = useInPictureModeStore(state => state.openPictureMode);
 
   function getGenreNames(ids: number[]) {
     return ids.map(id => {
@@ -30,14 +32,9 @@ export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatr
     }).filter(Boolean).slice(0,2);
   }
 
-  function handleTrailerClick(id: number) {
-    return async () => {
-      await movieVideos.fetchMovieTrailers(id)
-      const allVideos = movieVideos.movieTrailers
-      const trailers = allVideos.filter((movie) => movie.type === "Trailer")
-      const finalTrailer = trailers[0].key 
-      console.log(finalTrailer);
-    };
+  async function handleTrailerClick(id: number) {
+    await fetchMovieTrailer(id);
+    openInPictureMode();
   }
 
   return(
@@ -64,7 +61,7 @@ export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatr
                 />
               }
               title={"Ver tráiler"}
-              onClick={handleTrailerClick(movie.id)}
+              onClick={() => handleTrailerClick(movie.id)}
             />
             <div className={`flex font-light ${screenSize === "sm" ? "gap-2 text-[10px]" : "gap-4 text-sm"}`}>
               {
@@ -88,7 +85,7 @@ export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatr
                 />
               }
               title={"Ver tráiler"}
-              onClick={handleTrailerClick(movie.id)}
+              onClick={() => handleTrailerClick(movie.id)}
             />
           </>
       }
