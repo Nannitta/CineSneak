@@ -102,3 +102,14 @@ export function Close({width, height, fill}: SvgProps) {
     </svg>
   )
 }
+
+export function InPicture({width, height, fill}: SvgProps) {
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24">
+      <g fill={fill}>
+        <path d="M20 12h-6v5h6z"/>
+        <path fill-rule="evenodd" d="M1 6a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2zm2 0h18v12H3z" clip-rule="evenodd"/>
+      </g>
+    </svg>
+  )
+}

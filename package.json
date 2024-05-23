@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "dotenv": "16.4.5",
-    "embla-carousel": "^8.0.4",
+    "embla-carousel": "8.0.4",
     "embla-carousel-autoplay": "8.0.4",
     "embla-carousel-react": "8.0.4",
     "next": "14.2.3",
     "react": "18",
     "react-dom": "18",
+    "react-player": "2.16.0",
+    "react-use-pip": "^1.5.0",
     "zustand": "4.5.2"
   },
   "devDependencies": {
