@@ -9,6 +9,7 @@ interface State {
   fetchMoviesGenre: () => Promise<void>
   movieTrailer: string
   fetchMovieTrailers: (id: number) => Promise<void>
+  resetMovieTrailer: () => void
 }
 
 export const useMoviesStore = create<State>((set) => {
@@ -31,6 +32,11 @@ export const useMoviesStore = create<State>((set) => {
       const trailers = allVideos.filter((movie: MovieTrailer) => movie.type === "Trailer")
       const movieTrailer = trailers[0].key     
             
+      set({ movieTrailer })
+    },
+    resetMovieTrailer: () => {
+      const movieTrailer = "";
+
       set({ movieTrailer })
     }
   }
