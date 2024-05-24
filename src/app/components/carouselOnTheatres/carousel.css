@@ -17,12 +17,6 @@
 	min-width: 0;
 }
 
-.embla__slide__number {
-	display: flex;
-	flex-direction: column;
-	justify-content: end;
-}
-
 .overlay {
 	position: absolute;
 	inset: 0;

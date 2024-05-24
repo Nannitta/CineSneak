@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { Genre, MovieTrailer, MoviesNowPalying } from '../types/types';
-import { getMovieGenres, getMovieTrailer, getMoviesNowPlaying } from '../services';
+import { getMovieGenres, getMovieTrailer, getMoviesNowPlaying, getPopularMovies } from '../services';
 
 interface State {
   moviesNowPlaying: MoviesNowPalying[]
@@ -10,6 +10,8 @@ interface State {
   movieTrailer: string
   fetchMovieTrailers: (id: number) => Promise<void>
   resetMovieTrailer: () => void
+  popularMovies: MoviesNowPalying[]
+  fetchPopularMovies: () => Promise<void>
 }
 
 export const useMoviesStore = create<State>((set) => {
@@ -17,6 +19,7 @@ export const useMoviesStore = create<State>((set) => {
     moviesNowPlaying: [],
     movieGenres: [],
     movieTrailer: "",
+    popularMovies: [],
     fetchMoviesNowPlaying: async () => {
       const moviesNowPlaying = await getMoviesNowPlaying()
      
@@ -38,6 +41,11 @@ export const useMoviesStore = create<State>((set) => {
       const movieTrailer = "";
 
       set({ movieTrailer })
+    },
+    fetchPopularMovies: async () => {
+      const popularMovies = await getPopularMovies()
+
+      set({ popularMovies })
     }
   }
 });
