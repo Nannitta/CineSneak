@@ -33,3 +33,14 @@ export async function getMovieTrailer(id: number) {
   const response = await data.json();  
   return response.results;
 }
+
+export async function getPopularMovies() {
+  const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=es-ES&region=es', {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response.results;
+}
