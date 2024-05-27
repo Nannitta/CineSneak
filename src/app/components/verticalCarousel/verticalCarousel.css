@@ -17,13 +17,12 @@
 .embla__slide.vertical__slide {
 	flex: 0 0 50%;
 	min-width: 0;
-	max-width: 158px;
+	max-width: 150px;
 }
 
 @media (min-width: 768px) {
 	.embla__slide.vertical__slide {
 		flex: 0 0 26%;
-		max-width: 178px;
 	}
 }
 
@@ -33,6 +32,5 @@
 	}
 	.embla__slide.vertical__slide {
 		flex: 0 0 35%;
-		max-width: 293px;
 	}
 }
