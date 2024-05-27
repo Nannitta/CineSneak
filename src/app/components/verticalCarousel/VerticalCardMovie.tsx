@@ -26,7 +26,7 @@ export default function VerticalCardCarousel({ movie }: VerticalCard) {
           </div>
         </div>
         <p className="pt-2 text-xs text-white line-clamp-1 lg:text-gray lg:group-hover:text-white font-extralight md:text-sm transition duration-300">
-          {movie.title}
+          {movie.title || movie.name}
         </p>
       </div>
     </article>
