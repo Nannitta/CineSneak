@@ -31,7 +31,7 @@ export default function HomePageNotLog() {
     <main className='flex-grow flex flex-col relative' onClick={closeSideMenu}>
       <WatchTrailer/>
       <CarouselOnTheatres moviesOnTheatres={moviesOnTheatres} options={OPTIONS} genres={genres}/>
-      <h2 className='font-black text-xs py-4 px-4 md:text-xl md:pt-[30px] md:px-4 lg:text-2xl lg:pt-9 lg:px-6'>
+      <h2 className='font-black text-xs p-4 md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
         Éxitos en taquilla ¡No te los pierdas!
       </h2>
       <VerticalCarousel movies={popularMovies}/>
