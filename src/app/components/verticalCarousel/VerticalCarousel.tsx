@@ -4,11 +4,11 @@ import React from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import './verticalCarousel.css';
-import { MoviesNowPalying } from '@/types/types';
+import { MediaContent } from '@/types/types';
 import VerticalCardCarousel from '@/components/verticalCarousel/VerticalCardMovie';
 
 type PropType = {
-  movies: MoviesNowPalying[]
+  movies: MediaContent[]
   options?: EmblaOptionsType
 }
 
