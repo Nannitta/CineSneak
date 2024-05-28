@@ -28,7 +28,7 @@ export default function HorizontalCardCarousel({ movie }: VerticalCard) {
             </span>
           </div>
         </div>
-        <p className='w-full z-10 absolute bottom-2 pl-2 text-xs text-white line-clamp-1 lg:text-gray lg:group-hover:text-white font-extralight md:text-sm transition duration-300'>
+        <p className='min-w-60 max-w-64 line-clamp-1 z-10 absolute bottom-3 pl-4 text-xs text-white lg:text-gray lg:group-hover:text-white font-extralight md:text-sm transition duration-300'>
           {movie.title || movie.name}
         </p>
       </div>

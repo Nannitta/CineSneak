@@ -56,8 +56,19 @@ export async function getPopularMovies() {
   return response.results;
 }
 
-export async function getPopularSeries() {
+export async function getOnAirSeries() {
   const data = await fetch('https://api.themoviedb.org/3/tv/on_the_air?language=es-ES&timezone=es', {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response.results;
+}
+
+export async function getPopularSeries() {
+  const data = await fetch('https://api.themoviedb.org/3/tv/popular?language=es-ES', {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }
