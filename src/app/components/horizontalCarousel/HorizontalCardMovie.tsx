@@ -1,6 +1,6 @@
-import { MoviesNowPalying } from '@/app/types/types'
+import { MoviesNowPalying } from '@/types/types';
 import Image from 'next/image';
-import { Plus } from '@/app/lib/Svg';
+import { Plus } from '@/lib/Svg';
 
 interface VerticalCard {
   movie: MoviesNowPalying
@@ -9,26 +9,26 @@ interface VerticalCard {
 export default function HorizontalCardCarousel({ movie }: VerticalCard) {
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   return (
-    <article className="w-[300px]">
-      <div className="group">
-        <div className="w-[300px] h-[168px] relative rounded-lg overflow-hidden">
+    <article className='w-[300px]'>
+      <div className='group'>
+        <div className='w-[300px] h-[168px] relative rounded-lg overflow-hidden'>
           <div
-            className="overlay">
+            className='overlay'>
           </div>
           <Image
             src={`${imgURL + movie.backdrop_path}`}
             alt='Portada de la película'
             fill={true}
-            className="object-cover rounded-lg"
+            className='object-cover rounded-lg'
           />
-          <div className="absolute inset-0 z-10 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center">
+          <div className='absolute inset-0 z-10 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center'>
             <span className='text-white text-sm font-bold opacity-0 lg:group-hover:opacity-100 transition duration-300 flex items-center gap-1'>
               VER MÁS
-              <Plus width={"14"} height={"14"} fill={'white'}/>
+              <Plus width={'14'} height={'14'} fill={'white'}/>
             </span>
           </div>
         </div>
-        <p className="w-full z-10 absolute bottom-2 pl-2 text-xs text-white line-clamp-1 lg:text-gray lg:group-hover:text-white font-extralight md:text-sm transition duration-300">
+        <p className='w-full z-10 absolute bottom-2 pl-2 text-xs text-white line-clamp-1 lg:text-gray lg:group-hover:text-white font-extralight md:text-sm transition duration-300'>
           {movie.title || movie.name}
         </p>
       </div>
