@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 function CheckWindowWidth() {
-  const [screenSize, setScreenSize] = useState<string>("");
+  const [screenSize, setScreenSize] = useState<string>('');
   const [screenWidth, setScreenWidth] = useState<number>(0);
   
   useEffect(() => {
@@ -9,11 +9,11 @@ function CheckWindowWidth() {
       const screenWidth: number = window.innerWidth;          
 
       if(screenWidth < 768) {       
-        setScreenSize("sm");      
+        setScreenSize('sm');      
       } else if(screenWidth >= 768 && screenWidth <= 1024) {
-        setScreenSize("md");
+        setScreenSize('md');
       } else {
-        setScreenSize("lg");
+        setScreenSize('lg');
       }
 
       setScreenWidth(screenWidth);
