@@ -1,13 +1,13 @@
-"use client"
+'use client';
 
-import React from 'react'
-import { EmblaOptionsType } from 'embla-carousel'
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
-import "./carousel.css"
-import { DotButton, useDotButton } from './DotButtons'
-import { Genre, MoviesNowPalying } from '@/app/types/types'
-import CardMovieOnTheatres from './CardMovieOnTheatres'
+import React from 'react';
+import { EmblaOptionsType } from 'embla-carousel';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+import './carousel.css';
+import { DotButton, useDotButton } from '@/components/carouselOnTheatres/DotButtons';
+import { Genre, MoviesNowPalying } from '@/types/types';
+import CardMovieOnTheatres from '@/components/carouselOnTheatres/CardMovieOnTheatres';
 
 type PropType = {
   moviesOnTheatres: MoviesNowPalying[]
@@ -21,18 +21,18 @@ const CarouselOnTheatres: React.FC<PropType> = (props) => {
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
   return (
-    <section className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-        {moviesOnTheatres.map((movie) => (
-          <div className="embla__slide" key={movie.id}>
-          <CardMovieOnTheatres movie={movie} genres={genres}/>
-          </div>
-        ))}
+    <section className='embla'>
+      <div className='embla__viewport' ref={emblaRef}>
+        <div className='embla__container'>
+          {moviesOnTheatres.map((movie) => (
+            <div className='embla__slide' key={movie.id}>
+              <CardMovieOnTheatres movie={movie} genres={genres}/>
+            </div>
+          ))}
+        </div>
       </div>
-      </div>
-      <div className="embla__controls">
-        <div className="embla__dots">
+      <div className='embla__controls'>
+        <div className='embla__dots'>
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}
@@ -45,7 +45,7 @@ const CarouselOnTheatres: React.FC<PropType> = (props) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CarouselOnTheatres
+export default CarouselOnTheatres;
