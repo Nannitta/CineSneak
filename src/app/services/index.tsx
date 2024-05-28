@@ -20,7 +20,7 @@ export async function getMoviesNowPlaying() {
   });
 
   const response = await data.json(); 
-  return response.results
+  return response.results;
 }
 
 export async function getMovieGenres() {

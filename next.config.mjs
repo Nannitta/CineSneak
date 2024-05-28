@@ -4,9 +4,9 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "media.themoviedb.org",
-        pathname: "/t/p/original/**",
+        protocol: 'https',
+        hostname: 'media.themoviedb.org',
+        pathname: '/t/p/original/**',
       },
     ]
   }

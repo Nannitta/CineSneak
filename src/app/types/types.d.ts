@@ -1,4 +1,4 @@
-import { EventHandler, MouseEventHandler, ReactNode } from 'react'
+import { EventHandler, MouseEventHandler, ReactNode } from 'react';
 
 export type SvgProps = {
   width: string
@@ -35,7 +35,7 @@ export interface MoviesNowPalying {
 }
 
 export type Genre = {
-  id:   number
+  id: number
   name: string
 }
 

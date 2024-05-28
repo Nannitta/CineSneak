@@ -1,8 +1,8 @@
-"use client"
+'use client';
 
-import CheckWindowWidth from '../hooks/useWindowWidth';
-import { Figma, Github, Gmail, Linkedin } from '../lib/Svg';
-import Logo from './Logo';
+import CheckWindowWidth from '@/hooks/useWindowWidth';
+import { Figma, Github, Gmail, Linkedin } from '@/lib/Svg';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
   const {screenSize} = CheckWindowWidth();  
@@ -12,12 +12,12 @@ export default function Footer() {
       <div className='flex flex-col gap-4 lg:flex-row lg:gap-32'>
         <div className='flex font-nimbus h-[1.3rem] gap-2'>
           <Logo
-            width={screenSize === "sm" ? "16" : (screenSize === "md" ? "25" : "40")}
-            height={screenSize === "sm" ? "16" : (screenSize === "md" ? "25" : "40")}
-            fill={"white"}
+            width={screenSize === 'sm' ? '16' : (screenSize === 'md' ? '25' : '40')}
+            height={screenSize === 'sm' ? '16' : (screenSize === 'md' ? '25' : '40')}
+            fill={'white'}
           />
           {
-            screenSize && screenSize === "sm" ? "CineSneak" : null
+            screenSize && screenSize === 'sm' ? 'CineSneak' : null
           }
         </div>
         <div className='flex flex-col'>
@@ -36,30 +36,30 @@ export default function Footer() {
           <ul className='flex gap-6'>
             <li>
               <Github
-                width={screenSize === "sm" ? "16" : "24"}
-                height={screenSize === "sm" ? "16" : "24"}
-                fill={screenSize === "sm" ? "white" : "#C3C3C3"}
+                width={screenSize === 'sm' ? '16' : '24'}
+                height={screenSize === 'sm' ? '16' : '24'}
+                fill={screenSize === 'sm' ? 'white' : '#C3C3C3'}
               />
             </li>
             <li>
               <Linkedin
-                width={screenSize === "sm" ? "16" : "24"}
-                height={screenSize === "sm" ? "16" : "24"}
-                fill={screenSize === "sm" ? "white" : "#C3C3C3"}
+                width={screenSize === 'sm' ? '16' : '24'}
+                height={screenSize === 'sm' ? '16' : '24'}
+                fill={screenSize === 'sm' ? 'white' : '#C3C3C3'}
               />
             </li>
             <li>
               <Gmail
-                width={screenSize === "sm" ? "16" : "24"}
-                height={screenSize === "sm" ? "16" : "24"}
-                fill={screenSize === "sm" ? "white" : "#C3C3C3"}
+                width={screenSize === 'sm' ? '16' : '24'}
+                height={screenSize === 'sm' ? '16' : '24'}
+                fill={screenSize === 'sm' ? 'white' : '#C3C3C3'}
               />
             </li>
             <li>
               <Figma
-                width={screenSize === "sm" ? "16" : "24"}
-                height={screenSize === "sm" ? "16" : "24"}
-                fill={screenSize === "sm" ? "white" : "#C3C3C3"}
+                width={screenSize === 'sm' ? '16' : '24'}
+                height={screenSize === 'sm' ? '16' : '24'}
+                fill={screenSize === 'sm' ? 'white' : '#C3C3C3'}
               />
             </li>
           </ul>

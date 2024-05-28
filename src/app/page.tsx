@@ -1,14 +1,14 @@
-"use client"
+'use client';
 
 import { useEffect } from 'react';
-import { useMoviesStore } from './store/movies';
-import CarouselOnTheatres from './components/carouselOnTheatres/Carousel';
-import { EmblaOptionsType } from 'embla-carousel'
-import { useSideMenuStore } from './store/sideMenu';
-import WatchTrailer from './components/WatchTrailer';
-import VerticalCarousel from './components/verticalCarousel/VerticalCarousel';
-import { useSeriesStore } from './store/series';
-import HorizontalCarousel from './components/horizontalCarousel/HorizontalCarousel';
+import { useMoviesStore } from '@/store/movies';
+import CarouselOnTheatres from '@/components/carouselOnTheatres/Carousel';
+import { EmblaOptionsType } from 'embla-carousel';
+import { useSideMenuStore } from '@/store/sideMenu';
+import WatchTrailer from '@/components/WatchTrailer';
+import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
+import { useSeriesStore } from '@/store/series';
+import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 
 export default function HomePageNotLog() {
   const fecthUpcomingMovies = useMoviesStore(state => state.fetchUpcomingMovies);
@@ -23,14 +23,14 @@ export default function HomePageNotLog() {
   const popularSeriesStore = useSeriesStore(state => state.popularSeries);
   const fetchPopularSeries = useSeriesStore(state => state.fetchPopularSeries);
 
-  const OPTIONS: EmblaOptionsType = { loop: true }
-  const moviesOnTheatres = Array.from(upcomingMovies)
-  const moviesNowPlaying = Array.from(moviesNowPlayingStore)
-  const popularMovies = Array.from(popularMoviesStore)
-  const popularSeries = Array.from(popularSeriesStore)
+  const OPTIONS: EmblaOptionsType = { loop: true };
+  const moviesOnTheatres = Array.from(upcomingMovies);
+  const moviesNowPlaying = Array.from(moviesNowPlayingStore);
+  const popularMovies = Array.from(popularMoviesStore);
+  const popularSeries = Array.from(popularSeriesStore);
 
   useEffect(() => {
-    fecthUpcomingMovies()
+    fecthUpcomingMovies();
     fetchMoviesNowPlaying();
     fetchGenres();
     fetchPopularMovies();
