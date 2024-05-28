@@ -16,7 +16,7 @@ export type ButtonProps = {
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-export interface MoviesNowPalying {
+export type MediaContent = {
   adult: boolean
   backdrop_path: string
   genre_ids: number[]
@@ -43,7 +43,7 @@ export type TagProps = {
   text: string
 }
 
-export type MovieTrailer = {
+export type Trailer = {
   iso_639_1: string
   iso_3166_1: string
   name: string

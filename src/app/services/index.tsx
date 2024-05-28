@@ -77,3 +77,25 @@ export async function getPopularSeries() {
   const response = await data.json();
   return response.results;
 }
+
+export async function getTopRatedMovies() {
+  const data = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=es-ES&region=es', {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response.results;
+}
+
+export async function getTopRatedSeries() {
+  const data = await fetch('https://api.themoviedb.org/3/tv/top_rated?language=es-ES', {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response.results;
+}
