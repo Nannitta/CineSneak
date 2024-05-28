@@ -20,13 +20,16 @@ export default function HomePageNotLog() {
   const genres = useMoviesStore(state => state.movieGenres);
   const closeSideMenu = useSideMenuStore(state => state.closeSideMenu);
   const popularMoviesStore = useMoviesStore(state => state.popularMovies);
+  const onAirSeriesStore = useSeriesStore(state => state.onAirSeries);
+  const fetchOnAirSeries = useSeriesStore(state => state.fecthOnAirSeries);
   const popularSeriesStore = useSeriesStore(state => state.popularSeries);
-  const fetchPopularSeries = useSeriesStore(state => state.fetchPopularSeries);
+  const fetchPopularSeries = useSeriesStore(state => state.fecthPopularSeries);
 
   const OPTIONS: EmblaOptionsType = { loop: true };
   const moviesOnTheatres = Array.from(upcomingMovies);
   const moviesNowPlaying = Array.from(moviesNowPlayingStore);
   const popularMovies = Array.from(popularMoviesStore);
+  const onAirSeries = Array.from(onAirSeriesStore);
   const popularSeries = Array.from(popularSeriesStore);
 
   useEffect(() => {
@@ -34,6 +37,7 @@ export default function HomePageNotLog() {
     fetchMoviesNowPlaying();
     fetchGenres();
     fetchPopularMovies();
+    fetchOnAirSeries();
     fetchPopularSeries();
   }, []);
   
@@ -42,22 +46,38 @@ export default function HomePageNotLog() {
       <WatchTrailer/>
       <CarouselOnTheatres moviesOnTheatres={moviesOnTheatres} options={OPTIONS} genres={genres}/>
       <section>
-        <h2 className='font-black p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
+        <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
           Éxitos en taquilla ¡No te los pierdas!
         </h2>
         <VerticalCarousel movies={moviesNowPlaying}/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14 lg:gap-20'>
-        <h2 className='font-black py-4 pl-4 text-lg md:text-xl md:pt-0 md:pb-0 md:min-w-44 md:text-balance lg:text-2xl lg:px-6 lg:min-w-56'>
+        <h2 className='font-bold py-4 pl-4 text-lg md:text-xl md:pt-0 md:pb-0 md:min-w-44 md:text-balance lg:text-2xl lg:px-6 lg:min-w-56'>
           Descubre que películas son tendencia
         </h2>
         <HorizontalCarousel movies={popularMovies} />
       </section>
       <section>
-        <h2 className='font-black py-4 pl-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6 text-balance'>
+        <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
+          Lo más votado
+        </h2>
+      </section>
+      <section>
+        <h2 className='font-bold py-4 pl-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6 text-balance'>
           No te pierdas los últimos estrenos en series
         </h2>
-        <VerticalCarousel movies={popularSeries}/>
+        <VerticalCarousel movies={onAirSeries}/>
+      </section>
+      <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14 lg:gap-20'>
+        <h2 className='font-bold py-4 pl-4 text-lg md:text-xl md:pt-0 md:pb-0 md:min-w-44 md:text-balance lg:text-2xl lg:px-6 lg:min-w-56'>
+          Series que están en boca de todos
+        </h2>
+        <HorizontalCarousel movies={popularSeries} />
+      </section>
+      <section>
+        <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
+          Series aclamadas por la crítica
+        </h2>
       </section>
     </main>
   );
