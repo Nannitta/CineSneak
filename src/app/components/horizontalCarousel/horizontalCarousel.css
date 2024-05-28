@@ -1,0 +1,33 @@
+.embla {
+	position: relative;
+	overflow-x: hidden;
+}
+
+.embla__viewport {
+	overflow: hidden;
+}
+
+.embla__container.horizontal__container {
+	backface-visibility: hidden;
+	display: flex;
+	touch-action: pan-y pinch-zoom;
+	grid-column-gap: 16px;
+	padding-left: 16px;
+}
+
+.embla__slide.horizontal__slide {
+	flex: 0 0 100%;
+	max-width: 300px;
+}
+
+@media (min-width: 768px) {
+	.embla__container.horizontal__container {
+		padding-left: 0;
+	}
+}
+
+@media (min-width: 1366px) {
+	.embla__container.horizontal__container {
+		padding-left: 0;
+	}
+}
