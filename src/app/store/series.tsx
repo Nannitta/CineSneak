@@ -1,16 +1,24 @@
 import { create } from 'zustand';
-import { getPopularSeries } from '@/services';
+import { getOnAirSeries, getPopularSeries } from '@/services';
 import { MoviesNowPalying } from '@/types/types';
 
 interface State {
+  onAirSeries: MoviesNowPalying[]
+  fecthOnAirSeries: () => Promise<void>
   popularSeries: MoviesNowPalying[]
-  fetchPopularSeries: () => Promise<void>
+  fecthPopularSeries: () => Promise<void>
 }
 
 export const useSeriesStore = create<State>((set) => {
   return {
+    onAirSeries: [],
     popularSeries: [],
-    fetchPopularSeries: async () => {
+    fecthOnAirSeries: async () => {
+      const onAirSeries = await getOnAirSeries();
+
+      set({ onAirSeries });
+    },
+    fecthPopularSeries: async () => {
       const popularSeries = await getPopularSeries();
 
       set({ popularSeries });
