@@ -1,19 +1,21 @@
 import { create } from 'zustand';
-import { getMovieGenres, getMovieTrailer, getMoviesNowPlaying, getMoviesUpcoming, getPopularMovies } from '@/services';
-import { Genre, MovieTrailer, MoviesNowPalying } from '@/types/types';
+import { getMovieGenres, getMovieTrailer, getMoviesNowPlaying, getMoviesUpcoming, getPopularMovies, getTopRatedMovies } from '@/services';
+import { Genre, Trailer, MediaContent } from '@/types/types';
 
 interface State {
-  upcomingMovies: MoviesNowPalying[],
+  upcomingMovies: MediaContent[],
   fetchUpcomingMovies: () => Promise<void>
-  moviesNowPlaying: MoviesNowPalying[]
+  moviesNowPlaying: MediaContent[]
   fetchMoviesNowPlaying: () => Promise<void>
   movieGenres: Genre[]
   fetchMoviesGenre: () => Promise<void>
   movieTrailer: string
   fetchMovieTrailers: (id: number) => Promise<void>
   resetMovieTrailer: () => void
-  popularMovies: MoviesNowPalying[]
+  popularMovies: MediaContent[]
   fetchPopularMovies: () => Promise<void>
+  topRatedMovies: MediaContent[]
+  fecthTopRatedMovies: () => Promise<void>
 }
 
 export const useMoviesStore = create<State>((set) => {
@@ -23,6 +25,7 @@ export const useMoviesStore = create<State>((set) => {
     movieGenres: [],
     movieTrailer: '',
     popularMovies: [],
+    topRatedMovies: [],
     fetchUpcomingMovies: async () => {
       const upcomingMovies = await getMoviesUpcoming();
 
@@ -40,7 +43,7 @@ export const useMoviesStore = create<State>((set) => {
     },
     fetchMovieTrailers: async (id: number) => {
       const allVideos = await getMovieTrailer(id);      
-      const trailers = allVideos.filter((movie: MovieTrailer) => movie.type === 'Trailer');
+      const trailers = allVideos.filter((movie: Trailer) => movie.type === 'Trailer');
       const movieTrailer = trailers[0].key;     
             
       set({ movieTrailer });
@@ -54,6 +57,11 @@ export const useMoviesStore = create<State>((set) => {
       const popularMovies = await getPopularMovies();
 
       set({ popularMovies });
+    },
+    fecthTopRatedMovies: async () => {
+      const topRatedMovies = await getTopRatedMovies();
+
+      set({ topRatedMovies });
     }
   };
 });

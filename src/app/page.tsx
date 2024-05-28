@@ -9,6 +9,7 @@ import WatchTrailer from '@/components/WatchTrailer';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import { useSeriesStore } from '@/store/series';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
+import TopRated from '@/components/TopRated';
 
 export default function HomePageNotLog() {
   const fecthUpcomingMovies = useMoviesStore(state => state.fetchUpcomingMovies);
@@ -24,6 +25,10 @@ export default function HomePageNotLog() {
   const fetchOnAirSeries = useSeriesStore(state => state.fecthOnAirSeries);
   const popularSeriesStore = useSeriesStore(state => state.popularSeries);
   const fetchPopularSeries = useSeriesStore(state => state.fecthPopularSeries);
+  const topRatedMoviesStore = useMoviesStore(state => state.topRatedMovies);
+  const fetchTopRatedMovies = useMoviesStore(state => state.fecthTopRatedMovies);
+  const topRatedSeriesStore = useSeriesStore(state => state.topRatedSeries);
+  const fecthTopRatedSeries = useSeriesStore(state => state.fetchTopRatedSeries);
 
   const OPTIONS: EmblaOptionsType = { loop: true };
   const moviesOnTheatres = Array.from(upcomingMovies);
@@ -31,6 +36,8 @@ export default function HomePageNotLog() {
   const popularMovies = Array.from(popularMoviesStore);
   const onAirSeries = Array.from(onAirSeriesStore);
   const popularSeries = Array.from(popularSeriesStore);
+  const topRatedMovies = Array.from(topRatedMoviesStore);
+  const topRatedSeries = Array.from(topRatedSeriesStore);
 
   useEffect(() => {
     fecthUpcomingMovies();
@@ -39,6 +46,8 @@ export default function HomePageNotLog() {
     fetchPopularMovies();
     fetchOnAirSeries();
     fetchPopularSeries();
+    fetchTopRatedMovies();
+    fecthTopRatedSeries();
   }, []);
   
   return (
@@ -61,6 +70,7 @@ export default function HomePageNotLog() {
         <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
           Lo más votado
         </h2>
+        <TopRated movies={topRatedMovies}/>
       </section>
       <section>
         <h2 className='font-bold py-4 pl-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6 text-balance'>
@@ -78,6 +88,7 @@ export default function HomePageNotLog() {
         <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
           Series aclamadas por la crítica
         </h2>
+        <TopRated movies={topRatedSeries}/>
       </section>
     </main>
   );

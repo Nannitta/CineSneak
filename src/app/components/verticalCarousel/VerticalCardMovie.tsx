@@ -1,9 +1,9 @@
-import { MoviesNowPalying } from '@/types/types';
+import { MediaContent } from '@/types/types';
 import Image from 'next/image';
 import { Plus } from '@/lib/Svg';
 
 interface VerticalCard {
-  movie: MoviesNowPalying
+  movie: MediaContent
 }
 
 export default function VerticalCardCarousel({ movie }: VerticalCard) {

@@ -3,7 +3,7 @@ import CheckWindowWidth from '@/hooks/useWindowWidth';
 import Tag from '@/components//Tag';
 import { useMoviesStore } from '@/store/movies';
 import { useInPictureModeStore } from '@/store/inPictureMode';
-import { Genre, MoviesNowPalying } from '@/types/types';
+import { Genre, MediaContent } from '@/types/types';
 import { Calendar, Play } from '@/lib/Svg';
 import { formatDate } from '@/lib/formatDate';
 import PrimaryButton from '@/components/PrimaryButton';
@@ -11,7 +11,7 @@ import PrimaryButton from '@/components/PrimaryButton';
 const league = League_Spartan({ subsets: ['latin'] });
 
 interface CardMovieOnTheatresProps {
-  movie: MoviesNowPalying
+  movie: MediaContent
   genres: Genre[]
 }
 
