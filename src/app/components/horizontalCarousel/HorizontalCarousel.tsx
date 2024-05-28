@@ -4,11 +4,11 @@ import React from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import './horizontalCarousel.css';
-import { MoviesNowPalying } from '@/types/types';
+import { MediaContent } from '@/types/types';
 import HorizontalCardCarousel from './HorizontalCardMovie';
 
 type PropType = {
-  movies: MoviesNowPalying[]
+  movies: MediaContent[]
   options?: EmblaOptionsType
 }
 

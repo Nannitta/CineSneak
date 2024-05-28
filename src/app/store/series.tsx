@@ -1,18 +1,21 @@
 import { create } from 'zustand';
-import { getOnAirSeries, getPopularSeries } from '@/services';
-import { MoviesNowPalying } from '@/types/types';
+import { getOnAirSeries, getPopularSeries, getTopRatedSeries } from '@/services';
+import { MediaContent } from '@/types/types';
 
 interface State {
-  onAirSeries: MoviesNowPalying[]
+  onAirSeries: MediaContent[]
   fecthOnAirSeries: () => Promise<void>
-  popularSeries: MoviesNowPalying[]
+  popularSeries: MediaContent[]
   fecthPopularSeries: () => Promise<void>
+  topRatedSeries: MediaContent[]
+  fetchTopRatedSeries: () => Promise<void>
 }
 
 export const useSeriesStore = create<State>((set) => {
   return {
     onAirSeries: [],
     popularSeries: [],
+    topRatedSeries: [],
     fecthOnAirSeries: async () => {
       const onAirSeries = await getOnAirSeries();
 
@@ -22,6 +25,11 @@ export const useSeriesStore = create<State>((set) => {
       const popularSeries = await getPopularSeries();
 
       set({ popularSeries });
+    },
+    fetchTopRatedSeries: async () => {
+      const topRatedSeries = await getTopRatedSeries();
+
+      set({ topRatedSeries });
     }
   };
 });

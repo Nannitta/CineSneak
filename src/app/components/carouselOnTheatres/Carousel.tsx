@@ -6,11 +6,11 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import './carousel.css';
 import { DotButton, useDotButton } from '@/components/carouselOnTheatres/DotButtons';
-import { Genre, MoviesNowPalying } from '@/types/types';
+import { Genre, MediaContent } from '@/types/types';
 import CardMovieOnTheatres from '@/components/carouselOnTheatres/CardMovieOnTheatres';
 
 type PropType = {
-  moviesOnTheatres: MoviesNowPalying[]
+  moviesOnTheatres: MediaContent[]
   options?: EmblaOptionsType
   genres: Genre[]
 }
