@@ -18,6 +18,12 @@ const config: Config = {
     extend: {
       fontFamily: {
         'nimbus': ['Nimbus']
+      },
+      gridTemplateColumns: {
+        'top-rated': '448px 293px 459px 293px 293px'
+      },
+      gridTemplateRows: {
+        'top-rated': '256px 175px 97px 81px 256px'
       }
     },
   },
