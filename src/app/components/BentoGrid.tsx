@@ -18,7 +18,7 @@ const BentoGrid = ({ movies }: any) => {
   };
 
   return (
-    <div className="max-w-[1920px] px-6 max-h-[897px] mb-14">
+    <div className="max-w-[1920px] px-6 max-h-[897px]">
       <div className="grid grid-cols-top-rated gap-4 grid-rows-top-rated">
         {movies.slice(0,10).map((movie: MediaContent, index: number) => (
           <div key={movie.id} 

@@ -12,6 +12,8 @@ function CheckWindowWidth() {
         setScreenSize('sm');      
       } else if(screenWidth >= 768 && screenWidth <= 1024) {
         setScreenSize('md');
+      } else if(screenWidth >= 1024 && screenWidth < 1920){
+        setScreenSize('laptop');
       } else {
         setScreenSize('lg');
       }
