@@ -8,7 +8,7 @@ export default function Footer() {
   const {screenSize} = CheckWindowWidth();  
 
   return(
-    <footer className='flex flex-col place-items-center gap-4 p-4 md:flex-row md:gap-36 md:pb-6 lg:items-start lg:gap-32 lg:pb-6 lg:px-6'>
+    <footer className='flex flex-col place-items-center gap-4 p-4 md:flex-row md:gap-36 md:pb-6 lg:items-start lg:gap-32 lg:py-6 lg:px-6'>
       <div className='flex flex-col gap-4 lg:flex-row lg:gap-32'>
         <div className='flex font-nimbus h-[1.3rem] gap-2'>
           <Logo
