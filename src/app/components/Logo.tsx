@@ -46,12 +46,11 @@ export default function Logo({width, height, fill}: SvgProps) {
           2616 73 514 117 1007 146 1655 11 268 13 1408 1 1506 l-7 62 -575 -996z'/>
         </g>
       </svg>
-      { screenSize && 
-        (screenSize === 'md' || screenSize === 'lg') 
+      { screenSize && screenSize !== 'sm'
         ? <h1
           className={screenSize === 'md' ? 'text-2xl font-nimbus h-[1.6rem]' : 'text-4xl font-nimbus h-[1.8rem]'}
         >
-              CineSneak
+          CineSneak
         </h1> 
         : null
       }

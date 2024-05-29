@@ -10,8 +10,10 @@ import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import { useSeriesStore } from '@/store/series';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import TopRated from '@/components/TopRated';
+import CheckWindowWidth from '@/hooks/useWindowWidth';
 
 export default function HomePageNotLog() {
+  const {screenSize} = CheckWindowWidth();
   const fecthUpcomingMovies = useMoviesStore(state => state.fetchUpcomingMovies);
   const upcomingMovies = useMoviesStore(state => state.upcomingMovies);
   const fetchMoviesNowPlaying = useMoviesStore(state => state.fetchMoviesNowPlaying);
@@ -66,7 +68,7 @@ export default function HomePageNotLog() {
         </h2>
         <HorizontalCarousel movies={popularMovies} />
       </section>
-      <section>
+      <section className={screenSize === 'lg' ? 'mb-14' : ''}>
         <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
           Lo más votado
         </h2>
@@ -84,7 +86,7 @@ export default function HomePageNotLog() {
         </h2>
         <HorizontalCarousel movies={popularSeries} />
       </section>
-      <section>
+      <section className={screenSize === 'lg' ? 'mb-14' : ''}>
         <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
           Series aclamadas por la crítica
         </h2>

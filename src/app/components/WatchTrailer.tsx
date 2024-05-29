@@ -30,7 +30,7 @@ export default function WatchTrailer() {
       {
         isMinimize
           ? <div onClick={handleClose} onTouchStart={handleClose}
-            className={`${screenSize === 'sm' && !isHover ? 'fixed bottom-[250px] right-0 bg-black z-20' : (screenSize === 'md' && !isHover) ? 'fixed bottom-[300px] right-0 bg-black' : (screenSize === 'lg' && isHover ) ? 'items-center justify-center fixed bottom-[89px] right-[144px] z-20 md:bottom-[114px] md:right-[214px] lg:bottom-[89px] lg:right-[189px] lg:bg-black lg:bg-opacity-40 lg:rounded-full lg:p-2 cursor-pointer' : 'hidden'}`}
+            className={`${screenSize === 'sm' && !isHover ? 'fixed bottom-[250px] right-0 bg-black z-20' : (screenSize === 'md' && !isHover) ? 'fixed bottom-[300px] right-0 bg-black' : ((screenSize === 'lg' || screenSize === 'laptop') && isHover ) ? 'items-center justify-center fixed bottom-[89px] right-[144px] z-20 md:bottom-[114px] md:right-[214px] lg:bottom-[89px] lg:right-[189px] lg:bg-black lg:bg-opacity-40 lg:rounded-full lg:p-2 cursor-pointer' : 'hidden'}`}
             onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
           >
             <Close width='36' height='36' fill='white'/>
