@@ -3,15 +3,26 @@
 import Link from 'next/link';
 import { useSideMenuStore } from '@/store/sideMenu';
 import { Close } from '@/lib/Svg';
+import { useState } from 'react';
 
 export default function SideMenu() {
-  const closeSideMenu = useSideMenuStore(state => state.closeSideMenu);
+  const closeSideMenuStore = useSideMenuStore(state => state.closeSideMenu);
   const isSideMenuOpen = useSideMenuStore(state => state.isSideMenuOpen);
+  const [isClosing, setIsClosing] = useState<boolean>(false);
+
+  const closeSideMenu = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      closeSideMenuStore();
+      setIsClosing(false);
+    }, 500);
+  };
+
   return(
     <>
       {
-        isSideMenuOpen
-          ? <div className='bg-black fixed z-10 w-full flex flex-col place-items-center p-4 shadow-lg'>
+        isSideMenuOpen || isClosing
+          ? <div className={`bg-black fixed z-10 w-full flex flex-col place-items-center p-4 shadow-lg ${isClosing ? 'side-menu-closing' : 'side-menu'}`}>
             <button onClick={closeSideMenu} className='self-end'>
               <Close 
                 width={'24'}
