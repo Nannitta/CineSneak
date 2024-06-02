@@ -5,12 +5,13 @@ import Link from 'next/link';
 
 interface VerticalCard {
   movie: MediaContent
+  isSerie: boolean
 }
 
-export default function VerticalCardCarousel({ movie }: VerticalCard) {
+export default function VerticalCardCarousel({ movie, isSerie }: VerticalCard) {
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   return (
-    <Link href={`/${movie.id}`}>
+    <Link href={`/${isSerie ? 'tv' : 'movie'}/${movie.id}`}>
       <article className='w-[150px]'>
         <div className='group'>
           <div className='w-[150px] h-[225px] relative rounded-lg overflow-hidden'>
@@ -18,6 +19,7 @@ export default function VerticalCardCarousel({ movie }: VerticalCard) {
               src={`${imgURL + movie.poster_path}`}
               alt='Portada de la película'
               fill={true}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className='object-cover rounded-lg'
             />
             <div className='absolute inset-0 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center'>
