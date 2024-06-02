@@ -17,21 +17,15 @@ export type ButtonProps = {
 }
 
 export type MediaContent = {
-  adult: boolean
   backdrop_path: string
   genre_ids: number[]
   id: number
-  original_language: string
-  original_title: string
   overview: string
-  popularity: number
   poster_path: string
   release_date: string
   title: string
   name?: string
   video: boolean
-  vote_average: number
-  vote_count: number
 }
 
 export type Genre = {
@@ -54,4 +48,18 @@ export type Trailer = {
   official: boolean
   published_at: Date
   id: string
+}
+
+export type MediaDetails = {
+  backdrop_path: string;
+  genres: Genre[];
+  id: number;
+  overview: string;
+  poster_path: string;
+  release_date: Date;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+  name?: string
 }
