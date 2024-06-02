@@ -11,10 +11,11 @@ import { RightArrow } from '@/lib/Svg';
 type PropType = {
   movies: MediaContent[]
   options?: EmblaOptionsType
+  isSerie: boolean
 }
 
 const VerticalCarousel: React.FC<PropType> = (props) => { 
-  const { movies, options } = props;
+  const { movies, options, isSerie } = props;
   const [emblaRef] = useEmblaCarousel(options);
   const [color, setColor] = useState<string>('#C3C3C3');
 
@@ -32,7 +33,7 @@ const VerticalCarousel: React.FC<PropType> = (props) => {
         <div className='embla__container vertical__container flex mr-4 lg:mr-6'>
           {movies.map((movie) => (
             <div className='embla__slide vertical__slide' key={movie.id}>
-              <VerticalCardCarousel movie={movie}/>
+              <VerticalCardCarousel movie={movie} isSerie={isSerie}/>
             </div>
           ))}
           <div className='min-w-[150px] h-[225px] bg-black bg-opacity-60 rounded-lg flex items-center justify-center text-sm font-bold text-gray hover:text-white gap-1'
