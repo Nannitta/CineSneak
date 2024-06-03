@@ -13,10 +13,11 @@ type PropType = {
   moviesOnTheatres: MediaContent[]
   options?: EmblaOptionsType
   genres: Genre[]
+  isSerie: boolean
 }
 
 const CarouselOnTheatres: React.FC<PropType> = (props) => { 
-  const { moviesOnTheatres, options, genres } = props;
+  const { moviesOnTheatres, options, genres, isSerie } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ delay: 8000 })]);
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
@@ -26,7 +27,7 @@ const CarouselOnTheatres: React.FC<PropType> = (props) => {
         <div className='embla__container'>
           {moviesOnTheatres.map((movie) => (
             <div className='embla__slide' key={movie.id}>
-              <CardMovieOnTheatres movie={movie} genres={genres}/>
+              <CardMovieOnTheatres movie={movie} genres={genres} isSerie={isSerie}/>
             </div>
           ))}
         </div>
