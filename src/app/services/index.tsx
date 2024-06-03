@@ -121,3 +121,25 @@ export async function getDetails(id: number, isSerie: boolean) {
   const response = await data.json();
   return response;
 }
+
+export async function getProviders(id: number, isSerie: boolean) {
+  if(isSerie) {
+    const data = await fetch(`https://api.themoviedb.org/3/tv/${id}/watch/providers`, {
+      headers: {
+        Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+      }
+    });
+  
+    const response = await data.json();
+    return response.results;
+  }
+
+  const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response.results;
+}
