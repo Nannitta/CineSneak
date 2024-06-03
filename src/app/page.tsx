@@ -55,7 +55,7 @@ export default function HomePageNotLog() {
   return (
     <main className='flex-grow flex flex-col relative' onClick={closeSideMenu}>
       <WatchTrailer/>
-      <CarouselOnTheatres moviesOnTheatres={moviesOnTheatres} options={OPTIONS} genres={genres}/>
+      <CarouselOnTheatres moviesOnTheatres={moviesOnTheatres} options={OPTIONS} genres={genres} isSerie={false}/>
       <section>
         <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
           Éxitos en taquilla ¡No te los pierdas!
