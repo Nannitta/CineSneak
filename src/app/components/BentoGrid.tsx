@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const BentoGrid = ({ movies, isSerie }: any) => {
-  const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const [color, setColor] = useState<string>('#C3C3C3');
 
   const handleMouseEnter = () => {

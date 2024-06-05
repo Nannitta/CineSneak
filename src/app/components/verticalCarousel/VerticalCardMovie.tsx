@@ -9,7 +9,8 @@ interface VerticalCard {
 }
 
 export default function VerticalCardCarousel({ movie, isSerie }: VerticalCard) {
-  const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  
   return (
     <Link href={`/${isSerie ? 'tv' : 'movie'}/${movie.id}`}>
       <article className='w-[150px]'>
