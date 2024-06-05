@@ -51,15 +51,17 @@ export type Trailer = {
 }
 
 export type MediaDetails = {
-  backdrop_path: string;
-  genres: Genre[];
-  id: number;
-  overview: string;
-  poster_path: string;
-  release_date: Date;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
+  backdrop_path: string
+  genres: Genre[]
+  id: number
+  overview: string
+  poster_path: string
+  release_date: Date
+  title: string
+  video: boolean
+  vote_average: number
+  vote_count: number
   name?: string
+  original_language: string
+  runtime: number
 }
