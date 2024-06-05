@@ -36,10 +36,10 @@ export default function WatchTrailer() {
           </div>
           : null
       }
-      <aside className={`${movieTrailer === '' || isInPictureMode === false ? 'hidden' : (isMinimize ? 'flex fixed bottom-0 right-0 z-30' : 'w-full h-screen flex fixed inset-0 z-10 bg-black bg-opacity-80 items-center justify-center')} fade-in`} onClick={minimizePictureMode}>
+      <aside className={`${movieTrailer === '' || isInPictureMode === false ? 'hidden' : (isMinimize ? 'flex fixed bottom-0 right-0 z-30' : 'w-full h-screen flex fixed inset-0 z-30 bg-black bg-opacity-80 items-center justify-center')} fade-in`} onClick={minimizePictureMode}>
         <div className={`min-w-[360px] max-w-[1000px] 
           ${screenSize === 'sm' ? 'h-[250px] w-full' 
-      : (screenSize === 'md' ? (isMinimize === false ? 'h-[700px] w-[80%]' : 'h-[300px] w-[500px]') 
+      : (screenSize === 'md' ? (isMinimize === false ? 'h-[400px] w-[80%]' : 'h-[300px] w-[500px]') 
         : (isMinimize === false ? 'h-[560px] w-[80%]' : 'h-[250px] w-[450px]'))}`} 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

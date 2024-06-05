@@ -5,7 +5,7 @@ import { useMoviesStore } from '@/store/movies';
 import { useInPictureModeStore } from '@/store/inPictureMode';
 import { Genre, MediaContent } from '@/types/types';
 import { Calendar, Play } from '@/lib/Svg';
-import { formatDate } from '@/lib/formatDate';
+import { formatDate } from '@/lib/format';
 import PrimaryButton from '@/components/PrimaryButton';
 import Link from 'next/link';
 
@@ -23,7 +23,7 @@ export default function CardMovieOnTheatres({ movie, genres, isSerie }: CardMovi
   const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
   const openInPictureMode = useInPictureModeStore(state => state.openPictureMode);
 
-  function getGenreNames(ids: number[]) {
+  const getGenreNames = (ids: number[]) => {
     return ids.map(id => {
       const genre = genres.find((genre: Genre) => genre.id === id);
       if (genre) {
@@ -31,12 +31,12 @@ export default function CardMovieOnTheatres({ movie, genres, isSerie }: CardMovi
       }
       return null;
     }).filter(Boolean).slice(0,2);
-  }
+  };
 
-  async function handleTrailerClick(id: number) {
+  const handleTrailerClick = async (id: number) => {
     await fetchMovieTrailer(id);
     openInPictureMode();
-  }
+  };
 
   return(
     <Link href={`/${isSerie ? 'tv' : 'movie'}/${movie.id}`}>
