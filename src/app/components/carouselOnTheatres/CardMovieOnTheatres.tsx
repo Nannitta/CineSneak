@@ -19,13 +19,13 @@ interface CardMovieOnTheatresProps {
 
 export default function CardMovieOnTheatres({ movie, genres, isSerie }: CardMovieOnTheatresProps) {
   const {screenSize} = CheckWindowWidth();
-  const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
   const openInPictureMode = useInPictureModeStore(state => state.openPictureMode);
 
   const getGenreNames = (ids: number[]) => {
     return ids.map(id => {
-      const genre = genres.find((genre: Genre) => genre.id === id);
+      const genre: Genre | undefined = genres.find((genre: Genre) => genre.id === id);
       if (genre) {
         return <Tag key={genre.id} text={genre.name}/>;
       }
