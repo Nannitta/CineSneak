@@ -50,7 +50,7 @@ export default function HomePageNotLog() {
     fetchPopularSeries();
     fetchTopRatedMovies();
     fecthTopRatedSeries();
-  }, []);
+  }, [fecthTopRatedSeries, fecthUpcomingMovies, fetchGenres, fetchMoviesNowPlaying, fetchOnAirSeries, fetchPopularMovies, fetchPopularSeries, fetchTopRatedMovies]);
   
   return (
     <main className='flex-grow flex flex-col relative' onClick={closeSideMenu}>

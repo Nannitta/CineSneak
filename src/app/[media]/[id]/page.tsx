@@ -49,24 +49,23 @@ const WatchMedia = () => {
       fetchCast(id, true);
       fetchSimilarMedia(id, true);
     };
-  }, []);
+  }, [fecthMediaDetails, fetchCast, fetchProviders, fetchSimilarMedia, id, media]);
 
   useEffect(() => {
+    const getProviders = () => {   
+      if(providers && Object.keys(providers).length > 0) {          
+        if(providers.ES) {
+          const spanishProviders: any = providers.ES?.flatrate;
+          const finalProviders: any = [];
+          spanishProviders?.forEach((provider: any) => {
+            finalProviders.push(provider);
+          });
+          setProvidersLogo(finalProviders);
+        }    
+      }           
+    };
     getProviders();
   }, [providers]);
-
-  const getProviders = () => {   
-    if(providers && Object.keys(providers).length > 0) {          
-      if(providers.ES) {
-        const spanishProviders: any = providers.ES?.flatrate;
-        const finalProviders: any = [];
-        spanishProviders?.forEach((provider: any) => {
-          finalProviders.push(provider);
-        });
-        setProvidersLogo(finalProviders);
-      }    
-    }           
-  };
 
   const getGenreNames = (genres: Genre[]) => {
     return genres.map(id => {
