@@ -15,6 +15,8 @@ import PrimaryButton from '@/components/PrimaryButton';
 import { useInPictureModeStore } from '@/store/inPictureMode';
 import { useMoviesStore } from '@/store/movies';
 import WatchTrailer from '@/components/WatchTrailer';
+import CardActor from '@/components/CardActor';
+import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -26,6 +28,10 @@ const WatchMedia = () => {
   const fetchProviders = useMediaDetailsStore(state => state.fetchProviders);
   const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
   const openInPictureMode = useInPictureModeStore(state => state.openPictureMode);
+  const cast = useMediaDetailsStore(state => state.cast);
+  const fetchCast = useMediaDetailsStore(state => state.fetchCast);
+  const similarMediaStore = useMediaDetailsStore(state => state.similarMedia);
+  const fetchSimilarMedia = useMediaDetailsStore(state => state.fetchSimilarMedia);
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const [providersLogo, setProvidersLogo] = useState<any>('');
   const {screenSize} = CheckWindowWidth();
@@ -34,10 +40,14 @@ const WatchMedia = () => {
     if(media === 'movie') {
       fecthMediaDetails(id, false);
       fetchProviders(id, false);
+      fetchCast(id, false);
+      fetchSimilarMedia(id, false);
     };
     if(media === 'tv') {
       fecthMediaDetails(id, true);
       fetchProviders(id, true);
+      fetchCast(id, true);
+      fetchSimilarMedia(id, true);
     };
   }, []);
 
@@ -81,7 +91,7 @@ const WatchMedia = () => {
         <>
           <div 
             className='w-full h-60 relative'>
-            <Image src={`${imgURL + mediaDetails.backdrop_path}`} alt='Portada de la película' fill={true} className='object-cover' priority/>
+            <Image src={`${mediaDetails.backdrop_path ? imgURL + mediaDetails.backdrop_path : imgURL + mediaDetails.poster_path}`} alt='Portada de la película' fill={true} className='object-cover' priority/>
           </div>
           <div className='w-full h-60 absolute bg-gradient-to-t from-black to-transparent'></div>
           <section className='px-4 grid grid-cols-movie-details grid-rows-movie-details gap-2 relative bottom-[72px]'>
@@ -91,13 +101,13 @@ const WatchMedia = () => {
             </div>
             {
               providers && providersLogo &&
-                <div className='flex flex-col gap-2 col-start-2 col-end-4'>
+                <div className='flex flex-col gap-2 col-start-2 col-end-4 ml-2'>
                   <h3 className='font-bold text-[10px]'>
                     Disponible en
                   </h3>
                   <div className='flex gap-2'>
                     {
-                      providersLogo.map((logo: any) => {
+                      providersLogo.filter((logo: any) => logo.logo_path !== null).map((logo: any) => {                        
                         return(
                           <Image src={`${imgURL + logo.logo_path}`}
                             alt='Logo'
@@ -112,8 +122,7 @@ const WatchMedia = () => {
                   </div>
                 </div>
             }
-
-            <h1 className={`uppercase font-black ${league.className} text-balance col-start-2 col-end-3 row-start-2 row-end-3`}>
+            <h1 className={`uppercase font-black ${league.className} text-balance col-start-2 col-end-3 row-start-2 row-end-3 ml-2`}>
               {mediaDetails.title || mediaDetails.name}
             </h1>
             <div className='text-xs flex h-fit col-start-3 col-end-4 row-start-2 row-end-3'>
@@ -164,6 +173,20 @@ const WatchMedia = () => {
             </p>
           </div>
           <h2 className='px-4 font-black relative bottom-6'>Reparto principal</h2>
+          <section className='flex flex-wrap px-4 gap-4'>
+            {
+              cast &&
+              cast.filter((actor) => actor.profile_path !== null).map((actor) => {
+                return(
+                  <CardActor key={actor.cast_id} actor={actor}/>
+                );
+              }).slice(0,6)
+            }
+          </section>
+          <section className='pb-5'>
+            <h2 className='px-4 font-black pt-5 pb-4'>Explora películas similares</h2>
+            <HorizontalCarousel movies={similarMediaStore} isSerie={false}/>
+          </section>
         </>
       }
     </main>

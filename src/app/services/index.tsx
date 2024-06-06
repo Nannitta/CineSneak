@@ -143,3 +143,47 @@ export async function getProviders(id: number, isSerie: boolean) {
   const response = await data.json();
   return response.results;
 }
+
+export async function getCast(id: number, isSerie: boolean) {
+  if(isSerie) {
+    const data = await fetch(`https://api.themoviedb.org/3/tv/${id}/credits?language=es-ES`, {
+      headers: {
+        Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+      }
+    });
+  
+    const response = await data.json();
+    return response.cast;
+  }
+
+  const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=es-ES`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response.cast;
+}
+
+export async function getSimilarMedia(id: number, isSerie: boolean) {
+  if(isSerie) {
+    const data = await fetch(`https://api.themoviedb.org/3/tv/${id}/similar?language=en-US&page=1`, {
+      headers: {
+        Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+      }
+    });
+  
+    const response = await data.json();
+    return response.results;
+  }
+
+  const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?language=es-ES&page=1`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response.results;
+}

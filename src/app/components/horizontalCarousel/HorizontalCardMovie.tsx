@@ -20,7 +20,7 @@ export default function HorizontalCardCarousel({ movie, isSerie }: VerticalCard)
               className='overlay'>
             </div>
             <Image
-              src={`${imgURL + movie.backdrop_path}`}
+              src={`${movie.backdrop_path ? imgURL + movie.backdrop_path : imgURL + movie.poster_path}`}
               alt='Portada de la película'
               fill={true}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
