@@ -65,3 +65,10 @@ export type MediaDetails = {
   original_language: string
   runtime: number
 }
+
+export type Cast = {
+  name: string
+  profile_path: string
+  character: string
+  cast_id: number
+}
