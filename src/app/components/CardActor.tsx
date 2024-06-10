@@ -1,6 +1,11 @@
+import { Cast } from '@/types/types';
 import Image from 'next/image';
 
-export default function CardActor({ actor }: any) {
+interface CardActorProps {
+  actor: Cast
+}
+
+export default function CardActor({ actor }: CardActorProps) {
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
   return(

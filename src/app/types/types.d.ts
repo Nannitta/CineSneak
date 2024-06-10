@@ -72,3 +72,21 @@ export type Cast = {
   character: string
   cast_id: number
 }
+
+export type ProvidersLogo = {
+  logo_path: string
+  provider_id: number
+  provider_name: string
+  display_priority: number
+}
+
+export type Provider = {
+  buy?: ProvidersLogo[]
+  flatrate?: ProvidersLogo[]
+  link?: string
+  rent?: ProvidersLogo[]
+}
+
+export type CountryProvider = {
+  [countryCode: string]: Provider[ProvidersLogo]
+}
