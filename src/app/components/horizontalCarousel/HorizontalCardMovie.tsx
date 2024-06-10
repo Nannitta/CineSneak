@@ -21,7 +21,7 @@ export default function HorizontalCardCarousel({ movie, isSerie }: VerticalCard)
             </div>
             <Image
               src={`${movie.backdrop_path ? imgURL + movie.backdrop_path : imgURL + movie.poster_path}`}
-              alt='Portada de la película'
+              alt={`Portada de la película ${movie.title || movie.name}`}
               fill={true}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className='object-cover rounded-lg'
