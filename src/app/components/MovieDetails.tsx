@@ -30,18 +30,18 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
     <>
       <div 
         className='w-full h-60 relative'>
-        <Image src={`${mediaDetails.backdrop_path ? imgURL + mediaDetails.backdrop_path : imgURL + mediaDetails.poster_path}`} alt='Portada de la película' fill={true} className='object-cover' priority/>
+        <Image src={`${mediaDetails.backdrop_path ? imgURL + mediaDetails.backdrop_path : imgURL + mediaDetails.poster_path}`} alt={`Portada de la película ${mediaDetails.title || mediaDetails.name}`} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className='object-cover' priority/>
       </div>
       <div className='w-full h-60 absolute bg-gradient-to-t from-black to-transparent'></div>
       <section className='px-4 grid grid-cols-movie-details grid-rows-movie-details gap-2 relative bottom-[72px]'>
         <div
           className='w-40 h-64 relative shadow-2xl'>
-          <Image src={`${imgURL + mediaDetails.poster_path}`} alt='Póster de la película' fill={true} className='object-cover rounded-lg'/>
+          <Image src={`${imgURL + mediaDetails.poster_path}`} alt={`Póster de la película ${mediaDetails.title || mediaDetails.name}`} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className='object-cover rounded-lg'/>
         </div>
         {
-          providers && providersLogo &&
+          providers && providersLogo.length > 0 &&
           <div className='flex flex-col gap-2 col-start-2 col-end-4 ml-2'>
-            <h3 className='font-bold text-[10px]'>
+            <h3 className='font-bold text-xs'>
               Disponible en
             </h3>
             <div className='flex gap-2'>
@@ -49,7 +49,7 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
                 providersLogo.filter((logo) => logo.logo_path !== null).map((logo) => {                                         
                   return(
                     <Image src={`${imgURL + logo.logo_path}`}
-                      alt='Logo'
+                      alt={`Logo de ${logo.provider_name}`}
                       key={logo.logo_path}
                       width={40}
                       height={40}
@@ -93,7 +93,6 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
                 fill={'white'}
               />
             }
-            title={'Ver tráiler'}
             onClick={() => handleTrailerClick(mediaDetails.id)}
           />
         </div>
