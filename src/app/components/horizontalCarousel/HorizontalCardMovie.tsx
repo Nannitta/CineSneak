@@ -17,7 +17,7 @@ export default function HorizontalCardCarousel({ movie, isSerie }: VerticalCard)
         <div className='group'>
           <div className='w-[300px] h-[168px] relative rounded-lg overflow-hidden'>
             <div
-              className='overlay'>
+              className='overlay w-[300px] h-[168px]'>
             </div>
             <Image
               src={`${movie.backdrop_path ? imgURL + movie.backdrop_path : imgURL + movie.poster_path}`}

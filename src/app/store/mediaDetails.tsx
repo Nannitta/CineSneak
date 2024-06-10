@@ -1,11 +1,11 @@
 import { getCast, getDetails, getProviders, getSimilarMedia } from '@/services';
-import { Cast, MediaContent, MediaDetails } from '@/types/types';
+import { Cast, CountryProvider, MediaContent, MediaDetails } from '@/types/types';
 import { create } from 'zustand';
 
 interface State {
   mediaDetails: MediaDetails | null
   fetchMediaDetails: (id: number, isSerie: boolean) => Promise<void>
-  providers: any | null,
+  providers: CountryProvider | null,
   fetchProviders: (id: number, isSerie: boolean) => Promise<void>
   cast: Cast[]
   fetchCast: (id: number, isSerie: boolean) => Promise<void>
@@ -25,7 +25,7 @@ export const useMediaDetailsStore = create<State>((set) => {
       set({ mediaDetails });
     },
     fetchProviders: async (id: number, isSerie: boolean) => {
-      const providers = await getProviders(id, isSerie);
+      const providers = await getProviders(id, isSerie);     
 
       set({ providers });
     },

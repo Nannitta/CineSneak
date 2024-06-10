@@ -3,8 +3,14 @@
 import BentoGrid from '@/components/BentoGrid';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
+import { MediaContent } from '@/types/types';
 
-export default function TopRated({ movies, isSerie }: any) {
+interface TopRatedProps {
+  movies: MediaContent[]
+  isSerie: boolean
+}
+
+export default function TopRated({ movies, isSerie }: TopRatedProps) {
   const {screenSize} = CheckWindowWidth();
 
   return(
