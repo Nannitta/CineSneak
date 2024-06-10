@@ -51,7 +51,6 @@ export default function Header() {
           />
         </button>
         <PrimaryButton
-          title={'Iniciar sesión'} 
           text={'Inc. sesión'} 
           img={
             <Avatar 

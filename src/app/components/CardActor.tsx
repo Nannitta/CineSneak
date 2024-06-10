@@ -11,7 +11,7 @@ export default function CardActor({ actor }: CardActorProps) {
   return(
     <article>
       <div className='h-14 w-14 relative'>
-        <Image src={`${imgURL + actor.profile_path}`} alt={`Foto de ${actor.name}`} fill={true} className='rounded-full object-cover'/>
+        <Image src={`${imgURL + actor.profile_path}`} alt={`Foto de ${actor.name}`} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className='rounded-full object-cover'/>
       </div>
       <p className='text-sm mt-2'>{actor.name}</p>
       <span className='font-extralight text-gray text-xs'>{actor.character}</span>

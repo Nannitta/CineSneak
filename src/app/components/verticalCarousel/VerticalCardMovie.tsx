@@ -18,7 +18,7 @@ export default function VerticalCardCarousel({ movie, isSerie }: VerticalCard) {
           <div className='w-[150px] h-[225px] relative rounded-lg overflow-hidden'>
             <Image
               src={`${imgURL + movie.poster_path}`}
-              alt='Portada de la película'
+              alt={`Portada de la película ${movie.title || movie.name}`}
               fill={true}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className='object-cover rounded-lg'
