@@ -17,17 +17,6 @@
 	min-width: 0;
 }
 
-.overlay {
-	position: absolute;
-	inset: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: flex-start;
-	background: linear-gradient(to top, #000000, transparent 100%);
-	z-index: 1;
-}
-
 .embla__controls {
 	position: absolute;
 	bottom: 3%;

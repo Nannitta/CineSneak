@@ -6,7 +6,12 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 
-const BentoGrid = ({ movies, isSerie }: any) => {
+interface BentoGridProps {
+  movies: MediaContent[]
+  isSerie: boolean
+}
+
+const BentoGrid = ({ movies, isSerie }: BentoGridProps) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const [color, setColor] = useState<string>('#C3C3C3');
 
