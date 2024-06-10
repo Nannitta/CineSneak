@@ -77,7 +77,10 @@ const WatchMedia = () => {
       {
         mediaDetails && media === 'movie'
           ? <MovieDetails mediaDetails={mediaDetails} providers={providers} providersLogo={providersLogo} handleTrailerClick={handleTrailerClick} similarMediaStore={similarMediaStore} cast={cast} getGenreNames={getGenreNames}/>
-          : null
+          : <>
+            {console.log(mediaDetails)}
+            <div>Hola</div>
+          </>
       }
     </main>
   );

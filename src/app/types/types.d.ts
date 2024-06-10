@@ -9,13 +9,6 @@ export type SvgProps = {
   onMouseLeave?: MouseEventHandler
 }
 
-export type ButtonProps = {
-  text: string
-  img: ReactNode
-  title: string
-  onClick?: MouseEventHandler<HTMLButtonElement>
-}
-
 export type MediaContent = {
   backdrop_path: string
   genre_ids: number[]
@@ -38,16 +31,7 @@ export type TagProps = {
 }
 
 export type Trailer = {
-  iso_639_1: string
-  iso_3166_1: string
-  name: string
-  key: string
-  site: string
-  size: number
   type: string
-  official: boolean
-  published_at: Date
-  id: string
 }
 
 export type MediaDetails = {
@@ -60,7 +44,6 @@ export type MediaDetails = {
   title: string
   video: boolean
   vote_average: number
-  vote_count: number
   name?: string
   original_language: string
   runtime: number
