@@ -29,9 +29,9 @@ export default function WatchTrailer() {
       {
         isMinimize
           ? <div onClick={handleClose} onTouchStart={handleClose}
-            className={`${screenSize === 'sm' && !isHover 
+            className={`${screenSize === 'sm' 
               ? 'fixed bottom-[250px] right-0 bg-black z-40' 
-              : (screenSize === 'md' && !isHover) 
+              : screenSize === 'md'
                 ? 'fixed bottom-[300px] right-0 bg-black' 
                 : ((screenSize === 'lg' || screenSize === 'laptop') && isHover ) 
                   ? 'items-center justify-center fixed bottom-[89px] right-[144px] z-40 md:bottom-[114px] md:right-[214px] lg:bottom-[89px] lg:right-[189px] lg:bg-black lg:bg-opacity-40 lg:rounded-full lg:p-2 cursor-pointer' 
