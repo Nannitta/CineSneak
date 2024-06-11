@@ -29,11 +29,11 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
   return(
     <>
       <div 
-        className='w-full h-60 relative'>
+        className='w-full h-60 relative md:h-80'>
         <Image src={`${mediaDetails.backdrop_path ? imgURL + mediaDetails.backdrop_path : imgURL + mediaDetails.poster_path}`} alt={`Portada de la película ${mediaDetails.title || mediaDetails.name}`} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className='object-cover' priority/>
       </div>
-      <div className='w-full h-60 absolute bg-gradient-to-t from-black to-transparent'></div>
-      <section className='px-4 grid grid-cols-movie-details grid-rows-movie-details gap-2 relative bottom-[72px]'>
+      <div className='w-full h-60 absolute bg-gradient-to-t from-black to-transparent md:h-80'></div>
+      <section className='px-4 grid grid-cols-movie-details-sm grid-rows-movie-details-sm gap-2 relative bottom-[72px] md:grid-cols-movie-details-md md:grid-rows-movie-details-md'>
         <div
           className='w-40 h-64 relative shadow-2xl'>
           <Image src={`${imgURL + mediaDetails.poster_path}`} alt={`Póster de la película ${mediaDetails.title || mediaDetails.name}`} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className='object-cover rounded-lg'/>
@@ -61,29 +61,29 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
             </div>
           </div>
         }
-        <h1 className={`uppercase font-black ${league.className} text-balance col-start-2 col-end-3 row-start-2 row-end-3 ml-2`}>
+        <h1 className={`uppercase font-black ${league.className} text-balance col-start-2 col-end-3 row-start-2 row-end-3 ml-2 md:text-xl`}>
           {mediaDetails.title || mediaDetails.name}
         </h1>
-        <div className='text-xs flex h-fit col-start-3 col-end-4 row-start-2 row-end-3'>
+        <div className='text-xs flex h-fit col-start-3 col-end-4 row-start-2 row-end-3 md:text-base md:justify-end'>
           <p>{formatVoteCount(mediaDetails.vote_average)}/</p>
-          <span className='text-[8px] text-gray flex gap-[2px] pt-[1px]'>
+          <span className='text-[8px] text-gray flex gap-[2px] pt-[1px] md:text-xs md:items-end md:pt-0 md:pb-[3px] md:gap-1'>
             10
-            <Star width={'14'} height={'14'}/>
+            <Star width={screenSize === 'sm' ? '12' : '16'} height={screenSize === 'sm' ? '12' : '16'}/>
           </span>
         </div>
-        <div className='flex gap-1 text-[10px] items-center justify-end col-start-2 col-end-4 row-start-3 row-end-4'>
+        <div className='flex gap-1 text-[10px] items-center justify-end col-start-2 col-end-4 row-start-3 row-end-4 md:text-sm md:justify-start md:ml-2'>
           <Calendar
-            width={screenSize === 'sm' ? '12' : '15'}
-            height={screenSize === 'sm' ? '12' : '15'}
+            width={screenSize === 'sm' ? '12' : '16'}
+            height={screenSize === 'sm' ? '12' : '16'}
           />
           <span className='text-gray'>{formatDate(mediaDetails.release_date.toString())}</span>
         </div>
-        <div className={`flex font-light items-end col-start-2 col-end-4 justify-end row-start-4 row-end-5 ${screenSize === 'sm' ? 'gap-2 text-[10px]' : 'gap-4 text-sm'}`}>
+        <div className={`flex font-light items-end col-start-2 col-end-4 justify-end row-start-4 row-end-5 md:justify-start md:ml-2 ${screenSize === 'sm' ? 'gap-2 text-[10px]' : 'gap-4 text-sm'}`}>
           {
             getGenreNames(mediaDetails.genres)
           }
         </div>
-        <div className='flex col-start-2 col-end-4 justify-end row-start-5 row-end-6 items-end'>
+        <div className='flex col-start-2 col-end-4 justify-end row-start-5 row-end-6 items-end md:col-start-1 md:col-end-2 md:justify-start'>
           <PrimaryButton
             text={'Ver tráiler'}
             img={
@@ -110,8 +110,8 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
         Duración · {formatRuntime(mediaDetails.runtime)}
         </p>
       </div>
-      <h2 className='px-4 font-black relative bottom-6'>Reparto principal</h2>
-      <section className='flex flex-wrap px-4 gap-4'>
+      <h2 className='px-4 font-black relative bottom-6 md:text-xl'>Reparto principal</h2>
+      <section className='flex flex-wrap px-4 gap-4 md:relative'>
         {
           cast &&
         cast.filter((actor: Cast) => actor.profile_path !== null).map((actor: Cast) => {          
@@ -121,8 +121,8 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
         }).slice(0,6)
         }
       </section>
-      <section className='pb-5'>
-        <h2 className='px-4 font-black pt-5 pb-4'>Explora películas similares</h2>
+      <section className='pb-5 md:relative md:px-4'>
+        <h2 className='px-4 font-black pt-5 pb-4 md:px-0 md:text-xl'>Explora películas similares</h2>
         <HorizontalCarousel movies={similarMediaStore} isSerie={false}/>
       </section>
     </>
