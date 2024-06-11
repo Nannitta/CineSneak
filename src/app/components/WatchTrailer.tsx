@@ -4,6 +4,7 @@ import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { useInPictureModeStore } from '@/store/inPictureMode';
 import { useMoviesStore } from '@/store/movies';
 import { Close } from '@/lib/Svg';
+import BlockScroll from '@/components/BlockScroll';
 
 export default function WatchTrailer() {
   const movieTrailer = useMoviesStore(state => state.movieTrailer);
@@ -26,13 +27,14 @@ export default function WatchTrailer() {
 
   return(
     <div>
+      <BlockScroll isModalOpen={isInPictureMode && !isMinimize}/>
       {
         isMinimize
           ? <div onClick={handleClose} onTouchStart={handleClose}
             className={`${screenSize === 'sm' 
               ? 'fixed bottom-[250px] right-0 bg-black z-40' 
               : screenSize === 'md'
-                ? 'fixed bottom-[300px] right-0 bg-black' 
+                ? 'fixed bottom-[300px] right-0 bg-black z-40' 
                 : ((screenSize === 'lg' || screenSize === 'laptop') && isHover ) 
                   ? 'items-center justify-center fixed bottom-[89px] right-[144px] z-40 md:bottom-[114px] md:right-[214px] lg:bottom-[89px] lg:right-[189px] lg:bg-black lg:bg-opacity-40 lg:rounded-full lg:p-2 cursor-pointer' 
                   : 'hidden'
