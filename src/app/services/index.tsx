@@ -23,6 +23,28 @@ export async function getMoviesNowPlaying() {
   return response.results;
 }
 
+export async function getPopularMovies() {
+  const data = await fetch('https://api.themoviedb.org/3/trending/movie/week?language=es-ES', {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response.results;
+}
+
+export async function getTopRatedMovies() {
+  const data = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=es-ES&region=es', {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response.results;
+}
+
 export async function getMovieGenres() {
   const data = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=es', {
     headers: {
@@ -45,17 +67,6 @@ export async function getMovieTrailer(id: number) {
   return response.results;
 }
 
-export async function getPopularMovies() {
-  const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=es-ES&region=es', {
-    headers: {
-      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
-    }
-  });
-
-  const response = await data.json();
-  return response.results;
-}
-
 export async function getOnAirSeries() {
   const data = await fetch('https://api.themoviedb.org/3/tv/on_the_air?language=es-ES&timezone=es', {
     headers: {
@@ -68,18 +79,7 @@ export async function getOnAirSeries() {
 }
 
 export async function getPopularSeries() {
-  const data = await fetch('https://api.themoviedb.org/3/tv/popular?language=es-ES', {
-    headers: {
-      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
-    }
-  });
-
-  const response = await data.json();
-  return response.results;
-}
-
-export async function getTopRatedMovies() {
-  const data = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=es-ES&region=es', {
+  const data = await fetch('https://api.themoviedb.org/3/trending/tv/week?language=es-ES', {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }

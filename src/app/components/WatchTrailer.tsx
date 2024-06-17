@@ -5,6 +5,7 @@ import { useInPictureModeStore } from '@/store/inPictureMode';
 import { useMoviesStore } from '@/store/movies';
 import { Close } from '@/lib/Svg';
 import BlockScroll from '@/components/BlockScroll';
+import { useParams } from 'next/navigation';
 
 export default function WatchTrailer() {
   const movieTrailer = useMoviesStore(state => state.movieTrailer);
