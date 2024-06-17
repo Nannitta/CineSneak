@@ -22,12 +22,14 @@ const config: Config = {
       gridTemplateColumns: {
         'top-rated': '448px 293px 459px 293px 293px',
         'movie-details-sm': '160px 1fr 50px',
-        'movie-details-md': '160px 1fr 65px'
+        'movie-details-md': '160px 1fr 65px',
+        'movie-details-lg': '340px 609px 80px'
       },
       gridTemplateRows: {
         'top-rated': '256px 175px 97px 81px 256px',
         'movie-details-sm': '72px 116px 20px 24px 34px',
-        'movie-details-md': '77px 101px 20px 34px 55px'
+        'movie-details-md': '77px 101px 20px 34px 55px',
+        'movie-details-lg': '127px 34px 20px 34px 210px 26px 40px'
       }
     },
   },

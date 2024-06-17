@@ -36,7 +36,7 @@ const BentoGrid = ({ movies, isSerie }: BentoGridProps) => {
                   : (index === 8 ? 'row-start-4 row-end-6'
                     : (index === 9 ? 'col-start-4 col-end-6 row-start-3 row-end-6' : '')))))}`}>
             <Image
-              src={imgURL + movie.backdrop_path}
+              src={movie.backdrop_path ? imgURL + movie.backdrop_path : imgURL + movie.poster_path}
               alt={`Cartel de la película ${movie.title || movie.name}`}
               fill={true}
               className="rounded-lg object-cover"
