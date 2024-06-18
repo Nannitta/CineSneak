@@ -99,7 +99,7 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
         {
           (screenSize === 'laptop' || screenSize === 'lg') &&
           <>
-            <p className="text-balance font-extralight col-start-2 col-end-3 pt-4 lg:row-start-5 lg:row-end-6">
+            <p className="text-balance font-extralight col-start-2 col-end-3 pt-4 lg:row-start-5 lg:row-end-6 line-clamp-6">
               {mediaDetails.overview}
             </p>
             <div className="flex gap-4 col-start-2 col-end-3 items-center lg:row-start-6 lg:row-end-7">
