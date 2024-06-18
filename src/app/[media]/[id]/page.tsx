@@ -72,7 +72,7 @@ const WatchMedia = () => {
   };
    
   return(
-    <main className='flex-grow flex flex-col relative'>
+    <main className='flex-grow flex flex-col'>
       <WatchTrailer/>
       {
         mediaDetails && media === 'movie'
