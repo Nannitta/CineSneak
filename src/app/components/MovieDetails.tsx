@@ -111,8 +111,8 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
                 Duración · {formatRuntime(mediaDetails.runtime)}
               </p>
             </div>
-            <h2 className="font-black col-start-4 row-start-5 row-end-6 pt-4">Reparto principal</h2>
-            <section className="flex flex-wrap gap-4 col-start-4 row-start-5 row-end-8 pt-14 lg:h-fit">
+            <h2 className="font-black col-start-4 row-start-5 row-end-6 pt-4 laptop:col-start-1 laptop:col-end-3 laptop:row-start-8 laptop:row-end-9">Reparto principal</h2>
+            <section className="flex flex-wrap gap-4 col-start-4 row-start-5 row-end-8 pt-14 lg:h-fit laptop:col-start-1 laptop:col-end-5 laptop:row-start-9 laptop:row-end-10 laptop:pt-0">
               {
                 cast &&
                 cast.filter((actor: Cast) => actor.profile_path !== null).map((actor: Cast) => {
@@ -153,8 +153,8 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
           </section>
         </>
       }
-      <section className="pb-5 md:px-4 lg:px-6 lg:pb-8">
-        <h2 className="px-4 font-black pt-5 pb-4 md:px-0 md:text-xl lg:pt-8">Explora películas similares</h2>
+      <section className="pb-5 md:px-4 lg:px-6 lg:pb-8 2xl:mt-6">
+        <h2 className="px-4 font-black pt-5 pb-4 md:px-0 md:text-xl">Explora películas similares</h2>
         <HorizontalCarousel movies={similarMediaStore} isSerie={false}/>
       </section>
     </div>
