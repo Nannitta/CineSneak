@@ -72,10 +72,6 @@ li:hover a svg path {
 	animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-.slide-to-corner {
-	animation: slideToCorner 0.5s ease-in-out forwards;
-}
-
 @keyframes slideDown {
 	from {
 		transform: translateY(-100%);
