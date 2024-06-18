@@ -5,7 +5,8 @@ import { useInPictureModeStore } from '@/store/inPictureMode';
 import { useMoviesStore } from '@/store/movies';
 import { Close } from '@/lib/Svg';
 import BlockScroll from '@/components/BlockScroll';
-import { useParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function WatchTrailer() {
   const movieTrailer = useMoviesStore(state => state.movieTrailer);
@@ -17,6 +18,18 @@ export default function WatchTrailer() {
   const isHover = useInPictureModeStore(state => state.isHover);
   const setHover = useInPictureModeStore(state => state.setHover);
   const {screenSize} = CheckWindowWidth();
+
+  const pathName = usePathname();
+  const [oldPathName, setOldPathName] = useState<string>('');
+
+  useEffect(() => {
+    if(pathName !== oldPathName) {
+      closePictureMode();
+      resetMovieTrailer();
+    } else {
+      setOldPathName(pathName);
+    }
+  },[pathName, oldPathName, closePictureMode, resetMovieTrailer]);
 
   const handleClose = () => {
     closePictureMode();
