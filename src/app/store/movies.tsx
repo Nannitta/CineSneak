@@ -10,7 +10,7 @@ interface State {
   movieGenres: Genre[]
   fetchMoviesGenre: () => Promise<void>
   movieTrailer: string
-  fetchMovieTrailers: (id: number) => Promise<void>
+  fetchMovieTrailers: (id: number, isSerie: boolean) => Promise<void>
   resetMovieTrailer: () => void
   popularMovies: MediaContent[]
   fetchPopularMovies: () => Promise<void>
@@ -41,9 +41,9 @@ export const useMoviesStore = create<State>((set) => {
 
       set({ movieGenres });
     },
-    fetchMovieTrailers: async (id: number) => {
-      const allVideos = await getMovieTrailer(id);      
-      const trailers = allVideos.filter((movie: Trailer) => movie.type === 'Trailer');
+    fetchMovieTrailers: async (id: number, isSerie: boolean) => {    
+      const allVideos = await getMovieTrailer(id, isSerie);            
+      const trailers = allVideos.filter((movie: Trailer) => movie.type === 'Trailer');      
       const movieTrailer = trailers[0].key;     
             
       set({ movieTrailer });

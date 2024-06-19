@@ -82,6 +82,7 @@ export default function WatchTrailer() {
             src={`https://www.youtube.com/embed/${movieTrailer}?enablejsapi=1&autoplay=1`}
             encrypted-media={'true'}
             allowFullScreen
+            allow='autoplay'
           >
           </iframe>
         </div>

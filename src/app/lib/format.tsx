@@ -9,11 +9,26 @@ export function formatVoteCount(number: number): string {
   return number.toString().slice(0,3);
 }
 
-export function formatRuntime(number: number): string {
+export function formatRuntime(number: number) {
   const hours: number = Math.floor(number/60);
   const minutes: number = Math.floor(number%60);
+  let runtime: string;
 
-  const runtime: string = `${hours}h ${minutes}min`;
+  if(hours > 0) {
+    runtime = `${hours}h ${minutes}min`;
+    return runtime;
+  }
 
-  return runtime;
+  if(hours <= 0) {
+    runtime = `${minutes}min`;
+    return runtime;
+  }
+}
+
+export function formatEpisodeNumber(number: number) {
+  if(number < 10) {
+    return `0${number}`;
+  }
+
+  return number;
 }

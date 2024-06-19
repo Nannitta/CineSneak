@@ -32,8 +32,8 @@ export default function CardMovieOnTheatres({ movie, genres, isSerie }: CardMovi
     }).filter(Boolean).slice(0,2);
   };
 
-  const handleTrailerClick = async (id: number) => {
-    await fetchMovieTrailer(id);
+  const handleTrailerClick = async (id: number, isSerie: boolean) => {
+    await fetchMovieTrailer(id, isSerie);
     openInPictureMode();
   };
 
@@ -60,7 +60,7 @@ export default function CardMovieOnTheatres({ movie, genres, isSerie }: CardMovi
                   fill={'white'}
                 />
               }
-              onClick={() => handleTrailerClick(movie.id)}
+              onClick={() => handleTrailerClick(movie.id, false)}
             />
             <div className={`flex font-light ${screenSize === 'sm' ? 'gap-2 text-[10px]' : 'gap-4 text-sm'}`}>
               {
@@ -83,7 +83,7 @@ export default function CardMovieOnTheatres({ movie, genres, isSerie }: CardMovi
                   fill={'white'}
                 />
               }
-              onClick={() => handleTrailerClick(movie.id)}
+              onClick={() => handleTrailerClick(movie.id, false)}
             />
           </>
         }

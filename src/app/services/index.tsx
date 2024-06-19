@@ -56,7 +56,18 @@ export async function getMovieGenres() {
   return response.genres;
 }
 
-export async function getMovieTrailer(id: number) {
+export async function getMovieTrailer(id: number, isSerie: boolean) {
+  if(isSerie) {
+    const data = await fetch(`https://api.themoviedb.org/3/tv/${id}/videos?language=en-EN`, {
+      headers: {
+        Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+      }
+    });
+  
+    const response = await data.json();
+    return response.results;
+  }
+
   const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-EN`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`

@@ -14,7 +14,7 @@ interface MovieDetailsProps {
   mediaDetails: MediaDetails
   providers: CountryProvider | null
   providersLogo: ProvidersLogo[]
-  handleTrailerClick: (id: number) => void
+  handleTrailerClick: (id: number, isSerie: boolean) => void
   similarMediaStore: MediaContent[]
   cast: Cast[]
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
@@ -93,7 +93,7 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
                 fill={'white'}
               />
             }
-            onClick={() => handleTrailerClick(mediaDetails.id)}
+            onClick={() => handleTrailerClick(mediaDetails.id, false)}
           />
         </div>
         {

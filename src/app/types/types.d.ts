@@ -44,9 +44,35 @@ export type MediaDetails = {
   title: string
   video: boolean
   vote_average: number
-  name?: string
   original_language: string
   runtime: number
+  name?: string
+}
+
+export type SerieDetailsType = {
+  backdrop_path: string
+  genres: Genre[]
+  id: number
+  in_production: boolean
+  name: string
+  number_of_episodes: number
+  number_of_seasons: number
+  original_language: string
+  last_episode_to_air: LastEpisodeAir
+  overview: string
+  poster_path: string
+  vote_average: number
+}
+
+export type LastEpisodeAir = {
+  air_date: Date
+  episode_number: number
+  id: number
+  name: string
+  overview: string
+  runtime: number
+  season_number: number
+  still_path: string
 }
 
 export type Cast = {
