@@ -5,11 +5,12 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Tag from '@/components/Tag';
-import { CountryProvider, Genre, ProvidersLogo } from '@/types/types';
+import { Genre, MediaDetails, ProvidersLogo, SerieDetailsType } from '@/types/types';
 import { useInPictureModeStore } from '@/store/inPictureMode';
 import { useMoviesStore } from '@/store/movies';
 import WatchTrailer from '@/components/WatchTrailer';
 import MovieDetails from '@/components/MovieDetails';
+import SerieDetails from '@/components/SerieDetails';
 
 const WatchMedia = () => {
   const {media, id} = useParams<Params>();
@@ -66,21 +67,36 @@ const WatchMedia = () => {
     }).filter(Boolean).slice(0,2);
   };
 
-  const handleTrailerClick = async (id: number): Promise<void> => {
-    await fetchMovieTrailer(id);
+  const handleTrailerClick = async (id: number, isSerie: boolean): Promise<void> => {
+    await fetchMovieTrailer(id, isSerie);
     openInPictureMode();
   };
    
-  return(
+  return (
     <main className='flex-grow flex flex-col'>
-      <WatchTrailer/>
+      <WatchTrailer />
       {
         mediaDetails && media === 'movie'
-          ? <MovieDetails mediaDetails={mediaDetails} providers={providers} providersLogo={providersLogo} handleTrailerClick={handleTrailerClick} similarMediaStore={similarMediaStore} cast={cast} getGenreNames={getGenreNames}/>
-          : <>
-            {console.log(mediaDetails)}
-            <div>Hola</div>
-          </>
+          ? <MovieDetails
+            mediaDetails={mediaDetails as MediaDetails}
+            providers={providers}
+            providersLogo={providersLogo}
+            handleTrailerClick={handleTrailerClick}
+            similarMediaStore={similarMediaStore}
+            cast={cast}
+            getGenreNames={getGenreNames}
+          />
+          : mediaDetails && media === 'tv'
+            ? <SerieDetails
+              mediaDetails={mediaDetails as SerieDetailsType}
+              providers={providers}
+              providersLogo={providersLogo}
+              handleTrailerClick={handleTrailerClick}
+              similarMediaStore={similarMediaStore}
+              cast={cast}
+              getGenreNames={getGenreNames}
+            />
+            : null
       }
     </main>
   );

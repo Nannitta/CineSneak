@@ -1,9 +1,9 @@
 import { getCast, getDetails, getProviders, getSimilarMedia } from '@/services';
-import { Cast, CountryProvider, MediaContent, MediaDetails } from '@/types/types';
+import { Cast, CountryProvider, MediaContent, MediaDetails, SerieDetailsType } from '@/types/types';
 import { create } from 'zustand';
 
 interface State {
-  mediaDetails: MediaDetails | null
+  mediaDetails: MediaDetails | SerieDetailsType | null
   fetchMediaDetails: (id: number, isSerie: boolean) => Promise<void>
   providers: CountryProvider | null,
   fetchProviders: (id: number, isSerie: boolean) => Promise<void>
