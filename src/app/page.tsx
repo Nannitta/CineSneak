@@ -45,10 +45,10 @@ export default function HomePageNotLog() {
     fecthUpcomingMovies();
     fetchMoviesNowPlaying(1);
     fetchGenres();
-    fetchPopularMovies();
+    fetchPopularMovies(1);
     fetchOnAirSeries();
     fetchPopularSeries();
-    fetchTopRatedMovies();
+    fetchTopRatedMovies(1);
     fecthTopRatedSeries();
   }, [fecthTopRatedSeries, fecthUpcomingMovies, fetchGenres, fetchMoviesNowPlaying, fetchOnAirSeries, fetchPopularMovies, fetchPopularSeries, fetchTopRatedMovies]);
   
@@ -60,37 +60,37 @@ export default function HomePageNotLog() {
         <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
           Éxitos en taquilla ¡No te los pierdas!
         </h2>
-        <VerticalCarousel movies={moviesNowPlaying} isSerie={false}/>
+        <VerticalCarousel movies={moviesNowPlaying} isSerie={false} path={'/exitos-taquilla'}/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14 lg:gap-20'>
         <h2 className='font-bold py-4 pl-4 text-lg md:text-xl md:pt-0 md:pb-0 md:min-w-44 md:text-balance lg:text-2xl lg:px-6 lg:min-w-56'>
           Descubre que películas son tendencia
         </h2>
-        <HorizontalCarousel movies={popularMovies} isSerie={false}/>
+        <HorizontalCarousel movies={popularMovies} isSerie={false} path={'/peliculas-en-tendencia'}/>
       </section>
       <section className={screenSize === 'lg' ? 'mb-14' : ''}>
         <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
           Lo más votado
         </h2>
-        <TopRated movies={topRatedMovies} isSerie={false}/>
+        <TopRated movies={topRatedMovies} isSerie={false} path={'/top-peliculas'}/>
       </section>
       <section>
         <h2 className='font-bold py-4 pl-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6 text-balance'>
           No te pierdas los últimos estrenos en series
         </h2>
-        <VerticalCarousel movies={onAirSeries} isSerie={true}/>
+        <VerticalCarousel movies={onAirSeries} isSerie={true} path='/'/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14 lg:gap-20'>
         <h2 className='font-bold py-4 pl-4 text-lg md:text-xl md:pt-0 md:pb-0 md:min-w-44 md:text-balance lg:text-2xl lg:px-6 lg:min-w-56'>
           Series que están en boca de todos
         </h2>
-        <HorizontalCarousel movies={popularSeries} isSerie={true}/>
+        <HorizontalCarousel movies={popularSeries} isSerie={true} path='/'/>
       </section>
       <section className={screenSize === 'lg' ? 'mb-14' : 'mb-4'}>
         <h2 className='font-bold p-4 text-lg md:text-xl md:pt-[30px] md:pb-5 lg:text-2xl lg:pt-9 lg:pb-6 lg:px-6'>
           Series aclamadas por la crítica
         </h2>
-        <TopRated movies={topRatedSeries} isSerie={true}/>
+        <TopRated movies={topRatedSeries} isSerie={true} path='/'/>
       </section>
     </main>
   );

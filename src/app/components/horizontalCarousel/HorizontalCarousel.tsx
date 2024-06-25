@@ -9,15 +9,17 @@ import HorizontalCardCarousel from './HorizontalCardMovie';
 import { RightArrow } from '@/lib/Svg';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
+import Link from 'next/link';
 
 interface PropType {
   movies: MediaContent[]
   options?: EmblaOptionsType
   isSerie: boolean
+  path?: string
 }
 
 const HorizontalCarousel: React.FC<PropType> = (props) => { 
-  const { movies, options, isSerie } = props;
+  const { movies, options, isSerie, path } = props;
   const [emblaRef] = useEmblaCarousel(options);
   const [color, setColor] = useState<string>('#C3C3C3');
   const params = useParams<Params>(); 
@@ -39,13 +41,15 @@ const HorizontalCarousel: React.FC<PropType> = (props) => {
               <HorizontalCardCarousel movie={movie} isSerie={isSerie}/>
             </div>
           ))}
-          { !params.id && 
-              <div className='min-w-[300px] h-[168px] bg-black bg-opacity-60 rounded-lg flex items-center justify-center text-sm font-bold text-gray hover:text-white gap-1'
-                onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-              >
-                VER TODO
-                <RightArrow width={'14'} height={'14'} fill={color}/>
-              </div>
+          { !params.id && path &&
+              <Link href={path}>
+                <div className='min-w-[300px] h-[168px] bg-black bg-opacity-60 rounded-lg flex items-center justify-center text-sm font-bold text-gray hover:text-white gap-1'
+                  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+                >
+                  VER TODO
+                  <RightArrow width={'14'} height={'14'} fill={color}/>
+                </div>
+              </Link>
           }
         </div>
       </div>

@@ -13,10 +13,11 @@ interface PropType {
   movies: MediaContent[]
   options?: EmblaOptionsType
   isSerie: boolean
+  path: string
 }
 
 const VerticalCarousel: React.FC<PropType> = (props) => { 
-  const { movies, options, isSerie } = props;
+  const { movies, options, isSerie, path } = props;
   const [emblaRef] = useEmblaCarousel(options);
   const [color, setColor] = useState<string>('#C3C3C3');
 
@@ -37,7 +38,7 @@ const VerticalCarousel: React.FC<PropType> = (props) => {
               <VerticalCardCarousel movie={movie} isSerie={isSerie}/>
             </div>
           ))}
-          <Link href={'/exitos-taquilla'}>
+          <Link href={path}>
             <div className='min-w-[150px] h-[225px] bg-black bg-opacity-60 rounded-lg flex items-center justify-center text-sm font-bold text-gray hover:text-white gap-1'
               onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
             >

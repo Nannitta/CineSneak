@@ -8,17 +8,18 @@ import { MediaContent } from '@/types/types';
 interface TopRatedProps {
   movies: MediaContent[]
   isSerie: boolean
+  path: string
 }
 
-export default function TopRated({ movies, isSerie }: TopRatedProps) {
+export default function TopRated({ movies, isSerie, path }: TopRatedProps) {
   const {screenSize} = CheckWindowWidth();
 
   return(
     <>
       {
         screenSize !== 'lg'
-          ? <VerticalCarousel movies={movies} isSerie={isSerie}/>
-          : <BentoGrid movies={movies} isSerie={isSerie}/>
+          ? <VerticalCarousel movies={movies} isSerie={isSerie} path={path}/>
+          : <BentoGrid movies={movies} isSerie={isSerie} path={path}/>
       }
     </>
   );
