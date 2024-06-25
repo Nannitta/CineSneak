@@ -5,9 +5,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 interface PaginationProps {
   page: number
   handleSetPage: (event: React.ChangeEvent<unknown>, value: number) => void
+  maxPage: number
 }
 
-export default function PaginationControlled({ page, handleSetPage}: PaginationProps) {
+export default function PaginationControlled({ page, handleSetPage, maxPage}: PaginationProps) {
   const theme = createTheme({
     palette: {
       primary: {
@@ -20,7 +21,7 @@ export default function PaginationControlled({ page, handleSetPage}: PaginationP
     <ThemeProvider theme={theme}>
       <Stack spacing={2}>
         <Pagination 
-          count={10} 
+          count={maxPage} 
           page={page} 
           onChange={handleSetPage} 
           defaultPage={1}

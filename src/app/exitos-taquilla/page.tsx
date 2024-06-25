@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 export default function MoviesNowPlaying() {
   const moviesNowPlayingStore = useMoviesStore(state => state.moviesNowPlaying);
+  const numberPages = useMoviesStore(state => state.pagesMoviesNowPlaying);
   const fetchMoviesNowPlaying = useMoviesStore(state => state.fetchMoviesNowPlaying);
 
   const [page, setPage] = useState<number>(1);
@@ -36,7 +37,7 @@ export default function MoviesNowPlaying() {
         </ul>
       </section>
       <div className='flex justify-center'>
-        <PaginationControlled page={page} handleSetPage={handleSetPage}/>
+        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={numberPages}/>
       </div>
     </main>
   );

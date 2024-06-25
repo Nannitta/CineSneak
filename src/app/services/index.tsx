@@ -20,7 +20,7 @@ export async function getMoviesNowPlaying(page: number) {
   });
 
   const response = await data.json(); 
-  return response.results;
+  return response;
 }
 
 export async function getPopularMovies() {
