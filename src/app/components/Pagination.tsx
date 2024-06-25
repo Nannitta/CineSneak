@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 interface PaginationProps {
   page: number
-  handleSetPage: (value: number) => void
+  handleSetPage: (event: React.ChangeEvent<unknown>, value: number) => void
 }
 
 export default function PaginationControlled({ page, handleSetPage}: PaginationProps) {
