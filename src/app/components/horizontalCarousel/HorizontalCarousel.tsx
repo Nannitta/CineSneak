@@ -15,7 +15,7 @@ interface PropType {
   movies: MediaContent[]
   options?: EmblaOptionsType
   isSerie: boolean
-  path: string
+  path?: string
 }
 
 const HorizontalCarousel: React.FC<PropType> = (props) => { 
@@ -41,7 +41,7 @@ const HorizontalCarousel: React.FC<PropType> = (props) => {
               <HorizontalCardCarousel movie={movie} isSerie={isSerie}/>
             </div>
           ))}
-          { !params.id && 
+          { !params.id && path &&
               <Link href={path}>
                 <div className='min-w-[300px] h-[168px] bg-black bg-opacity-60 rounded-lg flex items-center justify-center text-sm font-bold text-gray hover:text-white gap-1'
                   onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
