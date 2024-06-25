@@ -9,7 +9,7 @@ import { DotButton, useDotButton } from '@/components/carouselOnTheatres/DotButt
 import { Genre, MediaContent } from '@/types/types';
 import CardMovieOnTheatres from '@/components/carouselOnTheatres/CardMovieOnTheatres';
 
-type PropType = {
+interface PropType {
   moviesOnTheatres: MediaContent[]
   options?: EmblaOptionsType
   genres: Genre[]

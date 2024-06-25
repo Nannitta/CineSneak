@@ -3,7 +3,6 @@
 import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { SvgProps } from '@/types/types';
 
-
 export default function Logo({width, height, fill}: SvgProps) {
   const {screenSize} = CheckWindowWidth();  
   

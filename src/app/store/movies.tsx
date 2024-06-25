@@ -6,7 +6,7 @@ interface State {
   upcomingMovies: MediaContent[],
   fetchUpcomingMovies: () => Promise<void>
   moviesNowPlaying: MediaContent[]
-  fetchMoviesNowPlaying: () => Promise<void>
+  fetchMoviesNowPlaying: (page: number) => Promise<void>
   movieGenres: Genre[]
   fetchMoviesGenre: () => Promise<void>
   movieTrailer: string
@@ -31,8 +31,8 @@ export const useMoviesStore = create<State>((set) => {
 
       set({ upcomingMovies });
     },
-    fetchMoviesNowPlaying: async () => {
-      const moviesNowPlaying = await getMoviesNowPlaying();
+    fetchMoviesNowPlaying: async (page: number) => {
+      const moviesNowPlaying = await getMoviesNowPlaying(page);    
      
       set({ moviesNowPlaying });
     },

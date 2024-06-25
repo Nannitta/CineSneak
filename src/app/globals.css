@@ -102,3 +102,11 @@ li:hover a svg path {
 		opacity: 1;
 	}
 }
+
+.MuiPaginationItem-root {
+	color: #c3c3c3;
+}
+
+.MuiPaginationItem-root:hover {
+	color: white;
+}
