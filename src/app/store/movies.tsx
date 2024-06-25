@@ -14,9 +14,11 @@ interface State {
   fetchMovieTrailers: (id: number, isSerie: boolean) => Promise<void>
   resetMovieTrailer: () => void
   popularMovies: MediaContent[]
-  fetchPopularMovies: () => Promise<void>
+  fetchPopularMovies: (page: number) => Promise<void>
+  pagesPopularMovies: number
   topRatedMovies: MediaContent[]
-  fecthTopRatedMovies: () => Promise<void>
+  fecthTopRatedMovies: (page: number) => Promise<void>
+  pagesTopRatedMovies: number
 }
 
 export const useMoviesStore = create<State>((set) => {
@@ -27,7 +29,9 @@ export const useMoviesStore = create<State>((set) => {
     movieGenres: [],
     movieTrailer: '',
     popularMovies: [],
+    pagesPopularMovies: 0,
     topRatedMovies: [],
+    pagesTopRatedMovies: 0,
     fetchUpcomingMovies: async () => {
       const upcomingMovies = await getMoviesUpcoming();
 
@@ -57,15 +61,19 @@ export const useMoviesStore = create<State>((set) => {
 
       set({ movieTrailer });
     },
-    fetchPopularMovies: async () => {
-      const popularMovies = await getPopularMovies();
+    fetchPopularMovies: async (page: number) => {
+      const response = await getPopularMovies(page);
+      const popularMovies = response.results;
+      const pagesPopularMovies = response.total_pages;
 
-      set({ popularMovies });
+      set({ popularMovies, pagesPopularMovies });
     },
-    fecthTopRatedMovies: async () => {
-      const topRatedMovies = await getTopRatedMovies();
+    fecthTopRatedMovies: async (page: number) => {
+      const response = await getTopRatedMovies(page);
+      const topRatedMovies = response.results;
+      const pagesTopRatedMovies = response.total_pages;
 
-      set({ topRatedMovies });
+      set({ topRatedMovies, pagesTopRatedMovies });
     }
   };
 });

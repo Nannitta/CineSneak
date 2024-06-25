@@ -9,9 +9,10 @@ import Link from 'next/link';
 interface BentoGridProps {
   movies: MediaContent[]
   isSerie: boolean
+  path: string
 }
 
-const BentoGrid = ({ movies, isSerie }: BentoGridProps) => {
+const BentoGrid = ({ movies, isSerie, path }: BentoGridProps) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const [color, setColor] = useState<string>('#C3C3C3');
 
@@ -53,11 +54,13 @@ const BentoGrid = ({ movies, isSerie }: BentoGridProps) => {
             </div>
           </Link>
         ))}
-        <div className='min-w-[300px] bg-black bg-opacity-60 rounded-lg flex items-center justify-center text-sm font-bold text-gray hover:text-white gap-1 row-start-2 row-end-4 col-start-3 col-end-4'
-          onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            VER TODO
-          <RightArrow width={'14'} height={'14'} fill={color}/>
-        </div>
+        <Link href={path} className='min-w-[300px] bg-black bg-opacity-60 flex items-center justify-center rounded-lg text-sm font-bold text-gray hover:text-white gap-1 row-start-2 row-end-4 col-start-3 col-end-4'>
+          <div className='flex items-center justify-center'
+            onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              VER TODO
+            <RightArrow width={'14'} height={'14'} fill={color}/>
+          </div>
+        </Link>
       </div>
     </div>
   );

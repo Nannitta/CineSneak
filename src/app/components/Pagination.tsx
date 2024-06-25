@@ -9,6 +9,11 @@ interface PaginationProps {
 }
 
 export default function PaginationControlled({ page, handleSetPage, maxPage}: PaginationProps) {
+  
+  if(maxPage > 10) {
+    maxPage = 10;
+  }
+
   const theme = createTheme({
     palette: {
       primary: {

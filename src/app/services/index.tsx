@@ -23,26 +23,26 @@ export async function getMoviesNowPlaying(page: number) {
   return response;
 }
 
-export async function getPopularMovies() {
-  const data = await fetch('https://api.themoviedb.org/3/trending/movie/week?language=es-ES', {
+export async function getPopularMovies(page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/trending/movie/week?language=es-ES&page=${page}`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }
   });
 
   const response = await data.json();
-  return response.results;
+  return response;
 }
 
-export async function getTopRatedMovies() {
-  const data = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=es-ES&region=es', {
+export async function getTopRatedMovies(page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=es-ES&region=es&page=${page}`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }
   });
 
   const response = await data.json();
-  return response.results;
+  return response;
 }
 
 export async function getMovieGenres() {
