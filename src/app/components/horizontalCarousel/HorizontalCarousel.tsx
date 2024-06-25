@@ -10,7 +10,7 @@ import { RightArrow } from '@/lib/Svg';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
-type PropType = {
+interface PropType {
   movies: MediaContent[]
   options?: EmblaOptionsType
   isSerie: boolean

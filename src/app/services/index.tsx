@@ -12,8 +12,8 @@ export async function getMoviesUpcoming() {
   return response.results.slice(0,10);
 }
 
-export async function getMoviesNowPlaying() {
-  const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=es-ES&page=1&region=ES', {
+export async function getMoviesNowPlaying(page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=es-ES&page=${page}&region=ES`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }
