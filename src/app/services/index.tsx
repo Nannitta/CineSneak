@@ -78,37 +78,37 @@ export async function getMovieTrailer(id: number, isSerie: boolean) {
   return response.results;
 }
 
-export async function getOnAirSeries() {
-  const data = await fetch('https://api.themoviedb.org/3/tv/on_the_air?language=es-ES&timezone=es', {
+export async function getOnAirSeries(page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/tv/on_the_air?language=es-ES&timezone=es&page=${page}`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }
   });
 
   const response = await data.json();
-  return response.results;
+  return response;
 }
 
-export async function getPopularSeries() {
-  const data = await fetch('https://api.themoviedb.org/3/trending/tv/week?language=es-ES', {
+export async function getPopularSeries(page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/trending/tv/week?language=es-ES&page=${page}`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }
   });
 
   const response = await data.json();
-  return response.results;
+  return response;
 }
 
-export async function getTopRatedSeries() {
-  const data = await fetch('https://api.themoviedb.org/3/tv/top_rated?language=es-ES', {
+export async function getTopRatedSeries(page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/tv/top_rated?language=es-ES&page=${page}`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }
   });
 
   const response = await data.json();
-  return response.results;
+  return response;
 }
 
 export async function getDetails(id: number, isSerie: boolean) {

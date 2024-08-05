@@ -4,32 +4,44 @@ import { MediaContent } from '@/types/types';
 
 interface State {
   onAirSeries: MediaContent[]
-  fecthOnAirSeries: () => Promise<void>
+  fecthOnAirSeries: (page: number) => Promise<void>
+  pagesOnAirSeries: number
   popularSeries: MediaContent[]
-  fecthPopularSeries: () => Promise<void>
+  fecthPopularSeries: (page: number) => Promise<void>
+  pagesPopularSeries: number
   topRatedSeries: MediaContent[]
-  fetchTopRatedSeries: () => Promise<void>
+  pagesTopRatedSeries: number
+  fetchTopRatedSeries: (page: number) => Promise<void>
 }
 
 export const useSeriesStore = create<State>((set) => {
   return {
     onAirSeries: [],
+    pagesOnAirSeries: 0,
     popularSeries: [],
+    pagesPopularSeries: 0,
     topRatedSeries: [],
-    fecthOnAirSeries: async () => {
-      const onAirSeries = await getOnAirSeries();
+    pagesTopRatedSeries: 0,
+    fecthOnAirSeries: async (page: number) => {
+      const response = await getOnAirSeries(page);
+      const onAirSeries = response.results;
+      const pagesOnAirSeries = response.total_pages;
 
-      set({ onAirSeries });
+      set({ onAirSeries, pagesOnAirSeries });
     },
-    fecthPopularSeries: async () => {
-      const popularSeries = await getPopularSeries();
+    fecthPopularSeries: async (page: number) => {
+      const response = await getPopularSeries(page);
+      const popularSeries = response.results;
+      const pagesPopularSeries = response.total_pages;
 
-      set({ popularSeries });
+      set({ popularSeries, pagesPopularSeries });
     },
-    fetchTopRatedSeries: async () => {
-      const topRatedSeries = await getTopRatedSeries();
+    fetchTopRatedSeries: async (page: number) => {
+      const response = await getTopRatedSeries(page);
+      const topRatedSeries = response.results;
+      const pagesTopRatedSeries = response.total_pages;
 
-      set({ topRatedSeries });
+      set({ topRatedSeries, pagesTopRatedSeries });
     }
   };
 });
