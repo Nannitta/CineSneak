@@ -51,7 +51,9 @@ export const useMoviesStore = create<State>((set) => {
     },
     fetchMovieTrailers: async (id: number, isSerie: boolean) => {    
       const allVideos = await getMovieTrailer(id, isSerie);            
-      const trailers = allVideos.filter((movie: Trailer) => movie.type === 'Trailer');      
+      const trailers = allVideos.filter((movie: Trailer) => movie.type === 'Trailer' || movie.type === 'Opening Credits');
+      if(trailers.length <= 0) return;
+        
       const movieTrailer = trailers[0].key;     
             
       set({ movieTrailer });

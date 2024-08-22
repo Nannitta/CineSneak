@@ -3,7 +3,6 @@
 import { Plus, RightArrow } from '@/lib/Svg';
 import { MediaContent } from '@/types/types';
 import Image from 'next/image';
-import { useState } from 'react';
 import Link from 'next/link';
 
 interface BentoGridProps {
@@ -14,15 +13,6 @@ interface BentoGridProps {
 
 const BentoGrid = ({ movies, isSerie, path }: BentoGridProps) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
-  const [color, setColor] = useState<string>('#C3C3C3');
-
-  const handleMouseEnter = () => {
-    setColor('white');
-  };
-
-  const handleMouseLeave = () => {
-    setColor('#C3C3C3');
-  };
 
   return (
     <div className="max-w-[1920px] px-6 max-h-[897px]">
@@ -55,10 +45,9 @@ const BentoGrid = ({ movies, isSerie, path }: BentoGridProps) => {
           </Link>
         ))}
         <Link href={path} className='min-w-[300px] bg-black bg-opacity-60 flex items-center justify-center rounded-lg text-sm font-bold text-gray hover:text-white gap-1 row-start-2 row-end-4 col-start-3 col-end-4'>
-          <div className='flex items-center justify-center'
-            onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <div className='flex items-center justify-center'>
               VER TODO
-            <RightArrow width={'14'} height={'14'} fill={color}/>
+            <RightArrow width={'14'} height={'14'} fill={'white'}/>
           </div>
         </Link>
       </div>

@@ -74,7 +74,7 @@ export async function getMovieTrailer(id: number, isSerie: boolean) {
     }
   });
 
-  const response = await data.json();  
+  const response = await data.json(); 
   return response.results;
 }
 
