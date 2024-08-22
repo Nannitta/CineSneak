@@ -23,7 +23,7 @@ const config: Config = {
         'top-rated': '448px 293px 459px 293px 293px',
         'movie-details-sm': '160px 1fr 50px',
         'movie-details-md': '160px 1fr 72px',
-        'movie-details-lg': '340px 609px 80px 1fr'
+        'movie-details-lg': '340px 640px 49px 1fr'
       },
       gridTemplateRows: {
         'top-rated': '256px 175px 97px 81px 256px',

@@ -22,11 +22,11 @@ export default function MoviesNowPlaying() {
 
   return(
     <main className='flex flex-col flex-grow'>
-      <h1 className='font-bold px-4'>
+      <h1 className='font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6'>
         Todos los estrenos que están arrasando en taquilla: ¡no te los pierdas!
       </h1>
       <section>
-        <ul className='flex flex-wrap px-4 gap-4'>
+        <ul className='flex flex-wrap px-4 gap-4 justify-center lg:px-6'>
           {moviesNowPlayingStore.filter((movie) => movie.poster_path !== null).map((movie) => {
             return(
               <li key={movie.id}>
@@ -36,7 +36,7 @@ export default function MoviesNowPlaying() {
           })}
         </ul>
       </section>
-      <div className='flex justify-center'>
+      <div className='flex justify-center py-4 md:py-6'>
         <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={numberPages}/>
       </div>
     </main>

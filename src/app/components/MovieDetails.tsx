@@ -153,10 +153,12 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
           </section>
         </>
       }
-      <section className="pb-5 md:px-4 lg:px-6 lg:pb-8 2xl:mt-6">
-        <h2 className="px-4 font-black pt-5 pb-4 md:px-0 md:text-xl">Explora películas similares</h2>
-        <HorizontalCarousel movies={similarMediaStore} isSerie={false}/>
-      </section>
+      { similarMediaStore.length > 0 &&  
+        <section className="pb-5 md:px-4 lg:px-6 lg:pb-8 2xl:mt-6">
+          <h2 className="px-4 font-black pt-5 pb-4 md:px-0 md:text-xl">Explora películas similares</h2>
+          <HorizontalCarousel movies={similarMediaStore} isSerie={false}/>
+        </section>
+      }
     </div>
   );
 }

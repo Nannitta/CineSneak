@@ -24,11 +24,13 @@ export default function Header() {
   return(
     <header className='flex justify-between p-4 lg:p-6'>
       <div className='flex place-items-center gap-2'>
-        <Logo
-          width={screenSize === 'sm' ? '24' : (screenSize === 'md' ? '25' : '40')}
-          height={screenSize === 'sm' ? '24' : (screenSize === 'md' ? '25' : '40')}
-          fill={'white'}
-        />
+        <Link href={'/'}>
+          <Logo
+            width={screenSize === 'sm' ? '24' : (screenSize === 'md' ? '25' : '40')}
+            height={screenSize === 'sm' ? '24' : (screenSize === 'md' ? '25' : '40')}
+            fill={'white'}
+          />
+        </Link>
         <button onClick={openSideMenu} className='md:hidden'><Menu/></button>
       </div>
       { screenSize &&
