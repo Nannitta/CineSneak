@@ -17,9 +17,9 @@ export default function PaginationControlled({ page, handleSetPage, maxPage}: Pa
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#C3C3C3',
+        main: '#ffffff'
       }
-    },
+    }
   });
 
   return (
@@ -33,7 +33,16 @@ export default function PaginationControlled({ page, handleSetPage, maxPage}: Pa
           color='primary'
           size='small'
           variant='outlined'
-          boundaryCount={2}/>
+          boundaryCount={2}
+          sx={{
+            '.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected': {
+              backgroundColor: 'transparent',
+            },
+            '.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root': {
+              color: '#c3c3c3'
+            }
+          }}
+        />
       </Stack>
     </ThemeProvider>
   );
