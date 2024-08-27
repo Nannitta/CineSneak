@@ -36,7 +36,7 @@ export default function MoviesNowPlaying() {
           })}
         </ul>
       </section>
-      <div className='flex justify-center py-4 md:py-6'>
+      <div className='flex justify-center pb-4 pt-8 md:py-6'>
         <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={numberPages}/>
       </div>
     </main>
