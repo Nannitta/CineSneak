@@ -103,10 +103,11 @@ li:hover a svg path {
 	}
 }
 
-.MuiPaginationItem-root {
-	color: #c3c3c3;
+.hide-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
-.MuiPaginationItem-root:hover {
-	color: white;
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
 }

@@ -37,9 +37,13 @@ export default function PaginationControlled({ page, handleSetPage, maxPage}: Pa
           sx={{
             '.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected': {
               backgroundColor: 'transparent',
+              color:'#ffffff'
             },
             '.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root': {
               color: '#c3c3c3'
+            },
+            '.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root:hover': {
+              color: '#ffffff'
             }
           }}
         />
