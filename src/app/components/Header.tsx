@@ -37,7 +37,7 @@ export default function Header() {
         screenSize !== 'sm'
         ? <ul className='flex place-items-center gap-5 *:text-gray'>
           <li className='hover:text-white'><Link href={'/'} title='Página principal'>Home</Link></li>
-          <li className='hover:text-white'><Link href={'/'} title='Películas'>Películas</Link></li>
+          <li className='hover:text-white'><Link href={'/peliculas'} title='Películas'>Películas</Link></li>
           <li className='hover:text-white'><Link href={'/'} title='Series'>Series</Link></li>
         </ul>
         : null
