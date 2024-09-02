@@ -198,3 +198,14 @@ export async function getSimilarMedia(id: number, isSerie: boolean) {
   const response = await data.json();
   return response.results;
 }
+
+export async function getMoviesByGenreId(id: number, page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-ES&page=${page}&region=es&sort_by=popularity.desc&with_genres=${id}`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response;
+}
