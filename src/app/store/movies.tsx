@@ -3,7 +3,7 @@ import { getMovieGenres, getMovieTrailer, getMoviesNowPlaying, getMoviesUpcoming
 import { Genre, Trailer, MediaContent } from '@/types/types';
 
 interface State {
-  upcomingMovies: MediaContent[],
+  upcomingMovies: MediaContent[]
   fetchUpcomingMovies: () => Promise<void>
   moviesNowPlaying: MediaContent[]
   fetchMoviesNowPlaying: (page: number) => Promise<void>
