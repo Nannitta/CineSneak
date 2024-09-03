@@ -35,16 +35,16 @@ export default function PaginationControlled({ page, handleSetPage, maxPage}: Pa
           variant='outlined'
           boundaryCount={2}
           sx={{
-            '.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected': {
+            '& .Mui-selected': {
               backgroundColor: 'transparent',
-              color:'#ffffff'
+              color: '#ffffff',
             },
-            '.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root': {
-              color: '#c3c3c3'
+            '& .MuiPaginationItem-root': {
+              color: '#c3c3c3',
             },
-            '.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root:hover': {
-              color: '#ffffff'
-            }
+            '& .MuiPaginationItem-root:hover': {
+              color: '#ffffff',
+            },
           }}
         />
       </Stack>
