@@ -12,6 +12,8 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	scrollbar-width: thin;
+	scrollbar-color: #c3c3c3 black;
 }
 
 body {

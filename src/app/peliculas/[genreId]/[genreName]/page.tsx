@@ -43,7 +43,7 @@ const MoviesByGenre = () => {
           })}
         </ul>
       </section>
-      <div className='flex justify-center pb-4 pt-8 md:py-6'>
+      <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
         <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesMoviesByGenre}/>
       </div>
     </main>
