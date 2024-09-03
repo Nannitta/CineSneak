@@ -103,11 +103,15 @@ li:hover a svg path {
 	}
 }
 
-.hide-scrollbar {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+	color: #ffffff;
+	background-color: transparent;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-	display: none;
+.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root {
+	color: #c3c3c3;
+}
+
+.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root:hover {
+	color: #ffffff;
 }

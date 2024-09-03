@@ -11,6 +11,7 @@ export default function PopularMovies() {
   const fetchPopularMovies = useMoviesStore(state => state.fetchPopularMovies);
 
   const [page, setPage] = useState<number>(1);
+  
   const handleSetPage = (event: React.ChangeEvent<unknown>, value: number) => {
     event.preventDefault();
     setPage(value);

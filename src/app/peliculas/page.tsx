@@ -25,9 +25,11 @@ export default function Movies() {
   const moviesByGenre = Array.from(moviesByGenreId);
 
   const [selectedGenreId, setSelectedGenreId] = useState<number>(28);
+  const [selectedGenreName, setSelectedGenreName] = useState<string>('Acción');
 
-  const handleGenreClick = (id: number) => {
+  const handleGenreClick = (id: number, name: string) => {
     setSelectedGenreId(id);
+    setSelectedGenreName(name);
     fetchMoviesByGenreId(id, 1);
   };
 
@@ -67,7 +69,7 @@ export default function Movies() {
                   className={`cursor-pointer px-4 py-2 rounded-3xl border-2 border-white ${
                     isSelected ? 'bg-white text-black' : 'hover:bg-white hover:text-black'
                   }`}
-                  onClick={() => handleGenreClick(genre.id)}
+                  onClick={() => handleGenreClick(genre.id, genre.name)}
                 >
                   {genre.name}
                 </li>
@@ -78,7 +80,7 @@ export default function Movies() {
         <div className='py-5'>
           {
             selectedGenreId &&
-              <VerticalCarousel movies={moviesByGenre} isSerie={false} path={'/'}/>
+              <VerticalCarousel movies={moviesByGenre} isSerie={false} path={`/peliculas/${selectedGenreId}/${selectedGenreName}`}/>
           }
         </div>
       </section>
