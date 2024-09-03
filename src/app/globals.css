@@ -103,15 +103,40 @@ li:hover a svg path {
 	}
 }
 
-.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+.MuiButtonBase-root
+	.MuiPaginationItem-root
+	.MuiPaginationItem-sizeSmall
+	.MuiPaginationItem-outlined
+	.MuiPaginationItem-circular
+	.MuiPaginationItem-colorPrimary
+	.MuiPaginationItem-outlinedPrimary
+	.Mui-selected
+	.MuiPaginationItem-page
+	.css-1m2837u {
 	color: #ffffff;
 	background-color: transparent;
 }
 
-.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root {
+.MuiButtonBase-root
+	.MuiPaginationItem-root
+	.MuiPaginationItem-sizeSmall
+	.MuiPaginationItem-outlined
+	.MuiPaginationItem-circular
+	.MuiPaginationItem-colorPrimary
+	.MuiPaginationItem-outlinedPrimary
+	.MuiPaginationItem-page
+	.css-1m2837u {
 	color: #c3c3c3;
 }
 
-.css-zkazqk-MuiButtonBase-root-MuiPaginationItem-root:hover {
+.MuiButtonBase-root
+	.MuiPaginationItem-root
+	.MuiPaginationItem-sizeSmall
+	.MuiPaginationItem-outlined
+	.MuiPaginationItem-circular
+	.MuiPaginationItem-colorPrimary
+	.MuiPaginationItem-outlinedPrimary
+	.MuiPaginationItem-page
+	.css-1m2837u:hover {
 	color: #ffffff;
 }
