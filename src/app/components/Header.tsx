@@ -7,11 +7,15 @@ import CheckWindowWidth from '@/hooks/useWindowWidth';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useSideMenuStore } from '@/store/sideMenu';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const {screenSize} = CheckWindowWidth();
   const [color, setColor] = useState<string>('#C3C3C3');
   const openSideMenu = useSideMenuStore(state => state.openSideMenu);
+  const pathName = usePathname();
+
+  const isActive = (path: string) => pathName === path ? 'text-white' : 'text-gray';
 
   const handleMouseEnter = () => {
     setColor('white');
@@ -35,10 +39,10 @@ export default function Header() {
       </div>
       { screenSize &&
         screenSize !== 'sm'
-        ? <ul className='flex place-items-center gap-5 *:text-gray'>
-          <li className='hover:text-white'><Link href={'/'} title='Página principal'>Home</Link></li>
-          <li className='hover:text-white'><Link href={'/peliculas'} title='Películas'>Películas</Link></li>
-          <li className='hover:text-white'><Link href={'/'} title='Series'>Series</Link></li>
+        ? <ul className='flex place-items-center gap-5'>
+          <li className={`hover:text-white ${isActive('/')}`}><Link href={'/'} title='Página principal'>Home</Link></li>
+          <li className={`hover:text-white ${isActive('/peliculas')}`}><Link href={'/peliculas'} title='Películas'>Películas</Link></li>
+          <li className={`hover:text-white ${isActive('/series')}`}><Link href={'/'} title='Series'>Series</Link></li>
         </ul>
         : null
       }
