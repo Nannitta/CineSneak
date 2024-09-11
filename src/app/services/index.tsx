@@ -209,3 +209,14 @@ export async function getMoviesByGenreId(id: number, page: number) {
   const response = await data.json();
   return response;
 }
+
+export async function getCollectionMovies(id: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/collection/${id}?language=es-ES`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response;
+}

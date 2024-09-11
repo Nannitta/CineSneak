@@ -16,7 +16,7 @@ interface CardMovieOnTheatresProps {
   isSerie: boolean
 }
 
-export default function CardMovieOnTheatres({ movie, genres, isSerie }: CardMovieOnTheatresProps) {
+export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatresProps) {
   const {screenSize} = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);

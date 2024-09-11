@@ -40,7 +40,7 @@ export default function SerieDetails({ mediaDetails, providers, providersLogo, h
         </div>
         {
           providers && providersLogo.length > 0 &&
-        <div className="flex flex-col gap-2 col-start-2 col-end-4 ml-2 lg:justify-end lg:ml-0">
+        <div className="flex flex-col gap-2 col-start-2 col-end-4 ml-2 mb-8 lg:justify-end lg:ml-0">
           <h3 className="font-bold text-xs">
             Disponible en
           </h3>
@@ -181,8 +181,8 @@ export default function SerieDetails({ mediaDetails, providers, providersLogo, h
           <p className='text-balance font-extralight'>{mediaDetails.last_episode_to_air?.overview}</p>
         </div>
       </section>
-      <section className="pb-5 md:px-4 lg:px-6 lg:pb-8 2xl:mt-6">
-        <h2 className="px-4 font-black pt-5 pb-4 md:px-0 md:text-xl">Explora series similares</h2>
+      <section className="pb-5 lg:pb-8 2xl:mt-6">
+        <h2 className="px-4 font-black pt-5 pb-4 md:text-xl lg:px-6">Explora series similares</h2>
         <HorizontalCarousel movies={similarMediaStore} isSerie={true}/>
       </section>
     </div>

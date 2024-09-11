@@ -11,8 +11,8 @@
 	backface-visibility: hidden;
 	display: flex;
 	touch-action: pan-y pinch-zoom;
-	grid-column-gap: 16px;
-	padding-left: 16px;
+	grid-column-gap: 1rem;
+	margin-left: 1rem;
 }
 
 .embla__slide.horizontal__slide {
@@ -20,14 +20,8 @@
 	max-width: 300px;
 }
 
-@media (min-width: 768px) {
-	.embla__container.horizontal__container {
-		padding-left: 0;
-	}
-}
-
 @media (min-width: 1366px) {
 	.embla__container.horizontal__container {
-		padding-left: 0;
+		margin-left: 1.5rem;
 	}
 }
