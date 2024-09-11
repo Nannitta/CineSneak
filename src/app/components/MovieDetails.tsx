@@ -40,7 +40,7 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
         </div>
         {
           providers && providersLogo.length > 0 &&
-          <div className="flex flex-col gap-2 col-start-2 col-end-4 ml-2 lg:justify-end lg:ml-0">
+          <div className="flex flex-col gap-2 col-start-2 col-end-4 ml-2 mb-8 lg:justify-end lg:ml-0">
             <h3 className="font-bold text-xs">
               Disponible en
             </h3>
@@ -154,8 +154,8 @@ export default function MovieDetails({ mediaDetails, providers, providersLogo, h
         </>
       }
       { similarMediaStore.length > 0 &&  
-        <section className="pb-5 md:px-4 lg:px-6 lg:pb-8 2xl:mt-6">
-          <h2 className="px-4 font-black pt-5 pb-4 md:px-0 md:text-xl">Explora películas similares</h2>
+        <section className="pb-5 lg:pb-8 2xl:mt-6">
+          <h2 className="px-4 font-black pt-5 pb-4 md:text-xl lg:px-6">Explora películas similares</h2>
           <HorizontalCarousel movies={similarMediaStore} isSerie={false}/>
         </section>
       }

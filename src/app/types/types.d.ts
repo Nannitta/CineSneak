@@ -99,3 +99,12 @@ export type Provider = {
 export type CountryProvider = {
   [countryCode: string]: Provider[ProvidersLogo]
 }
+
+export type MoviesCollection = {
+  id: number,
+  name: string,
+  overview: string,
+  poster_path: string,
+  backdrop_path: string,
+  parts: MediaContent[]
+}
