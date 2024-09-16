@@ -151,34 +151,36 @@ export default function SerieDetails({ mediaDetails, providers, providersLogo, h
         <h2 className="px-4 pb-4 font-black lg:px-6">
           Últimpo capítulo en emisión
         </h2>
-        <div className='w-[300px] h-[169px] relative mx-4 lg:mx-6'>
-          <div
-            className='w-[300px] h-[169px] absolute z-10 bg-gradient-to-t from-black to-transparent'>
+        <div className='flex flex-col px-4 gap-4 lg:px-6 lg:flex-row lg:gap-6'>
+          <div className='min-w-[300px] h-[169px] relative'>
+            <div
+              className='w-[300px] h-[169px] absolute z-10 bg-gradient-to-t from-black to-transparent'>
+            </div>
+            <Image
+              src={`${mediaDetails.last_episode_to_air?.still_path ? imgURL + mediaDetails.last_episode_to_air.still_path : (mediaDetails.backdrop_path ? imgURL + mediaDetails.backdrop_path : imgURL + mediaDetails.poster_path)}`}
+              alt={`Portada del episodio ${mediaDetails.last_episode_to_air?.name}`}
+              fill={true}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className='object-cover rounded-lg'
+              priority
+            />
           </div>
-          <Image
-            src={`${mediaDetails.last_episode_to_air?.still_path ? imgURL + mediaDetails.last_episode_to_air.still_path : (mediaDetails.backdrop_path ? imgURL + mediaDetails.backdrop_path : imgURL + mediaDetails.poster_path)}`}
-            alt={`Portada del episodio ${mediaDetails.last_episode_to_air?.name}`}
-            fill={true}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className='object-cover rounded-lg'
-            priority
-          />
-        </div>
-        <div className='px-4 lg:px-6'>
-          <h3 className='text-sm font-bold flex gap-2 py-2'>
-            {mediaDetails.last_episode_to_air?.season_number}x{formatEpisodeNumber(mediaDetails.last_episode_to_air?.episode_number)}
-            <span>{mediaDetails.last_episode_to_air?.name}</span>
-          </h3>
-          <div className='flex flex-col gap-1 mb-2 md:flex-row md:gap-8'>
-            <p className='text-xs text-gray'>Fecha de emisión · {formatDate(mediaDetails.last_episode_to_air?.air_date.toString())}</p>
-            <p className="text-xs flex place-items-center gap-1 text-gray">
-              <Clock
-                width={'10'}
-                height={'10'} />
-                  Duración · {formatRuntime(mediaDetails.last_episode_to_air?.runtime)}
-            </p>
+          <div>
+            <h3 className='text-sm font-bold flex gap-2 py-2'>
+              {mediaDetails.last_episode_to_air?.season_number}x{formatEpisodeNumber(mediaDetails.last_episode_to_air?.episode_number)}
+              <span>{mediaDetails.last_episode_to_air?.name}</span>
+            </h3>
+            <div className='flex flex-col gap-1 mb-2 md:flex-row md:gap-8'>
+              <p className='text-xs text-gray'>Fecha de emisión · {formatDate(mediaDetails.last_episode_to_air?.air_date.toString())}</p>
+              <p className="text-xs flex place-items-center gap-1 text-gray">
+                <Clock
+                  width={'10'}
+                  height={'10'} />
+                    Duración · {formatRuntime(mediaDetails.last_episode_to_air?.runtime)}
+              </p>
+            </div>
+            <p className='text-balance font-extralight'>{mediaDetails.last_episode_to_air?.overview}</p>
           </div>
-          <p className='text-balance font-extralight'>{mediaDetails.last_episode_to_air?.overview}</p>
         </div>
       </section>
       <section className="pb-5 lg:pb-8 2xl:mt-6">

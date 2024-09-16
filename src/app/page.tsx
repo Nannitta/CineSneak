@@ -45,7 +45,7 @@ export default function HomePageNotLog() {
   useEffect(() => {
     fecthUpcomingMovies();
     fetchMoviesNowPlaying(1);
-    fetchGenres();
+    fetchGenres(false);
     fetchPopularMovies(1);
     fetchOnAirSeries(1);
     fetchPopularSeries(1);

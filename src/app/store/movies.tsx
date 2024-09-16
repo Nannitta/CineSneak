@@ -9,7 +9,7 @@ interface State {
   fetchMoviesNowPlaying: (page: number) => Promise<void>
   pagesMoviesNowPlaying: number
   movieGenres: Genre[]
-  fetchMoviesGenre: () => Promise<void>
+  fetchMoviesGenre: (isSerie: boolean) => Promise<void>
   movieTrailer: string
   fetchMovieTrailers: (id: number, isSerie: boolean) => Promise<void>
   resetMovieTrailer: () => void
@@ -44,8 +44,8 @@ export const useMoviesStore = create<State>((set) => {
 
       set({ moviesNowPlaying, pagesMoviesNowPlaying });
     },
-    fetchMoviesGenre: async () => {
-      const movieGenres = await getMovieGenres();
+    fetchMoviesGenre: async (isSerie: boolean) => {
+      const movieGenres = await getMovieGenres(isSerie);
 
       set({ movieGenres });
     },
