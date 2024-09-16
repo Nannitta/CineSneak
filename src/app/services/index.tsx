@@ -45,7 +45,18 @@ export async function getTopRatedMovies(page: number) {
   return response;
 }
 
-export async function getMovieGenres() {
+export async function getMovieGenres(isSerie: boolean) {
+  if(isSerie) {
+    const data = await fetch('https://api.themoviedb.org/3/genre/tv/list?language=es', {
+      headers: {
+        Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+      }
+    });
+
+    const response = await data.json();  
+    return response.genres;
+
+  }
   const data = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=es', {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`

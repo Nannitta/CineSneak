@@ -42,7 +42,7 @@ export default function Header() {
         ? <ul className='flex place-items-center gap-5'>
           <li className={`hover:text-white ${isActive('/')}`}><Link href={'/'} title='Página principal'>Home</Link></li>
           <li className={`hover:text-white ${isActive('/peliculas')}`}><Link href={'/peliculas'} title='Películas'>Películas</Link></li>
-          <li className={`hover:text-white ${isActive('/series')}`}><Link href={'/'} title='Series'>Series</Link></li>
+          <li className={`hover:text-white ${isActive('/series')}`}><Link href={'/series'} title='Series'>Series</Link></li>
         </ul>
         : null
       }

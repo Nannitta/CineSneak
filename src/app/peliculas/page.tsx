@@ -43,7 +43,7 @@ export default function Movies() {
   };
 
   useEffect(() => {
-    fetchGenres();
+    fetchGenres(false);
     fetchPopularMovies(1);
     fetchMoviesNowPlaying(1);
     fetchMoviesByGenreId(28, 1);
