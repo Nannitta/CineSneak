@@ -1,14 +1,8 @@
-'use client';
-
-import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { TagProps } from '@/types/types';
 
 export default function Tag({ text }: TagProps) {
-  const {screenSize} = CheckWindowWidth();
-
   return(
-    <p className={`${screenSize === 'sm' ? 'px-2 py-1' : 'px-3 py-[5px]'}
-    tag relative`}>
+    <p className='tag relative px-2 py-1 md:px-3 md:py-[5px] before:absolute before:inset-0 before:rounded-[0.35rem]'>
       {text}
     </p>
   );

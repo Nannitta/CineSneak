@@ -16,6 +16,9 @@ const config: Config = {
       black: '#000000'
     },
     extend: {
+      backgroundImage: {
+        'gradientButton': 'linear-gradient(263deg, #7209b7 0%, #4361ee 51.5%, #4cc9f0 100%)'
+      },
       fontFamily: {
         'nimbus': ['Nimbus']
       },

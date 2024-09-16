@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='min-h-screen'>
-      <body className={`${onest.className} min-h-screen flex flex-col`}>
+      <body className={`${onest.className} min-h-screen flex flex-col text-white my-0 mx-auto max-w-[1920px] bg-gradient-to-b from-black to-[#0D0016] `}>
         <Header/>
         <SideMenu/>
         {children}
