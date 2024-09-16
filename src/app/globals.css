@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: "Nimbus";
+	font-family: 'Nimbus';
 	font-display: swap;
-	src: url("./assets/fonts/nimbus.ttf");
+	src: url('./assets/fonts/nimbus.ttf');
 }
 
 * {
@@ -14,24 +14,6 @@
 	box-sizing: border-box;
 	scrollbar-width: thin;
 	scrollbar-color: #c3c3c3 black;
-}
-
-body {
-	color: white;
-	background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(13, 0, 22));
-	margin: 0 auto;
-	max-width: 1920px;
-}
-
-:hover.primaryButton::before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	inset: 0px;
-	background: linear-gradient(263deg, #7209b7 0%, #4361ee 51.5%, #4cc9f0 100%);
-	filter: blur(8px);
-	border-radius: inherit;
-	pointer-events: none;
 }
 
 li:hover a svg path {
@@ -50,10 +32,6 @@ li:hover a svg path {
 }
 
 .tag::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	border-radius: 0.35rem;
 	border: 2px solid transparent;
 	background: linear-gradient(to left, #7209b7 0%, #4361ee 51.5%, #4cc9f0 100%)
 		border-box;

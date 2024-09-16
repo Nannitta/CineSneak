@@ -76,7 +76,7 @@ export default function SerieDetails({ mediaDetails, providers, providersLogo, h
         <div className="flex gap-1 text-[10px] items-center justify-end col-start-2 col-end-4 row-start-3 row-end-4 md:text-sm md:justify-start md:ml-2 lg:ml-0">
           <p>{mediaDetails.number_of_seasons} temporadas · {mediaDetails.number_of_episodes} capítulos</p>
         </div>
-        <div className={`flex font-light items-end col-start-2 col-end-4 justify-end row-start-4 row-end-5 md:justify-start md:ml-2 lg:ml-0 ${screenSize === 'sm' ? 'gap-2 text-[10px]' : 'gap-4 text-sm'}`}>
+        <div className='flex font-light items-end col-start-2 col-end-4 justify-end row-start-4 row-end-5 gap-2 text-[10px] md:justify-start md:ml-2 md:gap-4 md:text-sm lg:ml-0'>
           {getGenreNames(mediaDetails.genres)}
         </div>
         <div className="flex col-start-2 col-end-4 justify-end row-start-5 row-end-6 items-end md:col-start-1 md:col-end-2 md:justify-start lg:col-start-2 lg:col-end-3 lg:ml-0 lg:row-start-7 lg:row-end-8 lg:items-start">

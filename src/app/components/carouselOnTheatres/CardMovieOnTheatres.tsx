@@ -62,14 +62,14 @@ export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatr
               }
               onClick={() => handleTrailerClick(movie.id, false)}
             />
-            <div className={`flex font-light ${screenSize === 'sm' ? 'gap-2 text-[10px]' : 'gap-4 text-sm'}`}>
+            <div className='flex font-light gap-2 text-[10px] md:gap-4 md:text-sm'>
               {
                 getGenreNames(movie.genre_ids)
               }
             </div>
           </div>
           : <>
-            <div className={`flex ${screenSize === 'sm' ? 'gap-2' : 'gap-4 mb-4 text-sm'}`}>
+            <div className='flex gap-2 md:gap-4 md:mb-4 md:text-sm'>
               {
                 getGenreNames(movie.genre_ids)
               }
