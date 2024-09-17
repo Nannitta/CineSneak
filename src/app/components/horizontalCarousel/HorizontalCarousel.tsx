@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import './horizontalCarousel.css';
-import { MediaContent } from '@/types/types';
+import { MovieDetails, SerieDetails } from '@/types/types';
 import HorizontalCardCarousel from './HorizontalCardMovie';
 import { RightArrow } from '@/lib/Svg';
 import { useParams } from 'next/navigation';
@@ -12,14 +12,14 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Link from 'next/link';
 
 interface PropType {
-  movies: MediaContent[]
+  media: MovieDetails[] | SerieDetails[]
   options?: EmblaOptionsType
   isSerie: boolean
   path?: string
 }
 
 const HorizontalCarousel: React.FC<PropType> = (props) => { 
-  const { movies, options, isSerie, path } = props;
+  const { media, options, isSerie, path } = props;
   const [emblaRef] = useEmblaCarousel(options);
   const [color, setColor] = useState<string>('#C3C3C3');
   const params = useParams<Params>(); 
@@ -36,9 +36,9 @@ const HorizontalCarousel: React.FC<PropType> = (props) => {
     <section className='embla'>
       <div className='embla__viewport' ref={emblaRef}>
         <div className='embla__container horizontal__container mr-4 lg:mr-6'>
-          {movies.filter((movie) => movie.poster_path !== null).map((movie) => (
-            <div className='embla__slide horizontal__slide' key={movie.id}>
-              <HorizontalCardCarousel movie={movie} isSerie={isSerie}/>
+          {media.filter((media) => media.poster_path !== null).map((media) => (
+            <div className='embla__slide horizontal__slide' key={media.id}>
+              <HorizontalCardCarousel media={media} isSerie={isSerie}/>
             </div>
           ))}
           { !params.id && path &&

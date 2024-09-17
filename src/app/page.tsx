@@ -54,7 +54,7 @@ export default function HomePageNotLog() {
   return (
     <main className='flex-grow flex flex-col relative' onClick={closeSideMenu}>
       <WatchTrailer/>
-      <CarouselOnTheatres moviesOnTheatres={moviesOnTheatres} options={OPTIONS} genres={genres} isSerie={false}/>
+      <CarouselOnTheatres media={moviesOnTheatres} options={OPTIONS} genres={genres} isSerie={false}/>
       <section>
         <div className='flex flex-col p-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
           <h2 className='font-bold text-lg md:text-xl lg:text-2xl'>
@@ -64,7 +64,7 @@ export default function HomePageNotLog() {
             Ver todo
           </Link>
         </div>
-        <VerticalCarousel movies={moviesNowPlaying} isSerie={false} path={'/exitos-taquilla'}/>
+        <VerticalCarousel media={moviesNowPlaying} isSerie={false} path={'/exitos-taquilla'}/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14 lg:gap-20'>
         <div className='flex flex-col py-4 pl-4 items-baseline md:py-0 md:gap-2 lg:px-6'>
@@ -75,7 +75,7 @@ export default function HomePageNotLog() {
             Ver todo
           </Link>
         </div>
-        <HorizontalCarousel movies={popularMovies} isSerie={false} path={'/peliculas-en-tendencia'}/>
+        <HorizontalCarousel media={popularMovies} isSerie={false} path={'/peliculas-en-tendencia'}/>
       </section>
       <section className='mb-4 lg:mb-9'>
         <div className='flex flex-col p-4 items-baseline md:gap-4 md:flex-row md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
@@ -97,7 +97,7 @@ export default function HomePageNotLog() {
             Ver todo
           </Link>
         </div>
-        <VerticalCarousel movies={onAirSeries} isSerie={true} path={'/estrenos-series'}/>
+        <VerticalCarousel media={onAirSeries} isSerie={true} path={'/estrenos-series'}/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14 lg:gap-20'>
         <div className='flex flex-col py-4 pl-4 md:py-0 md:gap-2 lg:px-6'>
@@ -108,7 +108,7 @@ export default function HomePageNotLog() {
             Ver todo
           </Link>
         </div>
-        <HorizontalCarousel movies={popularSeries} isSerie={true} path={'/series-en-tendencia'}/>
+        <HorizontalCarousel media={popularSeries} isSerie={true} path={'/series-en-tendencia'}/>
       </section>
       <section className='mb-4 lg:mb-14'>
         <div className='flex flex-col p-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>

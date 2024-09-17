@@ -5,12 +5,12 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Tag from '@/components/Tag';
-import { Genre, MediaDetails, ProvidersLogo, SerieDetailsType } from '@/types/types';
+import type { Genre, MovieDetails, ProvidersLogo, SerieDetails } from '@/types/types';
 import { useInPictureModeStore } from '@/store/inPictureMode';
 import { useMoviesStore } from '@/store/movies';
 import WatchTrailer from '@/components/WatchTrailer';
-import MovieDetails from '@/components/MovieDetails';
-import SerieDetails from '@/components/SerieDetails';
+import MovieDetailsComponent from '@/components/MovieDetails';
+import SerieDetailsComponent from '@/components/SerieDetails';
 
 const WatchMedia = () => {
   const {media, id} = useParams<Params>();
@@ -77,22 +77,22 @@ const WatchMedia = () => {
       <WatchTrailer />
       {
         mediaDetails && media === 'movie'
-          ? <MovieDetails
-            mediaDetails={mediaDetails as MediaDetails}
+          ? <MovieDetailsComponent
+            media={mediaDetails as MovieDetails}
             providers={providers}
             providersLogo={providersLogo}
             handleTrailerClick={handleTrailerClick}
-            similarMediaStore={similarMediaStore}
+            similarMediaStore={similarMediaStore as MovieDetails[]}
             cast={cast}
             getGenreNames={getGenreNames}
           />
           : mediaDetails && media === 'tv'
-            ? <SerieDetails
-              mediaDetails={mediaDetails as SerieDetailsType}
+            ? <SerieDetailsComponent
+              media={mediaDetails as SerieDetails}
               providers={providers}
               providersLogo={providersLogo}
               handleTrailerClick={handleTrailerClick}
-              similarMediaStore={similarMediaStore}
+              similarMediaStore={similarMediaStore as SerieDetails[]}
               cast={cast}
               getGenreNames={getGenreNames}
             />

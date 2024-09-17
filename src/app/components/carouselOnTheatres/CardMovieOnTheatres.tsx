@@ -3,7 +3,7 @@ import CheckWindowWidth from '@/hooks/useWindowWidth';
 import Tag from '@/components//Tag';
 import { useMoviesStore } from '@/store/movies';
 import { useInPictureModeStore } from '@/store/inPictureMode';
-import { Genre, MediaContent } from '@/types/types';
+import { Genre, MovieDetails, SerieDetails } from '@/types/types';
 import { Calendar, Play } from '@/lib/Svg';
 import { formatDate } from '@/lib/format';
 import PrimaryButton from '@/components/PrimaryButton';
@@ -11,12 +11,12 @@ import PrimaryButton from '@/components/PrimaryButton';
 const league = League_Spartan({ subsets: ['latin'] });
 
 interface CardMovieOnTheatresProps {
-  movie: MediaContent
+  media: MovieDetails | SerieDetails
   genres: Genre[]
   isSerie: boolean
 }
 
-export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatresProps) {
+export default function CardMovieOnTheatres({ media, genres, isSerie }: CardMovieOnTheatresProps) {
   const {screenSize} = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
@@ -37,17 +37,25 @@ export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatr
     openInPictureMode();
   };
 
+  const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
+    return isSerie;
+  };
+  
   return(
-    <article className={`embla__slide__number w-full h-96 md:h-[420px] lg:h-[556px] bg-cover bg-no-repeat bg-center relative ${screenSize === 'sm' ? 'px-2 pb-4' : 'px-4 pb-8'}`} style={{backgroundImage: `url('${movie.backdrop_path ? imgURL + movie.backdrop_path : imgURL + movie.poster_path}')`}}>
+    <article className={`embla__slide__number w-full h-96 md:h-[420px] lg:h-[556px] bg-cover bg-no-repeat bg-center relative ${screenSize === 'sm' ? 'px-2 pb-4' : 'px-4 pb-8'}`} style={{backgroundImage: `url('${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}')`}}>
       <div className='overlay px-4 pt-4 pb-8 lg:p-6 md:pb-10'>
-        <h2 className={`uppercase font-black ${league.className} md:text-2xl lg:text-4xl`}>{movie.title}</h2>
-        <p className='text-sm font-normal text-gray text-balance line-clamp-6 lg:w-3/4 lg:text-wrap md:text-base'>{movie.overview}</p>
+        <h2 className={`uppercase font-black ${league.className} md:text-2xl lg:text-4xl`}>
+          {
+            isSerieMedia(media) ? media.name : media.title
+          }
+        </h2>
+        <p className='text-sm font-normal text-gray text-balance line-clamp-6 lg:w-3/4 lg:text-wrap md:text-base'>{media.overview}</p>
         <div className='flex gap-1 place-items-center text-xs font-light self-end md:self-start py-2 md:pt-2 md:pb-4 md:text-sm'>
           <Calendar
             width={screenSize === 'sm' ? '12' : '15'}
             height={screenSize === 'sm' ? '12' : '15'}
           />
-          <span className='text-gray'>{formatDate(movie.release_date)}</span>
+          <span className='text-gray'>{formatDate(isSerieMedia(media) ? media.first_air_date : media.release_date)}</span>
         </div>
         {screenSize && screenSize === 'sm'
           ? <div className='flex items-baseline relative w-full justify-between'>
@@ -60,18 +68,18 @@ export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatr
                   fill={'white'}
                 />
               }
-              onClick={() => handleTrailerClick(movie.id, false)}
+              onClick={() => handleTrailerClick(media.id, false)}
             />
             <div className='flex font-light gap-2 text-[10px] md:gap-4 md:text-sm'>
               {
-                getGenreNames(movie.genre_ids)
+                getGenreNames(media.genre_ids)
               }
             </div>
           </div>
           : <>
             <div className='flex gap-2 md:gap-4 md:mb-4 md:text-sm'>
               {
-                getGenreNames(movie.genre_ids)
+                getGenreNames(media.genre_ids)
               }
             </div>
             <PrimaryButton
@@ -83,7 +91,7 @@ export default function CardMovieOnTheatres({ movie, genres }: CardMovieOnTheatr
                   fill={'white'}
                 />
               }
-              onClick={() => handleTrailerClick(movie.id, false)}
+              onClick={() => handleTrailerClick(media.id, false)}
             />
           </>
         }

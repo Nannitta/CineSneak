@@ -1,15 +1,15 @@
 import { getCast, getDetails, getProviders, getSimilarMedia } from '@/services';
-import { Cast, CountryProvider, MediaContent, MediaDetails, SerieDetailsType } from '@/types/types';
+import { Cast, CountryProvider, MediaContent, MovieDetails, SerieDetails } from '@/types/types';
 import { create } from 'zustand';
 
 interface State {
-  mediaDetails: MediaDetails | SerieDetailsType | null
+  mediaDetails: MovieDetails | SerieDetails | null
   fetchMediaDetails: (id: number, isSerie: boolean) => Promise<void>
   providers: CountryProvider | null,
   fetchProviders: (id: number, isSerie: boolean) => Promise<void>
   cast: Cast[]
   fetchCast: (id: number, isSerie: boolean) => Promise<void>
-  similarMedia: MediaContent[]
+  similarMedia: MovieDetails[] | SerieDetails[]
   fetchSimilarMedia: (id: number, isSerie: boolean) => Promise<void>
 }
 

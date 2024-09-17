@@ -30,7 +30,7 @@ export default function PopularMovies() {
           {topRatedMovies.filter((movie) => movie.poster_path !== null).map((movie) => {
             return(
               <li key={movie.id}>
-                <VerticalCardCarousel movie={movie} isSerie={false}/>
+                <VerticalCardCarousel media={movie} isSerie={false}/>
               </li>
             );
           })}

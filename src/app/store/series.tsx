@@ -1,15 +1,15 @@
 import { create } from 'zustand';
 import { getOnAirSeries, getPopularSeries, getTopRatedSeries } from '@/services';
-import { MediaContent } from '@/types/types';
+import { SerieDetails } from '@/types/types';
 
 interface State {
-  onAirSeries: MediaContent[]
+  onAirSeries: SerieDetails[]
   fecthOnAirSeries: (page: number) => Promise<void>
   pagesOnAirSeries: number
-  popularSeries: MediaContent[]
+  popularSeries: SerieDetails[]
   fecthPopularSeries: (page: number) => Promise<void>
   pagesPopularSeries: number
-  topRatedSeries: MediaContent[]
+  topRatedSeries: SerieDetails[]
   pagesTopRatedSeries: number
   fetchTopRatedSeries: (page: number) => Promise<void>
 }

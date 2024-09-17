@@ -3,10 +3,10 @@
 import BentoGrid from '@/components/BentoGrid';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
-import { MediaContent } from '@/types/types';
+import { MediaContent, MovieDetails, SerieDetails } from '@/types/types';
 
 interface TopRatedProps {
-  movies: MediaContent[]
+  movies: MovieDetails[] | SerieDetails[]
   isSerie: boolean
   path: string
 }
@@ -18,8 +18,8 @@ export default function TopRated({ movies, isSerie, path }: TopRatedProps) {
     <>
       {
         screenSize !== 'lg'
-          ? <VerticalCarousel movies={movies} isSerie={isSerie} path={path}/>
-          : <BentoGrid movies={movies} isSerie={isSerie} path={path}/>
+          ? <VerticalCarousel media={movies} isSerie={isSerie} path={path}/>
+          : <BentoGrid media={movies} isSerie={isSerie} path={path}/>
       }
     </>
   );

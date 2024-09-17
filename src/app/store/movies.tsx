@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 import { getMovieGenres, getMovieTrailer, getMoviesNowPlaying, getMoviesUpcoming, getPopularMovies, getTopRatedMovies } from '@/services';
-import { Genre, Trailer, MediaContent } from '@/types/types';
+import { Genre, Trailer, MovieDetails } from '@/types/types';
 
 interface State {
-  upcomingMovies: MediaContent[]
+  upcomingMovies: MovieDetails[]
   fetchUpcomingMovies: () => Promise<void>
-  moviesNowPlaying: MediaContent[]
+  moviesNowPlaying: MovieDetails[]
   fetchMoviesNowPlaying: (page: number) => Promise<void>
   pagesMoviesNowPlaying: number
   movieGenres: Genre[]
@@ -13,10 +13,10 @@ interface State {
   movieTrailer: string
   fetchMovieTrailers: (id: number, isSerie: boolean) => Promise<void>
   resetMovieTrailer: () => void
-  popularMovies: MediaContent[]
+  popularMovies: MovieDetails[]
   fetchPopularMovies: (page: number) => Promise<void>
   pagesPopularMovies: number
-  topRatedMovies: MediaContent[]
+  topRatedMovies: MovieDetails[]
   fecthTopRatedMovies: (page: number) => Promise<void>
   pagesTopRatedMovies: number
 }
