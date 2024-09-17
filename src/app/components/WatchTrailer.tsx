@@ -39,20 +39,19 @@ export default function WatchTrailer({ isSerie }: TrailerDetails) {
   const [oldPathName, setOldPathName] = useState<string>('');
 
   useEffect(() => {
-    if(pathName !== oldPathName && !isSerie) {
+    if(pathName !== oldPathName) {
+      if(isSerie) resetSerieTrailer();
+      if(!isSerie) resetMovieTrailer();
       closePictureMode();
-      resetMovieTrailer();
-    } else if (pathName !== oldPathName && isSerie) {
-      closePictureMode();
-      resetSerieTrailer();
     } else {
       setOldPathName(pathName);
     }
   },[pathName, oldPathName, closePictureMode, resetMovieTrailer, resetSerieTrailer, isSerie]);
 
-  const handleClose = () => {
+  const handleClose = (isSerie: boolean) => {
+    if(isSerie) resetSerieTrailer();
+    if(!isSerie) resetMovieTrailer();
     closePictureMode();
-    resetMovieTrailer();
   };
 
   const handleMouseEnter = () => setHover(true);
@@ -64,7 +63,7 @@ export default function WatchTrailer({ isSerie }: TrailerDetails) {
         <BlockScroll isModalOpen={isInPictureMode && !isMinimize}/>
         {
           isMinimize
-            ? <div onClick={handleClose} onTouchStart={handleClose}
+            ? <div onClick={() => handleClose(isSerie)} onTouchStart={() =>handleClose(isSerie)}
               className={`${screenSize === 'sm' 
                 ? 'fixed bottom-[250px] right-0 bg-black z-40' 
                 : screenSize === 'md'
@@ -79,7 +78,7 @@ export default function WatchTrailer({ isSerie }: TrailerDetails) {
             </div>
             : null
         }
-        <aside className={`${movieTrailer === '' || serieTrailer === '' || isInPictureMode === false 
+        <aside className={`${(movieTrailer === '' && serieTrailer === '') || isInPictureMode === false 
           ? 'hidden' 
           : (isMinimize 
             ? 'flex fixed bottom-0 right-0 z-30' 

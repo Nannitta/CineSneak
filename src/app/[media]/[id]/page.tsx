@@ -11,6 +11,7 @@ import { useMoviesStore } from '@/store/movies';
 import WatchTrailer from '@/components/WatchTrailer';
 import MovieDetailsComponent from '@/components/MovieDetails';
 import SerieDetailsComponent from '@/components/SerieDetails';
+import { useSeriesStore } from '@/store/series';
 
 const WatchMedia = () => {
   const {media, id} = useParams<Params>();
@@ -27,6 +28,7 @@ const WatchMedia = () => {
   } = useMediaDetailsStore(state => state);
 
   const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
+  const fetchSerieTrailer = useSeriesStore(state => state.fetchSerieTrailers);
   const openInPictureMode = useInPictureModeStore(state => state.openPictureMode);
 
   const [providersLogo, setProvidersLogo] = useState<ProvidersLogo[]>([]);
@@ -73,7 +75,8 @@ const WatchMedia = () => {
   };
 
   const handleTrailerClick = async (id: number, isSerie: boolean): Promise<void> => {
-    await fetchMovieTrailer(id, isSerie);
+    if(isSerie) await fetchSerieTrailer(id, isSerie);
+    if(!isSerie) await fetchMovieTrailer(id, isSerie);
     openInPictureMode();
   };
    
@@ -86,7 +89,7 @@ const WatchMedia = () => {
             media={mediaDetails as MovieDetails}
             providers={providers}
             providersLogo={providersLogo}
-            handleTrailerClick={handleTrailerClick}
+            handleTrailerClick={() => handleTrailerClick(id, false)}
             similarMediaStore={similarMedia as MovieDetails[]}
             cast={cast}
             getGenreNames={getGenreNames}
@@ -96,7 +99,7 @@ const WatchMedia = () => {
               media={mediaDetails as SerieDetails}
               providers={providers}
               providersLogo={providersLogo}
-              handleTrailerClick={handleTrailerClick}
+              handleTrailerClick={() => handleTrailerClick(id, true)}
               similarMediaStore={similarMedia as SerieDetails[]}
               cast={cast}
               getGenreNames={getGenreNames}
