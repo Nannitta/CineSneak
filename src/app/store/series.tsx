@@ -4,10 +4,10 @@ import { SerieDetails } from '@/types/types';
 
 interface State {
   onAirSeries: SerieDetails[]
-  fecthOnAirSeries: (page: number) => Promise<void>
+  fetchOnAirSeries: (page: number) => Promise<void>
   pagesOnAirSeries: number
   popularSeries: SerieDetails[]
-  fecthPopularSeries: (page: number) => Promise<void>
+  fetchPopularSeries: (page: number) => Promise<void>
   pagesPopularSeries: number
   topRatedSeries: SerieDetails[]
   pagesTopRatedSeries: number
@@ -22,26 +22,26 @@ export const useSeriesStore = create<State>((set) => {
     pagesPopularSeries: 0,
     topRatedSeries: [],
     pagesTopRatedSeries: 0,
-    fecthOnAirSeries: async (page: number) => {
+    fetchOnAirSeries: async (page: number) => {
       const response = await getOnAirSeries(page);
       const onAirSeries = response.results;
       const pagesOnAirSeries = response.total_pages;
 
-      set({ onAirSeries, pagesOnAirSeries });
+      set({ onAirSeries: Array.from(onAirSeries), pagesOnAirSeries });
     },
-    fecthPopularSeries: async (page: number) => {
+    fetchPopularSeries: async (page: number) => {
       const response = await getPopularSeries(page);
       const popularSeries = response.results;
       const pagesPopularSeries = response.total_pages;
 
-      set({ popularSeries, pagesPopularSeries });
+      set({ popularSeries: Array.from(popularSeries), pagesPopularSeries });
     },
     fetchTopRatedSeries: async (page: number) => {
       const response = await getTopRatedSeries(page);
       const topRatedSeries = response.results;
       const pagesTopRatedSeries = response.total_pages;
 
-      set({ topRatedSeries, pagesTopRatedSeries });
+      set({ topRatedSeries: Array.from(topRatedSeries), pagesTopRatedSeries });
     }
   };
 });

@@ -6,9 +6,7 @@ import { useSeriesStore } from '@/store/series';
 import { useEffect, useState } from 'react';
 
 export default function PopularMovies() {
-  const popularSeries = useSeriesStore(state => state.popularSeries);
-  const numberPages = useSeriesStore(state => state.pagesPopularSeries);
-  const fecthPopularSeries = useSeriesStore(state => state.fecthPopularSeries);
+  const { popularSeries, pagesPopularSeries, fetchPopularSeries } = useSeriesStore(state => state);
 
   const [page, setPage] = useState<number>(1);
   const handleSetPage = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -17,8 +15,8 @@ export default function PopularMovies() {
   };
 
   useEffect(() => {
-    fecthPopularSeries(page);
-  }, [page, fecthPopularSeries]);
+    fetchPopularSeries(page);
+  }, [page, fetchPopularSeries]);
 
   return(
     <main className='flex flex-col flex-grow'>
@@ -37,7 +35,7 @@ export default function PopularMovies() {
         </ul>
       </section>
       <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
-        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={numberPages}/>
+        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesPopularSeries}/>
       </div>
     </main>
   );

@@ -12,11 +12,7 @@ const MoviesByGenre = () => {
   const [page, setPage] = useState<number>(1);
   const decodedGenreName = decodeURIComponent(genreName || '');
 
-  const moviesByGenreId = useMoviesByGenreId(state => state.moviesByGenre);
-  const pagesMoviesByGenre = useMoviesByGenreId(state => state.pagesMoviesByGenre);
-  const fetchMoviesByGenreId = useMoviesByGenreId(state => state.fetchMoviesByGenreId); 
-
-  const moviesByGenre = Array.from(moviesByGenreId);
+  const { moviesByGenre, pagesMoviesByGenre, fetchMoviesByGenreId } = useMoviesByGenreId(state => state);
 
   const handleSetPage = (event: React.ChangeEvent<unknown>, value: number) => {
     event.preventDefault();

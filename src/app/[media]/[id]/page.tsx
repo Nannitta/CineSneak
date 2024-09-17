@@ -14,32 +14,37 @@ import SerieDetailsComponent from '@/components/SerieDetails';
 
 const WatchMedia = () => {
   const {media, id} = useParams<Params>();
-  const fecthMediaDetails = useMediaDetailsStore(state => state.fetchMediaDetails);
-  const mediaDetails = useMediaDetailsStore(state => state.mediaDetails);
-  const providers = useMediaDetailsStore(state => state.providers);
-  const fetchProviders = useMediaDetailsStore(state => state.fetchProviders);
+
+  const { 
+    fetchMediaDetails, 
+    mediaDetails, 
+    providers, 
+    fetchProviders, 
+    cast, 
+    fetchCast, 
+    similarMedia, 
+    fetchSimilarMedia 
+  } = useMediaDetailsStore(state => state);
+
   const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
   const openInPictureMode = useInPictureModeStore(state => state.openPictureMode);
-  const cast = useMediaDetailsStore(state => state.cast);
-  const fetchCast = useMediaDetailsStore(state => state.fetchCast);
-  const similarMediaStore = useMediaDetailsStore(state => state.similarMedia);
-  const fetchSimilarMedia = useMediaDetailsStore(state => state.fetchSimilarMedia);
+
   const [providersLogo, setProvidersLogo] = useState<ProvidersLogo[]>([]);
 
   useEffect(() => {
     if(media === 'movie') {
-      fecthMediaDetails(id, false);
+      fetchMediaDetails(id, false);
       fetchProviders(id, false);
       fetchCast(id, false);
       fetchSimilarMedia(id, false);
     };
     if(media === 'tv') {
-      fecthMediaDetails(id, true);
+      fetchMediaDetails(id, true);
       fetchProviders(id, true);
       fetchCast(id, true);
       fetchSimilarMedia(id, true);
     };
-  }, [fecthMediaDetails, fetchCast, fetchProviders, fetchSimilarMedia, id, media]);
+  }, [fetchMediaDetails, fetchCast, fetchProviders, fetchSimilarMedia, id, media]);
 
   useEffect(() => {
     const getProviders = () => {   
@@ -82,7 +87,7 @@ const WatchMedia = () => {
             providers={providers}
             providersLogo={providersLogo}
             handleTrailerClick={handleTrailerClick}
-            similarMediaStore={similarMediaStore as MovieDetails[]}
+            similarMediaStore={similarMedia as MovieDetails[]}
             cast={cast}
             getGenreNames={getGenreNames}
           />
@@ -92,7 +97,7 @@ const WatchMedia = () => {
               providers={providers}
               providersLogo={providersLogo}
               handleTrailerClick={handleTrailerClick}
-              similarMediaStore={similarMediaStore as SerieDetails[]}
+              similarMediaStore={similarMedia as SerieDetails[]}
               cast={cast}
               getGenreNames={getGenreNames}
             />

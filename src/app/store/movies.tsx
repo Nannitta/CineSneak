@@ -17,7 +17,7 @@ interface State {
   fetchPopularMovies: (page: number) => Promise<void>
   pagesPopularMovies: number
   topRatedMovies: MovieDetails[]
-  fecthTopRatedMovies: (page: number) => Promise<void>
+  fetchTopRatedMovies: (page: number) => Promise<void>
   pagesTopRatedMovies: number
 }
 
@@ -35,14 +35,14 @@ export const useMoviesStore = create<State>((set) => {
     fetchUpcomingMovies: async () => {
       const upcomingMovies = await getMoviesUpcoming();
 
-      set({ upcomingMovies });
+      set({ upcomingMovies: Array.from(upcomingMovies) });
     },
     fetchMoviesNowPlaying: async (page: number) => {
       const response = await getMoviesNowPlaying(page);    
       const moviesNowPlaying = response.results;
       const pagesMoviesNowPlaying = response.total_pages;
 
-      set({ moviesNowPlaying, pagesMoviesNowPlaying });
+      set({ moviesNowPlaying: Array.from(moviesNowPlaying), pagesMoviesNowPlaying });
     },
     fetchMoviesGenre: async (isSerie: boolean) => {
       const movieGenres = await getMovieGenres(isSerie);
@@ -68,14 +68,14 @@ export const useMoviesStore = create<State>((set) => {
       const popularMovies = response.results;
       const pagesPopularMovies = response.total_pages;
 
-      set({ popularMovies, pagesPopularMovies });
+      set({ popularMovies: Array.from(popularMovies), pagesPopularMovies });
     },
-    fecthTopRatedMovies: async (page: number) => {
+    fetchTopRatedMovies: async (page: number) => {
       const response = await getTopRatedMovies(page);
       const topRatedMovies = response.results;
       const pagesTopRatedMovies = response.total_pages;
 
-      set({ topRatedMovies, pagesTopRatedMovies });
+      set({ topRatedMovies: Array.from(topRatedMovies), pagesTopRatedMovies });
     }
   };
 });

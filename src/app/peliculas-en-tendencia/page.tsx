@@ -6,9 +6,7 @@ import { useMoviesStore } from '@/store/movies';
 import { useEffect, useState } from 'react';
 
 export default function PopularMovies() {
-  const popularMovies = useMoviesStore(state => state.popularMovies);
-  const numberPages = useMoviesStore(state => state.pagesPopularMovies);
-  const fetchPopularMovies = useMoviesStore(state => state.fetchPopularMovies);
+  const { popularMovies, pagesPopularMovies, fetchPopularMovies } = useMoviesStore(state => state);
 
   const [page, setPage] = useState<number>(1);
   
@@ -38,7 +36,7 @@ export default function PopularMovies() {
         </ul>
       </section>
       <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
-        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={numberPages}/>
+        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesPopularMovies}/>
       </div>
     </main>
   );
