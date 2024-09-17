@@ -78,7 +78,7 @@ export default function MovieDetails({ media, providers, providersLogo, handleTr
             width={screenSize === 'sm' ? '12' : '16'}
             height={screenSize === 'sm' ? '12' : '16'}
           />
-          <span className="text-gray">{formatDate(media.release_date.toString())}</span>
+          <span className="text-gray">{formatDate(media.release_date?.toString())}</span>
         </div>
         <div className={`flex font-light items-end col-start-2 col-end-4 justify-end row-start-4 row-end-5 md:justify-start md:ml-2 lg:ml-0 ${screenSize === 'sm' ? 'gap-2 text-[10px]' : 'gap-4 text-sm'}`}>
           {getGenreNames(media.genres)}

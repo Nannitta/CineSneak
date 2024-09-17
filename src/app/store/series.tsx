@@ -65,12 +65,12 @@ export const useSeriesStore = create<State>((set) => {
       set({ serieGenres });
     },
     fetchSerieTrailers: async (id: number, isSerie: boolean) => {
-      const allVideos = await getTrailer(id, isSerie);                
+      const allVideos = await getTrailer(id, isSerie);                      
       const trailers = allVideos.filter((serie: Trailer) => serie.type === 'Trailer' || serie.type === 'Opening Credits');
       if(trailers.length <= 0) return;
         
-      const serieTrailer = trailers[0].key;     
-            
+      const serieTrailer = trailers[0].key;          
+    
       set({ serieTrailer });
     },
     resetSerieTrailer: () => {
