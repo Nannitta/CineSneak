@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useMoviesStore } from '@/store/movies';
-import CarouselOnTheatres from '@/components/carouselOnTheatres/Carousel';
+import MainCarousel from '@/components/mainCarousel/MainCarousel';
 import { EmblaOptionsType } from 'embla-carousel';
 import { useSideMenuStore } from '@/store/sideMenu';
 import WatchTrailer from '@/components/WatchTrailer';
@@ -52,8 +52,8 @@ export default function HomePageNotLog() {
   
   return (
     <main className='flex-grow flex flex-col relative' onClick={closeSideMenu}>
-      <WatchTrailer/>
-      <CarouselOnTheatres media={upcomingMovies} options={OPTIONS} genres={movieGenres} isSerie={false}/>
+      <WatchTrailer isSerie={false} />
+      <MainCarousel media={upcomingMovies} options={OPTIONS} genres={movieGenres} isSerie={false}/>
       <section>
         <div className='flex flex-col p-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
           <h2 className='font-bold text-lg md:text-xl lg:text-2xl'>

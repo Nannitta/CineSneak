@@ -45,7 +45,7 @@ export async function getTopRatedMovies(page: number) {
   return response;
 }
 
-export async function getMovieGenres(isSerie: boolean) {
+export async function getGenres(isSerie: boolean) {
   if(isSerie) {
     const data = await fetch('https://api.themoviedb.org/3/genre/tv/list?language=es', {
       headers: {
@@ -67,7 +67,7 @@ export async function getMovieGenres(isSerie: boolean) {
   return response.genres;
 }
 
-export async function getMovieTrailer(id: number, isSerie: boolean) {
+export async function getTrailer(id: number, isSerie: boolean) {
   if(isSerie) {
     const data = await fetch(`https://api.themoviedb.org/3/tv/${id}/videos?language=en-EN`, {
       headers: {
@@ -223,6 +223,17 @@ export async function getMoviesByGenreId(id: number, page: number) {
 
 export async function getCollectionMovies(id: number) {
   const data = await fetch(`https://api.themoviedb.org/3/collection/${id}?language=es-ES`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response;
+}
+
+export async function getSeriesOfTheDay() {
+  const data = await fetch('https://api.themoviedb.org/3/trending/tv/day?language=es-ES', {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }

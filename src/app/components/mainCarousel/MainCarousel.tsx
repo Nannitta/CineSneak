@@ -5,9 +5,12 @@ import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import './carousel.css';
-import { DotButton, useDotButton } from '@/components/carouselOnTheatres/DotButtons';
+import { DotButton, useDotButton } from '@/components/mainCarousel/DotButtons';
 import { Genre, MovieDetails, SerieDetails } from '@/types/types';
-import CardMovieOnTheatres from '@/components/carouselOnTheatres/CardMovieOnTheatres';
+import CardMovieMain from '@/components/mainCarousel/CardMovieMain';
+import { useMoviesStore } from '@/store/movies';
+import { useInPictureModeStore } from '@/store/inPictureMode';
+import { useSeriesStore } from '@/store/series';
 
 interface PropType {
   media: MovieDetails[] | SerieDetails[]
@@ -16,10 +19,23 @@ interface PropType {
   isSerie: boolean
 }
 
-const CarouselOnTheatres: React.FC<PropType> = (props) => { 
+const MainCarousel: React.FC<PropType> = (props) => { 
   const { media, options, genres, isSerie } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ delay: 8000 })]);
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
+
+  const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
+  const openInPictureMode = useInPictureModeStore(state => state.openPictureMode);
+  const fetchSerieTrailer = useSeriesStore(state => state.fetchSerieTrailers);
+  
+  const handleTrailerClick = async (id: number, isSerie: boolean) => {
+    if(isSerie) {
+      await fetchSerieTrailer(id, true);
+    } else {
+      await fetchMovieTrailer(id, false);
+    }
+    openInPictureMode();
+  };
 
   return (
     <section className='embla'>
@@ -27,7 +43,7 @@ const CarouselOnTheatres: React.FC<PropType> = (props) => {
         <div className='embla__container'>
           {media.map((media) => (
             <div className='embla__slide' key={media.id}>
-              <CardMovieOnTheatres media={media} genres={genres} isSerie={isSerie}/>
+              <CardMovieMain media={media} genres={genres} isSerie={isSerie} handleTrailerClick={handleTrailerClick}/>
             </div>
           ))}
         </div>
@@ -49,4 +65,4 @@ const CarouselOnTheatres: React.FC<PropType> = (props) => {
   );
 };
 
-export default CarouselOnTheatres;
+export default MainCarousel;
