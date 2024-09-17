@@ -13,48 +13,47 @@ import TopRated from '@/components/TopRated';
 import Link from 'next/link';
 
 export default function HomePageNotLog() {
-  const upcomingMovies = useMoviesStore(state => state.upcomingMovies);
-  const fecthUpcomingMovies = useMoviesStore(state => state.fetchUpcomingMovies);
-  const moviesNowPlayingStore = useMoviesStore(state => state.moviesNowPlaying);  
-  const fetchMoviesNowPlaying = useMoviesStore(state => state.fetchMoviesNowPlaying);
-  const genres = useMoviesStore(state => state.movieGenres);
-  const fetchGenres = useMoviesStore(state => state.fetchMoviesGenre);
-  const popularMoviesStore = useMoviesStore(state => state.popularMovies);
-  const fetchPopularMovies = useMoviesStore(state => state.fetchPopularMovies);
-  const onAirSeriesStore = useSeriesStore(state => state.onAirSeries);
-  const fetchOnAirSeries = useSeriesStore(state => state.fecthOnAirSeries);
-  const popularSeriesStore = useSeriesStore(state => state.popularSeries);
-  const fetchPopularSeries = useSeriesStore(state => state.fecthPopularSeries);
-  const topRatedMoviesStore = useMoviesStore(state => state.topRatedMovies);
-  const fetchTopRatedMovies = useMoviesStore(state => state.fecthTopRatedMovies);
-  const topRatedSeriesStore = useSeriesStore(state => state.topRatedSeries);
-  const fecthTopRatedSeries = useSeriesStore(state => state.fetchTopRatedSeries);
+  const { 
+    upcomingMovies, 
+    fetchUpcomingMovies, 
+    moviesNowPlaying, 
+    fetchMoviesNowPlaying, 
+    movieGenres, 
+    fetchMoviesGenre, 
+    popularMovies,
+    fetchPopularMovies, 
+    topRatedMovies,
+    fetchTopRatedMovies 
+  } = useMoviesStore(state => state);
+
+  const { 
+    onAirSeries,
+    fetchOnAirSeries,
+    popularSeries,
+    fetchPopularSeries, 
+    topRatedSeries,
+    fetchTopRatedSeries 
+  } = useSeriesStore(state => state);
+  
   const closeSideMenu = useSideMenuStore(state => state.closeSideMenu);
 
   const OPTIONS: EmblaOptionsType = { loop: true };
-  const moviesOnTheatres = Array.from(upcomingMovies);
-  const moviesNowPlaying = Array.from(moviesNowPlayingStore);
-  const popularMovies = Array.from(popularMoviesStore);
-  const onAirSeries = Array.from(onAirSeriesStore);
-  const popularSeries = Array.from(popularSeriesStore);
-  const topRatedMovies = Array.from(topRatedMoviesStore);
-  const topRatedSeries = Array.from(topRatedSeriesStore);
 
   useEffect(() => {
-    fecthUpcomingMovies();
+    fetchUpcomingMovies();
     fetchMoviesNowPlaying(1);
-    fetchGenres(false);
+    fetchMoviesGenre(false);
     fetchPopularMovies(1);
     fetchOnAirSeries(1);
     fetchPopularSeries(1);
     fetchTopRatedMovies(1);
-    fecthTopRatedSeries(1);
-  }, [fecthTopRatedSeries, fecthUpcomingMovies, fetchGenres, fetchMoviesNowPlaying, fetchOnAirSeries, fetchPopularMovies, fetchPopularSeries, fetchTopRatedMovies]);
+    fetchTopRatedSeries(1);
+  }, [fetchUpcomingMovies, fetchMoviesNowPlaying, fetchMoviesGenre, fetchPopularMovies, fetchOnAirSeries, fetchPopularSeries, fetchTopRatedMovies, fetchTopRatedSeries]);
   
   return (
     <main className='flex-grow flex flex-col relative' onClick={closeSideMenu}>
       <WatchTrailer/>
-      <CarouselOnTheatres media={moviesOnTheatres} options={OPTIONS} genres={genres} isSerie={false}/>
+      <CarouselOnTheatres media={upcomingMovies} options={OPTIONS} genres={movieGenres} isSerie={false}/>
       <section>
         <div className='flex flex-col p-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
           <h2 className='font-bold text-lg md:text-xl lg:text-2xl'>
@@ -86,7 +85,7 @@ export default function HomePageNotLog() {
             Ver todo
           </Link>
         </div>
-        <TopRated movies={topRatedMovies} isSerie={false} path={'/top-peliculas'}/>
+        <TopRated media={topRatedMovies} isSerie={false} path={'/top-peliculas'}/>
       </section>
       <section>
         <div className='flex flex-col py-4 pl-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
@@ -119,7 +118,7 @@ export default function HomePageNotLog() {
             Ver todo
           </Link>
         </div>
-        <TopRated movies={topRatedSeries} isSerie={true} path={'/top-series'}/>
+        <TopRated media={topRatedSeries} isSerie={true} path={'/top-series'}/>
       </section>
     </main>
   );

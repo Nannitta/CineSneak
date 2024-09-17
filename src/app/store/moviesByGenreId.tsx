@@ -17,7 +17,7 @@ export const useMoviesByGenreId = create<State>((set) => {
       const moviesByGenre = response.results;
       const pagesMoviesByGenre = response.total_pages;
 
-      set({ moviesByGenre, pagesMoviesByGenre });
+      set({ moviesByGenre: Array.from(moviesByGenre), pagesMoviesByGenre });
     }
   };
 });

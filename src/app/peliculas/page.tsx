@@ -15,21 +15,20 @@ import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarous
 const league = League_Spartan({ subsets: ['latin'] });
 
 export default function Movies() {
-  const fetchGenres = useMoviesStore((state) => state.fetchMoviesGenre);
-  const fetchPopularMovies = useMoviesStore((state) => state.fetchPopularMovies);
-  const fetchMoviesNowPlaying = useMoviesStore((state) => state.fetchMoviesNowPlaying);
-  const popularMoviesStore = useMoviesStore((state) => state.popularMovies);
-  const genres = useMoviesStore((state) => state.movieGenres);
-  const moviesNowPlayingStore = useMoviesStore((state) => state.moviesNowPlaying);
-  const moviesByGenreId = useMoviesByGenreId((state) => state.moviesByGenre);
-  const fetchMoviesByGenreId = useMoviesByGenreId((state) => state.fetchMoviesByGenreId);
-  const moviesCollection = useMoviesCollectionStore((state) => state.moviesCollection);
-  const fetchMoviesCollection = useMoviesCollectionStore((state) => state.fetchMoviesCollections);
+  const { 
+    fetchMoviesGenre, 
+    fetchPopularMovies, 
+    fetchMoviesNowPlaying, 
+    popularMovies, 
+    movieGenres, 
+    moviesNowPlaying 
+  } = useMoviesStore((state) => state);
+
+  const { moviesByGenre, fetchMoviesByGenreId } = useMoviesByGenreId((state) => state);
+
+  const { moviesCollection, fetchMoviesCollections } = useMoviesCollectionStore((state) => state);
 
   const OPTIONS: EmblaOptionsType = { loop: true };
-  const popularMovies = Array.from(popularMoviesStore);
-  const moviesNowPlaying = Array.from(moviesNowPlayingStore);
-  const moviesByGenre = Array.from(moviesByGenreId);
 
   const [selectedGenreId, setSelectedGenreId] = useState<number>(28);
   const [selectedGenreName, setSelectedGenreName] = useState<string>('Acción');
@@ -43,17 +42,17 @@ export default function Movies() {
   };
 
   useEffect(() => {
-    fetchGenres(false);
+    fetchMoviesGenre(false);
     fetchPopularMovies(1);
     fetchMoviesNowPlaying(1);
     fetchMoviesByGenreId(28, 1);
-    fetchMoviesCollection();
+    fetchMoviesCollections();
   }, [
-    fetchGenres,
+    fetchMoviesGenre,
     fetchPopularMovies,
     fetchMoviesNowPlaying,
     fetchMoviesByGenreId,
-    fetchMoviesCollection,
+    fetchMoviesCollections,
   ]);
 	
   return (
@@ -62,7 +61,7 @@ export default function Movies() {
       <CarouselOnTheatres
         media={popularMovies}
         options={OPTIONS}
-        genres={genres}
+        genres={movieGenres}
         isSerie={false}
       />
       <section>
@@ -88,7 +87,7 @@ export default function Movies() {
 					¡Explora! Cada género tiene una historia que contar
         </h2>
         <ul className="flex flex-wrap gap-4 px-4 *:flex *:items-center *:flex-none *:px-4 *:py-2 *:rounded-3xl *:border-2 *:border-white *:cursor-pointer lg:px-6 lg:flex-wrap">
-          {genres.map((genre) => {
+          {movieGenres.map((genre) => {
             const isSelected = genre.id === selectedGenreId;
             return (
               <li

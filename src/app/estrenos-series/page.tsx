@@ -6,9 +6,7 @@ import { useSeriesStore } from '@/store/series';
 import { useEffect, useState } from 'react';
 
 export default function MoviesNowPlaying() {
-  const onAirSeries = useSeriesStore(state => state.onAirSeries);
-  const numberPages = useSeriesStore(state => state.pagesOnAirSeries);
-  const fetchOnAirSeries = useSeriesStore(state => state.fecthOnAirSeries);
+  const {onAirSeries, pagesOnAirSeries, fetchOnAirSeries} = useSeriesStore(state => state);
 
   const [page, setPage] = useState<number>(1);
   const handleSetPage = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -37,7 +35,7 @@ export default function MoviesNowPlaying() {
         </ul>
       </section>
       <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
-        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={numberPages}/>
+        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesOnAirSeries}/>
       </div>
     </main>
   );
