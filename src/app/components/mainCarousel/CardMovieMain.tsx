@@ -1,8 +1,6 @@
 import { League_Spartan } from 'next/font/google';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
 import Tag from '@/components//Tag';
-import { useMoviesStore } from '@/store/movies';
-import { useInPictureModeStore } from '@/store/inPictureMode';
 import { Genre, MovieDetails, SerieDetails } from '@/types/types';
 import { Calendar, Play } from '@/lib/Svg';
 import { formatDate } from '@/lib/format';
@@ -10,17 +8,16 @@ import PrimaryButton from '@/components/PrimaryButton';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
-interface CardMovieOnTheatresProps {
+interface CardMainCarouselProps {
   media: MovieDetails | SerieDetails
   genres: Genre[]
   isSerie: boolean
+  handleTrailerClick: (id: number, isSerie: boolean) => Promise<void>
 }
 
-export default function CardMovieOnTheatres({ media, genres, isSerie }: CardMovieOnTheatresProps) {
+export default function CardMainCarousel({ media, genres, isSerie, handleTrailerClick }: CardMainCarouselProps) {
   const {screenSize} = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
-  const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
-  const openInPictureMode = useInPictureModeStore(state => state.openPictureMode);
 
   const getGenreNames = (ids: number[]) => {
     return ids.map(id => {
@@ -30,11 +27,6 @@ export default function CardMovieOnTheatres({ media, genres, isSerie }: CardMovi
       }
       return null;
     }).filter(Boolean).slice(0,2);
-  };
-
-  const handleTrailerClick = async (id: number, isSerie: boolean) => {
-    await fetchMovieTrailer(id, isSerie);
-    openInPictureMode();
   };
 
   const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
@@ -68,7 +60,7 @@ export default function CardMovieOnTheatres({ media, genres, isSerie }: CardMovi
                   fill={'white'}
                 />
               }
-              onClick={() => handleTrailerClick(media.id, false)}
+              onClick={isSerie ? () => handleTrailerClick(media.id, true) : () => handleTrailerClick(media.id, false)}
             />
             <div className='flex font-light gap-2 text-[10px] md:gap-4 md:text-sm'>
               {
@@ -91,7 +83,7 @@ export default function CardMovieOnTheatres({ media, genres, isSerie }: CardMovi
                   fill={'white'}
                 />
               }
-              onClick={() => handleTrailerClick(media.id, false)}
+              onClick={isSerie ? () => handleTrailerClick(media.id, true) : () => handleTrailerClick(media.id, false)}
             />
           </>
         }

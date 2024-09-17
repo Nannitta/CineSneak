@@ -79,7 +79,7 @@ const WatchMedia = () => {
    
   return (
     <main className='flex-grow flex flex-col'>
-      <WatchTrailer />
+      <WatchTrailer isSerie={media === 'movie' ? false : true}/>
       {
         mediaDetails && media === 'movie'
           ? <MovieDetailsComponent

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { getMovieGenres, getMovieTrailer, getMoviesNowPlaying, getMoviesUpcoming, getPopularMovies, getTopRatedMovies } from '@/services';
+import { getGenres, getTrailer, getMoviesNowPlaying, getMoviesUpcoming, getPopularMovies, getTopRatedMovies } from '@/services';
 import { Genre, Trailer, MovieDetails } from '@/types/types';
 
 interface State {
@@ -45,12 +45,12 @@ export const useMoviesStore = create<State>((set) => {
       set({ moviesNowPlaying: Array.from(moviesNowPlaying), pagesMoviesNowPlaying });
     },
     fetchMoviesGenre: async (isSerie: boolean) => {
-      const movieGenres = await getMovieGenres(isSerie);
+      const movieGenres = await getGenres(isSerie);
 
       set({ movieGenres });
     },
     fetchMovieTrailers: async (id: number, isSerie: boolean) => {    
-      const allVideos = await getMovieTrailer(id, isSerie);            
+      const allVideos = await getTrailer(id, isSerie);            
       const trailers = allVideos.filter((movie: Trailer) => movie.type === 'Trailer' || movie.type === 'Opening Credits');
       if(trailers.length <= 0) return;
         

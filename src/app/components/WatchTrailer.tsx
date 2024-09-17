@@ -7,29 +7,48 @@ import { Close } from '@/lib/Svg';
 import BlockScroll from '@/components/BlockScroll';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useSeriesStore } from '@/store/series';
 
-export default function WatchTrailer() {
-  const movieTrailer = useMoviesStore(state => state.movieTrailer);
-  const resetMovieTrailer = useMoviesStore(state => state.resetMovieTrailer);
-  const minimizePictureMode = useInPictureModeStore(state => state.minimizePictureMode);
-  const closePictureMode = useInPictureModeStore(state => state.closePictureMode);
-  const isMinimize = useInPictureModeStore(state => state.isMinimize);
-  const isInPictureMode = useInPictureModeStore(state => state.isInPictureMode);
-  const isHover = useInPictureModeStore(state => state.isHover);
-  const setHover = useInPictureModeStore(state => state.setHover);
+interface TrailerDetails {
+  isSerie: boolean
+}
+
+export default function WatchTrailer({ isSerie }: TrailerDetails) {
+  const { 
+    movieTrailer,
+    resetMovieTrailer 
+  } = useMoviesStore(state => state);
+
+  const {
+    serieTrailer,
+    resetSerieTrailer
+  } = useSeriesStore(state => state);
+
+  const { 
+    minimizePictureMode,
+    closePictureMode,
+    isMinimize,
+    isInPictureMode,
+    isHover,
+    setHover
+  } = useInPictureModeStore(state => state);
+
   const {screenSize} = CheckWindowWidth();
 
   const pathName = usePathname();
   const [oldPathName, setOldPathName] = useState<string>('');
 
   useEffect(() => {
-    if(pathName !== oldPathName) {
+    if(pathName !== oldPathName && !isSerie) {
       closePictureMode();
       resetMovieTrailer();
+    } else if (pathName !== oldPathName && isSerie) {
+      closePictureMode();
+      resetSerieTrailer();
     } else {
       setOldPathName(pathName);
     }
-  },[pathName, oldPathName, closePictureMode, resetMovieTrailer]);
+  },[pathName, oldPathName, closePictureMode, resetMovieTrailer, resetSerieTrailer, isSerie]);
 
   const handleClose = () => {
     closePictureMode();
@@ -39,7 +58,7 @@ export default function WatchTrailer() {
   const handleMouseEnter = () => setHover(true);
   const handleMouseLeave = () => setHover(false);  
 
-  if(movieTrailer !== '') {
+  if(movieTrailer !== '' || serieTrailer !== '') {
     return(
       <div>
         <BlockScroll isModalOpen={isInPictureMode && !isMinimize}/>
@@ -60,7 +79,7 @@ export default function WatchTrailer() {
             </div>
             : null
         }
-        <aside className={`${movieTrailer === '' || isInPictureMode === false 
+        <aside className={`${movieTrailer === '' || serieTrailer === '' || isInPictureMode === false 
           ? 'hidden' 
           : (isMinimize 
             ? 'flex fixed bottom-0 right-0 z-30' 
@@ -80,7 +99,7 @@ export default function WatchTrailer() {
               id='youtube-iframe'
               width={'100%'}
               height={'100%'}
-              src={`https://www.youtube.com/embed/${movieTrailer}?enablejsapi=1&autoplay=1`}
+              src={`https://www.youtube.com/embed/${isSerie ? serieTrailer : movieTrailer}?enablejsapi=1&autoplay=1`}
               encrypted-media={'true'}
               allowFullScreen
               allow='autoplay'

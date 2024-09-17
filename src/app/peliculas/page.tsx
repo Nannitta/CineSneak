@@ -1,7 +1,7 @@
 'use client';
 
 import { League_Spartan } from 'next/font/google';
-import CarouselOnTheatres from '@/components/carouselOnTheatres/Carousel';
+import MainCarousel from '@/components/mainCarousel/MainCarousel';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import WatchTrailer from '@/components/WatchTrailer';
 import { useMoviesStore } from '@/store/movies';
@@ -57,8 +57,8 @@ export default function Movies() {
 	
   return (
     <main className="flex flex-col flex-grow">
-      <WatchTrailer />
-      <CarouselOnTheatres
+      <WatchTrailer isSerie={false}/>
+      <MainCarousel
         media={popularMovies}
         options={OPTIONS}
         genres={movieGenres}
