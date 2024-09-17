@@ -4,20 +4,20 @@ import React, { useState } from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import './verticalCarousel.css';
-import { MediaContent } from '@/types/types';
+import { MovieDetails, SerieDetails } from '@/types/types';
 import VerticalCardCarousel from '@/components/verticalCarousel/VerticalCardMovie';
 import { RightArrow } from '@/lib/Svg';
 import Link from 'next/link';
 
 interface PropType {
-  movies: MediaContent[]
+  media: MovieDetails[] | SerieDetails[]
   options?: EmblaOptionsType
   isSerie: boolean
   path: string
 }
 
 const VerticalCarousel: React.FC<PropType> = (props) => { 
-  const { movies, options, isSerie, path } = props;
+  const { media, options, isSerie, path } = props;
   const [emblaRef] = useEmblaCarousel(options);
   const [color, setColor] = useState<string>('#C3C3C3');
 
@@ -33,9 +33,9 @@ const VerticalCarousel: React.FC<PropType> = (props) => {
     <section className='embla'>
       <div className='embla__viewport' ref={emblaRef}>
         <div className='embla__container vertical__container flex mr-4 lg:mr-6'>
-          {movies.map((movie) => (
-            <div className='embla__slide vertical__slide' key={movie.id}>
-              <VerticalCardCarousel movie={movie} isSerie={isSerie}/>
+          {media.map((media) => (
+            <div className='embla__slide vertical__slide' key={media.id}>
+              <VerticalCardCarousel media={media} isSerie={isSerie}/>
             </div>
           ))}
           <Link href={path}>

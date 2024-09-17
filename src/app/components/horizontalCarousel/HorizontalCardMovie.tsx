@@ -1,18 +1,22 @@
-import { MediaContent } from '@/types/types';
+import { MovieDetails, SerieDetails } from '@/types/types';
 import Image from 'next/image';
 import { Plus } from '@/lib/Svg';
 import Link from 'next/link';
 
 interface VerticalCard {
-  movie: MediaContent
+  media: MovieDetails | SerieDetails
   isSerie: boolean
 }
 
-export default function HorizontalCardCarousel({ movie, isSerie }: VerticalCard) {
+export default function HorizontalCardCarousel({ media, isSerie }: VerticalCard) {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+
+  const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
+    return isSerie;
+  };
   
   return (
-    <Link href={`/${isSerie ? 'tv' : 'movie'}/${movie.id}`}>
+    <Link href={`/${isSerie ? 'tv' : 'movie'}/${media.id}`}>
       <article className='w-[300px]'>
         <div className='group'>
           <div className='w-[300px] h-[168px] relative rounded-lg overflow-hidden'>
@@ -20,8 +24,8 @@ export default function HorizontalCardCarousel({ movie, isSerie }: VerticalCard)
               className='overlay w-[300px] h-[168px]'>
             </div>
             <Image
-              src={`${movie.backdrop_path ? imgURL + movie.backdrop_path : imgURL + movie.poster_path}`}
-              alt={`Portada de la película ${movie.title || movie.name}`}
+              src={`${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`}
+              alt={`Portada de la película ${isSerieMedia(media) ? media.name : media.title}`}
               fill={true}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className='object-cover rounded-lg'
@@ -34,7 +38,7 @@ export default function HorizontalCardCarousel({ movie, isSerie }: VerticalCard)
             </div>
           </div>
           <p className='min-w-60 max-w-64 line-clamp-1 z-10 absolute bottom-3 pl-4 text-xs text-white lg:text-gray lg:group-hover:text-white font-extralight md:text-sm transition duration-300'>
-            {movie.title || movie.name}
+            {isSerieMedia(media) ? media.name : media.title}
           </p>
         </div>
       </article>

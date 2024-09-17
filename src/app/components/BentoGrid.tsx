@@ -1,24 +1,28 @@
 'use client';
 
 import { Plus, RightArrow } from '@/lib/Svg';
-import { MediaContent } from '@/types/types';
+import { MovieDetails, SerieDetails } from '@/types/types';
 import Image from 'next/image';
 import Link from 'next/link';
 
 interface BentoGridProps {
-  movies: MediaContent[]
+  media: MovieDetails[] | SerieDetails[]
   isSerie: boolean
   path: string
 }
 
-const BentoGrid = ({ movies, isSerie, path }: BentoGridProps) => {
+const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
+  const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
+    return isSerie;
+  };
+  
   return (
     <div className="max-w-[1920px] px-6 max-h-[897px]">
       <div className="grid grid-cols-top-rated gap-4 grid-rows-top-rated">
-        {movies.slice(0,10).map((movie: MediaContent, index: number) => (
-          <Link href={`/${isSerie ? 'tv' : 'movie'}/${movie.id}`} key={movie.id}
+        {media.slice(0,10).map((media, index: number) => (
+          <Link href={`/${isSerie ? 'tv' : 'movie'}/${media.id}`} key={media.id}
             className={`relative group
               ${index === 1 || index === 3 || index === 4 ? 'row-span-2'
             : (index === 5 ? 'row-span-3'
@@ -27,14 +31,14 @@ const BentoGrid = ({ movies, isSerie, path }: BentoGridProps) => {
                   : (index === 8 ? 'row-start-4 row-end-6'
                     : (index === 9 ? 'col-start-4 col-end-6 row-start-3 row-end-6' : '')))))}`}>
             <Image
-              src={movie.backdrop_path ? imgURL + movie.backdrop_path : imgURL + movie.poster_path}
-              alt={`Cartel de la película ${movie.title || movie.name}`}
+              src={media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}
+              alt={`Cartel de la película ${isSerieMedia(media) ? media.name : media.title}`}
               fill={true}
               className="rounded-lg object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
             <div className="overlay text-gray text-sm p-2 pl-4 rounded-b-lg">
-              {movie.title || movie.name}
+              {isSerieMedia(media) ? media.name : media.title}
             </div>
             <div className='absolute inset-0 z-20 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg'>
               <span className='text-white text-sm font-bold opacity-0 lg:group-hover:opacity-100 transition duration-300 flex items-center gap-1'>

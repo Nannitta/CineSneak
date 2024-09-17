@@ -30,7 +30,7 @@ export default function MoviesNowPlaying() {
           {moviesNowPlayingStore.filter((movie) => movie.poster_path !== null).map((movie) => {
             return(
               <li key={movie.id}>
-                <VerticalCardCarousel movie={movie} isSerie={false}/>
+                <VerticalCardCarousel media={movie} isSerie={false}/>
               </li>
             );
           })}

@@ -60,7 +60,7 @@ export default function Movies() {
     <main className="flex flex-col flex-grow">
       <WatchTrailer />
       <CarouselOnTheatres
-        moviesOnTheatres={popularMovies}
+        media={popularMovies}
         options={OPTIONS}
         genres={genres}
         isSerie={false}
@@ -78,7 +78,7 @@ export default function Movies() {
           </Link>
         </div>
         <VerticalCarousel
-          movies={moviesNowPlaying}
+          media={moviesNowPlaying}
           isSerie={false}
           path={'/exitos-taquilla'}
         />
@@ -108,7 +108,7 @@ export default function Movies() {
         <div className="py-5">
           {selectedGenreId && (
             <VerticalCarousel
-              movies={moviesByGenre}
+              media={moviesByGenre}
               isSerie={false}
               path={`/peliculas/${selectedGenreId}/${selectedGenreName}`}
             />
@@ -128,7 +128,7 @@ export default function Movies() {
 						    <p className='relative z-[1] px-4 mb-4 lg:px-6 text-sm font-normal text-gray text-balance line-clamp-6 md:w-[85%] lg:text-wrap md:text-base lg:w-[60%]'>{moviesCollection.overview}</p>
 						  </div>
 						  <div className='mb-8 lg:mb-20'>
-						    <HorizontalCarousel movies={moviesCollection.parts} isSerie={false}/>
+						    <HorizontalCarousel media={moviesCollection.parts} isSerie={false}/>
 						  </div>
 						</div>
         }

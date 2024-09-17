@@ -133,14 +133,14 @@ export async function getDetails(id: number, isSerie: boolean) {
     const response = await data.json();
     return response;
   }
-
+  
   const data = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=es-ES`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }
   });
-
-  const response = await data.json();
+  
+  const response = await data.json(); 
   return response;
 }
 

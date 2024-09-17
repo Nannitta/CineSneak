@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import { getMoviesByGenreId } from '@/services';
-import { MediaContent } from '@/types/types';
+import { MovieDetails } from '@/types/types';
 
 interface State {
-  moviesByGenre: MediaContent[]
+  moviesByGenre: MovieDetails[]
   pagesMoviesByGenre: number
   fetchMoviesByGenreId: (id: number, page: number) => Promise<void> 
 }
