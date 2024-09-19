@@ -30,7 +30,7 @@ const config: Config = {
       },
       gridTemplateRows: {
         'top-rated': '256px 175px 97px 81px 256px',
-        'movie-details-sm': '72px 116px 20px 24px 34px',
+        'movie-details-sm': '72px 105px 20px 35px 34px',
         'movie-details-md': '77px 101px 20px 34px 55px',
         'movie-details-laptop': '127px 34px 20px 34px 213px 28px 36px 56px 160px',
         'movie-details-lg': '127px 34px 20px 34px 213px 28px 36px'
