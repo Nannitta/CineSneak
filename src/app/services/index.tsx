@@ -242,3 +242,14 @@ export async function getSeriesOfTheDay() {
   const response = await data.json();
   return response;
 }
+
+export async function getSeriesByGenreId(id: number, page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=es-ES&page=${page}&sort_by=popularity.desc&with_genres=${id}`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response;
+}
