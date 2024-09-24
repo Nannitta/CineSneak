@@ -1,13 +1,20 @@
 'use client';
 
+import LastEpisode from '@/components/LastEpisode';
 import WatchTrailer from '@/components/WatchTrailer';
+import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import MainCarousel from '@/components/mainCarousel/MainCarousel';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
+import { useMediaDetailsStore } from '@/store/mediaDetails';
 import { useSeriesStore } from '@/store/series';
 import { useSeriesByGenreId } from '@/store/seriesByGenreId';
+import { SerieDetails } from '@/types/types';
 import { EmblaOptionsType } from 'embla-carousel';
+import { League_Spartan } from 'next/font/google';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+
+const league = League_Spartan({ subsets: ['latin'] });
 
 export default function Series() {
   const { 
@@ -15,8 +22,12 @@ export default function Series() {
     fetchSeriesOfTheDay, 
     serieGenres, 
     fetchSerieGenre,
-    fetchOnAirSeries,
-    onAirSeries 
+    fetchAiringToday,
+    airingToday,
+    topRatedSeries,
+    fetchTopRatedSeries,
+    recommendedSerie,
+    getRecommendedSerie 
   } = useSeriesStore(state => state);
 
   const {
@@ -24,10 +35,18 @@ export default function Series() {
     fetchSeriesByGenreId
   } = useSeriesByGenreId(state => state);
 
+  const {
+    mediaDetails,
+    fetchMediaDetails
+  } = useMediaDetailsStore(state => state);
+
   const OPTIONS: EmblaOptionsType = { loop: true };
 
   const [selectedGenreId, setSelectedGenreId] = useState<number>(10759);
   const [selectedGenreName, setSelectedGenreName] = useState<string>('Action & Adventure');
+  const [serieDetails, setSerieDetails] = useState<SerieDetails | null>(null);
+
+  const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
   const handleGenreClick = (id: number, name: string) => {
     setSelectedGenreId(id);
@@ -38,9 +57,28 @@ export default function Series() {
   useEffect(() => {
     fetchSeriesOfTheDay();
     fetchSerieGenre(true);
-    fetchOnAirSeries(1);
+    fetchAiringToday(1);
     fetchSeriesByGenreId(10759, 1);
-  }, [fetchSeriesOfTheDay, fetchSerieGenre, fetchOnAirSeries, fetchSeriesByGenreId]);
+    fetchTopRatedSeries(1);
+  }, [fetchSeriesOfTheDay, fetchSerieGenre, fetchAiringToday, fetchSeriesByGenreId, fetchTopRatedSeries]);  
+ 
+  useEffect(() => {
+    if (topRatedSeries.length > 0) {
+      getRecommendedSerie(topRatedSeries);
+    }
+  }, [topRatedSeries, getRecommendedSerie]);
+  
+  useEffect(() => {
+    if(recommendedSerie) {
+      fetchMediaDetails(recommendedSerie.id, true);
+    }
+  }, [recommendedSerie, fetchMediaDetails]);
+
+  useEffect(() => {
+    if (mediaDetails) {
+      setSerieDetails(mediaDetails as SerieDetails);
+    }
+  }, [mediaDetails]);
 
   return(
     <main className="flex flex-col flex-grow">
@@ -64,7 +102,7 @@ export default function Series() {
           </Link>
         </div>
         <VerticalCarousel
-          media={onAirSeries}
+          media={airingToday}
           isSerie={true}
           path={'/estrenos-series'}
         />
@@ -100,6 +138,27 @@ export default function Series() {
             />
           )}
         </div>
+      </section>
+      <section>
+        <h2 className="font-bold text-lg p-4 md:text-xl md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6 lg:text-2xl">
+            La joya del día: ¡Descubre una de las series mejor valoradas!
+        </h2>
+        <Link href={`tv/${recommendedSerie?.id}`}>
+          {
+            recommendedSerie && serieDetails &&
+              <div className='relative w-full h-[27rem] flex flex-col justify-between md:h-[420px] lg:h-[556px] bg-cover bg-no-repeat bg-center' style={{ backgroundImage: `url('${recommendedSerie.backdrop_path ? imgURL + recommendedSerie.backdrop_path : imgURL + recommendedSerie.poster_path}')` }}>
+                <div>
+                  <div className='absolute inset-0 bg-black bg-opacity-70'></div>
+                  <h3 className={`relative z-[1] uppercase font-black ${league.className} px-4 mt-8 mb-4 text-2xl md:w-[85%] lg:mt-20 lg:text-4xl lg:px-6 lg:w-[60%]`}>{recommendedSerie.name}</h3>
+                  <h4 className='relative z-[1] px-4 text-gray text-xs mb-2 md:text-sm lg:px-6'>{serieDetails.number_of_seasons} temporadas · {serieDetails.number_of_episodes} capítulos</h4>
+                  <p className='relative z-[1] px-4 mb-4 lg:px-6 text-sm font-normal text-gray text-balance line-clamp-6 md:w-[85%] lg:text-wrap md:text-base lg:w-[60%]'>{recommendedSerie.overview}</p>
+                  {/*                   <div className='relative z-[1]'>
+                    <LastEpisode media={serieDetails} />
+                  </div> */}
+                </div>
+              </div>
+          }
+        </Link>
       </section>
     </main>
   );

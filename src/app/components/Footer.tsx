@@ -21,7 +21,7 @@ export default function Footer() {
           }
         </div>
         <div className='flex flex-col'>
-          <h3 className='font-bold text-xs md:text-sm lg:min-w-max'>DESARROLLADO CON</h3>
+          <h1 className='font-bold text-xs md:text-sm lg:min-w-max'>DESARROLLADO CON</h1>
           <ul className='*:text-xs *:text-center *:pt-2 *:text-gray *:md:text-left *:md:text-sm *:lg:pt-4'>
             <li>React.js</li>
             <li>Next.js</li>
@@ -32,7 +32,7 @@ export default function Footer() {
       </div>
       <div className='flex flex-col gap-4 place-items-center md:place-items-start lg:flex-row lg:gap-32'>
         <div className='flex flex-col gap-4'>
-          <h3 className='font-bold text-xs text-center md:text-left lg:text-center md:text-sm'>CONTÁCTAME</h3>
+          <h2 className='font-bold text-xs text-center md:text-left lg:text-center md:text-sm'>CONTÁCTAME</h2>
           <ul className='flex gap-6'>
             <li>
               <Github
@@ -65,7 +65,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className='flex flex-col gap-4'>
-          <h3 className='font-bold text-xs text-center md:text-left md:text-sm'>POR QUÉ CINESNEAK</h3>
+          <h2 className='font-bold text-xs text-center md:text-left md:text-sm'>POR QUÉ CINESNEAK</h2>
           <p className='text-xs text-gray text-center leading-5 font-light md:text-left md:text-sm md:text-balance lg:leading-7'>CineSneak ha sido creada con el propósito de aprender y desarrollar nuevas habilidades. A través de esta plataforma, he buscado expandir mi conocimiento tecnológico mientras construyo una experiencia de entretenimiento digital para ti.</p>
         </div>
       </div>
