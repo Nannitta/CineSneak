@@ -253,3 +253,14 @@ export async function getSeriesByGenreId(id: number, page: number) {
   const response = await data.json();
   return response;
 }
+
+export async function getSeriesAiringToday(page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/tv/airing_today?language=es-ES&page=${page}`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();  
+  return response;
+}

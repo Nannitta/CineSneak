@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { getGenres, getOnAirSeries, getPopularSeries, getSeriesOfTheDay, getTopRatedSeries, getTrailer } from '@/services';
+import { getGenres, getOnAirSeries, getPopularSeries, getSeriesAiringToday, getSeriesOfTheDay, getTopRatedSeries, getTrailer } from '@/services';
 import { Genre, SerieDetails, Trailer } from '@/types/types';
 
 interface State {
@@ -17,8 +17,13 @@ interface State {
   serieGenres: Genre[]
   fetchSerieGenre: (isSerie: boolean) => Promise<void>
   serieTrailer: string
-  fetchSerieTrailers: (is: number, isSerie: boolean) => Promise<void>
+  fetchSerieTrailers: (id: number, isSerie: boolean) => Promise<void>
   resetSerieTrailer: () => void
+  airingToday: SerieDetails[]
+  fetchAiringToday: (page: number) => Promise<void>
+  pagesAiringToday: number
+  recommendedSerie: SerieDetails | null
+  getRecommendedSerie: (data: SerieDetails[]) => void
 }
 
 export const useSeriesStore = create<State>((set) => {
@@ -32,6 +37,9 @@ export const useSeriesStore = create<State>((set) => {
     seriesOfTheDay: [],
     serieGenres: [],
     serieTrailer: '',
+    airingToday: [],
+    pagesAiringToday: 0,
+    recommendedSerie: null,
     fetchOnAirSeries: async (page: number) => {
       const response = await getOnAirSeries(page);
       const onAirSeries = response.results;
@@ -78,5 +86,18 @@ export const useSeriesStore = create<State>((set) => {
 
       set({ serieTrailer });
     },
+    fetchAiringToday: async (page: number) => {
+      const response = await getSeriesAiringToday(page);
+      const airingToday = response.results;
+      const pagesAiringToday = response.total_pages;
+
+      set({ airingToday, pagesAiringToday });
+    },
+    getRecommendedSerie: (data: SerieDetails[]) => {
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const recommendedSerie = data[randomIndex];
+
+      set({ recommendedSerie });
+    }
   };
 });
