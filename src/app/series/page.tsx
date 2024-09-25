@@ -5,12 +5,14 @@ import WatchTrailer from '@/components/WatchTrailer';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import MainCarousel from '@/components/mainCarousel/MainCarousel';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
+import { formatEpisodeNumber } from '@/lib/format';
 import { useMediaDetailsStore } from '@/store/mediaDetails';
 import { useSeriesStore } from '@/store/series';
 import { useSeriesByGenreId } from '@/store/seriesByGenreId';
 import { SerieDetails } from '@/types/types';
 import { EmblaOptionsType } from 'embla-carousel';
 import { League_Spartan } from 'next/font/google';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -146,15 +148,27 @@ export default function Series() {
         <Link href={`tv/${recommendedSerie?.id}`}>
           {
             recommendedSerie && serieDetails &&
-              <div className='relative w-full h-[27rem] flex flex-col justify-between md:h-[420px] lg:h-[556px] bg-cover bg-no-repeat bg-center' style={{ backgroundImage: `url('${recommendedSerie.backdrop_path ? imgURL + recommendedSerie.backdrop_path : imgURL + recommendedSerie.poster_path}')` }}>
+              <div className='relative w-full h-[31rem] flex flex-col justify-between md:h-[500px] lg:h-[556px] bg-cover bg-no-repeat bg-center' style={{ backgroundImage: `url('${recommendedSerie.backdrop_path ? imgURL + recommendedSerie.backdrop_path : imgURL + recommendedSerie.poster_path}')` }}>
                 <div>
                   <div className='absolute inset-0 bg-black bg-opacity-70'></div>
                   <h3 className={`relative z-[1] uppercase font-black ${league.className} px-4 mt-8 mb-4 text-2xl md:w-[85%] lg:mt-20 lg:text-4xl lg:px-6 lg:w-[60%]`}>{recommendedSerie.name}</h3>
                   <h4 className='relative z-[1] px-4 text-gray text-xs mb-2 md:text-sm lg:px-6'>{serieDetails.number_of_seasons} temporadas · {serieDetails.number_of_episodes} capítulos</h4>
                   <p className='relative z-[1] px-4 mb-4 lg:px-6 text-sm font-normal text-gray text-balance line-clamp-6 md:w-[85%] lg:text-wrap md:text-base lg:w-[60%]'>{recommendedSerie.overview}</p>
-                  {/*                   <div className='relative z-[1]'>
-                    <LastEpisode media={serieDetails} />
-                  </div> */}
+                  <h4 className='px-4 relative z-[1] text-sm pb-2 lg:px-6 lg:text-lg'>Último capítulo</h4>
+                  <div className='min-w-[300px] max-w-[300px] h-[169px] relative mx-4 lg:mx-6'>
+                    <div className='w-full h-[169px] absolute z-10 bg-gradient-to-t from-black to-transparent rounded-lg flex gap-2 items-end pb-2 pl-2 text-sm text-gray'>
+                      <h5>{serieDetails.last_episode_to_air?.season_number}x{formatEpisodeNumber(serieDetails.last_episode_to_air?.episode_number)}</h5>
+                      <h5 className='line-clamp-1'>{serieDetails.last_episode_to_air?.name}</h5>
+                    </div>
+                    <Image
+                      src={`${serieDetails.last_episode_to_air?.still_path ? imgURL + serieDetails.last_episode_to_air.still_path : (serieDetails.backdrop_path ? imgURL + serieDetails.backdrop_path : imgURL + serieDetails.poster_path)}`}
+                      alt={`Portada del episodio ${serieDetails.last_episode_to_air?.name}`}
+                      fill={true}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className='object-cover rounded-lg'
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
           }
