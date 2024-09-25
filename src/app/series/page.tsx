@@ -11,6 +11,7 @@ import { useSeriesByGenreId } from '@/store/seriesByGenreId';
 import WatchTrailer from '@/components/WatchTrailer';
 import MainCarousel from '@/components/mainCarousel/MainCarousel';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
+import ListGenres from '@/components/ListGenres';
 import { formatEpisodeNumber } from '@/lib/format';
 import { SerieDetails } from '@/types/types';
 
@@ -111,24 +112,7 @@ const Series = () => {
         <h2 className="font-bold text-lg p-4 md:text-xl md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6 lg:text-2xl">
 					Historias únicas en cada género
         </h2>
-        <ul className="flex flex-wrap gap-4 px-4 *:flex *:items-center *:flex-none *:px-4 *:py-2 *:rounded-3xl *:border-2 *:border-white *:cursor-pointer lg:px-6 lg:flex-wrap">
-          {serieGenres.map((genre) => {
-            const isSelected = genre.id === selectedGenreId;
-            return (
-              <li
-                key={genre.id}
-                className={`cursor-pointer px-4 py-2 rounded-3xl border-2 border-white ${
-                  isSelected
-                    ? 'bg-white text-black'
-                    : 'hover:bg-white hover:text-black'
-                }`}
-                onClick={() => handleGenreClick(genre.id, genre.name)}
-              >
-                {genre.name}
-              </li>
-            );
-          })}
-        </ul>
+        <ListGenres handleGenreClick={handleGenreClick} listGenres={serieGenres} selectedGenreId={selectedGenreId}/>
         <div className="py-5">
           {selectedGenreId && (
             <VerticalCarousel
