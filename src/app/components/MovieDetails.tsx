@@ -23,21 +23,27 @@ interface MovieDetailsProps {
 
 const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames }: MovieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
-  const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE; 
+  const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const imgSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`;
+  const webpImgSrc: string = `/api/convertImage?url=${imgSrc}`;   
+ 
+  const posterURL: string | undefined = process.env.NEXT_PUBLIC_POSTER_IMAGE_780;
+  const posterSrc : string = `${posterURL + media.poster_path}`;
+  const webpPosterSrc: string = `/api/convertImage?url=${posterSrc}`;  
 
   return (
     <div className="relative">
       <div className="relative">
         <div
           className="w-full h-60 md:h-80 lg:h-[556px] bg-cover bg-no-repeat bg-center"
-          style={{ backgroundImage: `url('${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}')` }}>
+          style={{ backgroundImage: `url(${webpImgSrc})` }}>
         </div>
         <div className="w-full h-60 absolute bg-gradient-to-t from-black to-transparent md:h-80 lg:h-[556px] top-0"></div>
       </div>
       <section className="relative px-4 grid grid-cols-movie-details-sm grid-rows-movie-details-sm gap-2 md:grid-cols-movie-details-md md:grid-rows-movie-details-md lg:px-6 lg:grid-cols-movie-details-lg 2xl:grid-rows-movie-details-lg lg:-mt-64 laptop:grid-rows-movie-details-laptop">
         <div
           className="w-40 h-64 relative shadow-2xl lg:w-80 lg:h-[540px]">
-          <Image src={`${imgURL + media.poster_path}`} alt={`Póster de la película ${media.title}`} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover rounded-lg" />
+          <Image src={webpPosterSrc} alt={`Póster de la película ${media.title}`} fill={true} className="object-cover rounded-lg" />
         </div>
         <ListLogoProviders providersLogo={providersLogo}/>
         <h1 className={`uppercase font-black ${league.className} text-balance col-start-2 col-end-3 row-start-2 row-end-3 ml-2 text-sm md:text-xl lg:self-end lg:ml-0`}>
