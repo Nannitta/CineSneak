@@ -19,7 +19,7 @@ const CardMainCarousel = ({ media, genres, isSerie, handleTrailerClick }: CardMa
   const {screenSize} = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const imageSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`;  
-  const webpImageSrc: string = `/api/convertImage?url=${encodeURIComponent(imageSrc)}`;
+  const webpImageSrc: string = `/api/convertImage?url=${imageSrc}`;
 
   const getGenreNames = (ids: number[]) => {
     return ids.map(id => {
