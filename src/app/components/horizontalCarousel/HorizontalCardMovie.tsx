@@ -9,7 +9,10 @@ interface VerticalCard {
 }
 
 const HorizontalCardCarousel = ({ media, isSerie }: VerticalCard) => {
-  const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
+  const posterURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_POSTER_342;
+  const imageSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : posterURL + media.poster_path}`;  
+  const webpImageSrc: string = `/api/convertImage?url=${encodeURIComponent(imageSrc)}`;
 
   const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
     return isSerie;
@@ -24,10 +27,9 @@ const HorizontalCardCarousel = ({ media, isSerie }: VerticalCard) => {
               className='overlay w-[300px] h-[168px]'>
             </div>
             <Image
-              src={`${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`}
+              src={webpImageSrc}
               alt={`Portada de la película ${isSerieMedia(media) ? media.name : media.title}`}
               fill={true}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className='object-cover rounded-lg'
             />
             <div className='absolute inset-0 z-10 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center'>

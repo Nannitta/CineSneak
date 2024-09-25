@@ -8,7 +8,10 @@ interface LastEpisodeProps {
 }
 
 const LastEpisode = ({ media }: LastEpisodeProps) => {
-  const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
+  const posterURL = process.env.NEXT_PUBLIC_POSTER_IMAGE_342;
+  const stillURL = process.env.NEXT_PUBLIC_STILL_IMAGE_300;
+  const imgSrc: string = `${media.last_episode_to_air?.still_path ? stillURL + media.last_episode_to_air.still_path : (media.backdrop_path ? imgURL + media.backdrop_path : posterURL + media.poster_path)}`;
 
   return(
     <div className='flex flex-col px-4 gap-4 lg:px-6 lg:flex-row lg:gap-6'>
@@ -17,7 +20,7 @@ const LastEpisode = ({ media }: LastEpisodeProps) => {
           className='w-full h-[169px] absolute z-10 bg-gradient-to-t from-black to-transparent'>
         </div>
         <Image
-          src={`${media.last_episode_to_air?.still_path ? imgURL + media.last_episode_to_air.still_path : (media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path)}`}
+          src={imgSrc}
           alt={`Portada del episodio ${media.last_episode_to_air?.name}`}
           fill={true}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

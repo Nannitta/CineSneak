@@ -6,7 +6,7 @@ interface ProvidersLogoProps {
 }
 
 const ListLogoProviders = ({ providersLogo }: ProvidersLogoProps) => {
-  const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const imgURL = process.env.NEXT_PUBLIC_LOGO_PROVIDER;
 
   return(
     <div className="flex flex-col gap-2 col-start-2 col-end-4 ml-2 mb-8 lg:justify-end lg:ml-0">
