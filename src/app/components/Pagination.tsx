@@ -8,7 +8,7 @@ interface PaginationProps {
   maxPage: number
 }
 
-export default function PaginationControlled({ page, handleSetPage, maxPage}: PaginationProps) {
+const PaginationControlled = ({ page, handleSetPage, maxPage}: PaginationProps) => {
   
   if(maxPage > 10) {
     maxPage = 10;
@@ -50,4 +50,6 @@ export default function PaginationControlled({ page, handleSetPage, maxPage}: Pa
       </Stack>
     </ThemeProvider>
   );
-}
+};
+
+export default PaginationControlled;

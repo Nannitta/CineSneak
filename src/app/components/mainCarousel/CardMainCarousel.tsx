@@ -1,10 +1,10 @@
-import { League_Spartan } from 'next/font/google';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
+import { League_Spartan } from 'next/font/google';
+import PrimaryButton from '@/components/PrimaryButton';
 import Tag from '@/components//Tag';
-import { Genre, MovieDetails, SerieDetails } from '@/types/types';
 import { Calendar, Play } from '@/lib/Svg';
 import { formatDate } from '@/lib/format';
-import PrimaryButton from '@/components/PrimaryButton';
+import { Genre, MovieDetails, SerieDetails } from '@/types/types';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -15,7 +15,7 @@ interface CardMainCarouselProps {
   handleTrailerClick: (id: number, isSerie: boolean) => Promise<void>
 }
 
-export default function CardMainCarousel({ media, genres, isSerie, handleTrailerClick }: CardMainCarouselProps) {
+const CardMainCarousel = ({ media, genres, isSerie, handleTrailerClick }: CardMainCarouselProps) => {
   const {screenSize} = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
@@ -90,4 +90,6 @@ export default function CardMainCarousel({ media, genres, isSerie, handleTrailer
       </div>
     </article>
   );
-}
+};
+
+export default CardMainCarousel;

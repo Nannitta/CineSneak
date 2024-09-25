@@ -1,11 +1,11 @@
-import { Cast } from '@/types/types';
 import Image from 'next/image';
+import { Cast } from '@/types/types';
 
 interface CardActorProps {
   actor: Cast
 }
 
-export default function CardActor({ actor }: CardActorProps) {
+const CardActor = ({ actor }: CardActorProps) => {
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
   return(
@@ -17,4 +17,6 @@ export default function CardActor({ actor }: CardActorProps) {
       <span className='font-extralight text-gray text-xs lg:text-sm'>{actor.character}</span>
     </article> 
   );
-}
+};
+
+export default CardActor;

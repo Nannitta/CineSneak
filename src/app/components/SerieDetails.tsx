@@ -1,13 +1,13 @@
-import CardActor from '@/components/CardActor';
-import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
-import { Clock, Play, Star } from '@/lib/Svg';
-import { formatDate, formatEpisodeNumber, formatRuntime, formatVoteCount } from '@/lib/format';
-import type { Cast, CountryProvider, Genre, ProvidersLogo, SerieDetails } from '@/types/types';
 import { League_Spartan } from 'next/font/google';
 import Image from 'next/image';
+import CardActor from '@/components/CardActor';
+import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import PrimaryButton from '@/components/PrimaryButton';
 import LastEpisode from '@/components/LastEpisode';
+import { Play, Star } from '@/lib/Svg';
+import { formatVoteCount } from '@/lib/format';
+import type { Cast, CountryProvider, Genre, ProvidersLogo, SerieDetails } from '@/types/types';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -21,7 +21,7 @@ interface SerieDetailsProps {
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
 }
 
-export default function SerieDetails({ media, providers, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames}: SerieDetailsProps) {
+const SerieDetails = ({ media, providers, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames}: SerieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
@@ -150,7 +150,7 @@ export default function SerieDetails({ media, providers, providersLogo, handleTr
       }
       <section className='mt-4 laptop:mt-12 lg:mt-8'>
         <h2 className="px-4 pb-4 font-black lg:px-6">
-          Últimpo capítulo en emisión
+          Último capítulo en emisión
         </h2>
         <LastEpisode media={media}/>
       </section>
@@ -160,4 +160,6 @@ export default function SerieDetails({ media, providers, providersLogo, handleTr
       </section>
     </div>
   );
-}
+};
+
+export default SerieDetails;

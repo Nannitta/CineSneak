@@ -1,6 +1,6 @@
 import { SvgProps } from '@/types/types';
 
-export default function Logo({width, height, fill}: SvgProps) {  
+const Logo = ({width, height, fill}: SvgProps) => {  
   return(
     <div className='flex place-items-center gap-2 md:gap-4'>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123.45 123.45" width={width} height={height}>
@@ -12,3 +12,5 @@ export default function Logo({width, height, fill}: SvgProps) {
     </div>
   );
 };
+
+export default Logo;

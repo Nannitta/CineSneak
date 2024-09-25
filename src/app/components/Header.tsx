@@ -1,15 +1,15 @@
 'use client';
 
-import Logo from '@/components/Logo';
-import { Menu, Search, Avatar } from '@/lib/Svg';
-import PrimaryButton from '@/components/PrimaryButton';
+import { useState } from 'react';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
 import Link from 'next/link';
-import { useState } from 'react';
-import { useSideMenuStore } from '@/store/sideMenu';
 import { usePathname } from 'next/navigation';
+import { useSideMenuStore } from '@/store/sideMenu';
+import Logo from '@/components/Logo';
+import PrimaryButton from '@/components/PrimaryButton';
+import { Menu, Search, Avatar } from '@/lib/Svg';
 
-export default function Header() {
+const Header = () => {
   const {screenSize} = CheckWindowWidth();
   const [color, setColor] = useState<string>('#C3C3C3');
   const openSideMenu = useSideMenuStore(state => state.openSideMenu);
@@ -69,3 +69,5 @@ export default function Header() {
     </header>
   );
 };
+
+export default Header;

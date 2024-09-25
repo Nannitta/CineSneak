@@ -1,14 +1,14 @@
-import { MovieDetails, SerieDetails } from '@/types/types';
 import Image from 'next/image';
-import { Plus } from '@/lib/Svg';
 import Link from 'next/link';
+import { Plus } from '@/lib/Svg';
+import { MovieDetails, SerieDetails } from '@/types/types';
 
 interface VerticalCard {
   media: MovieDetails | SerieDetails
   isSerie: boolean
 }
 
-export default function HorizontalCardCarousel({ media, isSerie }: VerticalCard) {
+const HorizontalCardCarousel = ({ media, isSerie }: VerticalCard) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
   const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
@@ -44,4 +44,6 @@ export default function HorizontalCardCarousel({ media, isSerie }: VerticalCard)
       </article>
     </Link>
   );
-}
+};
+
+export default HorizontalCardCarousel;

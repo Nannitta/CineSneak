@@ -1,8 +1,8 @@
 'use client';
 
+import CheckWindowWidth from '@/hooks/useWindowWidth';
 import BentoGrid from '@/components/BentoGrid';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
-import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { MovieDetails, SerieDetails } from '@/types/types';
 
 interface TopRatedProps {
@@ -11,7 +11,7 @@ interface TopRatedProps {
   path: string
 }
 
-export default function TopRated({ media, isSerie, path }: TopRatedProps) {
+const TopRated = ({ media, isSerie, path }: TopRatedProps) => {
   const {screenSize} = CheckWindowWidth();
 
   return(
@@ -24,3 +24,5 @@ export default function TopRated({ media, isSerie, path }: TopRatedProps) {
     </>
   );
 };
+
+export default TopRated;

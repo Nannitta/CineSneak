@@ -1,18 +1,18 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useMoviesStore } from '@/store/movies';
-import MainCarousel from '@/components/mainCarousel/MainCarousel';
+import Link from 'next/link';
 import { EmblaOptionsType } from 'embla-carousel';
+import { useMoviesStore } from '@/store/movies';
 import { useSideMenuStore } from '@/store/sideMenu';
+import { useSeriesStore } from '@/store/series';
+import MainCarousel from '@/components/mainCarousel/MainCarousel';
 import WatchTrailer from '@/components/WatchTrailer';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
-import { useSeriesStore } from '@/store/series';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import TopRated from '@/components/TopRated';
-import Link from 'next/link';
 
-export default function HomePageNotLog() {
+const HomePageNotLog = () => {
   const { 
     upcomingMovies, 
     fetchUpcomingMovies, 
@@ -123,3 +123,5 @@ export default function HomePageNotLog() {
     </main>
   );
 };
+
+export default HomePageNotLog;

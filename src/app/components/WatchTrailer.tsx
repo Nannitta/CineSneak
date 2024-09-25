@@ -1,19 +1,19 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
+import { usePathname } from 'next/navigation';
 import { useInPictureModeStore } from '@/store/inPictureMode';
 import { useMoviesStore } from '@/store/movies';
-import { Close } from '@/lib/Svg';
-import BlockScroll from '@/components/BlockScroll';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { useSeriesStore } from '@/store/series';
+import BlockScroll from '@/components/BlockScroll';
+import { Close } from '@/lib/Svg';
 
 interface TrailerDetails {
   isSerie: boolean
 }
 
-export default function WatchTrailer({ isSerie }: TrailerDetails) {
+const WatchTrailer = ({ isSerie }: TrailerDetails) => {
   const { 
     movieTrailer,
     resetMovieTrailer 
@@ -112,3 +112,5 @@ export default function WatchTrailer({ isSerie }: TrailerDetails) {
 
   return null;
 };
+
+export default WatchTrailer;

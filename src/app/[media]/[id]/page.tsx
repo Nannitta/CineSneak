@@ -1,17 +1,17 @@
 'use client';
 
-import { useMediaDetailsStore } from '@/store/mediaDetails';
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
-import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import Tag from '@/components/Tag';
-import type { Genre, MovieDetails, ProvidersLogo, SerieDetails } from '@/types/types';
+import { useParams } from 'next/navigation';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { useInPictureModeStore } from '@/store/inPictureMode';
+import { useMediaDetailsStore } from '@/store/mediaDetails';
 import { useMoviesStore } from '@/store/movies';
+import { useSeriesStore } from '@/store/series';
+import Tag from '@/components/Tag';
 import WatchTrailer from '@/components/WatchTrailer';
 import MovieDetailsComponent from '@/components/MovieDetails';
 import SerieDetailsComponent from '@/components/SerieDetails';
-import { useSeriesStore } from '@/store/series';
+import type { Genre, MovieDetails, ProvidersLogo, SerieDetails } from '@/types/types';
 
 const WatchMedia = () => {
   const {media, id} = useParams<Params>();

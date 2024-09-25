@@ -1,11 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { useSideMenuStore } from '@/store/sideMenu';
 import { Close } from '@/lib/Svg';
-import { useState } from 'react';
 
-export default function SideMenu() {
+const SideMenu = () => {
   const closeSideMenuStore = useSideMenuStore(state => state.closeSideMenu);
   const isSideMenuOpen = useSideMenuStore(state => state.isSideMenuOpen);
   const [isClosing, setIsClosing] = useState<boolean>(false);
@@ -32,8 +32,8 @@ export default function SideMenu() {
             </button>
             <ul className='flex jus gap-5 *:text-sm'>
               <li><Link href={'/'} title='Página principal' onClick={closeSideMenu}>Home</Link></li>
-              <li><Link href={'/'} title='Películas' onClick={closeSideMenu}>Películas</Link></li>
-              <li><Link href={'/'} title='Series' onClick={closeSideMenu}>Series</Link></li>
+              <li><Link href={'/peliculas'} title='Películas' onClick={closeSideMenu}>Películas</Link></li>
+              <li><Link href={'/series'} title='Series' onClick={closeSideMenu}>Series</Link></li>
             </ul>
           </div>
           : null
@@ -41,3 +41,5 @@ export default function SideMenu() {
     </>
   );
 };
+
+export default SideMenu;
