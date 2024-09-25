@@ -1,18 +1,19 @@
 import CheckWindowWidth from '@/hooks/useWindowWidth';
 import Image from 'next/image';
 import { League_Spartan } from 'next/font/google';
-import CardActor from '@/components/CardActor';
 import PrimaryButton from '@/components/PrimaryButton';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
-import { Star, Clock, Calendar, Play } from '@/lib/Svg';
-import { formatDate, formatRuntime, formatVoteCount } from '@/lib/format';
-import type { Cast, CountryProvider, Genre, ProvidersLogo, MovieDetails } from '@/types/types';
+import { Star, Calendar, Play } from '@/lib/Svg';
+import { formatDate, formatVoteCount } from '@/lib/format';
+import type { Cast, Genre, ProvidersLogo, MovieDetails } from '@/types/types';
+import ListLogoProviders from '@/components/ListLogoProviders';
+import MediaInfoSmallDevice from '@/components/MediaInfoSmallDevice';
+import MediaInfoLargeDevice from '@/components/MediaInfoLargeDevice';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
 interface MovieDetailsProps {
   media: MovieDetails
-  providers: CountryProvider | null
   providersLogo: ProvidersLogo[]
   handleTrailerClick: (id: number, isSerie: boolean) => void
   similarMediaStore: MovieDetails[]
@@ -20,9 +21,9 @@ interface MovieDetailsProps {
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
 }
 
-const MovieDetails = ({ media, providers, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames }: MovieDetailsProps) => {
+const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames }: MovieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
-  const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE; 
 
   return (
     <div className="relative">
@@ -38,29 +39,7 @@ const MovieDetails = ({ media, providers, providersLogo, handleTrailerClick, sim
           className="w-40 h-64 relative shadow-2xl lg:w-80 lg:h-[540px]">
           <Image src={`${imgURL + media.poster_path}`} alt={`Póster de la película ${media.title}`} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover rounded-lg" />
         </div>
-        {
-          providers && providersLogo.length > 0 &&
-          <div className="flex flex-col gap-2 col-start-2 col-end-4 ml-2 mb-8 lg:justify-end lg:ml-0">
-            <h3 className="font-bold text-xs">
-              Disponible en
-            </h3>
-            <div className="flex gap-2 lg:gap-4">
-              {
-                providersLogo.filter((logo) => logo.logo_path !== null).map((logo) => {
-                  return (
-                    <Image src={`${imgURL + logo.logo_path}`}
-                      alt={`Logo de ${logo.provider_name}`}
-                      key={logo.logo_path}
-                      width={40}
-                      height={40}
-                      priority
-                    />
-                  );
-                }).slice(0, 3)
-              }
-            </div>
-          </div>
-        }
+        <ListLogoProviders providersLogo={providersLogo}/>
         <h1 className={`uppercase font-black ${league.className} text-balance col-start-2 col-end-3 row-start-2 row-end-3 ml-2 text-sm md:text-xl lg:self-end lg:ml-0`}>
           {media.title}
         </h1>
@@ -98,60 +77,12 @@ const MovieDetails = ({ media, providers, providersLogo, handleTrailerClick, sim
         </div>
         {
           (screenSize === 'laptop' || screenSize === 'lg') &&
-          <>
-            <p className="text-balance font-extralight col-start-2 col-end-3 pt-4 lg:row-start-5 lg:row-end-6 line-clamp-6">
-              {media.overview}
-            </p>
-            <div className="flex gap-4 col-start-2 col-end-3 items-center lg:row-start-6 lg:row-end-7">
-              <p className="text-xs text-gray">Idioma original · <span className="uppercase">{media.original_language}</span></p>
-              <p className="text-xs flex place-items-center gap-1 text-gray">
-                <Clock
-                  width={'15'}
-                  height={'15'} />
-                Duración · {formatRuntime(media.runtime)}
-              </p>
-            </div>
-            <h2 className="font-black col-start-4 row-start-5 row-end-6 pt-4 laptop:col-start-1 laptop:col-end-3 laptop:row-start-8 laptop:row-end-9">Reparto principal</h2>
-            <section className="flex flex-wrap gap-4 col-start-4 row-start-5 row-end-8 pt-14 lg:h-fit laptop:col-start-1 laptop:col-end-5 laptop:row-start-9 laptop:row-end-10 laptop:pt-0">
-              {
-                cast &&
-                cast.filter((actor: Cast) => actor.profile_path !== null).map((actor: Cast) => {
-                  return (
-                    <CardActor key={actor.cast_id} actor={actor} />
-                  );
-                }).slice(0, 6)
-              }
-            </section>
-          </>
+          <MediaInfoLargeDevice mediaInfo={media} cast={cast}/>
         }
       </section>
       {
         (screenSize === 'sm' || screenSize === 'md') &&
-        <>
-          <p className="px-4 text-balance font-extralight relative bottom-14 mt-20">
-            {media.overview}
-          </p>
-          <div className="flex px-4 gap-4 pt-2 relative bottom-12">
-            <p className="text-xs text-gray">Idioma original · <span className="uppercase">{media.original_language}</span></p>
-            <p className="text-xs flex place-items-center gap-1 text-gray">
-              <Clock
-                width={'12'}
-                height={'12'} />
-              Duración · {formatRuntime(media.runtime)}
-            </p>
-          </div>
-          <h2 className="px-4 font-black relative bottom-6 md:text-xl">Reparto principal</h2>
-          <section className="flex flex-wrap px-4 gap-4 md:relative">
-            {
-              cast &&
-              cast.filter((actor: Cast) => actor.profile_path !== null).map((actor: Cast) => {
-                return (
-                  <CardActor key={actor.cast_id} actor={actor} />
-                );
-              }).slice(0, 6)
-            }
-          </section>
-        </>
+         <MediaInfoSmallDevice mediaInfo={media} cast={cast}/>
       }
       { similarMediaStore.length > 0 &&  
         <section className="pb-5 lg:pb-8 2xl:mt-6">

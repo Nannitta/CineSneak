@@ -87,7 +87,6 @@ const WatchMedia = () => {
         mediaDetails && media === 'movie'
           ? <MovieDetailsComponent
             media={mediaDetails as MovieDetails}
-            providers={providers}
             providersLogo={providersLogo}
             handleTrailerClick={() => handleTrailerClick(id, false)}
             similarMediaStore={similarMedia as MovieDetails[]}
@@ -97,7 +96,6 @@ const WatchMedia = () => {
           : mediaDetails && media === 'tv'
             ? <SerieDetailsComponent
               media={mediaDetails as SerieDetails}
-              providers={providers}
               providersLogo={providersLogo}
               handleTrailerClick={() => handleTrailerClick(id, true)}
               similarMediaStore={similarMedia as SerieDetails[]}
