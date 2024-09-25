@@ -1,13 +1,13 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
-import { useEffect, useState } from 'react';
+import { useSeriesByGenreId } from '@/store/seriesByGenreId';
 import VerticalCardCarousel from '@/components/verticalCarousel/VerticalCardMovie';
 import PaginationControlled from '@/components/Pagination';
-import { useSeriesByGenreId } from '@/store/seriesByGenreId';
 
-export default function SeriesByGenre() {
+const SeriesByGenre = () => {
   const {genreId, genreName} = useParams<Params>();
   const [page, setPage] = useState<number>(1);
   const decodedGenreName = decodeURIComponent(genreName || '');
@@ -48,4 +48,6 @@ export default function SeriesByGenre() {
       </div>
     </main>
   );
-}
+};
+
+export default SeriesByGenre;

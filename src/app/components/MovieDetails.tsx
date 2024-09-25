@@ -1,10 +1,10 @@
 import CheckWindowWidth from '@/hooks/useWindowWidth';
 import Image from 'next/image';
-import { Star, Clock, Calendar, Play } from '@/lib/Svg';
+import { League_Spartan } from 'next/font/google';
 import CardActor from '@/components/CardActor';
 import PrimaryButton from '@/components/PrimaryButton';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
-import { League_Spartan } from 'next/font/google';
+import { Star, Clock, Calendar, Play } from '@/lib/Svg';
 import { formatDate, formatRuntime, formatVoteCount } from '@/lib/format';
 import type { Cast, CountryProvider, Genre, ProvidersLogo, MovieDetails } from '@/types/types';
 
@@ -20,7 +20,7 @@ interface MovieDetailsProps {
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
 }
 
-export default function MovieDetails({ media, providers, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames }: MovieDetailsProps) {
+const MovieDetails = ({ media, providers, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames }: MovieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
@@ -161,4 +161,6 @@ export default function MovieDetails({ media, providers, providersLogo, handleTr
       }
     </div>
   );
-}
+};
+
+export default MovieDetails;

@@ -1,10 +1,10 @@
 'use client';
 
 import CheckWindowWidth from '@/hooks/useWindowWidth';
-import { Figma, Github, Gmail, Linkedin } from '@/lib/Svg';
 import Logo from '@/components/Logo';
+import { Figma, Github, Gmail, Linkedin } from '@/lib/Svg';
 
-export default function Footer() {
+const Footer = () => {
   const {screenSize} = CheckWindowWidth();  
 
   return(
@@ -72,3 +72,5 @@ export default function Footer() {
     </footer>
   );
 };
+
+export default Footer;

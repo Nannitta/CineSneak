@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
-import './verticalCarousel.css';
-import { MovieDetails, SerieDetails } from '@/types/types';
 import VerticalCardCarousel from '@/components/verticalCarousel/VerticalCardMovie';
 import { RightArrow } from '@/lib/Svg';
-import Link from 'next/link';
+import { MovieDetails, SerieDetails } from '@/types/types';
+import './verticalCarousel.css';
 
 interface PropType {
   media: MovieDetails[] | SerieDetails[]

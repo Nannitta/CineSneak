@@ -1,11 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { useSeriesStore } from '@/store/series';
 import PaginationControlled from '@/components/Pagination';
 import VerticalCardCarousel from '@/components/verticalCarousel/VerticalCardMovie';
-import { useSeriesStore } from '@/store/series';
-import { useEffect, useState } from 'react';
 
-export default function PopularMovies() {
+const PopularMovies = () => {
   const { topRatedSeries, pagesTopRatedSeries, fetchTopRatedSeries } = useSeriesStore(state => state);
 
   const [page, setPage] = useState<number>(1);
@@ -40,3 +40,5 @@ export default function PopularMovies() {
     </main>
   );
 };
+
+export default PopularMovies;

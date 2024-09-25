@@ -4,13 +4,13 @@ import React from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import './carousel.css';
-import { DotButton, useDotButton } from '@/components/mainCarousel/DotButtons';
-import { Genre, MovieDetails, SerieDetails } from '@/types/types';
-import CardMovieMain from '@/components/mainCarousel/CardMovieMain';
 import { useMoviesStore } from '@/store/movies';
-import { useInPictureModeStore } from '@/store/inPictureMode';
 import { useSeriesStore } from '@/store/series';
+import { useInPictureModeStore } from '@/store/inPictureMode';
+import { DotButton, useDotButton } from '@/components/mainCarousel/DotButtons';
+import CardMovieMain from '@/components/mainCarousel/CardMainCarousel';
+import { Genre, MovieDetails, SerieDetails } from '@/types/types';
+import './carousel.css';
 
 interface PropType {
   media: MovieDetails[] | SerieDetails[]

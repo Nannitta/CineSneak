@@ -1,11 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
+import { useMoviesByGenreId } from '@/store/moviesByGenreId';
 import PaginationControlled from '@/components/Pagination';
 import VerticalCardCarousel from '@/components/verticalCarousel/VerticalCardMovie';
-import { useMoviesByGenreId } from '@/store/moviesByGenreId';
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 const MoviesByGenre = () => {
   const {genreId, genreName} = useParams<Params>();

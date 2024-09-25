@@ -1,13 +1,13 @@
+import Image from 'next/image';
 import { formatDate, formatEpisodeNumber, formatRuntime } from '@/lib/format';
 import { Clock } from '@/lib/Svg';
 import { SerieDetails } from '@/types/types';
-import Image from 'next/image';
 
 interface LastEpisodeProps {
   media: SerieDetails
 }
 
-export default function LastEpisode({ media }: LastEpisodeProps) {
+const LastEpisode = ({ media }: LastEpisodeProps) => {
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
   return(
@@ -43,4 +43,6 @@ export default function LastEpisode({ media }: LastEpisodeProps) {
       </div>
     </div>
   );
-}
+};
+
+export default LastEpisode;

@@ -1,24 +1,22 @@
 'use client';
 
-import LastEpisode from '@/components/LastEpisode';
-import WatchTrailer from '@/components/WatchTrailer';
-import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
-import MainCarousel from '@/components/mainCarousel/MainCarousel';
-import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
-import { formatEpisodeNumber } from '@/lib/format';
-import { useMediaDetailsStore } from '@/store/mediaDetails';
-import { useSeriesStore } from '@/store/series';
-import { useSeriesByGenreId } from '@/store/seriesByGenreId';
-import { SerieDetails } from '@/types/types';
-import { EmblaOptionsType } from 'embla-carousel';
+import { useEffect, useState } from 'react';
 import { League_Spartan } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { EmblaOptionsType } from 'embla-carousel';
+import { useMediaDetailsStore } from '@/store/mediaDetails';
+import { useSeriesStore } from '@/store/series';
+import { useSeriesByGenreId } from '@/store/seriesByGenreId';
+import WatchTrailer from '@/components/WatchTrailer';
+import MainCarousel from '@/components/mainCarousel/MainCarousel';
+import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
+import { formatEpisodeNumber } from '@/lib/format';
+import { SerieDetails } from '@/types/types';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
-export default function Series() {
+const Series = () => {
   const { 
     seriesOfTheDay, 
     fetchSeriesOfTheDay, 
@@ -176,4 +174,6 @@ export default function Series() {
       </section>
     </main>
   );
-}
+};
+
+export default Series;

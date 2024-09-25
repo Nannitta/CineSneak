@@ -1,6 +1,6 @@
+import { create } from 'zustand';
 import { getCollectionMovies } from '@/services';
 import { MoviesCollection } from '@/types/types';
-import { create } from 'zustand';
 
 interface State {
   moviesCollection: MoviesCollection | null

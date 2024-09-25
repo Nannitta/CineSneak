@@ -1,20 +1,20 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { League_Spartan } from 'next/font/google';
+import Link from 'next/link';
+import { EmblaOptionsType } from 'embla-carousel';
+import { useMoviesByGenreId } from '@/store/moviesByGenreId';
+import { useMoviesStore } from '@/store/movies';
+import { useMoviesCollectionStore } from '@/store/moviesCollection';
 import MainCarousel from '@/components/mainCarousel/MainCarousel';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import WatchTrailer from '@/components/WatchTrailer';
-import { useMoviesStore } from '@/store/movies';
-import { useMoviesByGenreId } from '@/store/moviesByGenreId';
-import { useMoviesCollectionStore } from '@/store/moviesCollection';
-import { EmblaOptionsType } from 'embla-carousel';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
-export default function Movies() {
+const Movies = () => {
   const { 
     fetchMoviesGenre, 
     fetchPopularMovies, 
@@ -134,4 +134,6 @@ export default function Movies() {
       </section>
     </main>
   );
-}
+};
+
+export default Movies;

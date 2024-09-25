@@ -1,6 +1,6 @@
-import { getCast, getDetails, getProviders, getSimilarMedia } from '@/services';
-import { Cast, CountryProvider, MediaContent, MovieDetails, SerieDetails } from '@/types/types';
 import { create } from 'zustand';
+import { getCast, getDetails, getProviders, getSimilarMedia } from '@/services';
+import { Cast, CountryProvider, MovieDetails, SerieDetails } from '@/types/types';
 
 interface State {
   mediaDetails: MovieDetails | SerieDetails | null

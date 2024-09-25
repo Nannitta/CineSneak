@@ -1,15 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { EmblaOptionsType } from 'embla-carousel';
-import useEmblaCarousel from 'embla-carousel-react';
-import './horizontalCarousel.css';
-import { MovieDetails, SerieDetails } from '@/types/types';
-import HorizontalCardCarousel from './HorizontalCardMovie';
-import { RightArrow } from '@/lib/Svg';
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
-import Link from 'next/link';
+import { EmblaOptionsType } from 'embla-carousel';
+import useEmblaCarousel from 'embla-carousel-react';
+import HorizontalCardCarousel from './HorizontalCardMovie';
+import './horizontalCarousel.css';
+import { RightArrow } from '@/lib/Svg';
+import { MovieDetails, SerieDetails } from '@/types/types';
 
 interface PropType {
   media: MovieDetails[] | SerieDetails[]

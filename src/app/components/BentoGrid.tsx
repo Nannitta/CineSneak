@@ -1,9 +1,9 @@
 'use client';
 
+import Link from 'next/link';
+import Image from 'next/image';
 import { Plus, RightArrow } from '@/lib/Svg';
 import { MovieDetails, SerieDetails } from '@/types/types';
-import Image from 'next/image';
-import Link from 'next/link';
 
 interface BentoGridProps {
   media: MovieDetails[] | SerieDetails[]
