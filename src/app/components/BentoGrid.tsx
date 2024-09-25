@@ -23,7 +23,7 @@ const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
       <div className="grid grid-cols-top-rated gap-4 grid-rows-top-rated">
         {media.slice(0, 10).map((mediaItem, index: number) => {
           const imageSrc = `${mediaItem.backdrop_path ? imgURL + mediaItem.backdrop_path : imgURL + mediaItem.poster_path}`;
-          const webpImageSrc = `/api/convertImage?url=${encodeURIComponent(imageSrc)}`;
+          const webpImageSrc = `/api/convertImage?url=${imageSrc}`;
 
           return (
             <Link

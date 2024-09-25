@@ -12,7 +12,7 @@ const VerticalCardCarousel = ({ media, isSerie }: VerticalCard) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
   const posterURL: string | undefined = process.env.NEXT_PUBLIC_POSTER_IMAGE_154;
   const imageSrc: string = `${media.poster_path ? posterURL + media.poster_path : imgURL + media.backdrop_path}`;  
-  const webpImageSrc: string = `/api/convertImage?url=${encodeURIComponent(imageSrc)}`;
+  const webpImageSrc: string = `/api/convertImage?url=${imageSrc}`;
 
   const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
     return isSerie;

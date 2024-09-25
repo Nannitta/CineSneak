@@ -11,10 +11,7 @@ interface MediaInfoSmallDeviceProps {
 }
 
 const MediaInfoSmallDevice = ({ mediaInfo, cast }: MediaInfoSmallDeviceProps) => {
-  const { media } = useParams<Params>();
-
-  console.log(media);
-  
+  const { media } = useParams<Params>();  
 
   return(
     <>
