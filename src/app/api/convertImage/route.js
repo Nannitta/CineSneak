@@ -1,8 +1,6 @@
 import sharp from 'sharp';
-import fs from 'fs';
-import path from 'path';
 
-export async function GET(req) {  
+export async function GET(req) {
   const { searchParams } = new URL(req.url);
   const url = searchParams.get('url');
 
@@ -13,19 +11,6 @@ export async function GET(req) {
     });
   }
 
-  const imageName = path.basename(url, path.extname(url)) + '.webp';
-  const cachePath = path.join(process.cwd(), 'public/images/cache', imageName);
-
-  if (fs.existsSync(cachePath)) {
-    return new Response(fs.readFileSync(cachePath), {
-      status: 200,
-      headers: {
-        'Content-Type': 'image/webp',
-        'Cache-Control': 'public, max-age=86400',
-      },
-    });
-  }
-
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -33,18 +18,15 @@ export async function GET(req) {
     }
 
     const imageBuffer = await response.arrayBuffer();
-    const image = sharp(Buffer.from(imageBuffer));
-
-    const webpBuffer = await image
+    const webpBuffer = await sharp(Buffer.from(imageBuffer))
       .webp({ quality: 100, lossless: false })
       .toBuffer();
-
-    fs.writeFileSync(cachePath, webpBuffer);
 
     return new Response(webpBuffer, {
       status: 200,
       headers: {
         'Content-Type': 'image/webp',
+        'Cache-Control': 'public, max-age=86400',
       },
     });
 
