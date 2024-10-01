@@ -53,11 +53,11 @@ const Header = () => {
       </div>
       { screenSize &&
         screenSize !== 'sm'
-        ? <ul className='flex place-items-center gap-5'>
-          <li className={`hover:text-white ${isActive('/')}`}><Link href={'/'} title='Página principal'>Home</Link></li>
-          <li className={`hover:text-white ${isActive('/peliculas')}`}><Link href={'/peliculas'} title='Películas'>Películas</Link></li>
-          <li className={`hover:text-white ${isActive('/series')}`}><Link href={'/series'} title='Series'>Series</Link></li>
-        </ul>
+        ? <nav className='flex place-items-center gap-5'>
+          <Link href={'/'} title='Página principal' className={`hover:text-white ${isActive('/')}`}>Home</Link>
+          <Link href={'/peliculas'} title='Películas' className={`hover:text-white ${isActive('/peliculas')}`}>Películas</Link>
+          <Link href={'/series'} title='Series' className={`hover:text-white ${isActive('/series')}`}>Series</Link>
+        </nav>
         : null
       }
       <div className='flex place-items-center gap-4 lg:h-9'>
