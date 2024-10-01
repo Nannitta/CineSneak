@@ -13,7 +13,8 @@ const config: Config = {
       neonBlue: '#4361EE',
       lightBlue: '#4CC9F0',
       white: '#FFFFFF',
-      black: '#000000'
+      black: '#000000',
+      transparent: '#00000000'
     },
     extend: {
       backgroundImage: {

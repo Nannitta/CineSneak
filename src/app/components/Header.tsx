@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSideMenuStore } from '@/store/sideMenu';
+import { useSearchMenuStore } from '@/store/searchMenu';
 import Logo from '@/components/Logo';
 import PrimaryButton from '@/components/PrimaryButton';
 import { Menu, Search, Avatar } from '@/lib/Svg';
@@ -12,7 +13,10 @@ import { Menu, Search, Avatar } from '@/lib/Svg';
 const Header = () => {
   const {screenSize} = CheckWindowWidth();
   const [color, setColor] = useState<string>('#C3C3C3');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const openSideMenu = useSideMenuStore(state => state.openSideMenu);
+  const { openSearchMenu, isSearchOpen } = useSearchMenuStore(state => state);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const pathName = usePathname();
 
   const isActive = (path: string) => pathName === path ? 'text-white' : 'text-gray';
@@ -23,6 +27,10 @@ const Header = () => {
 
   const handleMouseLeave = () => {
     setColor('#C3C3C3');
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
   };
 
   return(
@@ -47,24 +55,45 @@ const Header = () => {
         : null
       }
       <div className='flex place-items-center gap-4'>
-        <button title='Buscar'>
-          <Search 
-            width={'24'}
-            height={'24'}
-            color={screenSize === 'sm' ? 'white' : color}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          />
-        </button>
+        { screenSize === 'lg' 
+          ? <div className='relative flex items-center justify-end w-56'>
+            { !isSearchOpen 
+              ? <button title='Buscar' onClick={openSearchMenu}>
+                <Search width='24' height='24' color={color} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+              </button>
+              : <div className='flex items-center gap-2 bg-[#222222f3] border-[1px] border-[#2e2d2df3] p-2 rounded'>
+                <input
+                  ref={searchInputRef}
+                  type='text'
+                  placeholder='¿Qué estás buscando?'
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  className='bg-transparent font-light text-gray text-sm focus:outline-none'
+                />
+                <Search width='16' height='16' color='#9ca3af' />
+              </div>
+            }
+          </div>
+          : <button title='Buscar' onClick={openSearchMenu}>
+            <Search
+              width={'24'}
+              height={'24'}
+              color={screenSize === 'sm' ? 'white' : color}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            />
+          </button>
+        }
         <PrimaryButton
-          text={'Inc. sesión'} 
+          text={'Inc. sesión'}
           img={
-            <Avatar 
+            <Avatar
               width={screenSize === 'sm' ? '12' : '16'}
               height={screenSize === 'sm' ? '12' : '16'}
               fill={'white'}
             />
-          }/>
+          }
+        />
       </div>
     </header>
   );

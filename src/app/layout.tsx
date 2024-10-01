@@ -3,6 +3,7 @@ import { Onest } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import SideMenu from '@/components/SideMenu';
+import SearchMenu from '@/components/SearchMenu';
 import Footer from '@/components/Footer';
 
 const onest = Onest({ subsets: ['latin'] });
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={`${onest.className} min-h-screen flex flex-col text-white my-0 mx-auto max-w-[1920px] bg-gradient-to-b from-black to-[#0D0016] `}>
         <Header/>
         <SideMenu/>
+        <SearchMenu/>
         {children}
         <Footer/>
       </body>
