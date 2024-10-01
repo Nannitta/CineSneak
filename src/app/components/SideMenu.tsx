@@ -29,11 +29,11 @@ const SideMenu = () => {
                 fill='white'
               />
             </button>
-            <ul className='flex jus gap-5 *:text-sm'>
-              <li><Link href={'/'} title='Página principal' onClick={closeSideMenu}>Home</Link></li>
-              <li><Link href={'/peliculas'} title='Películas' onClick={closeSideMenu}>Películas</Link></li>
-              <li><Link href={'/series'} title='Series' onClick={closeSideMenu}>Series</Link></li>
-            </ul>
+            <nav className='flex jus gap-5 *:text-sm'>
+              <Link href={'/'} title='Página principal' onClick={closeSideMenu}>Home</Link>
+              <Link href={'/peliculas'} title='Películas' onClick={closeSideMenu}>Películas</Link>
+              <Link href={'/series'} title='Series' onClick={closeSideMenu}>Series</Link>
+            </nav>
           </div>
           : null
       }
