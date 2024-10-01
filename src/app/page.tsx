@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { EmblaOptionsType } from 'embla-carousel';
 import { useMoviesStore } from '@/store/movies';
 import { useSideMenuStore } from '@/store/sideMenu';
+import { useSearchMenuStore } from '@/store/searchMenu';
 import { useSeriesStore } from '@/store/series';
 import MainCarousel from '@/components/mainCarousel/MainCarousel';
 import WatchTrailer from '@/components/WatchTrailer';
@@ -36,6 +37,12 @@ const HomePageNotLog = () => {
   } = useSeriesStore(state => state);
   
   const closeSideMenu = useSideMenuStore(state => state.closeSideMenu);
+  const closeSearchMenu = useSearchMenuStore(state => state.closeSearchMenu);
+
+  const closeMenu = () => {
+    closeSideMenu();
+    closeSearchMenu();
+  };
 
   const OPTIONS: EmblaOptionsType = { loop: true };
 
@@ -51,7 +58,7 @@ const HomePageNotLog = () => {
   }, [fetchUpcomingMovies, fetchMoviesNowPlaying, fetchMoviesGenre, fetchPopularMovies, fetchOnAirSeries, fetchPopularSeries, fetchTopRatedMovies, fetchTopRatedSeries]);
   
   return (
-    <main className='flex-grow flex flex-col relative' onClick={closeSideMenu}>
+    <main className='flex-grow flex flex-col relative' onClick={closeMenu}>
       <WatchTrailer isSerie={false} />
       <MainCarousel media={upcomingMovies} options={OPTIONS} genres={movieGenres} isSerie={false}/>
       <section>

@@ -6,8 +6,7 @@ import { useSideMenuStore } from '@/store/sideMenu';
 import { Close } from '@/lib/Svg';
 
 const SideMenu = () => {
-  const closeSideMenuStore = useSideMenuStore(state => state.closeSideMenu);
-  const isSideMenuOpen = useSideMenuStore(state => state.isSideMenuOpen);
+  const { closeSideMenu: closeSideMenuStore, isSideMenuOpen } = useSideMenuStore(state => state);
   const [isClosing, setIsClosing] = useState<boolean>(false);
 
   const closeSideMenu = () => {
