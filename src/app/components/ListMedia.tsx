@@ -1,8 +1,8 @@
 import VerticalCardCarousel from '@/components/verticalCarousel/VerticalCardMovie';
-import { MovieDetails, SerieDetails } from '@/types/types';
+import { MovieDetails, SearchedMedia, SerieDetails } from '@/types/types';
 
 interface ListMediaProps {
-  media: MovieDetails[] | SerieDetails[]
+  media: MovieDetails[] | SerieDetails[] | SearchedMedia[]
   isSerie: boolean
 }
 

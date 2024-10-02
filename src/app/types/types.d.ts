@@ -38,6 +38,11 @@ export interface SerieDetails extends MediaContent {
   last_episode_to_air: LastEpisodeAir
 }
 
+export interface SearchedMedia extends MediaContent {
+  title: string
+  media_type: string
+}
+
 export type LastEpisodeAir = {
   air_date: Date
   episode_number: number

@@ -264,3 +264,14 @@ export async function getSeriesAiringToday(page: number) {
   const response = await data.json();  
   return response;
 }
+
+export async function searchMedia(keyword: string, page: number) {
+  const data = await fetch(`https://api.themoviedb.org/3/search/multi?query=${keyword}&include_adult=false&language=es-ES&page=${page}`, {
+    headers: {
+      Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
+    }
+  });
+
+  const response = await data.json();
+  return response;
+}

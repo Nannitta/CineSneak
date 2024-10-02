@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Plus } from '@/lib/Svg';
-import { MovieDetails, SerieDetails } from '@/types/types';
+import { MovieDetails, SearchedMedia, SerieDetails } from '@/types/types';
 
 interface VerticalCard {
-  media: MovieDetails | SerieDetails
+  media: MovieDetails | SerieDetails | SearchedMedia
   isSerie: boolean
 }
 
@@ -14,7 +14,7 @@ const VerticalCardCarousel = ({ media, isSerie }: VerticalCard) => {
   const imageSrc: string = `${media.poster_path ? posterURL + media.poster_path : imgURL + media.backdrop_path}`;  
   const webpImageSrc: string = `/api/convertImage?url=${imageSrc}`;
 
-  const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
+  const isSerieMedia = (media: MovieDetails | SerieDetails | SearchedMedia): media is SerieDetails => {
     return isSerie;
   };
   
