@@ -1,22 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useMoviesStore } from '@/store/movies';
-import PaginationControlled from '@/components/Pagination';
+import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 
 const MoviesNowPlaying = () => {
   const {moviesNowPlaying, pagesMoviesNowPlaying, fetchMoviesNowPlaying} = useMoviesStore(state => state);
-
-  const [page, setPage] = useState<number>(1);
-  const handleSetPage = (event: React.ChangeEvent<unknown>, value: number) => {
-    event.preventDefault();
-    setPage(value);
-  };
-
-  useEffect(() => {
-    fetchMoviesNowPlaying(page);
-  }, [page, fetchMoviesNowPlaying]);
+  const { loading, moreMedia } = useScrollPagination({fetchMedia: fetchMoviesNowPlaying, numberOfPages: pagesMoviesNowPlaying});
 
   return(
     <main className='flex flex-col flex-grow'>
@@ -24,9 +14,9 @@ const MoviesNowPlaying = () => {
         Todos los estrenos que están arrasando en taquilla: ¡no te los pierdas!
       </h1>
       <ListMedia media={moviesNowPlaying} isSerie={false}/>
-      <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
-        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesMoviesNowPlaying}/>
-      </div>
+      {loading && <p className='text-center py-4'>Cargando más películas...</p>}
+      {!moreMedia && moviesNowPlaying.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
+      {!moreMedia && moviesNowPlaying.length === 0 && <p className='text-center py-4'>No se han encontrado películas.</p>}
     </main>
   );
 };
