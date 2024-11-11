@@ -34,7 +34,8 @@ const Movies = () => {
   const [selectedGenreId, setSelectedGenreId] = useState<number>(28);
   const [selectedGenreName, setSelectedGenreName] = useState<string>('Acción');
 
-  const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const backdropURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
+  const posterURL: string | undefined = process.env.NEXT_PUBLIC_POSTER_IAMGE_342;
 
   const handleGenreClick = (id: number, name: string) => {
     setSelectedGenreId(id);
@@ -104,7 +105,7 @@ const Movies = () => {
         </h2>
         {
           moviesCollection &&
-						<div className='relative w-full h-[27rem] flex flex-col justify-between md:h-[420px] lg:h-[556px] bg-cover bg-no-repeat bg-center' style={{backgroundImage: `url('${moviesCollection.backdrop_path ? imgURL + moviesCollection.backdrop_path : imgURL + moviesCollection.poster_path}')`}}>
+						<div className='relative w-full h-[27rem] flex flex-col justify-between md:h-[420px] lg:h-[556px] bg-cover bg-no-repeat bg-center' style={{backgroundImage: `url('${moviesCollection.backdrop_path ? backdropURL + moviesCollection.backdrop_path : posterURL + moviesCollection.poster_path}')`}}>
 						  <div>
 						    <div className='absolute inset-0 bg-black bg-opacity-70'></div>
 						    <h3 className={`relative z-[1] uppercase font-black ${league.className} px-4 mt-8 mb-4 text-2xl md:w-[85%] lg:mt-20 lg:text-4xl lg:px-6 lg:w-[60%]`}>{(moviesCollection.name).split(' - ')[0]}</h3>

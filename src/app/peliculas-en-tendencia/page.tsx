@@ -1,23 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useMoviesStore } from '@/store/movies';
-import PaginationControlled from '@/components/Pagination';
+import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 
 const PopularMovies = () => {
   const { popularMovies, pagesPopularMovies, fetchPopularMovies } = useMoviesStore(state => state);
-
-  const [page, setPage] = useState<number>(1);
-  
-  const handleSetPage = (event: React.ChangeEvent<unknown>, value: number) => {
-    event.preventDefault();
-    setPage(value);
-  };
-
-  useEffect(() => {
-    fetchPopularMovies(page);
-  }, [page, fetchPopularMovies]);
+  const { loading, moreMedia } = useScrollPagination({fetchMedia: fetchPopularMovies, numberOfPages: pagesPopularMovies});
 
   return(
     <main className='flex flex-col flex-grow'>
@@ -25,9 +14,9 @@ const PopularMovies = () => {
         Explora las películas que son tendencia esta semana y no te pierdas nada
       </h1>
       <ListMedia media={popularMovies} isSerie={false}/>
-      <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
-        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesPopularMovies}/>
-      </div>
+      {loading && <p className='text-center py-4'>Cargando más películas...</p>}
+      {!moreMedia && popularMovies.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
+      {!moreMedia && popularMovies.length === 0 && <p className='text-center py-4'>No se han encontrado películas.</p>}
     </main>
   );
 };

@@ -1,22 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useSeriesStore } from '@/store/series';
-import PaginationControlled from '@/components/Pagination';
+import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 
-const PopularMovies = () => {
+const TopSeries = () => {
   const { topRatedSeries, pagesTopRatedSeries, fetchTopRatedSeries } = useSeriesStore(state => state);
-
-  const [page, setPage] = useState<number>(1);
-  const handleSetPage = (event: React.ChangeEvent<unknown>, value: number) => {
-    event.preventDefault();
-    setPage(value);
-  };
-
-  useEffect(() => {
-    fetchTopRatedSeries(page);
-  }, [page, fetchTopRatedSeries]);
+  const { loading, moreMedia } = useScrollPagination({fetchMedia: fetchTopRatedSeries, numberOfPages: pagesTopRatedSeries});
 
   return(
     <main className='flex flex-col flex-grow'>
@@ -24,11 +14,11 @@ const PopularMovies = () => {
         Descubre series con las mejores valoraciones
       </h1>
       <ListMedia media={topRatedSeries} isSerie={true}/>
-      <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
-        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesTopRatedSeries}/>
-      </div>
+      {loading && <p className='text-center py-4'>Cargando más series...</p>}
+      {!moreMedia && topRatedSeries.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
+      {!moreMedia && topRatedSeries.length === 0 && <p className='text-center py-4'>No se han encontrado series.</p>}
     </main>
   );
 };
 
-export default PopularMovies;
+export default TopSeries;

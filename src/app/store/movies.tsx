@@ -39,10 +39,18 @@ export const useMoviesStore = create<State>((set) => {
     },
     fetchMoviesNowPlaying: async (page: number) => {
       const response = await getMoviesNowPlaying(page);    
-      const moviesNowPlaying = response.results;
+      const newMoviesNowPlaying: MovieDetails[] = response.results;
       const pagesMoviesNowPlaying = response.total_pages;
 
-      set({ moviesNowPlaying: Array.from(moviesNowPlaying), pagesMoviesNowPlaying });
+      set(state => {
+        const existingIds = new Set(state.moviesNowPlaying.map(movie => movie.id));
+        const uniqueNewMovies = newMoviesNowPlaying.filter(movie => !existingIds.has(movie.id));
+
+        return {
+          moviesNowPlaying: [...state.moviesNowPlaying, ...uniqueNewMovies],
+          pagesMoviesNowPlaying
+        };
+      });
     },
     fetchMoviesGenre: async (isSerie: boolean) => {
       const movieGenres = await getGenres(isSerie);
@@ -65,17 +73,33 @@ export const useMoviesStore = create<State>((set) => {
     },
     fetchPopularMovies: async (page: number) => {
       const response = await getPopularMovies(page);
-      const popularMovies = response.results;
+      const newPopularMovies: MovieDetails[] = response.results;
       const pagesPopularMovies = response.total_pages;
 
-      set({ popularMovies: Array.from(popularMovies), pagesPopularMovies });
+      set(state => {
+        const existingIds = new Set(state.popularMovies.map(movie => movie.id));
+        const uniqueNewMovies = newPopularMovies.filter(movie => !existingIds.has(movie.id));
+
+        return {
+          popularMovies: [...state.popularMovies, ...uniqueNewMovies],
+          pagesPopularMovies
+        };
+      });
     },
     fetchTopRatedMovies: async (page: number) => {
       const response = await getTopRatedMovies(page);
-      const topRatedMovies = response.results;
+      const newTopRatedMovies: MovieDetails[] = response.results;
       const pagesTopRatedMovies = response.total_pages;
 
-      set({ topRatedMovies: Array.from(topRatedMovies), pagesTopRatedMovies });
+      set(state => {
+        const existingIds = new Set(state.topRatedMovies.map(movie => movie.id));
+        const uniqueNewMovies = newTopRatedMovies.filter(movie => !existingIds.has(movie.id));
+
+        return {
+          topRatedMovies: [...state.topRatedMovies, ...uniqueNewMovies],
+          pagesTopRatedMovies
+        };
+      });
     }
   };
 });

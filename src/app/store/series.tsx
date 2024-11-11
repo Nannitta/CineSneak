@@ -49,17 +49,33 @@ export const useSeriesStore = create<State>((set) => {
     },
     fetchPopularSeries: async (page: number) => {
       const response = await getPopularSeries(page);
-      const popularSeries = response.results;
+      const newPopularSeries: SerieDetails[] = response.results;
       const pagesPopularSeries = response.total_pages;
 
-      set({ popularSeries: Array.from(popularSeries), pagesPopularSeries });
+      set(state => {
+        const existingIds = new Set(state.popularSeries.map(serie => serie.id));
+        const uniqueNewSeries = newPopularSeries.filter(serie => !existingIds.has(serie.id));
+
+        return {
+          popularSeries: [...state.popularSeries, ...uniqueNewSeries],
+          pagesPopularSeries
+        };
+      });
     },
     fetchTopRatedSeries: async (page: number) => {
       const response = await getTopRatedSeries(page);
-      const topRatedSeries = response.results;
+      const newTopRatedSeries: SerieDetails[] = response.results;
       const pagesTopRatedSeries = response.total_pages;
 
-      set({ topRatedSeries: Array.from(topRatedSeries), pagesTopRatedSeries });
+      set(state => {
+        const existingIds = new Set(state.topRatedSeries.map(serie => serie.id));
+        const uniqueNewSeries = newTopRatedSeries.filter(serie => !existingIds.has(serie.id));
+
+        return {
+          topRatedSeries: [...state.topRatedSeries, ...uniqueNewSeries],
+          pagesTopRatedSeries
+        };
+      });
     },
     fetchSeriesOfTheDay: async () => {
       const response = await getSeriesOfTheDay();
@@ -88,11 +104,19 @@ export const useSeriesStore = create<State>((set) => {
     },
     fetchAiringToday: async (page: number) => {
       const response = await getSeriesAiringToday(page);
-      const airingToday = response.results;
+      const newAiringToday: SerieDetails[] = response.results;
       const pagesAiringToday = response.total_pages;
-
-      set({ airingToday, pagesAiringToday });
-    },
+      
+      set(state => {
+        const existingIds = new Set(state.airingToday.map(series => series.id)); 
+        const uniqueNewSeries = newAiringToday.filter(series => !existingIds.has(series.id));
+        
+        return {
+          airingToday: [...state.airingToday, ...uniqueNewSeries],
+          pagesAiringToday
+        };
+      });
+    },   
     getRecommendedSerie: (data: SerieDetails[]) => {
       const randomIndex = Math.floor(Math.random() * data.length);
       const recommendedSerie = data[randomIndex];
