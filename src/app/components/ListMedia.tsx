@@ -3,19 +3,32 @@ import { MovieDetails, SearchedMedia, SerieDetails } from '@/types/types';
 
 interface ListMediaProps {
   media: MovieDetails[] | SerieDetails[] | SearchedMedia[]
-  isSerie: boolean
 }
 
-const ListMedia = ({ media, isSerie }: ListMediaProps) => {
+const isMovieDetails = (media: any): media is MovieDetails => {
+  console.log(media);
+  
+  return (media as MovieDetails).title !== undefined;
+};
+
+const ListMedia = ({ media }: ListMediaProps) => {
   return(
     <section>
       <ul className='flex flex-wrap px-4 gap-4 justify-center lg:px-6'>
         {media.filter((mediaItem) => mediaItem.poster_path !== null).map((mediaItem) => {
-          return(
-            <li key={mediaItem.id}>
-              <VerticalCardCarousel media={mediaItem} isSerie={isSerie}/>
-            </li>
-          );
+          if(isMovieDetails(mediaItem)) {
+            return(
+              <li key={mediaItem.id}>
+                <VerticalCardCarousel media={mediaItem} isSerie={false}/>
+              </li>
+            );
+          } else {
+            return(
+              <li key={mediaItem.id}>
+                <VerticalCardCarousel media={mediaItem} isSerie={true}/>
+              </li>
+            );
+          }
         })}
       </ul>
     </section>

@@ -27,7 +27,6 @@ export interface MovieDetails extends MediaContent {
   video: boolean
 }
 
-
 export interface SerieDetails extends MediaContent {
   name: string
   genres: Genre[]

@@ -104,7 +104,6 @@ const Series = () => {
         </div>
         <VerticalCarousel
           media={airingToday}
-          isSerie={true}
           path={'/estrenos-series'}
         />
       </section>
@@ -117,7 +116,6 @@ const Series = () => {
           {selectedGenreId && (
             <VerticalCarousel
               media={seriesByGenre}
-              isSerie={true}
               path={`/series/${selectedGenreId}/${selectedGenreName}`}
             />
           )}

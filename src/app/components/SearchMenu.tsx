@@ -52,7 +52,7 @@ const SearchMenu = () => {
               <button onClick={closeSearchMenu} className='self-end pb-4'>
                 <Close width='24' height='24' fill='white'/>
               </button>
-              <div className='flex items-center gap-2 placeholder:text-gray placeholder:font-normal bg-[#222222f3] border-[1px] border-[#2e2d2df3] p-2 rounded'>
+              <div className='flex items-center gap-2 placeholder:text-gray placeholder:font-normal bg-[#222222f3] border border-[#2e2d2df3] p-2 rounded'>
                 <Search width='16' height='16' color='#9ca3af'/>
                 <input ref={searchInputRef} onKeyDown={handleKeyDown} onChange={handleSearchChange} type="text" placeholder='¿Qué estás buscando?' className='bg-transparent font-light text-gray text-sm focus:outline-none'/>
               </div>
