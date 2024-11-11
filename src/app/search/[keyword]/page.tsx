@@ -29,7 +29,7 @@ const SearchPage = () => {
       {
         searchedMedia.length > 0 
           ? <>
-            <ListMedia media={searchedMedia} isSerie={false} />
+            <ListMedia media={searchedMedia}/>
             <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
               <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesSearchedMedia} />
             </div>

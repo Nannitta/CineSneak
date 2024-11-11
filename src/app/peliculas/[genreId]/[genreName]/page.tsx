@@ -28,7 +28,7 @@ const MoviesByGenre = () => {
       <h1 className='font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6'>
         {decodedGenreName} en estado puro, ¡perfectas para una maratón!
       </h1>
-      <ListMedia media={moviesByGenre} isSerie={false}/>
+      <ListMedia media={moviesByGenre}/>
       <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
         <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesMoviesByGenre}/>
       </div>

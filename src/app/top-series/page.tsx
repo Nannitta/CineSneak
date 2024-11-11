@@ -13,7 +13,7 @@ const TopSeries = () => {
       <h1 className='font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6'>
         Descubre series con las mejores valoraciones
       </h1>
-      <ListMedia media={topRatedSeries} isSerie={true}/>
+      <ListMedia media={topRatedSeries}/>
       {loading && <p className='text-center py-4'>Cargando más series...</p>}
       {!moreMedia && topRatedSeries.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
       {!moreMedia && topRatedSeries.length === 0 && <p className='text-center py-4'>No se han encontrado series.</p>}
