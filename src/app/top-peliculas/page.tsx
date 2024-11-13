@@ -3,6 +3,7 @@
 import { useMoviesStore } from '@/store/movies';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
+import LoadingByScroll from '@/components/Loading';
 
 const TopMovies = () => {
   const { topRatedMovies, pagesTopRatedMovies, fetchTopRatedMovies } = useMoviesStore(state => state);
@@ -14,9 +15,7 @@ const TopMovies = () => {
         Las joyas del cine, descubre películas con las mejores valoraciones
       </h1>
       <ListMedia media={topRatedMovies}/>
-      {loading && <p className='text-center py-4'>Cargando más películas...</p>}
-      {!moreMedia && topRatedMovies.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
-      {!moreMedia && topRatedMovies.length === 0 && <p className='text-center py-4'>No se han encontrado películas.</p>}
+      <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={topRatedMovies} text={'películas'}/>
     </main>
   );
 };

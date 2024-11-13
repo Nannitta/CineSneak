@@ -33,7 +33,6 @@ const Header = () => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-    console.log(searchQuery);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

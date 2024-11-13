@@ -3,6 +3,7 @@
 import { useSeriesStore } from '@/store/series';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
+import LoadingByScroll from '@/components/Loading';
 
 const TopSeries = () => {
   const { topRatedSeries, pagesTopRatedSeries, fetchTopRatedSeries } = useSeriesStore(state => state);
@@ -14,9 +15,7 @@ const TopSeries = () => {
         Descubre series con las mejores valoraciones
       </h1>
       <ListMedia media={topRatedSeries}/>
-      {loading && <p className='text-center py-4'>Cargando más series...</p>}
-      {!moreMedia && topRatedSeries.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
-      {!moreMedia && topRatedSeries.length === 0 && <p className='text-center py-4'>No se han encontrado series.</p>}
+      <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={topRatedSeries} text={'series'}/>
     </main>
   );
 };

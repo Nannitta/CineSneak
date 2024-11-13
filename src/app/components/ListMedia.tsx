@@ -5,9 +5,7 @@ interface ListMediaProps {
   media: MovieDetails[] | SerieDetails[] | SearchedMedia[]
 }
 
-const isMovieDetails = (media: any): media is MovieDetails => {
-  console.log(media);
-  
+const isMovieDetails = (media: any): media is MovieDetails => {  
   return (media as MovieDetails).title !== undefined;
 };
 

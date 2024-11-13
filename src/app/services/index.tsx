@@ -190,7 +190,7 @@ export async function getCast(id: number, isSerie: boolean) {
 
 export async function getSimilarMedia(id: number, isSerie: boolean) {
   if(isSerie) {
-    const data = await fetch(`https://api.themoviedb.org/3/tv/${id}/similar?language=en-US&page=1`, {
+    const data = await fetch(`https://api.themoviedb.org/3/tv/${id}/recommendations?language=en-US&page=1`, {
       headers: {
         Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
       }
@@ -200,7 +200,7 @@ export async function getSimilarMedia(id: number, isSerie: boolean) {
     return response.results;
   }
 
-  const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?language=es-ES&page=1`, {
+  const data = await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=es-ES&page=1`, {
     headers: {
       Authorization: `Bearer ${NEXT_PUBLIC_API_KEY}`
     }

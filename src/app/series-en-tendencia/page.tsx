@@ -3,6 +3,7 @@
 import { useSeriesStore } from '@/store/series';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
+import LoadingByScroll from '@/components/Loading';
 
 const PopularSeries = () => {
   const { popularSeries, pagesPopularSeries, fetchPopularSeries } = useSeriesStore(state => state);
@@ -14,9 +15,7 @@ const PopularSeries = () => {
         Explora las series que son tendencia esta semana y no te pierdas nada
       </h1>
       <ListMedia media={popularSeries}/>
-      {loading && <p className='text-center py-4'>Cargando más series...</p>}
-      {!moreMedia && popularSeries.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
-      {!moreMedia && popularSeries.length === 0 && <p className='text-center py-4'>No se han encontrado series.</p>}
+      <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={popularSeries} text={'series'}/>
     </main>
   );
 };

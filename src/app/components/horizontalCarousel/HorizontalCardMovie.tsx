@@ -10,7 +10,7 @@ interface VerticalCard {
 
 const HorizontalCardCarousel = ({ media, isSerie }: VerticalCard) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
-  const posterURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_POSTER_342;
+  const posterURL: string | undefined = process.env.NEXT_PUBLIC_POSTER_IMAGE_342;
   const imageSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : posterURL + media.poster_path}`;  
   const webpImageSrc: string = `/api/convertImage?url=${imageSrc}`;
 

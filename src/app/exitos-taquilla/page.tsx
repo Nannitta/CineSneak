@@ -3,6 +3,7 @@
 import { useMoviesStore } from '@/store/movies';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
+import LoadingByScroll from '@/components/Loading';
 
 const MoviesNowPlaying = () => {
   const {moviesNowPlaying, pagesMoviesNowPlaying, fetchMoviesNowPlaying} = useMoviesStore(state => state);
@@ -14,9 +15,7 @@ const MoviesNowPlaying = () => {
         Todos los estrenos que están arrasando en taquilla: ¡no te los pierdas!
       </h1>
       <ListMedia media={moviesNowPlaying}/>
-      {loading && <p className='text-center py-4'>Cargando más películas...</p>}
-      {!moreMedia && moviesNowPlaying.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
-      {!moreMedia && moviesNowPlaying.length === 0 && <p className='text-center py-4'>No se han encontrado películas.</p>}
+      <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={moviesNowPlaying} text={'películas'}/>
     </main>
   );
 };

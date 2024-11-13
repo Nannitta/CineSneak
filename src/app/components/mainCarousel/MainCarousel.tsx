@@ -41,11 +41,15 @@ const MainCarousel: React.FC<PropType> = (props) => {
     <section className='embla'>
       <div className='embla__viewport' ref={emblaRef}>
         <div className='embla__container'>
-          {media.map((media) => (
-            <div className='embla__slide' key={media.id}>
-              <CardMovieMain media={media} genres={genres} isSerie={isSerie} handleTrailerClick={handleTrailerClick}/>
-            </div>
-          ))}
+          {media.map((media, index) => {
+            if(index <= 9) {
+              return(
+                <div className='embla__slide' key={media.id}>
+                  <CardMovieMain media={media} genres={genres} isSerie={isSerie} handleTrailerClick={handleTrailerClick}/>
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
       <div className='embla__controls'>
