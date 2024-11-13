@@ -3,6 +3,7 @@
 import { useMoviesStore } from '@/store/movies';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
+import LoadingByScroll from '@/components/Loading';
 
 const PopularMovies = () => {
   const { popularMovies, pagesPopularMovies, fetchPopularMovies } = useMoviesStore(state => state);
@@ -14,9 +15,7 @@ const PopularMovies = () => {
         Explora las películas que son tendencia esta semana y no te pierdas nada
       </h1>
       <ListMedia media={popularMovies}/>
-      {loading && <p className='text-center py-4'>Cargando más películas...</p>}
-      {!moreMedia && popularMovies.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
-      {!moreMedia && popularMovies.length === 0 && <p className='text-center py-4'>No se han encontrado películas.</p>}
+      <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={popularMovies} text={'películas'}/>
     </main>
   );
 };

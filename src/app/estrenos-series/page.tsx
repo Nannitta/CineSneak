@@ -3,6 +3,7 @@
 import { useSeriesStore } from '@/store/series';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
+import LoadingByScroll from '@/components/Loading';
 
 const SeriesAiringToday = () => {
   const { airingToday, pagesAiringToday, fetchAiringToday } = useSeriesStore(state => state);
@@ -14,9 +15,7 @@ const SeriesAiringToday = () => {
         ¡Las series más esperadas del día ya están aquí! ¿Te las vas a perder?
       </h1>
       <ListMedia media={airingToday} />
-      {loading && <p className='text-center py-4'>Cargando más series...</p>}
-      {!moreMedia && airingToday.length > 0 && <p className='text-center py-4'>¡Vaya!, parece que has llegado al final.</p>}
-      {!moreMedia && airingToday.length === 0 && <p className='text-center py-4'>No se han encontrado series.</p>}
+      <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={airingToday} text={'series'}/>
     </main>
   );
 };

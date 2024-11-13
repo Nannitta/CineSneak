@@ -145,3 +145,21 @@ export function Star({width, height, fill}: SvgProps) {
     </svg>
   );
 }
+
+export function LoadingSpinner() {
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <g>
+        <circle cx="3" cy="12" r="2" fill="#C3C3C3"/>
+        <circle cx="21" cy="12" r="2" fill="#C3C3C3"/>
+        <circle cx="12" cy="21" r="2" fill="#C3C3C3"/>
+        <circle cx="12" cy="3" r="2" fill="#C3C3C3"/>
+        <circle cx="5.64" cy="5.64" r="2" fill="#C3C3C3"/>
+        <circle cx="18.36" cy="18.36" r="2" fill="#C3C3C3"/>
+        <circle cx="5.64" cy="18.36" r="2" fill="#C3C3C3"/>
+        <circle cx="18.36" cy="5.64" r="2" fill="#C3C3C3"/>
+        <animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/>
+      </g>
+    </svg>
+  );
+}
