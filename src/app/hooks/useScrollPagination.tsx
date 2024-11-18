@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 interface UseInfiniteScrollProps {
   fetchMedia: (page: number) => Promise<void>;
   numberOfPages: number | null;
+  resetOnKeywordChange?: boolean;
 }
 
-export const useScrollPagination = ({ fetchMedia, numberOfPages }: UseInfiniteScrollProps) => {
+export const useScrollPagination = ({ fetchMedia, numberOfPages, resetOnKeywordChange }: UseInfiniteScrollProps) => {
   const [page, setPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
   const [moreMedia, setMoreMedia] = useState<boolean>(true);
@@ -31,7 +32,7 @@ export const useScrollPagination = ({ fetchMedia, numberOfPages }: UseInfiniteSc
     };
 
     loadInitialPages();
-  }, [numberOfPages]);
+  }, [numberOfPages, resetOnKeywordChange]);
 
   useEffect(() => {
     const handleScroll = () => {
