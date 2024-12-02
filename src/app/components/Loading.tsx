@@ -1,11 +1,11 @@
-import { MovieDetails, SerieDetails } from '@/types/types';
+import { MovieDetails, SearchedMedia, SerieDetails } from '@/types/types';
 import { LoadingSpinner } from '@/lib/Svg';
 import PrimaryButton from '@/components/PrimaryButton';
 
 interface LoadingByScrollProps {
   loading: boolean,
   moreMedia: boolean,
-  dataMedia: MovieDetails[] | SerieDetails[],
+  dataMedia: MovieDetails[] | SerieDetails[] | SearchedMedia[],
   text: string
 }
 
