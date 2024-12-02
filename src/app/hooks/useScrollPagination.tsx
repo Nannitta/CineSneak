@@ -10,6 +10,7 @@ export const useScrollPagination = ({ fetchMedia, numberOfPages, resetOnKeywordC
   const [page, setPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
   const [moreMedia, setMoreMedia] = useState<boolean>(true);
+  const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
 
   const loadMoreMedia = async (pageToLoad: number) => {
     if (loading || !moreMedia) return;
@@ -25,10 +26,21 @@ export const useScrollPagination = ({ fetchMedia, numberOfPages, resetOnKeywordC
     }
   };
 
+  const checkIfNeedMoreMedia = () => {
+    const totalHeight = document.body.offsetHeight;
+    const windowHeight = window.innerHeight;
+
+    if (totalHeight <= windowHeight && moreMedia && !loading) {
+      loadMoreMedia(page);
+    }
+  };
+
   useEffect(() => {
     const loadInitialPages = async () => {
       await loadMoreMedia(1);
       await loadMoreMedia(2);
+
+      checkIfNeedMoreMedia();
     };
 
     loadInitialPages();
@@ -36,15 +48,25 @@ export const useScrollPagination = ({ fetchMedia, numberOfPages, resetOnKeywordC
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && !loading && moreMedia) {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const totalHeight = document.body.offsetHeight;
+
+      const scrolledPercentage = scrollPosition / (totalHeight - windowHeight);
+
+      if (scrollPosition > prevScrollPos && scrolledPercentage >= 0.01 && !loading && moreMedia) {
         loadMoreMedia(page);
       }
+
+      setPrevScrollPos(scrollPosition);
     };
 
     window.addEventListener('scroll', handleScroll);
 
+    checkIfNeedMoreMedia();
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [loading, moreMedia, page, numberOfPages]);
+  }, [loading, moreMedia, page, numberOfPages, prevScrollPos]);
 
   return { loading, moreMedia, page };
 };
