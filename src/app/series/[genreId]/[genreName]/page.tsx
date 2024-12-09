@@ -1,31 +1,26 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { useSeriesByGenreId } from '@/store/seriesByGenreId';
-import PaginationControlled from '@/components/Pagination';
 import ListMedia from '@/components/ListMedia';
+import { useScrollPagination } from '@/hooks/useScrollPagination';
+import LoadingByScroll from '@/components/Loading';
 
 const SeriesByGenre = () => {
   const {genreId, genreName} = useParams<Params>();
-  const [page, setPage] = useState<number>(1);
   const decodedGenreName = decodeURIComponent(genreName || '');
 
   const {
     seriesByGenre,
     pagesSeriesByGenre,
-    fetchSeriesByGenreId
+    fetchSeriesByScroll
   } = useSeriesByGenreId(state => state);
 
-  const handleSetPage = (event: React.ChangeEvent<unknown>, value: number) => {
-    event.preventDefault();
-    setPage(value);
-  };
-
-  useEffect(() => {
-    fetchSeriesByGenreId(genreId, page);
-  }, [page, genreId, fetchSeriesByGenreId]);
+  const { loading, moreMedia } = useScrollPagination({
+    fetchMedia: (page) => fetchSeriesByScroll(genreId, page),
+    numberOfPages: pagesSeriesByGenre
+  });
 
   return(
     <main className='flex flex-col flex-grow'>
@@ -33,9 +28,7 @@ const SeriesByGenre = () => {
         Lo mejor en {decodedGenreName}
       </h1>
       <ListMedia media={seriesByGenre}/>
-      <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
-        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesSeriesByGenre}/>
-      </div>
+      <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={seriesByGenre} text={'series'}/>
     </main>
   );
 };

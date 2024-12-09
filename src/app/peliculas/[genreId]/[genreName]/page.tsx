@@ -1,27 +1,22 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { useMoviesByGenreId } from '@/store/moviesByGenreId';
-import PaginationControlled from '@/components/Pagination';
+import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
+import LoadingByScroll from '@/components/Loading';
 
 const MoviesByGenre = () => {
   const {genreId, genreName} = useParams<Params>();
-  const [page, setPage] = useState<number>(1);
   const decodedGenreName = decodeURIComponent(genreName || '');
 
-  const { moviesByGenre, pagesMoviesByGenre, fetchMoviesByGenreId } = useMoviesByGenreId(state => state);
-
-  const handleSetPage = (event: React.ChangeEvent<unknown>, value: number) => {
-    event.preventDefault();
-    setPage(value);
-  };
-
-  useEffect(() => {
-    fetchMoviesByGenreId(genreId, page);
-  }, [page, genreId, fetchMoviesByGenreId]);
+  const { moviesByGenre, pagesMoviesByGenre, fetchMoviesByScroll } = useMoviesByGenreId(state => state);
+  
+  const { loading, moreMedia } = useScrollPagination({
+    fetchMedia: (page) => fetchMoviesByScroll(genreId, page),
+    numberOfPages: pagesMoviesByGenre
+  });
 
   return(
     <main className='flex flex-col flex-grow'>
@@ -29,9 +24,7 @@ const MoviesByGenre = () => {
         {decodedGenreName} en estado puro, ¡perfectas para una maratón!
       </h1>
       <ListMedia media={moviesByGenre}/>
-      <div className='flex justify-center pb-4 pt-8 md:py-6 lg:py-8'>
-        <PaginationControlled page={page} handleSetPage={handleSetPage} maxPage={pagesMoviesByGenre}/>
-      </div>
+      <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={moviesByGenre} text={'películas'}/>
     </main>
   );
 };
