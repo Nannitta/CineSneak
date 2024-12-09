@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { useSearchMediaStore } from '@/store/searchMedia';
-import ListMedia from '@/components/ListMedia';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
+import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/Loading';
 
 const SearchPage = () => {
