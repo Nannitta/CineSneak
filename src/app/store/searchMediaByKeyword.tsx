@@ -9,7 +9,7 @@ interface State {
   pagesSearchedMedia: number
 }
 
-export const useSearchMediaStore = create<State>((set) => ({
+export const useSearchMediaByKeywordStore = create<State>((set) => ({
   searchedMedia: [],
   pagesSearchedMedia: 0,
   resetSearchResults: () => set({ searchedMedia: [], pagesSearchedMedia: 0 }),

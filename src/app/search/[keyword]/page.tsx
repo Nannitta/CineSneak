@@ -3,13 +3,13 @@
 import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
-import { useSearchMediaStore } from '@/store/searchMedia';
+import { useSearchMediaByKeywordStore } from '@/store/searchMediaByKeyword';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/Loading';
 
 const SearchPage = () => {
-  const { searchedMedia, fetchSearchMedia, pagesSearchedMedia, resetSearchResults } = useSearchMediaStore(state => state);
+  const { searchedMedia, fetchSearchMedia, pagesSearchedMedia, resetSearchResults } = useSearchMediaByKeywordStore(state => state);
   const { keyword } = useParams<Params>();
 
   useEffect(() => {

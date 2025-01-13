@@ -21,7 +21,7 @@ const SideMenu = () => {
     <>
       {
         isSideMenuOpen || isClosing
-          ? <div className={`bg-black fixed z-10 w-full flex flex-col place-items-center p-4 shadow-lg ${isClosing ? 'side-menu-closing' : 'side-menu'}`}>
+          ? <div className={`bg-black fixed z-10 w-full flex flex-col place-items-center p-4 shadow-lg ${isClosing ? 'side-menu-up' : 'side-menu-down'}`}>
             <button onClick={closeSideMenu} className='self-end'>
               <Close 
                 width={'24'}
