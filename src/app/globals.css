@@ -40,12 +40,20 @@ li:hover a svg path {
 	mask-composite: exclude;
 }
 
-.side-menu {
+.side-menu-down {
 	animation: slideDown 0.5s ease-out forwards;
 }
 
-.side-menu-closing {
+.side-menu-up {
 	animation: slideUp 0.5s ease-out forwards;
+}
+
+.side-menu-right {
+	animation: slideRight 0.5s ease-out forwards;
+}
+
+.side-menu-left {
+	animation: slideLeft 0.5s ease-out forwards;
 }
 
 .fade-in {
@@ -70,6 +78,28 @@ li:hover a svg path {
 	}
 	to {
 		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+@keyframes slideRight {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideLeft {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(100%);
 		opacity: 0;
 	}
 }
