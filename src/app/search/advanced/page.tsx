@@ -1,12 +1,10 @@
 'use client';
 
 import ListMedia from '@/components/ListMedia';
-import LoadingByScroll from '@/components/Loading';
-import { useScrollPagination } from '@/hooks/useScrollPagination';
 import { useSearchMediaAdvancedStore } from '@/store/advancedSearchMedia';
 import { SearchedMedia } from '@/types/types';
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
@@ -37,10 +35,9 @@ const SearchPage = () => {
       </h1>
       {
         searchedMedia.length > 0 
-          ? <>
+          ? <Suspense>
             <ListMedia media={filterCategory}/>
-            {/*             <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={searchedMedia} text={'resultados'}/>
- */}          </>
+          </Suspense>
           : null
       }
     </main>
