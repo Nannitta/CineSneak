@@ -35,13 +35,21 @@ const SearchPage = () => {
       </h1>
       {
         searchedMedia.length > 0 
-          ? <Suspense>
+          ? <>
             <ListMedia media={filterCategory}/>
-          </Suspense>
+          </>
           : null
       }
     </main>
   );
 };
 
-export default SearchPage;
+const SearchPageWrapper = () => {
+  return (
+    <Suspense>
+      <SearchPage />
+    </Suspense>
+  );
+};
+
+export default SearchPageWrapper;
