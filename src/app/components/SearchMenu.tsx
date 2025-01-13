@@ -37,7 +37,12 @@ const SearchMenu = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && searchQuery.trim() !== '') {
-      router.push(`/search/${encodeURIComponent(searchQuery)}`);
+      if (clickedCategory && clickedGenre) {
+        router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${encodeURIComponent(clickedGenre.toLowerCase())}`);
+      } else {
+        router.push(`/search/${encodeURIComponent(searchQuery)}`);
+      }
+
       closeSearchMenu();
       setSearchQuery('');
 

@@ -103,7 +103,7 @@ const SearchMenuLargeDevice = ({
               <div className='flex h-full justify-end'>
                 <div className='flex gap-4 h-8 self-end mb-4 *:w-[82px] *:justify-center'>
                   <PrimaryButton text='Buscar' img={''}/>
-                  <button className='tag relative before:absolute before:inset-0 before:rounded-[0.35rem] px-2 py-1 w-fit md:px-3 md:py-[5px] text-sm font-semibold' onClick={closeSearchMenu}>Cancelar</button>
+                  <button className='tag relative before:absolute before:inset-0 before:rounded-[0.35rem] px-2 py-1 w-fit md:px-3 md:py-[5px] text-sm font-semibold hover:bg-gradient-to-r from-lightBlue from-0% via-neonBlue via-51.5% to-purple to-100% hover:rounded-[0.35rem]' onClick={closeSearchMenu}>Cancelar</button>
                 </div>
               </div>
             </>
