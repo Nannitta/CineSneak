@@ -38,11 +38,13 @@ const SearchMenu = () => {
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLElement>) => {
-    if (searchQuery.trim() === '') {
+    if (searchQuery.trim() === '' && e.key === 'Enter') {
       setErrorMessage('Por favor, rellena el campo de búsqueda antes de continuar.');
       return;
-    } else {
-      if (clickedCategory && clickedGenre && e.key === 'Enter') {
+    } 
+    
+    if (e.key === 'Enter' && searchQuery.trim() !== '') {
+      if (clickedCategory && clickedGenre) {
         router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${clickedGenre}`);
       } else {
         router.push(`/search/${encodeURIComponent(searchQuery)}`);
@@ -62,20 +64,20 @@ const SearchMenu = () => {
     if (searchQuery.trim() === '') {
       setErrorMessage('Por favor, rellena el campo de búsqueda antes de continuar.');
       return;
+    } 
+
+    if (clickedCategory && clickedGenre) {
+      router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${clickedGenre}`);
     } else {
-      if (clickedCategory && clickedGenre) {
-        router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${clickedGenre}`);
-      } else {
-        router.push(`/search/${encodeURIComponent(searchQuery)}`);
-      }
+      router.push(`/search/${encodeURIComponent(searchQuery)}`);
+    }
 
-      closeSearchMenu();
-      setSearchQuery('');
-      setErrorMessage('');
+    closeSearchMenu();
+    setSearchQuery('');
+    setErrorMessage('');
 
-      if(searchInputRef.current) {
-        searchInputRef.current.value = '';
-      }
+    if(searchInputRef.current) {
+      searchInputRef.current.value = '';
     }
   };
 
