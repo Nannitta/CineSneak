@@ -26,7 +26,7 @@ CineSneak 📽️🎬, una app donde puedes visitar un extenso catálogo de seri
 ✅ Información detallada tanto de películas como series (Fecha de emisión, duración, dónde ver...).  
 ✅ Minireproductor, permitiéndote seguir navegando por la web.  
 ✅ Acceso y paginación para todo el catálogo de series y películas.  
-⬜ Buscador avanzado por nombre, categoría, series o películas.  
+✅ Buscador avanzado por nombre, categoría, series o películas.  
 ⬜ Registro de usuario para acceder a funciones adicionales.  
 ⬜ Añadir contenido a tus listas de favoritos y ya visto (Usuarios registrados).  
 ⬜ Test para las principales funcionalidades de la web.  
