@@ -12,8 +12,8 @@ interface SearchMenuSmallProps {
   handleCategoryClick: (category: string) => void
   serieGenres: Genre[]
   movieGenres: Genre[]
-  clickedGenre: string | null
-  handleGenreClick: (genre: string) => void
+  clickedGenre: number | null
+  handleGenreClick: (genre: number) => void
   isSearchOpen: boolean
   fetchSerieGenre: (isSerie: boolean) => void
   fetchMoviesGenre: (isSerie: boolean) => void
@@ -83,14 +83,14 @@ const SearchMenuSmallDevice = ({
               <div className='flex flex-wrap gap-4 my-4 *:text-sm'>
                 {clickedCategory === 'Series' 
                   ? serieGenres.map((serie) => (
-                    <button key={serie.id} className={`py-1 w-fit md:px-3 md:py-[5px] px-2 ${clickedGenre === serie.name ? 'tag relative before:absolute before:inset-0 before:rounded-[0.35rem] px-2' : ''}`}
-                      onClick={() => handleGenreClick(serie.name)}>
+                    <button key={serie.id} className={`py-1 w-fit md:px-3 md:py-[5px] px-2 ${clickedGenre === serie.id ? 'tag relative before:absolute before:inset-0 before:rounded-[0.35rem] px-2' : ''}`}
+                      onClick={() => handleGenreClick(serie.id)}>
                       {serie.name}
                     </button>
                   ))
                   : movieGenres.map((movie) => (
-                    <button key={movie.id} className={`py-1 w-fit md:px-3 md:py-[5px] px-2 ${clickedGenre === movie.name ? 'tag relative before:absolute before:inset-0 before:rounded-[0.35rem] px-2' : ''}`}
-                      onClick={() => handleGenreClick(movie.name)}>
+                    <button key={movie.id} className={`py-1 w-fit md:px-3 md:py-[5px] px-2 ${clickedGenre === movie.id ? 'tag relative before:absolute before:inset-0 before:rounded-[0.35rem] px-2' : ''}`}
+                      onClick={() => handleGenreClick(movie.id)}>
                       {movie.name}
                     </button>
                   ))

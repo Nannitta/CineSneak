@@ -16,12 +16,12 @@ const SearchPage = () => {
 
   let filterCategory: SearchedMedia[] = [];
 
-  if(category === 'series') {
-    filterCategory = searchedMedia.filter((serie) => serie.media_type === 'tv'); 
-  } else {
-    filterCategory = searchedMedia.filter((serie) => serie.media_type === 'movie');
+  if(category === 'series' && genre) {
+    filterCategory = searchedMedia.filter((serie) => serie.media_type === 'tv' && serie.genre_ids.includes(+genre)); 
+  } else if (genre) {
+    filterCategory = searchedMedia.filter((movie) => movie.media_type === 'movie' && movie.genre_ids.includes(+genre));
   }
-
+  
   useEffect(() => {
     if(keyword) {
       fetchSearchMedia(keyword, 1);

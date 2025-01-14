@@ -17,7 +17,7 @@ const SearchMenu = () => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [clickedCategory, setClickedCategory] = useState<string | null>(null);
-  const [clickedGenre, setClickedGenre] = useState<string | null>(null);
+  const [clickedGenre, setClickedGenre] = useState<number | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter(); 
 
@@ -38,7 +38,7 @@ const SearchMenu = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && searchQuery.trim() !== '') {
       if (clickedCategory && clickedGenre) {
-        router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${encodeURIComponent(clickedGenre.toLowerCase())}`);
+        router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${clickedGenre}`);
       } else {
         router.push(`/search/${encodeURIComponent(searchQuery)}`);
       }
@@ -56,7 +56,7 @@ const SearchMenu = () => {
     setClickedCategory(category);
   };
 
-  const handleGenreClick = (genre: string) => {
+  const handleGenreClick = (genre: number) => {
     setClickedGenre(genre);
   };
 
