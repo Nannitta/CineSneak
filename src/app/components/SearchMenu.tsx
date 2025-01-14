@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { KeyboardEvent, MouseEvent, useEffect, useRef, useState } from 'react';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { useRouter } from 'next/navigation';
 import { useSearchMenuStore } from '@/store/searchMenu';
@@ -18,6 +18,7 @@ const SearchMenu = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [clickedCategory, setClickedCategory] = useState<string | null>(null);
   const [clickedGenre, setClickedGenre] = useState<number | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const searchInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter(); 
 
@@ -25,6 +26,7 @@ const SearchMenu = () => {
     setIsClosing(true);
     setClickedCategory(null);
     setClickedGenre(null);
+    setErrorMessage('');
     setTimeout(() => {
       closeSearchMenuStore();
       setIsClosing(false);
@@ -35,8 +37,32 @@ const SearchMenu = () => {
     setSearchQuery(e.target.value);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && searchQuery.trim() !== '') {
+  const handleKeyDown = (e: KeyboardEvent<HTMLElement>) => {
+    if (searchQuery.trim() === '') {
+      setErrorMessage('Por favor, rellena el campo de búsqueda antes de continuar.');
+      return;
+    } else {
+      if (clickedCategory && clickedGenre && e.key === 'Enter') {
+        router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${clickedGenre}`);
+      } else {
+        router.push(`/search/${encodeURIComponent(searchQuery)}`);
+      }
+
+      closeSearchMenu();
+      setSearchQuery('');
+      setErrorMessage('');
+
+      if(searchInputRef.current) {
+        searchInputRef.current.value = '';
+      }
+    }
+  };
+
+  const handleClickSearch = (e: MouseEvent<HTMLButtonElement>) => {
+    if (searchQuery.trim() === '') {
+      setErrorMessage('Por favor, rellena el campo de búsqueda antes de continuar.');
+      return;
+    } else {
       if (clickedCategory && clickedGenre) {
         router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${clickedGenre}`);
       } else {
@@ -45,6 +71,7 @@ const SearchMenu = () => {
 
       closeSearchMenu();
       setSearchQuery('');
+      setErrorMessage('');
 
       if(searchInputRef.current) {
         searchInputRef.current.value = '';
@@ -63,6 +90,7 @@ const SearchMenu = () => {
   const handleClearFilters = () => {
     setClickedGenre(null);
     setClickedCategory(null);
+    setErrorMessage('');
   };
 
   useEffect(() => {
@@ -73,6 +101,10 @@ const SearchMenu = () => {
     }
   }, [isSearchOpen]);
 
+  useEffect(() => {
+    setClickedGenre(null);
+  }, [clickedCategory]);
+
   return(
     <>
       {
@@ -81,7 +113,6 @@ const SearchMenu = () => {
             ? <SearchMenuSmallDevice 
               closeSearchMenu={closeSearchMenu} 
               isClosing={isClosing} 
-              handleKeyDown={handleKeyDown} 
               handleSearchChange={handleSearchChange} 
               clickedCategory={clickedCategory} 
               handleCategoryClick={handleCategoryClick} 
@@ -92,11 +123,13 @@ const SearchMenu = () => {
               isSearchOpen={isSearchOpen}
               fetchSerieGenre={fetchSerieGenre}
               fetchMoviesGenre={fetchMoviesGenre}
-              handleClearFilters={handleClearFilters}/> 
+              handleClearFilters={handleClearFilters}
+              handleKeyDown={handleKeyDown} 
+              handleClickSearch={handleClickSearch}
+              errorMessage={errorMessage}/> 
             : <SearchMenuLargeDevice 
               closeSearchMenu={closeSearchMenu} 
               isClosing={isClosing} 
-              handleKeyDown={handleKeyDown} 
               handleSearchChange={handleSearchChange} 
               clickedCategory={clickedCategory} 
               handleCategoryClick={handleCategoryClick} 
@@ -107,7 +140,10 @@ const SearchMenu = () => {
               isSearchOpen={isSearchOpen}
               fetchSerieGenre={fetchSerieGenre}
               fetchMoviesGenre={fetchMoviesGenre}
-              handleClearFilters={handleClearFilters}/> 
+              handleClearFilters={handleClearFilters}
+              handleKeyDown={handleKeyDown} 
+              handleClickSearch={handleClickSearch}
+              errorMessage={errorMessage}/> 
           : null
       }
     </>

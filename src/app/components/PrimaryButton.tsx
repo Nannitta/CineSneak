@@ -1,9 +1,9 @@
-import { MouseEventHandler, ReactNode } from 'react';
+import { MouseEvent, ReactNode } from 'react';
 
 interface ButtonProps {
   text: string
   img: ReactNode
-  onClick?: MouseEventHandler<HTMLButtonElement>
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
 const PrimaryButton = ({ text, img, onClick }: ButtonProps) => {
