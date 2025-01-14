@@ -3,16 +3,16 @@ import { SearchedMedia } from '@/types/types';
 import { create } from 'zustand';
 
 interface State {
-  searchedMedia: SearchedMedia[];
-  fetchSearchMedia: (keyword: string, page: number) => Promise<void>;
-  pagesSearchedMedia: number;
-  isSerie?: string | null
+  searchedMedia: SearchedMedia[]
+  fetchSearchMedia: (keyword: string, page: number) => Promise<void>
+  pagesSearchedMedia: number
+  resetSearchResults: () => void
 }
 
 export const useSearchMediaAdvancedStore = create<State>((set) => ({
   searchedMedia: [],
   pagesSearchedMedia: 0,
-  isSerie: null,
+  resetSearchResults: () => set({ searchedMedia: [], pagesSearchedMedia: 0 }),
   fetchSearchMedia: async (keyword: string, page: number) => {
     const response = await searchMedia(keyword, page);
     const pagesSearchedMedia = response.total_pages;

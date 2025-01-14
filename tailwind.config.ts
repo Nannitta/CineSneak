@@ -14,7 +14,8 @@ const config: Config = {
       lightBlue: '#4CC9F0',
       white: '#FFFFFF',
       black: '#000000',
-      transparent: '#00000000'
+      transparent: '#00000000',
+      error: '#EF5350'
     },
     extend: {
       backgroundImage: {
