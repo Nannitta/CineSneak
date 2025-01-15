@@ -21,7 +21,7 @@ const SearchPage = () => {
     numberOfPages: pagesSearchedMedia,
     resetOnKeywordChange: keyword,
   });
-
+  
   return (
     <main className="flex flex-col flex-grow">
       <h1 className="font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6">
