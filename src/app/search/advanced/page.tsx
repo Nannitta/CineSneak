@@ -16,9 +16,13 @@ const SearchPage = () => {
 
   let filterCategory: SearchedMedia[] = [];
 
-  if(category === 'series' && genre) {
-    filterCategory = searchedMedia.filter((serie) => serie.media_type === 'tv' && serie.genre_ids.includes(+genre)); 
-  } else if (genre) {
+  if (category === 'series' && !genre) {
+    filterCategory = searchedMedia.filter((serie) => serie.media_type === 'tv');
+  } else if (category === 'series' && genre) {
+    filterCategory = searchedMedia.filter((serie) => serie.media_type === 'tv' && serie.genre_ids.includes(+genre));
+  } else if (category === 'peliculas' && !genre) {
+    filterCategory = searchedMedia.filter((movie) => movie.media_type === 'movie');
+  } else if (category === 'peliculas' && genre) {
     filterCategory = searchedMedia.filter((movie) => movie.media_type === 'movie' && movie.genre_ids.includes(+genre));
   }
   

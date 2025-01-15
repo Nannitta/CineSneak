@@ -44,7 +44,9 @@ const SearchMenu = () => {
     } 
     
     if (e.key === 'Enter' && searchQuery.trim() !== '') {
-      if (clickedCategory && clickedGenre) {
+      if (clickedCategory && !clickedGenre) {
+        router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}`);
+      } else if (clickedCategory && clickedGenre) {
         router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${clickedGenre}`);
       } else {
         router.push(`/search/${encodeURIComponent(searchQuery)}`);
@@ -66,7 +68,9 @@ const SearchMenu = () => {
       return;
     } 
 
-    if (clickedCategory && clickedGenre) {
+    if (clickedCategory && !clickedGenre) {
+      router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}`);
+    } else if (clickedCategory && clickedGenre) {
       router.push(`/search/advanced?query=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(clickedCategory.toLowerCase())}&genre=${clickedGenre}`);
     } else {
       router.push(`/search/${encodeURIComponent(searchQuery)}`);
