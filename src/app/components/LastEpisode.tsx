@@ -29,18 +29,27 @@ const LastEpisode = ({ media }: LastEpisodeProps) => {
         />
       </div>
       <div>
-        <h3 className='text-sm font-bold flex gap-2 py-2'>
-          {media.last_episode_to_air?.season_number}x{formatEpisodeNumber(media.last_episode_to_air?.episode_number)}
-          <span>{media.last_episode_to_air?.name}</span>
-        </h3>
+        {
+          media.last_episode_to_air?.season_number || media.last_episode_to_air?.episode_number || media.last_episode_to_air?.name &&
+          <h3 className='text-sm font-bold flex gap-2 py-2'>
+            {media.last_episode_to_air?.season_number}x{formatEpisodeNumber(media.last_episode_to_air?.episode_number)}
+            <span>{media.last_episode_to_air?.name}</span>
+          </h3>
+        }
         <div className='flex flex-col gap-1 mb-2 md:flex-row md:gap-8'>
-          <p className='text-xs text-gray'>Fecha de emisión · {formatDate(media.last_episode_to_air?.air_date.toString())}</p>
-          <p className="text-xs flex place-items-center gap-1 text-gray">
-            <Clock
-              width={'10'}
-              height={'10'} />
+          {
+            media.last_episode_to_air?.air_date &&
+            <p className='text-xs text-gray'>Fecha de emisión · {formatDate(media.last_episode_to_air?.air_date.toString())}</p>
+          }
+          {
+            media.last_episode_to_air?.runtime &&
+            <p className="text-xs flex place-items-center gap-1 text-gray">
+              <Clock
+                width={'10'}
+                height={'10'} />
               Duración · {formatRuntime(media.last_episode_to_air?.runtime)}
-          </p>
+            </p>
+          }
         </div>
         <p className='text-balance font-extralight'>{media.last_episode_to_air?.overview}</p>
       </div>

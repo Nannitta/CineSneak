@@ -94,8 +94,13 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
         <LastEpisode media={media}/>
       </section>
       <section className="pb-5 lg:pb-8 2xl:mt-6">
-        <h2 className="px-4 font-black pt-5 pb-4 md:text-xl lg:px-6">Explora series similares</h2>
-        <HorizontalCarousel media={similarMediaStore} isSerie={true}/>
+        {
+          similarMediaStore.length > 0 &&
+          <>
+            <h2 className="px-4 font-black pt-5 pb-4 md:text-xl lg:px-6">Explora series similares</h2>
+            <HorizontalCarousel media={similarMediaStore} isSerie={true}/>
+          </>
+        }
       </section>
     </div>
   );
