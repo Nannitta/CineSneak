@@ -20,7 +20,8 @@ const WatchMedia = () => {
     fetchMediaDetails, 
     mediaDetails, 
     providers, 
-    fetchProviders, 
+    fetchProviders,
+    resetProviders,
     cast, 
     fetchCast, 
     similarMedia, 
@@ -49,20 +50,21 @@ const WatchMedia = () => {
   }, [fetchMediaDetails, fetchCast, fetchProviders, fetchSimilarMedia, id, media]);
 
   useEffect(() => {
-    const getProviders = () => {   
+    resetProviders();
+    const getProviders = () => {         
       if(providers && Object.keys(providers).length > 0) {          
         if(providers.ES) {
           const spanishProviders: ProvidersLogo[] = providers.ES?.flatrate;
           const finalProviders: ProvidersLogo[] = [];
           spanishProviders?.forEach((provider: ProvidersLogo) => {
             finalProviders.push(provider);
-          });
+          });          
           setProvidersLogo(finalProviders);
         }    
       }           
     };
     getProviders();
-  }, [providers]);
+  }, [providers, resetProviders]);
 
   const getGenreNames = (genres: Genre[]): (JSX.Element | null)[] => {
     return genres.map(id => {

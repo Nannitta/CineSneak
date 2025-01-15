@@ -7,6 +7,7 @@ interface State {
   fetchMediaDetails: (id: number, isSerie: boolean) => Promise<void>
   providers: CountryProvider | null,
   fetchProviders: (id: number, isSerie: boolean) => Promise<void>
+  resetProviders: () => void
   cast: Cast[]
   fetchCast: (id: number, isSerie: boolean) => Promise<void>
   similarMedia: MovieDetails[] | SerieDetails[]
@@ -26,8 +27,11 @@ export const useMediaDetailsStore = create<State>((set) => {
     },
     fetchProviders: async (id: number, isSerie: boolean) => {
       const providers = await getProviders(id, isSerie);     
-
+      
       set({ providers });
+    },
+    resetProviders: () => {
+      set({ providers: null });
     },
     fetchCast: async (id: number, isSerie: boolean) => {
       const cast = await getCast(id, isSerie);
