@@ -10,9 +10,12 @@ const ListLogoProviders = ({ providersLogo }: ProvidersLogoProps) => {
 
   return(
     <div className="flex flex-col gap-2 col-start-2 col-end-4 ml-2 mb-8 lg:justify-end lg:ml-0">
-      <h3 className="font-bold text-xs">
-              Disponible en
-      </h3>
+      {
+        providersLogo.length > 0 && 
+        <h3 className="font-bold text-xs">
+          Disponible en
+        </h3>
+      }
       <div className="flex gap-2 lg:gap-4">
         {
           providersLogo.filter((logo) => logo.logo_path !== null).map((logo) => {

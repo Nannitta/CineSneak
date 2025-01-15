@@ -35,7 +35,7 @@ const config: Config = {
         'movie-details-sm': '72px 105px 20px 35px 34px',
         'movie-details-md': '77px 101px 20px 34px 55px',
         'movie-details-laptop': '127px 34px 20px 34px 213px 28px 36px 56px 160px',
-        'movie-details-lg': '127px 34px 20px 34px 213px 28px 36px'
+        'movie-details-lg': '127px 34px 20px 34px 213px 26px 36px'
       },
       screens: {
         'laptop': {'min': '1366px', 'max': '1538px'}
