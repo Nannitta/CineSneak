@@ -1,39 +1,61 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useParams } from 'next/navigation';
+import { League_Spartan } from 'next/font/google';
+import { useParams, useRouter } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { useSearchMediaByKeywordStore } from '@/store/searchMediaByKeyword';
-import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
-import LoadingByScroll from '@/components/Loading';
+import PrimaryButton from '@/components/PrimaryButton';
+import { Clapperboard, FilmSpool } from '@/lib/Svg';
+
+const league = League_Spartan({ subsets: ['latin'] });
 
 const SearchPage = () => {
-  const { searchedMedia, fetchSearchMedia, pagesSearchedMedia, resetSearchResults } = useSearchMediaByKeywordStore(state => state);
+  const { searchedMedia, fetchSearchMedia, resetSearchResults } = useSearchMediaByKeywordStore(state => state);
   const { keyword } = useParams<Params>();
+  const router = useRouter();
+
+  const filterCategory = searchedMedia.filter((media) => media.media_type === 'tv' || media.media_type === 'movie');
+  
+  const handleBackHome = () => {
+    router.push('/');
+  };
+
+  useEffect(() => {
+    if(keyword) {
+      fetchSearchMedia(keyword, 1);
+    }
+  }, [fetchSearchMedia, keyword]);
 
   useEffect(() => {
     resetSearchResults();
   }, [keyword, resetSearchResults]);
-
-  const { loading, moreMedia } = useScrollPagination({
-    fetchMedia: (page) => fetchSearchMedia(keyword, page),
-    numberOfPages: pagesSearchedMedia,
-    resetOnKeywordChange: keyword,
-  });
-  
+ 
   return (
-    <main className="flex flex-col flex-grow">
-      <h1 className="font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6">
-        Resultados para la búsqueda: {decodeURIComponent(keyword)}
-      </h1>
+    <main className="flex flex-col flex-grow justify-center">
       {
-        searchedMedia.length > 0 
+        filterCategory.length > 0 
           ? <>
-            <ListMedia media={searchedMedia}/>
-            <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={searchedMedia} text={'resultados'}/>
+            <h1 className="font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6">
+              Resultados para la búsqueda: {decodeURIComponent(keyword)}
+            </h1>
+            <ListMedia media={filterCategory}/>
+            <div className='flex flex-col gap-4 justify-center items-center py-8'>
+              <div className='w-fit -rotate-12'>
+                <Clapperboard/>
+              </div>
+              <p className={`${league.className} font-bold text-xl md:text-2xl`}>
+                ¡Vaya!, has llegado al final
+              </p>
+              <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
+            </div> 
           </>
-          : null
+          : <div className='flex flex-col items-center gap-4 py-8'>
+            <FilmSpool width={'150'} height={'150'}/>
+            <p className={`${league.className} font-bold text-center text-2xl px-4 lg:px-6`}>No se han encontrado resultados para {keyword}.</p>
+            <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
+          </div>
       }
     </main>
   );

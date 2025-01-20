@@ -85,11 +85,11 @@ const SearchMenuSmallDevice = ({
           <div className='flex gap-4 mt-4 mb-8 *:text-sm'>
             <button className={`px-2 py-1 w-fit md:px-3 md:py-[5px] ${clickedCategory === 'Series' ? 'tag relative before:absolute before:inset-0 before:rounded-[0.35rem]' : ''}`}
               onClick={() => handleCategoryClick('Series')}>
-              Series
+                Series
             </button>
             <button className={`px-2 py-1 w-fit md:px-3 md:py-[5px] ${clickedCategory === 'Peliculas' ? 'tag relative before:absolute before:inset-0 before:rounded-[0.35rem]' : ''}`}
               onClick={() => handleCategoryClick('Peliculas')}>
-              Películas
+                Películas
             </button>
           </div>
           {clickedCategory
