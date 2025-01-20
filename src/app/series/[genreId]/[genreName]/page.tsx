@@ -5,7 +5,7 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { useSeriesByGenreId } from '@/store/seriesByGenreId';
 import ListMedia from '@/components/ListMedia';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
-import LoadingByScroll from '@/components/Loading';
+import LoadingByScroll from '@/components/LoadingByScroll';
 
 const SeriesByGenre = () => {
   const {genreId, genreName} = useParams<Params>();

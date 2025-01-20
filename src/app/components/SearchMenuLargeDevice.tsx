@@ -85,11 +85,11 @@ const SearchMenuLargeDevice = ({
           <div className='flex gap-4 mt-4 mb-8'>
             <span className={`px-2 py-1 w-fit md:px-3 md:py-[5px] cursor-pointer text-xs 2xl:text-base ${clickedCategory === 'Series' ? 'tag relative before:absolute before:inset-0 before:rounded-[0.35rem]' : ''}`}
               onClick={() => handleCategoryClick('Series')}>
-                      Series
+                Series
             </span>
             <span className={`px-2 py-1 w-fit md:px-3 md:py-[5px] cursor-pointer text-xs 2xl:text-base ${clickedCategory === 'Peliculas' ? 'tag relative before:absolute before:inset-0 before:rounded-[0.35rem]' : ''}`}
               onClick={() => handleCategoryClick('Peliculas')}>
-                      Películas
+                Películas
             </span>
           </div>
           {clickedCategory

@@ -3,7 +3,7 @@
 import { useMoviesStore } from '@/store/movies';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
-import LoadingByScroll from '@/components/Loading';
+import LoadingByScroll from '@/components/LoadingByScroll';
 
 const TopMovies = () => {
   const { topRatedMovies, pagesTopRatedMovies, fetchTopRatedMovies } = useMoviesStore(state => state);

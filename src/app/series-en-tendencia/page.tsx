@@ -3,7 +3,7 @@
 import { useSeriesStore } from '@/store/series';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
-import LoadingByScroll from '@/components/Loading';
+import LoadingByScroll from '@/components/LoadingByScroll';
 
 const PopularSeries = () => {
   const { popularSeries, pagesPopularSeries, fetchPopularSeries } = useSeriesStore(state => state);
