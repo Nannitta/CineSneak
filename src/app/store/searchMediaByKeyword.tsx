@@ -15,17 +15,24 @@ export const useSearchMediaByKeywordStore = create<State>((set) => ({
   resetSearchResults: () => set({ searchedMedia: [], pagesSearchedMedia: 0 }),
   fetchSearchMedia: async (keyword: string, page: number) => {
     const response = await searchMedia(keyword, page);
-    const newSearchedMedia = response.results.filter((media: SearchedMedia) => media.media_type === 'movie' || media.media_type === 'tv');
     const pagesSearchedMedia = response.total_pages;
+    let mediaResults = response.results.filter((media: SearchedMedia) => media.media_type === 'movie' || media.media_type === 'tv');
 
-    set(state => {
-      const existingIds = new Set(state.searchedMedia.map(media => media.id));
-      const uniqueMedia = newSearchedMedia.filter((media: SearchedMedia) => !existingIds.has(media.id));
-      
-      return {
-        searchedMedia: [...state.searchedMedia, ...uniqueMedia],
-        pagesSearchedMedia
-      };
+    if (pagesSearchedMedia > 1) {
+      const results = [];
+      for (let i = 2; i <= pagesSearchedMedia; i++) {
+        results.push(searchMedia(keyword, i));
+      }
+      const additionalResults = await Promise.all(results);
+
+      additionalResults.forEach((result) => {
+        mediaResults = mediaResults.concat(result.results);
+      });
+    }    
+
+    set({
+      searchedMedia: mediaResults,
+      pagesSearchedMedia,
     });
   }
 }));
