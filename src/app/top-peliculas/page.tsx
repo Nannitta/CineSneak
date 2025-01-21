@@ -4,6 +4,7 @@ import { useMoviesStore } from '@/store/movies';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/LoadingByScroll';
+import BackTopButton from '@/components/BackTopButton';
 
 const TopMovies = () => {
   const { topRatedMovies, pagesTopRatedMovies, fetchTopRatedMovies } = useMoviesStore(state => state);
@@ -16,6 +17,7 @@ const TopMovies = () => {
       </h1>
       <ListMedia media={topRatedMovies}/>
       <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={topRatedMovies} text={'películas'}/>
+      <BackTopButton/>
     </main>
   );
 };

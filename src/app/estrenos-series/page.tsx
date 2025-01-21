@@ -4,6 +4,7 @@ import { useSeriesStore } from '@/store/series';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/LoadingByScroll';
+import BackTopButton from '@/components/BackTopButton';
 
 const SeriesAiringToday = () => {
   const { airingToday, pagesAiringToday, fetchAiringToday } = useSeriesStore(state => state);
@@ -16,6 +17,7 @@ const SeriesAiringToday = () => {
       </h1>
       <ListMedia media={airingToday} />
       <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={airingToday} text={'series'}/>
+      <BackTopButton/>
     </main>
   );
 };
