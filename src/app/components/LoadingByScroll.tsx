@@ -25,9 +25,9 @@ const LoadingByScroll = ({ loading, moreMedia, dataMedia, text }: LoadingByScrol
   return (
     <>
       {loading && 
-      <p className='pt-8 pb-2 flex items-center justify-center gap-4 text-gray'>
+      <p className='pb-8 pt-12 flex items-center justify-center gap-4 text-gray'>
         <LoadingSpinner/>
-        Cargando más {text}...
+        Cargando más {text}
       </p>}
       {!moreMedia && dataMedia.length > 0 &&
       <div className='flex flex-col gap-4 justify-center items-center py-8'>
