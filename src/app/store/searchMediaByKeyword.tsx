@@ -7,17 +7,23 @@ interface State {
   fetchSearchMedia: (keyword: string, page: number) => Promise<void>
   resetSearchResults: () => void
   pagesSearchedMedia: number
+  genericError: number
 }
 
 export const useSearchMediaByKeywordStore = create<State>((set) => ({
   searchedMedia: [],
   pagesSearchedMedia: 0,
+  genericError: 0,
   resetSearchResults: () => set({ searchedMedia: [], pagesSearchedMedia: 0 }),
   fetchSearchMedia: async (keyword: string, page: number) => {
     try {
       const response = await searchMedia(keyword, page);
-      const pagesSearchedMedia = response.total_pages;
+      let pagesSearchedMedia = response.total_pages;
       let mediaResults = response.results.filter((media: SearchedMedia) => media.media_type === 'movie' || media.media_type === 'tv');
+
+      if(pagesSearchedMedia > 50) {
+        pagesSearchedMedia = 50;
+      }
 
       if (pagesSearchedMedia > 1) {
         const results = [];
