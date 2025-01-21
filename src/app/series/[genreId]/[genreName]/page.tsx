@@ -6,6 +6,7 @@ import { useSeriesByGenreId } from '@/store/seriesByGenreId';
 import ListMedia from '@/components/ListMedia';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import LoadingByScroll from '@/components/LoadingByScroll';
+import BackTopButton from '@/components/BackTopButton';
 
 const SeriesByGenre = () => {
   const {genreId, genreName} = useParams<Params>();
@@ -29,6 +30,7 @@ const SeriesByGenre = () => {
       </h1>
       <ListMedia media={seriesByGenre}/>
       <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={seriesByGenre} text={'series'}/>
+      <BackTopButton/>
     </main>
   );
 };

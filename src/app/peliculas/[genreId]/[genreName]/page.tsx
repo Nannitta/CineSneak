@@ -6,6 +6,7 @@ import { useMoviesByGenreId } from '@/store/moviesByGenreId';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/LoadingByScroll';
+import BackTopButton from '@/components/BackTopButton';
 
 const MoviesByGenre = () => {
   const {genreId, genreName} = useParams<Params>();
@@ -25,6 +26,7 @@ const MoviesByGenre = () => {
       </h1>
       <ListMedia media={moviesByGenre}/>
       <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={moviesByGenre} text={'películas'}/>
+      <BackTopButton/>
     </main>
   );
 };

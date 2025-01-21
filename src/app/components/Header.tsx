@@ -35,7 +35,7 @@ const Header = () => {
   }, [isSearchOpen]);
 
   return(
-    <header className='flex justify-between p-4 items-center lg:p-6'>
+    <header className='flex justify-between p-4 items-center lg:p-6' id='top'>
       <div className='flex place-items-center gap-2'>
         <Link href={'/'}>
           <Logo

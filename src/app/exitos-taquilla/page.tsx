@@ -4,6 +4,7 @@ import { useMoviesStore } from '@/store/movies';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/LoadingByScroll';
+import BackTopButton from '@/components/BackTopButton';
 
 const MoviesNowPlaying = () => {
   const {moviesNowPlaying, pagesMoviesNowPlaying, fetchMoviesNowPlaying} = useMoviesStore(state => state);
@@ -16,6 +17,7 @@ const MoviesNowPlaying = () => {
       </h1>
       <ListMedia media={moviesNowPlaying}/>
       <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={moviesNowPlaying} text={'películas'}/>
+      <BackTopButton/>
     </main>
   );
 };

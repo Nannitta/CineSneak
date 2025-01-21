@@ -8,6 +8,7 @@ import { useSearchMediaByKeywordStore } from '@/store/searchMediaByKeyword';
 import ListMedia from '@/components/ListMedia';
 import PrimaryButton from '@/components/PrimaryButton';
 import { Clapperboard, FilmSpool } from '@/lib/Svg';
+import BackTopButton from '@/components/BackTopButton';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -50,6 +51,7 @@ const SearchPage = () => {
               </p>
               <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
             </div> 
+            <BackTopButton/>
           </>
           : <div className='flex flex-col items-center gap-4 py-8'>
             <FilmSpool width={'150'} height={'150'}/>

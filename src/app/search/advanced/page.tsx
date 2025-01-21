@@ -8,6 +8,7 @@ import { Clapperboard, FilmSpool } from '@/lib/Svg';
 import { useSearchMediaAdvancedStore } from '@/store/advancedSearchMedia';
 import { SearchedMedia } from '@/types/types';
 import { useEffect, Suspense } from 'react';
+import BackTopButton from '@/components/BackTopButton';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -59,7 +60,8 @@ const SearchPage = () => {
                 ¡Vaya!, has llegado al final
               </p>
               <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
-            </div> 
+            </div>
+            <BackTopButton/>
           </>
           : <div className='flex flex-col items-center gap-4 py-8'>
             <FilmSpool width={'150'} height={'150'}/>

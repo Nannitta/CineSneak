@@ -4,6 +4,7 @@ import { useSeriesStore } from '@/store/series';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/LoadingByScroll';
+import BackTopButton from '@/components/BackTopButton';
 
 const TopSeries = () => {
   const { topRatedSeries, pagesTopRatedSeries, fetchTopRatedSeries } = useSeriesStore(state => state);
@@ -16,6 +17,7 @@ const TopSeries = () => {
       </h1>
       <ListMedia media={topRatedSeries}/>
       <LoadingByScroll loading={loading} moreMedia={moreMedia} dataMedia={topRatedSeries} text={'series'}/>
+      <BackTopButton/>
     </main>
   );
 };
