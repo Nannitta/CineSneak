@@ -7,7 +7,7 @@ import LoadingByScroll from '@/components/LoadingByScroll';
 import BackTopButton from '@/components/BackTopButton';
 
 const MoviesNowPlaying = () => {
-  const {moviesNowPlaying, pagesMoviesNowPlaying, fetchMoviesNowPlaying} = useMoviesStore(state => state);
+  const { moviesNowPlaying, pagesMoviesNowPlaying, fetchMoviesNowPlaying } = useMoviesStore(state => state);
   const { loading, moreMedia } = useScrollPagination({fetchMedia: fetchMoviesNowPlaying, numberOfPages: pagesMoviesNowPlaying});
 
   return(

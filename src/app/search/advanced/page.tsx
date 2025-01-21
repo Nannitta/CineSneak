@@ -4,10 +4,10 @@ import { League_Spartan } from 'next/font/google';
 import { useSearchParams, useRouter } from 'next/navigation';
 import ListMedia from '@/components/ListMedia';
 import PrimaryButton from '@/components/PrimaryButton';
-import { Clapperboard, FilmSpool } from '@/lib/Svg';
+import { Clapperboard, FilmSpool, LoadingSpinner } from '@/lib/Svg';
 import { useSearchMediaAdvancedStore } from '@/store/advancedSearchMedia';
 import { SearchedMedia } from '@/types/types';
-import { useEffect, Suspense } from 'react';
+import { useEffect, Suspense, useState } from 'react';
 import BackTopButton from '@/components/BackTopButton';
 
 const league = League_Spartan({ subsets: ['latin'] });
@@ -15,6 +15,7 @@ const league = League_Spartan({ subsets: ['latin'] });
 const SearchPage = () => {
   const searchParams = useSearchParams();
   const { fetchSearchMedia, searchedMedia } = useSearchMediaAdvancedStore(state => state);
+  const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
 
   const keyword: string | null = searchParams.get('query');
@@ -38,9 +39,15 @@ const SearchPage = () => {
   };
   
   useEffect(() => {
-    if(keyword) {
-      fetchSearchMedia(keyword, 1);
-    }
+    const fetchData = async () => {
+      if (keyword) {
+        setLoading(true);
+        await fetchSearchMedia(keyword, 1);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, [fetchSearchMedia, keyword]);
 
   return (
@@ -49,25 +56,30 @@ const SearchPage = () => {
       Resultados para tu búsqueda
       </h1>
       {
-        searchedMedia.length > 0 
-          ? <>
-            <ListMedia media={filterCategory}/>
-            <div className='flex flex-col gap-4 justify-center items-center py-8'>
-              <div className='w-fit -rotate-12'>
-                <Clapperboard/>
+        loading
+          ? <p className='flex items-center justify-center gap-4 text-gray'>
+            <LoadingSpinner/>
+              Cargando resultados
+          </p>
+          : searchedMedia.length > 0 
+            ? <>
+              <ListMedia media={filterCategory}/>
+              <div className='flex flex-col gap-4 justify-center items-center py-8'>
+                <div className='w-fit -rotate-12'>
+                  <Clapperboard/>
+                </div>
+                <p className={`${league.className} font-bold text-xl md:text-2xl`}>
+                  ¡Vaya!, has llegado al final
+                </p>
+                <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
               </div>
-              <p className={`${league.className} font-bold text-xl md:text-2xl`}>
-                ¡Vaya!, has llegado al final
-              </p>
+              <BackTopButton/>
+            </>
+            : <div className='flex flex-col items-center gap-4 py-8'>
+              <FilmSpool width={'150'} height={'150'}/>
+              <p className={`${league.className} font-bold text-center text-2xl px-4 lg:px-6`}>No se han encontrado resultados para {keyword}.</p>
               <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
             </div>
-            <BackTopButton/>
-          </>
-          : <div className='flex flex-col items-center gap-4 py-8'>
-            <FilmSpool width={'150'} height={'150'}/>
-            <p className={`${league.className} font-bold text-center text-2xl px-4 lg:px-6`}>No se han encontrado resultados para {keyword}.</p>
-            <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
-          </div>
       }
     </main>
   );

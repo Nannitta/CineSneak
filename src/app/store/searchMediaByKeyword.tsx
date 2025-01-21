@@ -14,25 +14,29 @@ export const useSearchMediaByKeywordStore = create<State>((set) => ({
   pagesSearchedMedia: 0,
   resetSearchResults: () => set({ searchedMedia: [], pagesSearchedMedia: 0 }),
   fetchSearchMedia: async (keyword: string, page: number) => {
-    const response = await searchMedia(keyword, page);
-    const pagesSearchedMedia = response.total_pages;
-    let mediaResults = response.results.filter((media: SearchedMedia) => media.media_type === 'movie' || media.media_type === 'tv');
+    try {
+      const response = await searchMedia(keyword, page);
+      const pagesSearchedMedia = response.total_pages;
+      let mediaResults = response.results.filter((media: SearchedMedia) => media.media_type === 'movie' || media.media_type === 'tv');
 
-    if (pagesSearchedMedia > 1) {
-      const results = [];
-      for (let i = 2; i <= pagesSearchedMedia; i++) {
-        results.push(searchMedia(keyword, i));
-      }
-      const additionalResults = await Promise.all(results);
+      if (pagesSearchedMedia > 1) {
+        const results = [];
+        for (let i = 2; i <= pagesSearchedMedia; i++) {
+          results.push(searchMedia(keyword, i));
+        }
+        const additionalResults = await Promise.all(results);
 
-      additionalResults.forEach((result) => {
-        mediaResults = mediaResults.concat(result.results);
+        additionalResults.forEach((result) => {
+          mediaResults = mediaResults.concat(result.results);
+        });
+      }    
+
+      set({
+        searchedMedia: mediaResults,
+        pagesSearchedMedia
       });
-    }    
-
-    set({
-      searchedMedia: mediaResults,
-      pagesSearchedMedia,
-    });
+    } catch (error) {
+      console.log(error);
+    }
   }
 }));
