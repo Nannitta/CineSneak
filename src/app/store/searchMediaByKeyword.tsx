@@ -7,13 +7,13 @@ interface State {
   fetchSearchMedia: (keyword: string, page: number) => Promise<void>
   resetSearchResults: () => void
   pagesSearchedMedia: number
-  genericError: number
+  genericError: any
 }
 
 export const useSearchMediaByKeywordStore = create<State>((set) => ({
   searchedMedia: [],
   pagesSearchedMedia: 0,
-  genericError: 0,
+  genericError: null,
   resetSearchResults: () => set({ searchedMedia: [], pagesSearchedMedia: 0 }),
   fetchSearchMedia: async (keyword: string, page: number) => {
     try {
@@ -35,14 +35,14 @@ export const useSearchMediaByKeywordStore = create<State>((set) => ({
         additionalResults.forEach((result) => {
           mediaResults = mediaResults.concat(result.results);
         });
-      }    
+      }
 
       set({
         searchedMedia: mediaResults,
         pagesSearchedMedia
       });
     } catch (error) {
-      console.log(error);
+      set({ genericError: error });
     }
   }
 }));

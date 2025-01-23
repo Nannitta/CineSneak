@@ -9,11 +9,12 @@ import ListMedia from '@/components/ListMedia';
 import PrimaryButton from '@/components/PrimaryButton';
 import { Clapperboard, FilmSpool, LoadingSpinner } from '@/lib/Svg';
 import BackTopButton from '@/components/BackTopButton';
+import ErrorPage from '@/components/ErrorPage';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
 const SearchPage = () => {
-  const { searchedMedia, fetchSearchMedia, resetSearchResults } = useSearchMediaByKeywordStore(state => state);
+  const { searchedMedia, fetchSearchMedia, resetSearchResults, genericError } = useSearchMediaByKeywordStore(state => state);
   const { keyword } = useParams<Params>();
   const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
@@ -65,11 +66,13 @@ const SearchPage = () => {
               </div> 
               <BackTopButton/>
             </>
-            : <div className='flex flex-col items-center gap-4 py-8'>
-              <FilmSpool width={'150'} height={'150'}/>
-              <p className={`${league.className} font-bold text-center text-2xl px-4 lg:px-6`}>No se han encontrado resultados para {keyword}.</p>
-              <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
-            </div>
+            : genericError
+              ? <ErrorPage/>
+              : <div className='flex flex-col items-center gap-4 py-8'>
+                <FilmSpool width={'150'} height={'150'}/>
+                <p className={`${league.className} font-bold text-center text-2xl px-4 lg:px-6`}>No se han encontrado resultados para {keyword && decodeURIComponent(keyword)}.</p>
+                <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
+              </div>        
       }
     </main>
   );

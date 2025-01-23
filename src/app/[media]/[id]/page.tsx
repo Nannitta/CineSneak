@@ -11,6 +11,7 @@ import Tag from '@/components/Tag';
 import WatchTrailer from '@/components/WatchTrailer';
 import MovieDetailsComponent from '@/components/MovieDetails';
 import SerieDetailsComponent from '@/components/SerieDetails';
+import ErrorPage from '@/components/ErrorPage';
 import type { Genre, MovieDetails, ProvidersLogo, SerieDetails } from '@/types/types';
 
 const WatchMedia = () => {
@@ -25,11 +26,12 @@ const WatchMedia = () => {
     cast, 
     fetchCast, 
     similarMedia, 
-    fetchSimilarMedia 
+    fetchSimilarMedia,
+    genericError: mediaStoreError
   } = useMediaDetailsStore(state => state);
 
-  const fetchMovieTrailer = useMoviesStore(state => state.fetchMovieTrailers);
-  const fetchSerieTrailer = useSeriesStore(state => state.fetchSerieTrailers);
+  const { fetchMovieTrailers: fetchMovieTrailer, genericError: moviesStoreError } = useMoviesStore(state => state);
+  const { fetchSerieTrailers: fetchSerieTrailer, genericError: seriesStoreError } = useSeriesStore(state => state);
   const openInPictureMode = useInPictureModeStore(state => state.openPictureMode);
 
   const [providersLogo, setProvidersLogo] = useState<ProvidersLogo[]>([]);
@@ -82,6 +84,12 @@ const WatchMedia = () => {
     openInPictureMode();
   };
    
+  if (mediaStoreError || moviesStoreError || seriesStoreError) {
+    return (
+      <ErrorPage/>
+    );
+  }
+
   return (
     <main className='flex-grow flex flex-col'>
       <WatchTrailer isSerie={media === 'movie' ? false : true}/>

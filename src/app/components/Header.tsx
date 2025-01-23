@@ -14,7 +14,7 @@ const Header = () => {
   const {screenSize} = CheckWindowWidth();
   const [color, setColor] = useState<string>('#C3C3C3');
   const openSideMenu = useSideMenuStore(state => state.openSideMenu);
-  const { openSearchMenu, isSearchOpen, closeSearchMenu } = useSearchMenuStore(state => state);
+  const { openSearchMenu, isSearchOpen } = useSearchMenuStore(state => state);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const pathName = usePathname();
 

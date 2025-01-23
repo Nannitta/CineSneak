@@ -7,7 +7,7 @@ interface State {
   fetchSearchMedia: (keyword: string, page: number) => Promise<void>
   pagesSearchedMedia: number
   resetSearchResults: () => void
-  genericError: number
+  genericError: any
 }
 
 export const useSearchMediaAdvancedStore = create<State>((set) => ({
@@ -42,7 +42,7 @@ export const useSearchMediaAdvancedStore = create<State>((set) => ({
         pagesSearchedMedia
       });
     } catch (error) {
-      console.log(error);
+      set({ genericError: error });
     }
   },
 }));

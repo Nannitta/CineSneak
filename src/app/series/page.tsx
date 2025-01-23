@@ -14,6 +14,7 @@ import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import ListGenres from '@/components/ListGenres';
 import { formatEpisodeNumber } from '@/lib/format';
 import { SerieDetails } from '@/types/types';
+import ErrorPage from '@/components/ErrorPage';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -28,17 +29,20 @@ const Series = () => {
     topRatedSeries,
     fetchTopRatedSeries,
     recommendedSerie,
-    getRecommendedSerie 
+    getRecommendedSerie,
+    genericError: seriesStoreError 
   } = useSeriesStore(state => state);
 
   const {
     seriesByGenre,
-    fetchSeriesByGenreId
+    fetchSeriesByGenreId,
+    genericError: seriesGenreStoreError
   } = useSeriesByGenreId(state => state);
 
   const {
     mediaDetails,
-    fetchMediaDetails
+    fetchMediaDetails,
+    genericError: mediaStoreError
   } = useMediaDetailsStore(state => state);
 
   const OPTIONS: EmblaOptionsType = { loop: true };
@@ -80,6 +84,12 @@ const Series = () => {
       setSerieDetails(mediaDetails as SerieDetails);
     }
   }, [mediaDetails]);
+
+  if (seriesGenreStoreError || seriesStoreError || mediaStoreError) {
+    return (
+      <ErrorPage/>
+    );
+  }
 
   return(
     <main className="flex flex-col flex-grow">

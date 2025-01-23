@@ -5,10 +5,17 @@ import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/LoadingByScroll';
 import BackTopButton from '@/components/BackTopButton';
+import ErrorPage from '@/components/ErrorPage';
 
 const TopSeries = () => {
-  const { topRatedSeries, pagesTopRatedSeries, fetchTopRatedSeries } = useSeriesStore(state => state);
+  const { topRatedSeries, pagesTopRatedSeries, fetchTopRatedSeries, genericError: seriesStoreError } = useSeriesStore(state => state);
   const { loading, moreMedia } = useScrollPagination({fetchMedia: fetchTopRatedSeries, numberOfPages: pagesTopRatedSeries});
+
+  if (seriesStoreError) {
+    return (
+      <ErrorPage/>
+    );
+  }
 
   return(
     <main className='flex flex-col flex-grow'>

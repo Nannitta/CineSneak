@@ -12,6 +12,7 @@ import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import WatchTrailer from '@/components/WatchTrailer';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import ListGenres from '@/components/ListGenres';
+import ErrorPage from '@/components/ErrorPage';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -22,12 +23,13 @@ const Movies = () => {
     fetchMoviesNowPlaying, 
     popularMovies, 
     movieGenres, 
-    moviesNowPlaying 
+    moviesNowPlaying,
+    genericError: moviesStoreError 
   } = useMoviesStore((state) => state);
 
-  const { moviesByGenre, fetchMoviesByGenreId } = useMoviesByGenreId((state) => state);
+  const { moviesByGenre, fetchMoviesByGenreId, genericError: moviesGenreStoreError } = useMoviesByGenreId((state) => state);
 
-  const { moviesCollection, fetchMoviesCollections } = useMoviesCollectionStore((state) => state);
+  const { moviesCollection, fetchMoviesCollections, genericError: moviesCollectionStoreError } = useMoviesCollectionStore((state) => state);
 
   const OPTIONS: EmblaOptionsType = { loop: true };
 
@@ -56,6 +58,12 @@ const Movies = () => {
     fetchMoviesByGenreId,
     fetchMoviesCollections,
   ]);
+
+  if (moviesGenreStoreError || moviesCollectionStoreError || moviesStoreError) {
+    return (
+      <ErrorPage/>
+    );
+  }
 	
   return (
     <main className="flex flex-col flex-grow">
