@@ -24,6 +24,7 @@ interface State {
   pagesAiringToday: number
   recommendedSerie: SerieDetails | null
   getRecommendedSerie: (data: SerieDetails[]) => void
+  genericError: any
 }
 
 export const useSeriesStore = create<State>((set) => {
@@ -40,62 +41,87 @@ export const useSeriesStore = create<State>((set) => {
     airingToday: [],
     pagesAiringToday: 0,
     recommendedSerie: null,
+    genericError: null,
     fetchOnAirSeries: async (page: number) => {
-      const response = await getOnAirSeries(page);
-      const onAirSeries = response.results;
-      const pagesOnAirSeries = response.total_pages;
-
-      set({ onAirSeries: Array.from(onAirSeries), pagesOnAirSeries });
+      try {
+        const response = await getOnAirSeries(page);
+        const onAirSeries = response.results;
+        const pagesOnAirSeries = response.total_pages;
+  
+        set({ onAirSeries: Array.from(onAirSeries), pagesOnAirSeries });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },
     fetchPopularSeries: async (page: number) => {
-      const response = await getPopularSeries(page);
-      const newPopularSeries: SerieDetails[] = response.results;
-      const pagesPopularSeries = response.total_pages;
-
-      set(state => {
-        const existingIds = new Set(state.popularSeries.map(serie => serie.id));
-        const uniqueNewSeries = newPopularSeries.filter(serie => !existingIds.has(serie.id));
-
-        return {
-          popularSeries: [...state.popularSeries, ...uniqueNewSeries],
-          pagesPopularSeries
-        };
-      });
+      try {
+        const response = await getPopularSeries(page);
+        const newPopularSeries: SerieDetails[] = response.results;
+        const pagesPopularSeries = response.total_pages;
+  
+        set(state => {
+          const existingIds = new Set(state.popularSeries.map(serie => serie.id));
+          const uniqueNewSeries = newPopularSeries.filter(serie => !existingIds.has(serie.id));
+  
+          return {
+            popularSeries: [...state.popularSeries, ...uniqueNewSeries],
+            pagesPopularSeries
+          };
+        });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },
     fetchTopRatedSeries: async (page: number) => {
-      const response = await getTopRatedSeries(page);
-      const newTopRatedSeries: SerieDetails[] = response.results;
-      const pagesTopRatedSeries = response.total_pages;
-
-      set(state => {
-        const existingIds = new Set(state.topRatedSeries.map(serie => serie.id));
-        const uniqueNewSeries = newTopRatedSeries.filter(serie => !existingIds.has(serie.id));
-
-        return {
-          topRatedSeries: [...state.topRatedSeries, ...uniqueNewSeries],
-          pagesTopRatedSeries
-        };
-      });
+      try {
+        const response = await getTopRatedSeries(page);
+        const newTopRatedSeries: SerieDetails[] = response.results;
+        const pagesTopRatedSeries = response.total_pages;
+  
+        set(state => {
+          const existingIds = new Set(state.topRatedSeries.map(serie => serie.id));
+          const uniqueNewSeries = newTopRatedSeries.filter(serie => !existingIds.has(serie.id));
+  
+          return {
+            topRatedSeries: [...state.topRatedSeries, ...uniqueNewSeries],
+            pagesTopRatedSeries
+          };
+        });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },
     fetchSeriesOfTheDay: async () => {
-      const response = await getSeriesOfTheDay();
-      const seriesOfTheDay = response.results;
-
-      set({ seriesOfTheDay });
+      try {
+        const response = await getSeriesOfTheDay();
+        const seriesOfTheDay = response.results;
+  
+        set({ seriesOfTheDay });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },
     fetchSerieGenre: async (isSerie: boolean) => {
-      const serieGenres = await getGenres(isSerie);
-
-      set({ serieGenres });
+      try {
+        const serieGenres = await getGenres(isSerie);
+  
+        set({ serieGenres });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },
     fetchSerieTrailers: async (id: number, isSerie: boolean) => {
-      const allVideos = await getTrailer(id, isSerie);                      
-      const trailers = allVideos.filter((serie: Trailer) => serie.type === 'Trailer' || serie.type === 'Opening Credits');
-      if(trailers.length <= 0) return;
-        
-      const serieTrailer = trailers[0].key;          
-    
-      set({ serieTrailer });
+      try {
+        const allVideos = await getTrailer(id, isSerie);                      
+        const trailers = allVideos.filter((serie: Trailer) => serie.type === 'Trailer' || serie.type === 'Opening Credits');
+        if(trailers.length <= 0) return;
+          
+        const serieTrailer = trailers[0].key;          
+      
+        set({ serieTrailer });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },
     resetSerieTrailer: () => {
       const serieTrailer = '';
@@ -103,19 +129,23 @@ export const useSeriesStore = create<State>((set) => {
       set({ serieTrailer });
     },
     fetchAiringToday: async (page: number) => {
-      const response = await getSeriesAiringToday(page);
-      const newAiringToday: SerieDetails[] = response.results;
-      const pagesAiringToday = response.total_pages;
-      
-      set(state => {
-        const existingIds = new Set(state.airingToday.map(series => series.id)); 
-        const uniqueNewSeries = newAiringToday.filter(series => !existingIds.has(series.id));
+      try {
+        const response = await getSeriesAiringToday(page);
+        const newAiringToday: SerieDetails[] = response.results;
+        const pagesAiringToday = response.total_pages;
         
-        return {
-          airingToday: [...state.airingToday, ...uniqueNewSeries],
-          pagesAiringToday
-        };
-      });
+        set(state => {
+          const existingIds = new Set(state.airingToday.map(series => series.id)); 
+          const uniqueNewSeries = newAiringToday.filter(series => !existingIds.has(series.id));
+          
+          return {
+            airingToday: [...state.airingToday, ...uniqueNewSeries],
+            pagesAiringToday
+          };
+        });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },   
     getRecommendedSerie: (data: SerieDetails[]) => {
       const randomIndex = Math.floor(Math.random() * data.length);

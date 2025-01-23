@@ -16,7 +16,7 @@ interface TrailerDetails {
 const WatchTrailer = ({ isSerie }: TrailerDetails) => {
   const { 
     movieTrailer,
-    resetMovieTrailer 
+    resetMovieTrailer
   } = useMoviesStore(state => state);
 
   const {
@@ -55,7 +55,7 @@ const WatchTrailer = ({ isSerie }: TrailerDetails) => {
   };
 
   const handleMouseEnter = () => setHover(true);
-  const handleMouseLeave = () => setHover(false);  
+  const handleMouseLeave = () => setHover(false);
 
   if(movieTrailer !== '' || serieTrailer !== '') {
     return(

@@ -12,6 +12,7 @@ interface State {
   fetchCast: (id: number, isSerie: boolean) => Promise<void>
   similarMedia: MovieDetails[] | SerieDetails[]
   fetchSimilarMedia: (id: number, isSerie: boolean) => Promise<void>
+  genericError: any
 }
 
 export const useMediaDetailsStore = create<State>((set) => {
@@ -20,28 +21,45 @@ export const useMediaDetailsStore = create<State>((set) => {
     providers: null,
     cast: [],
     similarMedia: [],
+    genericError: null,
     fetchMediaDetails: async (id: number, isSerie: boolean) => {
-      const mediaDetails = await getDetails(id, isSerie);
-
-      set({ mediaDetails });
+      try {
+        const mediaDetails = await getDetails(id, isSerie);
+  
+        set({ mediaDetails });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },
     fetchProviders: async (id: number, isSerie: boolean) => {
-      const providers = await getProviders(id, isSerie);     
-      
-      set({ providers });
+      try {
+        const providers = await getProviders(id, isSerie);     
+        
+        set({ providers });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },
     resetProviders: () => {
       set({ providers: null });
     },
     fetchCast: async (id: number, isSerie: boolean) => {
-      const cast = await getCast(id, isSerie);
-
-      set({ cast });
+      try {
+        const cast = await getCast(id, isSerie);
+        
+        set({ cast });
+      } catch (error) {
+        set({ genericError: error });
+      }
     },
     fetchSimilarMedia: async (id: number, isSerie: boolean) => {
-      const similarMedia = await getSimilarMedia(id, isSerie);
-
-      set({ similarMedia });
+      try {
+        const similarMedia = await getSimilarMedia(id, isSerie);
+        
+        set({ similarMedia });
+      } catch (error) {
+        set({ genericError: error });
+      }
     }
   };
 });

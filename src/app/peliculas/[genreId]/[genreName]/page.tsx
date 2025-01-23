@@ -7,18 +7,25 @@ import { useScrollPagination } from '@/hooks/useScrollPagination';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/LoadingByScroll';
 import BackTopButton from '@/components/BackTopButton';
+import ErrorPage from '@/components/ErrorPage';
 
 const MoviesByGenre = () => {
   const {genreId, genreName} = useParams<Params>();
   const decodedGenreName = decodeURIComponent(genreName || '');
 
-  const { moviesByGenre, pagesMoviesByGenre, fetchMoviesByScroll } = useMoviesByGenreId(state => state);
+  const { moviesByGenre, pagesMoviesByGenre, fetchMoviesByScroll, genericError: moviesGenreStoreError } = useMoviesByGenreId(state => state);
   
   const { loading, moreMedia } = useScrollPagination({
     fetchMedia: (page) => fetchMoviesByScroll(genreId, page),
     numberOfPages: pagesMoviesByGenre
   });
 
+  if (moviesGenreStoreError) {
+    return (
+      <ErrorPage/>
+    );
+  }
+  
   return(
     <main className='flex flex-col flex-grow'>
       <h1 className='font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6'>

@@ -7,6 +7,7 @@ import ListMedia from '@/components/ListMedia';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
 import LoadingByScroll from '@/components/LoadingByScroll';
 import BackTopButton from '@/components/BackTopButton';
+import ErrorPage from '@/components/ErrorPage';
 
 const SeriesByGenre = () => {
   const {genreId, genreName} = useParams<Params>();
@@ -15,13 +16,20 @@ const SeriesByGenre = () => {
   const {
     seriesByGenre,
     pagesSeriesByGenre,
-    fetchSeriesByScroll
+    fetchSeriesByScroll,
+    genericError: seriesGenreStoreError
   } = useSeriesByGenreId(state => state);
 
   const { loading, moreMedia } = useScrollPagination({
     fetchMedia: (page) => fetchSeriesByScroll(genreId, page),
     numberOfPages: pagesSeriesByGenre
   });
+
+  if (seriesGenreStoreError) {
+    return (
+      <ErrorPage/>
+    );
+  }
 
   return(
     <main className='flex flex-col flex-grow'>

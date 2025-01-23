@@ -12,6 +12,7 @@ import WatchTrailer from '@/components/WatchTrailer';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import TopRated from '@/components/TopRated';
+import ErrorPage from '@/components/ErrorPage';
 
 const HomePageNotLog = () => {
   const { 
@@ -24,7 +25,8 @@ const HomePageNotLog = () => {
     popularMovies,
     fetchPopularMovies, 
     topRatedMovies,
-    fetchTopRatedMovies 
+    fetchTopRatedMovies ,
+    genericError: moviesStoreError
   } = useMoviesStore(state => state);
 
   const { 
@@ -33,7 +35,8 @@ const HomePageNotLog = () => {
     popularSeries,
     fetchPopularSeries, 
     topRatedSeries,
-    fetchTopRatedSeries 
+    fetchTopRatedSeries,
+    genericError: seriesStoreError 
   } = useSeriesStore(state => state);
   
   const closeSideMenu = useSideMenuStore(state => state.closeSideMenu);
@@ -57,6 +60,12 @@ const HomePageNotLog = () => {
     fetchTopRatedSeries(1);
   }, [fetchUpcomingMovies, fetchMoviesNowPlaying, fetchMoviesGenre, fetchPopularMovies, fetchOnAirSeries, fetchPopularSeries, fetchTopRatedMovies, fetchTopRatedSeries]);
   
+  if (moviesStoreError || seriesStoreError) {
+    return (
+      <ErrorPage/>
+    );
+  }
+
   return (
     <main className='flex-grow flex flex-col relative' onClick={closeMenu}>
       <WatchTrailer isSerie={false} />
