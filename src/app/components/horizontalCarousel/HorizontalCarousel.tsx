@@ -16,10 +16,11 @@ interface PropType {
   options?: EmblaOptionsType
   isSerie: boolean
   path?: string
+  loading?: boolean
 }
 
 const HorizontalCarousel: React.FC<PropType> = (props) => { 
-  const { media, options, isSerie, path } = props;
+  const { media, options, isSerie, path, loading } = props;
   const [emblaRef] = useEmblaCarousel(options);
   const [color, setColor] = useState<string>('#C3C3C3');
   const params = useParams<Params>(); 
@@ -38,7 +39,7 @@ const HorizontalCarousel: React.FC<PropType> = (props) => {
         <div className='embla__container horizontal__container mr-4 lg:mr-6'>
           {media.filter((media) => media.poster_path !== null).map((media) => (
             <div className='embla__slide horizontal__slide' key={media.id}>
-              <HorizontalCardCarousel media={media} isSerie={isSerie}/>
+              <HorizontalCardCarousel media={media} isSerie={isSerie} loading={loading}/>
             </div>
           ))}
           { !params.id && path &&

@@ -45,7 +45,7 @@ const MainCarousel: React.FC<PropType> = (props) => {
             if(index <= 9) {
               return(
                 <div className='embla__slide' key={media.id}>
-                  <CardMovieMain media={media} genres={genres} isSerie={isSerie} handleTrailerClick={handleTrailerClick}/>
+                  <CardMovieMain media={media} genres={genres} isSerie={isSerie} handleTrailerClick={handleTrailerClick} />
                 </div>
               );
             }

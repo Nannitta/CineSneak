@@ -60,6 +60,10 @@ li:hover a svg path {
 	animation: fadeIn 0.5s ease-in-out forwards;
 }
 
+.waves {
+	animation: wave 1.5s infinite ease-out;
+}
+
 @keyframes slideDown {
 	from {
 		transform: translateY(-100%);
@@ -110,5 +114,14 @@ li:hover a svg path {
 	}
 	to {
 		opacity: 1;
+	}
+}
+
+@keyframes wave {
+	0% {
+		background-position: 100% 0;
+	}
+	100% {
+		background-position: -100% 0;
 	}
 }

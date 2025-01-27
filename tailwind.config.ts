@@ -15,11 +15,16 @@ const config: Config = {
       white: '#FFFFFF',
       black: '#000000',
       transparent: '#00000000',
-      error: '#EF5350'
+      error: '#EF5350',
+      skeleton: '#0D001670'
     },
     extend: {
       backgroundImage: {
-        'gradientButton': 'linear-gradient(263deg, #7209b7 0%, #4361ee 51.5%, #4cc9f0 100%)'
+        'gradientButton': 'linear-gradient(263deg, #7209b7 0%, #4361ee 51.5%, #4cc9f0 100%)',
+        'gradientSkeleton': 'linear-gradient(to right, #0D001670 8%, #4361ee1f 18%, #0D001670 33%)'
+      },
+      backgroundSize: {
+        'bgSizeGradient': '200% 100%',
       },
       fontFamily: {
         'nimbus': ['Nimbus']
