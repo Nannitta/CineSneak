@@ -51,6 +51,12 @@ const SearchPage = () => {
     fetchData();
   }, [fetchSearchMedia, keyword]);
 
+  if (genericError) {
+    return (
+      <ErrorPage/>
+    );
+  }
+
   return (
     <main className="flex flex-col flex-grow">
       <h1 className="font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6">
@@ -76,13 +82,11 @@ const SearchPage = () => {
               </div>
               <BackTopButton/>
             </>
-            : genericError
-              ? <ErrorPage/>
-              : <div className='flex flex-col items-center gap-4 py-8'>
-                <FilmSpool width={'150'} height={'150'}/>
-                <p className={`${league.className} font-bold text-center text-2xl px-4 lg:px-6`}>No se han encontrado resultados para {keyword && decodeURIComponent(keyword)}.</p>
-                <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
-              </div>
+            : <div className='flex flex-col items-center gap-4 py-8'>
+              <FilmSpool width={'150'} height={'150'}/>
+              <p className={`${league.className} font-bold text-center text-2xl px-4 lg:px-6`}>No se han encontrado resultados para {keyword && decodeURIComponent(keyword)}.</p>
+              <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
+            </div>
       }
     </main>
   );
