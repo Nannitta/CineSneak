@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { EmblaOptionsType } from 'embla-carousel';
 import { useMoviesStore } from '@/store/movies';
@@ -41,6 +41,7 @@ const HomePageNotLog = () => {
   
   const closeSideMenu = useSideMenuStore(state => state.closeSideMenu);
   const closeSearchMenu = useSearchMenuStore(state => state.closeSearchMenu);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const closeMenu = () => {
     closeSideMenu();
@@ -50,14 +51,20 @@ const HomePageNotLog = () => {
   const OPTIONS: EmblaOptionsType = { loop: true };
 
   useEffect(() => {
-    fetchUpcomingMovies();
-    fetchMoviesNowPlaying(1);
-    fetchMoviesGenre(false);
-    fetchPopularMovies(1);
-    fetchOnAirSeries(1);
-    fetchPopularSeries(1);
-    fetchTopRatedMovies(1);
-    fetchTopRatedSeries(1);
+    const fetchData = async () => {
+      setLoading(true);
+      await fetchUpcomingMovies();
+      await fetchMoviesNowPlaying(1);
+      await fetchMoviesGenre(false);
+      await fetchPopularMovies(1);
+      await fetchOnAirSeries(1);
+      await fetchPopularSeries(1);
+      await fetchTopRatedMovies(1);
+      await fetchTopRatedSeries(1);
+      setLoading(false);
+    };
+
+    fetchData();
   }, [fetchUpcomingMovies, fetchMoviesNowPlaying, fetchMoviesGenre, fetchPopularMovies, fetchOnAirSeries, fetchPopularSeries, fetchTopRatedMovies, fetchTopRatedSeries]);
   
   if (moviesStoreError || seriesStoreError) {
@@ -79,7 +86,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <VerticalCarousel media={moviesNowPlaying} path={'/exitos-taquilla'}/>
+        <VerticalCarousel media={moviesNowPlaying} path={'/exitos-taquilla'} loading={loading}/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14'>
         <div className='flex flex-col py-4 pl-4 items-baseline md:py-0 md:gap-2 lg:px-6'>
@@ -90,7 +97,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <HorizontalCarousel media={popularMovies} isSerie={false} path={'/peliculas-en-tendencia'}/>
+        <HorizontalCarousel media={popularMovies} isSerie={false} path={'/peliculas-en-tendencia'} loading={loading}/>
       </section>
       <section className='mb-4 lg:mb-9'>
         <div className='flex flex-col p-4 items-baseline md:gap-4 md:flex-row md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
@@ -112,7 +119,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <VerticalCarousel media={onAirSeries} path={'/estrenos-series'}/>
+        <VerticalCarousel media={onAirSeries} path={'/estrenos-series'} loading={loading}/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14'>
         <div className='flex flex-col py-4 pl-4 md:py-0 md:gap-2 lg:px-6'>
@@ -123,7 +130,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <HorizontalCarousel media={popularSeries} isSerie={true} path={'/series-en-tendencia'}/>
+        <HorizontalCarousel media={popularSeries} isSerie={true} path={'/series-en-tendencia'} loading={loading}/>
       </section>
       <section className='mb-4 lg:mb-14'>
         <div className='flex flex-col p-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>

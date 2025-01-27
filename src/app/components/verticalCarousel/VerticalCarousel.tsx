@@ -13,10 +13,11 @@ interface PropType {
   media: MovieDetails[] | SerieDetails[]
   options?: EmblaOptionsType
   path: string
+  loading?: boolean
 }
 
 const VerticalCarousel: React.FC<PropType> = (props) => { 
-  const { media, options, path } = props;
+  const { media, options, path, loading } = props;
   const [emblaRef] = useEmblaCarousel(options);
   const [color, setColor] = useState<string>('#C3C3C3');
 
@@ -40,13 +41,13 @@ const VerticalCarousel: React.FC<PropType> = (props) => {
             if(isMovieDetails(media)) {
               return (
                 <div className='embla__slide vertical__slide' key={media.id}>
-                  <VerticalCardCarousel media={media} isSerie={false}/>
+                  <VerticalCardCarousel media={media} isSerie={false} loading={loading}/>
                 </div>
               );
             } else {
               return (
                 <div className='embla__slide vertical__slide' key={media.id}>
-                  <VerticalCardCarousel media={media} isSerie={true}/>
+                  <VerticalCardCarousel media={media} isSerie={true} loading={loading}/>
                 </div>
               );
             }

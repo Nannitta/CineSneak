@@ -50,6 +50,7 @@ const Series = () => {
   const [selectedGenreId, setSelectedGenreId] = useState<number>(10759);
   const [selectedGenreName, setSelectedGenreName] = useState<string>('Action & Adventure');
   const [serieDetails, setSerieDetails] = useState<SerieDetails | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
@@ -60,11 +61,17 @@ const Series = () => {
   };
   
   useEffect(() => {
-    fetchSeriesOfTheDay();
-    fetchSerieGenre(true);
-    fetchAiringToday(1);
-    fetchSeriesByGenreId(10759, 1);
-    fetchTopRatedSeries(1);
+    const fetchData = async () => {
+      setLoading(true);
+      fetchSeriesOfTheDay();
+      fetchSerieGenre(true);
+      fetchAiringToday(1);
+      fetchSeriesByGenreId(10759, 1);
+      fetchTopRatedSeries(1);
+      setLoading(false);
+    };
+
+    fetchData();
   }, [fetchSeriesOfTheDay, fetchSerieGenre, fetchAiringToday, fetchSeriesByGenreId, fetchTopRatedSeries]);  
  
   useEffect(() => {
@@ -115,6 +122,7 @@ const Series = () => {
         <VerticalCarousel
           media={airingToday}
           path={'/estrenos-series'}
+          loading={loading}
         />
       </section>
       <section>
@@ -127,6 +135,7 @@ const Series = () => {
             <VerticalCarousel
               media={seriesByGenre}
               path={`/series/${selectedGenreId}/${selectedGenreName}`}
+              loading={loading}
             />
           )}
         </div>
