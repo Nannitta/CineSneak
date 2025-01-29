@@ -16,15 +16,18 @@ import type { Genre, MovieDetails, ProvidersLogo, SerieDetails } from '@/types/t
 
 const WatchMedia = () => {
   const {media, id} = useParams<Params>();
+  const [loading, setLoading] = useState<boolean>(true);
 
   const { 
-    fetchMediaDetails, 
+    fetchMediaDetails,
+    resetMediaDetails, 
     mediaDetails, 
     providers, 
     fetchProviders,
     resetProviders,
     cast, 
-    fetchCast, 
+    fetchCast,
+    resetCast, 
     similarMedia, 
     fetchSimilarMedia,
     genericError: mediaStoreError
@@ -37,19 +40,27 @@ const WatchMedia = () => {
   const [providersLogo, setProvidersLogo] = useState<ProvidersLogo[]>([]);
 
   useEffect(() => {
-    if(media === 'movie') {
-      fetchMediaDetails(id, false);
-      fetchProviders(id, false);
-      fetchCast(id, false);
-      fetchSimilarMedia(id, false);
+    const fetchData = async () => {
+      resetCast();
+      resetMediaDetails();
+      setLoading(true);
+      if(media === 'movie') {
+        await fetchMediaDetails(id, false);
+        await fetchProviders(id, false);
+        await fetchCast(id, false);
+        await fetchSimilarMedia(id, false);
+      };
+      if(media === 'tv') {
+        await fetchMediaDetails(id, true);
+        await fetchProviders(id, true);
+        await fetchCast(id, true);
+        await fetchSimilarMedia(id, true);
+      };
+      setLoading(false);
     };
-    if(media === 'tv') {
-      fetchMediaDetails(id, true);
-      fetchProviders(id, true);
-      fetchCast(id, true);
-      fetchSimilarMedia(id, true);
-    };
-  }, [fetchMediaDetails, fetchCast, fetchProviders, fetchSimilarMedia, id, media]);
+
+    fetchData();
+  }, [fetchMediaDetails, fetchCast, fetchProviders, fetchSimilarMedia, id, media, resetCast, resetMediaDetails]);
 
   useEffect(() => {
     resetProviders();
@@ -94,7 +105,7 @@ const WatchMedia = () => {
     <main className='flex-grow flex flex-col'>
       <WatchTrailer isSerie={media === 'movie' ? false : true}/>
       {
-        mediaDetails && media === 'movie'
+        mediaDetails && media === 'movie' && cast
           ? <MovieDetailsComponent
             media={mediaDetails as MovieDetails}
             providersLogo={providersLogo}
@@ -102,8 +113,9 @@ const WatchMedia = () => {
             similarMediaStore={similarMedia as MovieDetails[]}
             cast={cast}
             getGenreNames={getGenreNames}
+            loading={loading}
           />
-          : mediaDetails && media === 'tv'
+          : mediaDetails && media === 'tv' && cast
             ? <SerieDetailsComponent
               media={mediaDetails as SerieDetails}
               providersLogo={providersLogo}
@@ -111,6 +123,7 @@ const WatchMedia = () => {
               similarMediaStore={similarMedia as SerieDetails[]}
               cast={cast}
               getGenreNames={getGenreNames}
+              loading={loading}
             />
             : null
       }

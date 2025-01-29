@@ -108,7 +108,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <TopRated media={topRatedMovies} isSerie={false} path={'/top-peliculas'}/>
+        <TopRated media={topRatedMovies} isSerie={false} path={'/top-peliculas'} loading={loading}/>
       </section>
       <section>
         <div className='flex flex-col py-4 pl-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
@@ -141,7 +141,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <TopRated media={topRatedSeries} isSerie={true} path={'/top-series'}/>
+        <TopRated media={topRatedSeries} isSerie={true} path={'/top-series'} loading={loading}/>
       </section>
     </main>
   );

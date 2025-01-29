@@ -5,11 +5,13 @@ import { Cast, CountryProvider, MovieDetails, SerieDetails } from '@/types/types
 interface State {
   mediaDetails: MovieDetails | SerieDetails | null
   fetchMediaDetails: (id: number, isSerie: boolean) => Promise<void>
+  resetMediaDetails: () => void
   providers: CountryProvider | null,
   fetchProviders: (id: number, isSerie: boolean) => Promise<void>
   resetProviders: () => void
-  cast: Cast[]
+  cast: Cast[] | null
   fetchCast: (id: number, isSerie: boolean) => Promise<void>
+  resetCast: () => void
   similarMedia: MovieDetails[] | SerieDetails[]
   fetchSimilarMedia: (id: number, isSerie: boolean) => Promise<void>
   genericError: any
@@ -31,6 +33,9 @@ export const useMediaDetailsStore = create<State>((set) => {
         set({ genericError: error });
       }
     },
+    resetMediaDetails: () => {
+      set({ mediaDetails: null });
+    },
     fetchProviders: async (id: number, isSerie: boolean) => {
       try {
         const providers = await getProviders(id, isSerie);     
@@ -51,6 +56,9 @@ export const useMediaDetailsStore = create<State>((set) => {
       } catch (error) {
         set({ genericError: error });
       }
+    },
+    resetCast: () => {
+      set({ cast: null });
     },
     fetchSimilarMedia: async (id: number, isSerie: boolean) => {
       try {
