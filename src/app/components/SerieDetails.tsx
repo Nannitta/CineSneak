@@ -10,6 +10,9 @@ import { formatVoteCount } from '@/lib/format';
 import type { Cast, Genre, ProvidersLogo, SerieDetails } from '@/types/types';
 import MediaInfoSmallDevice from '@/components/MediaInfoSmallDevice';
 import MediaInfoLargeDevice from '@/components/MediaInfoLargeDevice';
+import { useState } from 'react';
+import SkeletonPoster from '@/components/Skeletons/SkeletonPoster';
+import SkeletonWallMedia from '@/components/Skeletons/SkeletonWallMedia';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -20,31 +23,42 @@ interface SerieDetailsProps {
   similarMediaStore: SerieDetails[]
   cast: Cast[]
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
+  loading: boolean
 }
 
-const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames}: SerieDetailsProps) => {
+const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, loading }: SerieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const imgSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`;
-  const webpImgSrc: string = `/api/convertImage?url=${imgSrc}`;   
- 
+  const webpImgSrc: string = `/api/convertImage?url=${imgSrc}`;
+  const [imgLoader, setImgLoader] = useState<boolean>(false);   
+   
   const posterURL: string | undefined = process.env.NEXT_PUBLIC_POSTER_IMAGE_780;
   const posterSrc : string = `${posterURL + media.poster_path}`;
-  const webpPosterSrc: string = `/api/convertImage?url=${posterSrc}`;  
+  const webpPosterSrc: string = `/api/convertImage?url=${posterSrc}`; 
+  const [posterLoader, setPosterLoader] = useState<boolean>(false); 
+
+  const handleImgLoad = () => {
+    setImgLoader(true);
+  };
+
+  const handlePosterLoad = () => {
+    setPosterLoader(true);
+  };
 
   return (
     <div className="relative">
       <div className="relative">
-        <div
-          className="w-full h-60 md:h-80 lg:h-[556px] bg-cover bg-no-repeat bg-center"
-          style={{ backgroundImage: `url(${webpImgSrc})` }}>
+        <div className="w-full h-60 md:h-80 lg:h-[556px] bg-cover bg-no-repeat bg-center relative">
+          {!imgLoader && <SkeletonWallMedia/>}
+          <Image src={webpImgSrc} alt={`Cabecera de la película ${media.name}`} fill={true} className='object-cover' onLoad={handleImgLoad} priority/>
         </div>
         <div className="w-full h-60 absolute bg-gradient-to-t from-black to-transparent md:h-80 lg:h-[556px] top-0"></div>
       </div>
       <section className="relative px-4 grid grid-cols-movie-details-sm grid-rows-movie-details-sm gap-2 md:grid-cols-movie-details-md md:grid-rows-movie-details-md lg:px-6 lg:grid-cols-movie-details-lg 2xl:grid-rows-movie-details-lg lg:-mt-64 laptop:grid-rows-movie-details-laptop">
-        <div
-          className="w-40 h-64 relative shadow-2xl lg:w-80 lg:h-[540px]">
-          <Image src={webpPosterSrc} alt={`Póster de la película ${media.name}`} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover rounded-lg" />
+        <div className="w-40 h-64 relative shadow-2xl lg:w-80 lg:h-[540px]">
+          {!posterLoader && <SkeletonPoster/>}
+          <Image src={webpPosterSrc} alt={`Póster de la película ${media.name}`} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover rounded-lg" onLoad={handlePosterLoad}/>
         </div>
         <ListLogoProviders providersLogo={providersLogo}/>
         <h1 className={`uppercase font-black ${league.className} text-balance col-start-2 col-end-3 row-start-2 row-end-3 ml-2 text-sm md:text-xl lg:self-end lg:ml-0`}>
@@ -80,25 +94,25 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
         </div>
         {
           (screenSize === 'laptop' || screenSize === 'lg') &&
-           <MediaInfoLargeDevice mediaInfo={media} cast={cast}/>
+           <MediaInfoLargeDevice mediaInfo={media} cast={cast} />
         }
       </section>
       {
         (screenSize === 'sm' || screenSize === 'md') &&
-        <MediaInfoSmallDevice mediaInfo={media} cast={cast}/>
+        <MediaInfoSmallDevice mediaInfo={media} cast={cast} />
       }
       <section className='mt-4 laptop:mt-12 lg:mt-8'>
         <h2 className="px-4 pb-4 font-black lg:px-6">
           Último capítulo en emisión
         </h2>
-        <LastEpisode media={media}/>
+        <LastEpisode media={media} loading={loading}/>
       </section>
       <section className="pb-5 lg:pb-8 2xl:mt-6">
         {
           similarMediaStore.length > 0 &&
           <>
             <h2 className="px-4 font-black pt-5 pb-4 md:text-xl lg:px-6">Explora series similares</h2>
-            <HorizontalCarousel media={similarMediaStore} isSerie={true}/>
+            <HorizontalCarousel media={similarMediaStore} isSerie={true} loading={loading}/>
           </>
         }
       </section>

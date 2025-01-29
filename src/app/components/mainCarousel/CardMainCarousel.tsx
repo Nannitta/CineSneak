@@ -29,7 +29,6 @@ const CardMainCarousel = ({ media, genres, isSerie, handleTrailerClick }: CardMa
     setImageLoaded(true);
   };
   
-
   const getGenreNames = (ids: number[]) => {
     return ids.map(id => {
       const genre: Genre | undefined = genres.find((genre: Genre) => genre.id === id);

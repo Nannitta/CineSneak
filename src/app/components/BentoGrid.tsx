@@ -4,19 +4,27 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Plus, RightArrow } from '@/lib/Svg';
 import { MovieDetails, SerieDetails } from '@/types/types';
+import SkeletonBentoCards from '@/components/Skeletons/SkeletonBentoCards';
 
 interface BentoGridProps {
   media: MovieDetails[] | SerieDetails[]
   isSerie: boolean
   path: string
+  loading: boolean
 }
 
-const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
+const BentoGrid = ({ media, isSerie, path, loading }: BentoGridProps) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
 
   const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
     return isSerie;
   };
+
+  if (loading) {
+    return (
+      <SkeletonBentoCards/>
+    );
+  }
 
   return (
     <div className="max-w-[1920px] px-6 max-h-[897px]">

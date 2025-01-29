@@ -2,17 +2,25 @@ import Image from 'next/image';
 import { formatDate, formatEpisodeNumber, formatRuntime } from '@/lib/format';
 import { Clock } from '@/lib/Svg';
 import { SerieDetails } from '@/types/types';
+import SkeletonHorizontalCard from '@/components/Skeletons/SkeletonHorizontalCard';
 
 interface LastEpisodeProps {
   media: SerieDetails
+  loading: boolean
 }
 
-const LastEpisode = ({ media }: LastEpisodeProps) => {
+const LastEpisode = ({ media, loading }: LastEpisodeProps) => {
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
   const posterURL = process.env.NEXT_PUBLIC_POSTER_IMAGE_342;
   const stillURL = process.env.NEXT_PUBLIC_STILL_IMAGE_300;
   const imgSrc: string = `${media.last_episode_to_air?.still_path ? stillURL + media.last_episode_to_air.still_path : (media.backdrop_path ? imgURL + media.backdrop_path : posterURL + media.poster_path)}`;
 
+  if (loading) {
+    return (
+      <SkeletonHorizontalCard/>
+    );
+  }
+  
   return(
     <div className='flex flex-col px-4 gap-4 lg:px-6 lg:flex-row lg:gap-6'>
       <div className='min-w-[300px] h-[169px] relative'>

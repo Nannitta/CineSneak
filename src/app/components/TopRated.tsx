@@ -9,17 +9,18 @@ interface TopRatedProps {
   media: MovieDetails[] | SerieDetails[]
   isSerie: boolean
   path: string
+  loading: boolean
 }
 
-const TopRated = ({ media, isSerie, path }: TopRatedProps) => {
+const TopRated = ({ media, isSerie, path, loading }: TopRatedProps) => {
   const {screenSize} = CheckWindowWidth();
 
   return(
     <>
       {
         screenSize !== 'lg'
-          ? <VerticalCarousel media={media} path={path}/>
-          : <BentoGrid media={media} isSerie={isSerie} path={path}/>
+          ? <VerticalCarousel media={media} path={path} loading={loading}/>
+          : <BentoGrid media={media} isSerie={isSerie} path={path} loading={loading}/>
       }
     </>
   );

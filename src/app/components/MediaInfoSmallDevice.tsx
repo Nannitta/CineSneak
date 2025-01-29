@@ -31,13 +31,16 @@ const MediaInfoSmallDevice = ({ mediaInfo, cast }: MediaInfoSmallDeviceProps) =>
           </p>
         }
       </div>
-      <h2 className="px-4 font-black relative bottom-6 md:text-xl">Reparto principal</h2>
+      {
+        cast.length > 0 &&
+          <h2 className="px-4 font-black relative bottom-6 md:text-xl">Reparto principal</h2>
+      }
       <section className="flex flex-wrap px-4 gap-4 md:relative">
-        {
+        { 
           cast &&
           cast.filter((actor: Cast) => actor.profile_path !== null).map((actor: Cast) => {
             return (
-              <CardActor key={actor.cast_id} actor={actor} />
+              <CardActor key={actor.credit_id} actor={actor} />
             );
           }).slice(0, 6)
         }
