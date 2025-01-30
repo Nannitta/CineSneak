@@ -53,6 +53,7 @@ const HomePageNotLog = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
+      console.log('hola');
       Promise.all([
         fetchUpcomingMovies(),
         fetchMoviesNowPlaying(1),
