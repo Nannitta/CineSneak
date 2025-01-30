@@ -1,0 +1,423 @@
+{
+  "popularMovies": {
+    "page": 1,
+    "results": [
+      {
+        "backdrop_path": "/zOpe0eHsq0A2NvNyBbtT6sj53qV.jpg",
+        "id": 939243,
+        "title": "Sonic 3: La película",
+        "original_title": "Sonic the Hedgehog 3",
+        "overview": "Sonic, Knuckles y Tails se reúnen para enfrentarse a un nuevo y poderoso adversario, Shadow, un misterioso villano cuyos poderes no se parecen a nada de lo que nuestros héroes han conocido hasta ahora. Con sus facultades superadas en todos los sentidos, el Equipo Sonic tendrá que establecer una insólita alianza con la esperanza de detener a Shadow y proteger el planeta.",
+        "poster_path": "/3aDWCRXLYOCuxjrjiPfLd79tcI6.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          28,
+          878,
+          35,
+          10751
+        ],
+        "popularity": 4279.584,
+        "release_date": "2024-12-19",
+        "video": false,
+        "vote_average": 7.9,
+        "vote_count": 1227
+      },
+      {
+        "backdrop_path": "/vYqt6kb4lcF8wwqsMMaULkP9OEn.jpg",
+        "id": 1241982,
+        "title": "Vaiana 2",
+        "original_title": "Moana 2",
+        "overview": "Tras recibir una inesperada llamada de sus antepasados, Vaiana debe viajar a los lejanos mares de Oceanía y adentrarse en peligrosas aguas perdidas para vivir una aventura sin precedentes.",
+        "poster_path": "/tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          16,
+          12,
+          10751,
+          35,
+          9648
+        ],
+        "popularity": 2500.449,
+        "release_date": "2024-11-21",
+        "video": false,
+        "vote_average": 7.1,
+        "vote_count": 1038
+      },
+      {
+        "backdrop_path": "/h7r6LZ32dgLwtwSW3CxoWIYD9pr.jpg",
+        "id": 426063,
+        "title": "Nosferatu",
+        "original_title": "Nosferatu",
+        "overview": "Historia gótica de obsesión entre una joven hechizada y el aterrador vampiro encaprichado de ella que causa un indescriptible terror a su paso.",
+        "poster_path": "/jivUhECegXI3OYtPVflWoIDtENt.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          27,
+          14
+        ],
+        "popularity": 1504.808,
+        "release_date": "2024-12-25",
+        "video": false,
+        "vote_average": 6.6,
+        "vote_count": 1665
+      },
+      {
+        "backdrop_path": "/3SOunz2Z0qcOVlrkYFj20HquziB.jpg",
+        "id": 1114894,
+        "title": "Star Trek: Section 31",
+        "original_title": "Star Trek: Section 31",
+        "overview": "En Star Trek: Sección 31, la Emperadora Philippa Georgiou, se une a una división secreta de la Flota Estelar encargada de proteger a la Federación Unida de Planetas y se enfrenta a los pecados de su pasado.",
+        "poster_path": "/bx9btF0Jo4rRF68xny7VPqHNt3z.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          878,
+          12,
+          28,
+          18
+        ],
+        "popularity": 296.19,
+        "release_date": "2025-01-15",
+        "video": false,
+        "vote_average": 4.4,
+        "vote_count": 87
+      },
+      {
+        "backdrop_path": "/uKb22E0nlzr914bA9KyA5CVCOlV.jpg",
+        "id": 402431,
+        "title": "Wicked",
+        "original_title": "Wicked",
+        "overview": "Ambientada en la Tierra de Oz, mucho antes de la llegada de Dorothy Gale desde Kansas. Elphaba es una joven incomprendida por su inusual color verde que aún no ha descubierto su verdadero poder. Glinda es una popular joven marcada por sus privilegios y su ambición que aún no ha descubierto su verdadera pasión. Las dos se conocen como estudiantes de la Universidad Shiz, en la fantástica Tierra de Oz, y forjan una insólita pero profunda amistad. La trama abarca los acontecimientos del primer acto del musical de Broadway.",
+        "poster_path": "/q1czoLwMaiUO1bznWuETCP5ueZj.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          10749,
+          14
+        ],
+        "popularity": 652.039,
+        "release_date": "2024-11-20",
+        "video": false,
+        "vote_average": 6.9,
+        "vote_count": 1546
+      },
+      {
+        "backdrop_path": "/mKIxSo3p1QKlsdegcOwapcbiV74.jpg",
+        "id": 604685,
+        "title": "Juego de Ladrones 2: Pantera",
+        "original_title": "Den of Thieves 2: Pantera",
+        "overview": "Big Nick está buscando en Europa a Donnie, quien está envuelto en el peligroso mundo de los ladrones de diamantes y la infame mafia Panther, mientras planean un atraco masivo al mayor intercambio de diamantes del mundo.",
+        "poster_path": "/wsfOvNfUGogZGfSDfMN4hCOM1kR.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          28,
+          80,
+          53
+        ],
+        "popularity": 565.52,
+        "release_date": "2025-01-08",
+        "video": false,
+        "vote_average": 6.6,
+        "vote_count": 85
+      },
+      {
+        "backdrop_path": "/hctfNoMpQGfn3VXdBYb9p0P5bT5.jpg",
+        "id": 1097549,
+        "title": "Babygirl",
+        "original_title": "Babygirl",
+        "overview": "Una alta ejecutiva pone en peligro su carrera y su familia cuando inicia un tórrido romance con su becario, mucho más joven que ella.",
+        "poster_path": "/fCCZlnzf6yEGGO9UEdVADRVvfhM.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18
+        ],
+        "popularity": 503.334,
+        "release_date": "2024-12-25",
+        "video": false,
+        "vote_average": 5.7,
+        "vote_count": 183
+      },
+      {
+        "backdrop_path": "/4cp40IyTpFfsT2IKpl0YlUkMBIR.jpg",
+        "id": 1064213,
+        "title": "Anora",
+        "original_title": "Anora",
+        "overview": "Anora, una joven prostituta de Brooklyn, tiene la oportunidad de vivir una historia de Cenicienta cuando conoce e impulsivamente se casa con el hijo de un oligarca. Cuando la noticia llega a Rusia, su cuento de hadas se ve amenazado, ya que los padres parten hacia Nueva York para intentar conseguir la anulación del matrimonio.",
+        "poster_path": "/n5wEFSLkm2fCtN0FVAuphrCAjf8.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          10749,
+          35,
+          18
+        ],
+        "popularity": 577.503,
+        "release_date": "2024-10-14",
+        "video": false,
+        "vote_average": 7.047,
+        "vote_count": 870
+      },
+      {
+        "backdrop_path": "/7h6TqPB3ESmjuVbxCxAeB1c9OB1.jpg",
+        "id": 933260,
+        "title": "La sustancia",
+        "original_title": "The Substance",
+        "overview": "\"Tú, pero mejor en todos los sentidos\". Esa es la promesa de la sustancia, un producto revolucionario basado en la división celular, que crea un alter ego más joven, más bello, más perfecto.",
+        "poster_path": "/w1PiIqM89r4AM7CiMEP4VLCEFUn.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          27,
+          878
+        ],
+        "popularity": 691.456,
+        "release_date": "2024-09-07",
+        "video": false,
+        "vote_average": 7.138,
+        "vote_count": 3483
+      },
+      {
+        "backdrop_path": "/zGLQmrmIB56kMZPnzqReIOBay1B.jpg",
+        "id": 507241,
+        "title": "El juego del asesino",
+        "original_title": "The Killer's Game",
+        "overview": "Joe Flood, un sicario con enfermedad terminal, contrata a un asesino para acabar con su vida. Tras descubrir que su diagnóstico era erróneo, debe enfrentarse a antiguos colegas que intentan matarlo.",
+        "poster_path": "/81PSS5l5Yr3gfdYKts9I3z2aPkG.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          28,
+          35,
+          80
+        ],
+        "popularity": 214.763,
+        "release_date": "2024-09-12",
+        "video": false,
+        "vote_average": 6.5,
+        "vote_count": 274
+      },
+      {
+        "backdrop_path": "/xZm5YUNY3PlYD1Q4k7X8zd2V4AK.jpg",
+        "id": 993710,
+        "title": "De vuelta a la acción",
+        "original_title": "Back in Action",
+        "overview": "Emily y Matt renunciaron hace años a ser espías de la CIA para formar una familia. Pero, cuando se descubre su tapadera, se ven arrastrados de nuevo al mundo del espionaje.",
+        "poster_path": "/mAvyQ2X3767LwXE2htvAd22ucd3.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          28,
+          35
+        ],
+        "popularity": 2292.182,
+        "release_date": "2025-01-15",
+        "video": false,
+        "vote_average": 6.672,
+        "vote_count": 613
+      },
+      {
+        "backdrop_path": "/2ICMZZVcwboF8Z9V7aaJY3CVh9w.jpg",
+        "id": 728949,
+        "title": "Canina",
+        "original_title": "Nightbitch",
+        "overview": "Una mujer pausa su carrera profesional para ejercer de madre y ama de casa, pero pronto su nueva vida doméstica da un giro surrealista.",
+        "poster_path": "/z9iXgha64p1UQeDu2ApKV4KYRRM.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          35,
+          27
+        ],
+        "popularity": 332.151,
+        "release_date": "2024-12-06",
+        "video": false,
+        "vote_average": 6,
+        "vote_count": 143
+      },
+      {
+        "backdrop_path": "/hmZnqijPaaACjenDkrbWcCmcADI.jpg",
+        "id": 549509,
+        "title": "The Brutalist",
+        "original_title": "The Brutalist",
+        "overview": "Después de sobrevivir al Holocausto, László emigra a los Estados Unidos de la posguerra con la aspiración de reconstruir su carrera y su vida junto a su esposa. Su suerte da un giro fundamental cuando un rico industrial encarga a László el diseño de un ambicioso monumento modernista.",
+        "poster_path": "/zOHNOv5JHzDjDXt24mM9aSXKpSU.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18
+        ],
+        "popularity": 195.973,
+        "release_date": "2024-12-20",
+        "video": false,
+        "vote_average": 5.2,
+        "vote_count": 96
+      },
+      {
+        "backdrop_path": "/xaNBpBkONtupAVJqQBIW5EZa7xi.jpg",
+        "id": 996821,
+        "title": "¡Estáis cordialmente invitados!",
+        "original_title": "You're Cordially Invited",
+        "overview": "Una mujer que está planeando la boda de su hermana y el padre de otra futura novia descubren que tienen doble reserva para su destino, por lo que ambas partes deciden compartir el lugar, pero el caos y el desastre les esperan.",
+        "poster_path": "/k9qOMi7MhiNKOjtax8V023vJgDS.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          35
+        ],
+        "popularity": 70.802,
+        "release_date": "2025-01-29",
+        "video": false,
+        "vote_average": 4,
+        "vote_count": 1
+      },
+      {
+        "backdrop_path": "/u2eA9pqi1q3DvevT7RuDuJHxxBT.jpg",
+        "id": 974950,
+        "title": "Emilia Pérez",
+        "original_title": "Emilia Pérez",
+        "overview": "Rita, una infravalorada abogada que trabaja para un gran bufete más interesado en librar a los criminales de la cárcel que en llevarlos ante la justicia, es contratada por el líder de una organización criminal.",
+        "poster_path": "/Al1cL3oPBgnmzm0EqIRcOT6JHFg.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "fr",
+        "genre_ids": [
+          18,
+          53
+        ],
+        "popularity": 320.53,
+        "release_date": "2024-08-21",
+        "video": false,
+        "vote_average": 7.4,
+        "vote_count": 1022
+      },
+      {
+        "backdrop_path": "/66nlC5LDZmDUWONGkUZT2BrOszG.jpg",
+        "id": 974576,
+        "title": "Cónclave",
+        "original_title": "Conclave",
+        "overview": "Tras la inesperada muerte del Sumo Pontífice, el cardenal Lawrence es designado como responsable para liderar uno de los rituales más secretos y antiguos del mundo: la elección de un nuevo Papa. Cuando los líderes más poderosos de la Iglesia Católica se reúnen en los salones del Vaticano, Lawrence se ve atrapado dentro de una compleja conspiración a la vez que descubre un secreto que podría sacudir los cimientos de la Iglesia.",
+        "poster_path": "/yRYYCYL9kYQOVEVtKbcyuEIa6EK.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          9648,
+          53
+        ],
+        "popularity": 219.3,
+        "release_date": "2024-10-25",
+        "video": false,
+        "vote_average": 7,
+        "vote_count": 1026
+      },
+      {
+        "backdrop_path": "/sc1abgWNXc29wSBaerrjGBih06l.jpg",
+        "id": 1084199,
+        "title": "La acompañante",
+        "original_title": "Companion",
+        "overview": "",
+        "poster_path": "/vEh6RkgFJbElNTedvYSR3OAs3la.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          27,
+          878,
+          53
+        ],
+        "popularity": 285.601,
+        "release_date": "2025-01-22",
+        "video": false,
+        "vote_average": 7.5,
+        "vote_count": 25
+      },
+      {
+        "backdrop_path": "/v9Du2HC3hlknAvGlWhquRbeifwW.jpg",
+        "id": 539972,
+        "title": "Kraven the Hunter",
+        "original_title": "Kraven the Hunter",
+        "overview": "Kraven, un hombre cuya compleja relación con su despiadado padre, Nikolai Kravinoff, le hace emprender un camino de venganza con brutales consecuencias, motivándole a convertirse no sólo en el mejor cazador del mundo, sino también en uno de los más temidos.",
+        "poster_path": "/ytmJ11n9gm34D1v56myjTxMaEDJ.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          28,
+          878,
+          12,
+          14,
+          53
+        ],
+        "popularity": 2363.201,
+        "release_date": "2024-12-11",
+        "video": false,
+        "vote_average": 6.618,
+        "vote_count": 901
+      },
+      {
+        "backdrop_path": "/nGC3ZkXEcjGbqAAonS1xn6gaNpb.jpg",
+        "id": 1013850,
+        "title": "A Real Pain",
+        "original_title": "A Real Pain",
+        "overview": "Dos primos viajan a Polonia tras la muerte de su abuela para ver de dónde vienen y acaban incorporándose a un tour sobre el Holocausto.",
+        "poster_path": "/vWU2KEMssv8IFVUVkeN2rIOQLB.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          35,
+          18
+        ],
+        "popularity": 250.956,
+        "release_date": "2024-11-01",
+        "video": false,
+        "vote_average": 6.9,
+        "vote_count": 313
+      },
+      {
+        "backdrop_path": "/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
+        "id": 823219,
+        "title": "Flow, un mundo que salvar",
+        "original_title": "Straume",
+        "overview": "El mundo parece estar llegando a su fin, repleto de vestigios de presencia humana. Gato es un animal solitario, pero como su hogar es arrasado por una gran inundación, encuentra refugio en un barco poblado por varias especies, y tendrá que hacer equipo con ellas a pesar de sus diferencias. En el solitario barco que navega por místicos paisajes desbordados, navegan por los desafíos y peligros de adaptarse a este nuevo mundo..",
+        "poster_path": "/337MqZW7xii2evUDVeaWXAtopff.jpg",
+        "media_type": "movie",
+        "adult": false,
+        "original_language": "lv",
+        "genre_ids": [
+          16,
+          14,
+          12
+        ],
+        "popularity": 463.158,
+        "release_date": "2024-08-29",
+        "video": false,
+        "vote_average": 8.4,
+        "vote_count": 951
+      }
+    ],
+    "total_pages": 500,
+    "total_results": 10000
+  }
+}

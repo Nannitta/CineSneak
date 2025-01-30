@@ -1,0 +1,424 @@
+{
+  "onAirSeries": {
+    "page": 1,
+    "results": [
+      {
+        "adult": false,
+        "backdrop_path": "/2wNuLc0cEoPz6PZItftrZLHjG2k.jpg",
+        "genre_ids": [
+          18,
+          10751
+        ],
+        "id": 251691,
+        "origin_country": [
+          "SA"
+        ],
+        "original_language": "ar",
+        "original_name": "خريف القلب",
+        "overview": "",
+        "popularity": 3335.742,
+        "poster_path": "/nsudkqxrw1wK0ZRRytPVKQvQzoD.jpg",
+        "first_air_date": "2024-10-27",
+        "name": "خريف القلب",
+        "vote_average": 4.25,
+        "vote_count": 18
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/mu3lEhGovyhKHPJzb7HNYtZUCDT.jpg",
+        "genre_ids": [
+          10766
+        ],
+        "id": 206559,
+        "origin_country": [
+          "ZA"
+        ],
+        "original_language": "af",
+        "original_name": "Binnelanders",
+        "overview": "",
+        "popularity": 3371.558,
+        "poster_path": "/3bzECfllho8PphdYujLUIuhncJD.jpg",
+        "first_air_date": "2005-10-13",
+        "name": "Binnelanders",
+        "vote_average": 5.676,
+        "vote_count": 88
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/81FKp9UMwZZ7Xk2ksV6z8qjG6pU.jpg",
+        "genre_ids": [
+          10764
+        ],
+        "id": 85231,
+        "origin_country": [
+          "ES"
+        ],
+        "original_language": "es",
+        "original_name": "GH Dúo",
+        "overview": "La casa con más cámaras de Guadalix de la Sierra vuelve a abrir sus puertas para recibir a 16 concursantes famosos, esta vez unidos por lazos sentimentales (parejas o exparejas) Conducido por Jorge Javier Vázquez y Jordi González.",
+        "popularity": 3273.561,
+        "poster_path": "/sgPv3qMYHKwxz9KQxjyQokmPUHj.jpg",
+        "first_air_date": "2019-01-08",
+        "name": "GH Dúo",
+        "vote_average": 7.3,
+        "vote_count": 3
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/CdIb3DdvujTyLcMpp2UwEEmL6L.jpg",
+        "genre_ids": [
+          10763
+        ],
+        "id": 1770,
+        "origin_country": [
+          "US"
+        ],
+        "original_language": "en",
+        "original_name": "ABC World News",
+        "overview": "",
+        "popularity": 3184.722,
+        "poster_path": "/bhdypGMoLPV1NgnRd1M8YA5X9UB.jpg",
+        "first_air_date": "1948-08-11",
+        "name": "ABC World News",
+        "vote_average": 6,
+        "vote_count": 7
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/cchlQWYrnMPyl1EbjZWCzeAz8l5.jpg",
+        "genre_ids": [
+          18,
+          35
+        ],
+        "id": 36361,
+        "origin_country": [
+          "CZ"
+        ],
+        "original_language": "cs",
+        "original_name": "Ulice",
+        "overview": "",
+        "popularity": 3415.811,
+        "poster_path": "/gFEHva8Csx18hMGJJZ6gi4sFSKR.jpg",
+        "first_air_date": "2005-09-05",
+        "name": "Ulice",
+        "vote_average": 4.6,
+        "vote_count": 31
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/tPLUHT2cQYJi66aSZZ1qrcu74Zq.jpg",
+        "genre_ids": [
+          10766,
+          18
+        ],
+        "id": 257048,
+        "origin_country": [
+          "BR"
+        ],
+        "original_language": "pt",
+        "original_name": "Garota do Momento",
+        "overview": "",
+        "popularity": 2677.73,
+        "poster_path": "/jFSkjQSZ5Td52igalpoTQRuHtk.jpg",
+        "first_air_date": "2024-11-04",
+        "name": "Garota do Momento",
+        "vote_average": 8.1,
+        "vote_count": 9
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/j5CR0gFPjwgmAXkV9HGaF4VMjIW.jpg",
+        "genre_ids": [
+          10766,
+          18,
+          35
+        ],
+        "id": 257064,
+        "origin_country": [
+          "BR"
+        ],
+        "original_language": "pt",
+        "original_name": "Volta por Cima",
+        "overview": "",
+        "popularity": 2563.529,
+        "poster_path": "/nyN8R0P1Hqwq7ksJz4O2BIAUd4W.jpg",
+        "first_air_date": "2024-09-30",
+        "name": "Volta por Cima",
+        "vote_average": 6.9,
+        "vote_count": 11
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/i8iqYtAy9qcO5RSrA1f6fY1n6SN.jpg",
+        "genre_ids": [
+          10766
+        ],
+        "id": 235484,
+        "origin_country": [
+          "ZA"
+        ],
+        "original_language": "af",
+        "original_name": "Suidooster",
+        "overview": "",
+        "popularity": 2628.554,
+        "poster_path": "/naCgSiacvV685kait6fBvhVhdce.jpg",
+        "first_air_date": "2015-11-16",
+        "name": "Suidooster",
+        "vote_average": 7.7,
+        "vote_count": 20
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/2Bkqjc9tNWo3KLr1aRYyJ7vMQtM.jpg",
+        "genre_ids": [
+          10764
+        ],
+        "id": 235493,
+        "origin_country": [
+          "NL"
+        ],
+        "original_language": "nl",
+        "original_name": "De Bondgenoten",
+        "overview": "",
+        "popularity": 2375.21,
+        "poster_path": "/wsipinibYxrZhpkQ6MKxIMgL0hv.jpg",
+        "first_air_date": "2023-10-22",
+        "name": "De Bondgenoten",
+        "vote_average": 7,
+        "vote_count": 21
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/ottT2Yt0OfHiHp3PHJTLNVV8JPE.jpg",
+        "genre_ids": [
+          18,
+          10766
+        ],
+        "id": 13945,
+        "origin_country": [
+          "DE"
+        ],
+        "original_language": "de",
+        "original_name": "Gute Zeiten, schlechte Zeiten",
+        "overview": "",
+        "popularity": 2777.442,
+        "poster_path": "/qujVFLAlBnPU9mZElV4NZgL8iXT.jpg",
+        "first_air_date": "1992-05-11",
+        "name": "Gute Zeiten, schlechte Zeiten",
+        "vote_average": 5.9,
+        "vote_count": 34
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/xeJJZE8yC09lRbiV2f2hqURJmhd.jpg",
+        "genre_ids": [
+          10766,
+          18,
+          9648
+        ],
+        "id": 237478,
+        "origin_country": [
+          "BR"
+        ],
+        "original_language": "pt",
+        "original_name": "Mania de Você",
+        "overview": "La historia comienza con la ambigua relación entre las amigas Viola y Luma, quienes parecen estar predestinadas a entrar en la vida de la otra de manera literal. Nacidas el mismo día, en situaciones muy diferentes, se reencuentran años más tarde, unidas por coincidencias que van más allá de su cumpleaños. De orígenes humildes, Viola se muda con su novio Mavi a Angra dos Reis, donde Luma vive una vida de lujo y sale con Rudá, quien acaba conociendo a Viola por casualidad. Así comienza la travesía de la dupla, que va desde una pasión por las recetas hasta una obsesión por el mismo hombre, desde una conexión inmediata hasta el punto de comenzar a vivir la realidad de su amiga, 10 años después. Un viaje dividido entre la complicidad y la rivalidad, que las incluye en un cuadrado amoroso y está impactado por una serie de circunstancias, giros y sorpresas, como el secreto que rodea un asesinato.",
+        "popularity": 2291.619,
+        "poster_path": "/xq1X6H8pupwx0jeZpu4Piq0V5uL.jpg",
+        "first_air_date": "2024-09-09",
+        "name": "Manía de Ti",
+        "vote_average": 5.2,
+        "vote_count": 12
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/9zIqN0oMmaeFvBlccgw80sWed7I.jpg",
+        "genre_ids": [
+          10763,
+          35
+        ],
+        "id": 13008,
+        "origin_country": [
+          "US"
+        ],
+        "original_language": "en",
+        "original_name": "TMZ",
+        "overview": "",
+        "popularity": 2311.833,
+        "poster_path": "/ifFpUG51DJaQxwnZ35VwoGRFGGv.jpg",
+        "first_air_date": "2007-09-10",
+        "name": "TMZ",
+        "vote_average": 4.6,
+        "vote_count": 18
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/s41aHDgGza66JSwEc0poXSuBrmx.jpg",
+        "genre_ids": [
+          18
+        ],
+        "id": 261121,
+        "origin_country": [
+          "KR"
+        ],
+        "original_language": "ko",
+        "original_name": "친절한 선주씨",
+        "overview": "",
+        "popularity": 2360.48,
+        "poster_path": "/ptb9knqEQmHQUT7YzITadm0gYIi.jpg",
+        "first_air_date": "2024-11-18",
+        "name": "친절한 선주씨",
+        "vote_average": 6.3,
+        "vote_count": 3
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/mbSSCIbNpeyNJqKAKkWgdvYsQ8F.jpg",
+        "genre_ids": [
+          18,
+          9648,
+          10766
+        ],
+        "id": 212907,
+        "origin_country": [
+          "ES"
+        ],
+        "original_language": "es",
+        "original_name": "La promesa",
+        "overview": "En la España de 1913, una mujer consigue un trabajo en el palacio de La Promesa como recompensa por salvar al hijo de los marqueses, pero nadie sabe que ella tiene sus propios planes, que incluyen vengar la muerte de su madre y encontrar a su hermano desaparecido.",
+        "popularity": 2282.959,
+        "poster_path": "/y656ZhHU2Hh3bmC5vBtMa2vKpUM.jpg",
+        "first_air_date": "2023-01-12",
+        "name": "La promesa",
+        "vote_average": 7.6,
+        "vote_count": 42
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/kkfqNkGQR5og5sDjJTxTVmI9PW.jpg",
+        "genre_ids": [
+          80,
+          18
+        ],
+        "id": 72879,
+        "origin_country": [
+          "FR"
+        ],
+        "original_language": "fr",
+        "original_name": "Demain nous appartient",
+        "overview": "",
+        "popularity": 2368.009,
+        "poster_path": "/zMWldNZF0wS3L5XkDVFHxYhclcL.jpg",
+        "first_air_date": "2017-07-17",
+        "name": "Demain nous appartient",
+        "vote_average": 6.246,
+        "vote_count": 65
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/ueQ3OVzCjBS7dgOEgunELfPfRbC.jpg",
+        "genre_ids": [
+          10751,
+          35,
+          18
+        ],
+        "id": 262831,
+        "origin_country": [
+          "KR"
+        ],
+        "original_language": "ko",
+        "original_name": "결혼하자 맹꽁아!",
+        "overview": "",
+        "popularity": 2262.411,
+        "poster_path": "/lp7uJ6tZ9k8m7kW75hIAOUafXr4.jpg",
+        "first_air_date": "2024-10-07",
+        "name": "결혼하자 맹꽁아!",
+        "vote_average": 7.75,
+        "vote_count": 4
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/vSrR7pq1wtPw85XpiOrdNcYdtUb.jpg",
+        "genre_ids": [
+          18
+        ],
+        "id": 239526,
+        "origin_country": [
+          "ES"
+        ],
+        "original_language": "es",
+        "original_name": "Sueños de libertad",
+        "overview": "Año 1958. Begoña Montes huye a través del bosque junto a la pequeña Julia, su hijastra. Begoña es la nueva esposa de Jesús de la Reina, el viudo de oro de la comarca, dueño de una importante empresa de productos de tocador, Perfumerías de la Reina. Begoña corre con la niña, cuando Jesús las alcanza y dispara a sangre fría. ¿Habrá herido a Begoña? ¿Qué ha ocurrido para que Jesús pierda la cabeza y dispare a su propia mujer?",
+        "popularity": 2259.064,
+        "poster_path": "/k0uSCsavcoGviQK9rfyH2srRjhZ.jpg",
+        "first_air_date": "2024-02-25",
+        "name": "Sueños de libertad",
+        "vote_average": 6.2,
+        "vote_count": 13
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/gzqOVv4s5IZEK61y2bckbgisJP3.jpg",
+        "genre_ids": [
+          10764
+        ],
+        "id": 21502,
+        "origin_country": [
+          "GB"
+        ],
+        "original_language": "en",
+        "original_name": "The Chase",
+        "overview": "",
+        "popularity": 2506.545,
+        "poster_path": "/rPg5T51DAHn7tANKgOVtMG5JQdN.jpg",
+        "first_air_date": "2009-06-29",
+        "name": "The Chase",
+        "vote_average": 6.5,
+          "vote_count": 26
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/mlX6SG7lJ0BiLui5x5Nu4agetBA.jpg",
+        "genre_ids": [
+          10766,
+          18
+        ],
+        "id": 82708,
+        "origin_country": [
+          "NL"
+        ],
+        "original_language": "nl",
+        "original_name": "Brugklas",
+        "overview": "",
+        "popularity": 1889.283,
+        "poster_path": "/6Gr6rggaHHeUKgxEXONRyC66oRG.jpg",
+        "first_air_date": "2014-05-26",
+        "name": "Brugklas",
+        "vote_average": 4.8,
+        "vote_count": 13
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/zA1AppSztteljdiZQSTrXi0tC7P.jpg",
+        "genre_ids": [
+          10764
+        ],
+        "id": 243754,
+        "origin_country": [
+          "GB"
+        ],
+        "original_language": "en",
+        "original_name": "Love Island: All Stars",
+        "overview": "",
+        "popularity": 1983.914,
+        "poster_path": "/hOHKevqnalNfhtVwTL8RqVKzQHC.jpg",
+        "first_air_date": "2024-01-15",
+        "name": "Love Island: All Stars",
+        "vote_average": 4.3,
+        "vote_count": 11
+      }
+    ],
+    "total_pages": 64,
+    "total_results": 1262
+  }
+}

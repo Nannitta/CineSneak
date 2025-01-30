@@ -1,0 +1,454 @@
+{
+  "seriesOfTheDay": {
+    "page": 1,
+    "results": [
+      {
+        "backdrop_path": "/7CaXcLBWf41nHyX33DmpIpcOSg4.jpg",
+        "id": 138503,
+        "name": "Tu amigo y vecino Spider-Man",
+        "original_name": "Your Friendly Neighborhood Spider-Man",
+        "overview": "Peter Parker está destinado a ser un héroe, pero antes tendrá que recorrer un insólito camino.",
+        "poster_path": "/iHT2NVIU1SICNYz7XWsvW09GcLL.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          16,
+          10759,
+          10765,
+          35
+        ],
+        "popularity": 163.993,
+        "first_air_date": "2025-01-29",
+        "vote_average": 8.1,
+        "vote_count": 9,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/rey2eh6752C2UbGYRileKk1PVTo.jpg",
+        "id": 210916,
+        "name": "El nuevo empleado",
+        "original_name": "The Recruit",
+        "overview": "Un joven y temerario abogado es reclutado por la CIA al salir de la facultad de Derecho y se adentra sin preparación en el peligroso mundo del espionaje internacional.",
+        "poster_path": "/sgCe7wVP5AxU2aNofxLhRn1XfwD.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          80
+        ],
+        "popularity": 149.022,
+        "first_air_date": "2022-12-16",
+        "vote_average": 7.4,
+        "vote_count": 307,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/qV2REPQ7pPlmQT7Mljkca0wi4Bx.jpg",
+        "id": 245927,
+        "name": "Paradise",
+        "original_name": "Paradise",
+        "overview": "Paradise está ambientada en una localidad tranquila entre cuyos habitantes se encuentran algunas de las personas más prominentes del mundo. Pero la calma da paso a la tempestad cuando se comete un impactante asesinato y da comienzo una delicada investigación.",
+        "poster_path": "/rkwqy7uE0ORdUxDFNeVq7vpJORN.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          80
+        ],
+        "popularity": 175.336,
+        "first_air_date": "2025-01-26",
+        "vote_average": 7.5,
+        "vote_count": 11,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/cP82Jtvn7DwVt0mWaDFm7QhWHez.jpg",
+        "id": 94951,
+        "name": "Mythic Quest",
+        "original_name": "Mythic Quest",
+        "overview": "Conoce al equipo detrás del videojuego multijugador más grande de todos los tiempos. En una empresa con la misión de construir mundos, moldear héroes y crear leyendas, las batallas más difíciles no se libran en el juego sino en la oficina.",
+        "poster_path": "/8Ggua9daH75BdaGS8GJ1SQKkZCk.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          35
+        ],
+        "popularity": 132.957,
+        "first_air_date": "2020-02-07",
+        "vote_average": 7.3,
+        "vote_count": 346,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/fA9VmVg5N5RYbhdsC4n2SgiVdec.jpg",
+        "id": 280872,
+        "name": "Hinchas enemigos",
+        "original_name": "Kibic",
+        "overview": "Kuba tiene solo 17 años cuando su padre sale de prisión y le cuesta no seguir con el mismo legado hincha de su padre. En el fondo, el fútbol también es familia.",
+        "poster_path": "/qVjcFke33khnnewk50c5ZCqUvGG.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "pl",
+        "genre_ids": [
+          18
+        ],
+        "popularity": 46.495,
+        "first_air_date": "2025-01-29",
+        "vote_average": 5.5,
+        "vote_count": 2,
+        "origin_country": [
+          "PL"
+        ]
+      },
+      {
+        "backdrop_path": "/2meX1nMdScFOoV4370rqHWKmXhY.jpg",
+        "id": 93405,
+        "name": "El juego del calamar",
+        "original_name": "오징어 게임",
+        "overview": "Cientos de personas con problemas de dinero aceptan una invitación rarísima para competir en juegos infantiles. Dentro los esperan un tentador premio y desafíos letales.",
+        "poster_path": "/74qMRUy0lwkBBi39vsQVerIDkHj.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "ko",
+        "genre_ids": [
+          10759,
+          9648,
+          18
+        ],
+        "popularity": 2324.136,
+        "first_air_date": "2021-09-17",
+        "vote_average": 7.9,
+        "vote_count": 15258,
+        "origin_country": [
+          "KR"
+        ]
+      },
+      {
+        "backdrop_path": "/95PFbzOLp2CyCpAkoNqJCgG4ncV.jpg",
+        "id": 119007,
+        "name": "中央广播电视总台春节联欢晚会",
+        "original_name": "中央广播电视总台春节联欢晚会",
+        "overview": "",
+        "poster_path": "/sqfJi9ZyqtO1OpZhSrUd7aODRGs.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "zh",
+        "genre_ids": [
+          10767,
+          10764
+        ],
+        "popularity": 101.079,
+        "first_air_date": "1983-02-12",
+        "vote_average": 5.833,
+        "vote_count": 6,
+        "origin_country": [
+          "CN"
+        ]
+      },
+      {
+        "backdrop_path": "/4WCW25PfD05DnrHZXglff78KhHJ.jpg",
+        "id": 246381,
+        "name": "Prime Target",
+        "original_name": "Prime Target",
+        "overview": "Un brillante estudiante de matemáticas está a punto de lograr un hito cuando un misterioso enemigo le para los pies. Para encontrar respuestas y salvar su vida, se alía con una agente del gobierno y, juntos, tratarán de destapar una conspiración de alto riesgo.",
+        "poster_path": "/hqLcyZ2vkWVmCzODU6vtc71RHBr.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          80
+        ],
+        "popularity": 403.659,
+        "first_air_date": "2025-01-22",
+        "vote_average": 7.3,
+        "vote_count": 27,
+        "origin_country": [
+          "GB"
+        ]
+      },
+      {
+        "backdrop_path": "/8MtMFngDWvIdRo34rz3ao0BGBAe.jpg",
+        "id": 95396,
+        "name": "Separación",
+        "original_name": "Severance",
+        "overview": "Mark Scout dirige un equipo en Lumon Industries cuyos empleados se han sometido a un procedimiento quirúrgico que separa sus recuerdos entre trabajo y vida personal. Este arriesgado experimento de conciliación es puesto en tela de juicio cuando Mark se encuentra envuelto en un misterio que le obligará a confrontar la verdadera naturaleza de su trabajo... y de sí mismo.",
+        "poster_path": "/y1dTPyj2mE2x5sKLdSsYoh2tbP6.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          9648,
+          10765
+        ],
+        "popularity": 633.912,
+        "first_air_date": "2022-02-17",
+        "vote_average": 8.393,
+        "vote_count": 1472,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/58XBnfKhP569SuZuXks3fNYpLBm.jpg",
+        "id": 217553,
+        "name": "Héroes de guardia",
+        "original_name": "중증외상센터",
+        "overview": "Un experimentado médico militar llega a un centro de trauma y convierte a su equipo en una unidad salvavidas de élite gracias a sus métodos bruscos pero eficaces.",
+        "poster_path": "/o0gcDBhbiQOq8pKCBbGcjismLWD.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "ko",
+        "genre_ids": [
+          18
+        ],
+        "popularity": 237.102,
+        "first_air_date": "2025-01-24",
+        "vote_average": 7.8,
+        "vote_count": 25,
+        "origin_country": [
+          "KR"
+        ]
+      },
+      {
+        "backdrop_path": "/fimUTO7XVAoD8Wrwz0KjmycbuUH.jpg",
+        "id": 201124,
+        "name": "Mo",
+        "original_name": "Mo",
+        "overview": "En Texas, Mo vive entre dos culturas, habla tres idiomas y espera a que se resuelva su solicitud de asilo mientras se esfuerza por sacar adelante a su familia palestina.",
+        "poster_path": "/x3ojdK36AKestQaL2nAE6A7JYWO.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          35,
+          18
+        ],
+        "popularity": 54.18,
+        "first_air_date": "2022-08-24",
+        "vote_average": 7.2,
+        "vote_count": 31,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/oPzEZobvCeKcUid8NoxVEOBwwT1.jpg",
+        "id": 282405,
+        "name": "Cacería implacable: O. J. Simpson",
+        "original_name": "American Manhunt: O.J. Simpson",
+        "overview": "El Bronco blanco. Los guantes. El juicio del siglo. Esta serie documental investiga el impactante caso de asesinato que se convirtió en un fenómeno cultural.",
+        "poster_path": "/okLe7Zpqnhoo6GXtmYwa688Xl9i.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          99,
+          80
+        ],
+        "popularity": 40.502,
+        "first_air_date": "2025-01-29",
+        "vote_average": 10,
+        "vote_count": 1,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/xMNH87maNLt9n2bMDYeI6db5VFm.jpg",
+        "id": 127532,
+        "name": "Solo Leveling",
+        "original_name": "俺だけレベルアップな件",
+        "overview": "Lo que no te mata te hace más fuerte, pero en el caso de Sung Jinwoo, lo que lo mató lo hizo más fuerte. Después de ser brutalmente asesinado por monstruos en una mazmorra de alto rango, Jinwoo regresó con el Sistema, un programa que solo él puede ver y que eleva su nivel en todos los sentidos. Ahora, está decidido a descubrir los secretos detrás de sus poderes y la mazmorra que los engendró.",
+        "poster_path": "/s0BBywCD4KVVkO31E2x8lYYp0SE.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "ja",
+        "genre_ids": [
+          10759,
+          10765,
+          16
+        ],
+        "popularity": 780.463,
+        "first_air_date": "2024-01-07",
+        "vote_average": 8.5,
+        "vote_count": 646,
+        "origin_country": [
+          "JP"
+        ]
+      },
+      {
+        "backdrop_path": "/gklrevVndG98GHGDwfm8y8kxESo.jpg",
+        "id": 129552,
+        "name": "El agente nocturno",
+        "original_name": "The Night Agent",
+        "overview": "Unidos por una llamada a medianoche, un agente del FBI y una experta en ciberseguridad deben desentrañar una intrincada red de conspiraciones políticas.",
+        "poster_path": "/uYNgC4Zd9NMcpMVug9NTgeIqfTy.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          9648,
+          10759
+        ],
+        "popularity": 634.715,
+        "first_air_date": "2023-03-23",
+        "vote_average": 7.8,
+        "vote_count": 793,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/ijRiyqrXUzrF77INhtzvSS6V6qG.jpg",
+        "id": 226637,
+        "name": "High Potential",
+        "original_name": "High Potential",
+        "overview": "Morgan es una madre soltera con una mente excepcional, cuya habilidad poco convencional para resolver crímenes conduce a una asociación inusual e imparable con un detective experimentado.",
+        "poster_path": "/49FrRidGiaL2Ui7bJmeDPdGshd4.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          18,
+          80
+        ],
+        "popularity": 585.113,
+        "first_air_date": "2024-09-17",
+        "vote_average": 8.5,
+        "vote_count": 94,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/dd1tEbUU9NLLo3drq39NknpHQ6v.jpg",
+        "id": 218843,
+        "name": "The Seven Deadly Sins: Los cuatro jinetes del apocalipsis",
+        "original_name": "七つの大罪 黙示録の四騎士",
+        "overview": "Mientras una profecía apocalíptica se cierne sobre la pacífica tierra de Britania, un chico con un corazón puro emprende un viaje de descubrimiento... y venganza.",
+        "poster_path": "/jagPIbydbjPZ9o0EOrYLZHzyATS.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "ja",
+        "genre_ids": [
+          16,
+          10759,
+          10765
+        ],
+        "popularity": 274.252,
+        "first_air_date": "2023-10-08",
+        "vote_average": 8.4,
+        "vote_count": 145,
+        "origin_country": [
+          "JP"
+        ]
+      },
+      {
+        "backdrop_path": "/4Mt7WHox67uJ1yErwTBFcV8KWgG.jpg",
+        "id": 37854,
+        "name": "One Piece",
+        "original_name": "ワンピース",
+        "overview": "Riqueza, fama, poder... un hombre había obtenido todo en este mundo, era el Rey de los Piratas Gold Roger. Antes de morir sus últimas palabras inspiraron al mundo a aventurarse al mar: \"¿Mi tesoro? Si lo queréis es vuestro... lo he escondido todo en ese lugar\". Y así dio comienzo lo que se conoce como la Gran Era de la Piratería, lanzando a cientos de piratas al mar para encontrar el gran tesoro One Piece. Esta serie relata las aventuras y desventuras de uno de esos piratas, Monkey D. Luffy, quien accidentalmente de pequeño, comió una Fruta del Diablo (Akuma no Mi en japonés), en particular una Gomu Gomu no Mi que hizo que su cuerpo ganara las propiedades físicas de la goma, convirtiéndose en el hombre de goma. Luffy, después de dicho suceso, decide que se convertirá en el próximo Rey de los Piratas y para ello, deberá encontrar el \"One Piece\".",
+        "poster_path": "/oag7edI9flSMawmNySEiSEJAbrf.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "ja",
+        "genre_ids": [
+          10759,
+          35,
+          16
+        ],
+        "popularity": 172.655,
+        "first_air_date": "1999-10-20",
+        "vote_average": 8.7,
+        "vote_count": 4771,
+        "origin_country": [
+          "JP"
+        ]
+      },
+      {
+        "backdrop_path": "/n5FPNMJ0eRoiQrKGfUQQRAZeaxg.jpg",
+        "id": 125988,
+        "name": "Silo",
+        "original_name": "Silo",
+        "overview": "En un futuro ruinoso y tóxico, existe una comunidad en un gigantesco silo subterráneo que alcanza cientos de pisos de profundidad. Allí, las personas viven en una sociedad llena de normas que creen que están destinadas a protegerlas.",
+        "poster_path": "/ak7NFISSaROyoWjSOIjamhpt1LB.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          10765,
+          18
+        ],
+        "popularity": 613.103,
+        "first_air_date": "2023-05-04",
+        "vote_average": 8.163,
+        "vote_count": 1330,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/jmcRdwSOb1Bo1snMtxTSWOqbvgR.jpg",
+        "id": 219937,
+        "name": "Dexter: Pecado Original",
+        "original_name": "Dexter: Original Sin",
+        "overview": "En 1991, en Miami, Dexter Morgan pasa de ser estudiante a ser un asesino en serie vengador. Cuando sus impulsos sanguinarios ya no pueden ignorarse, Dexter debe aprender a canalizar su oscuridad interior. Con la guía de su padre, Harry, adopta un código diseñado para ayudarlo a encontrar y matar a personas que merecen ser eliminadas de la sociedad sin llamar la atención de las fuerzas del orden. Este es un desafío particular para el joven Dexter, ya que comienza una pasantía forense en el Departamento de Policía Metropolitana de Miami.",
+        "poster_path": "/9XLULEZTkeLwRytTUQtgmx2HH4o.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          80,
+          18
+        ],
+        "popularity": 248.222,
+        "first_air_date": "2024-12-15",
+        "vote_average": 8.6,
+        "vote_count": 81,
+        "origin_country": [
+          "US"
+        ]
+      },
+      {
+        "backdrop_path": "/5UprknbFLoKoakAi3NwM5NySLuG.jpg",
+        "id": 208397,
+        "name": "Espíritus en la escuela",
+        "original_name": "School Spirits",
+        "overview": "Una adolescente atrapada en el más allá decide investigar su misteriosa desaparición junto con un grupo de otros estudiantes que también están atrapados en el limbo de su escuela secundaria.",
+        "poster_path": "/eTGKwCLm7DkMbjuaNYRqDbqHuIo.jpg",
+        "media_type": "tv",
+        "adult": false,
+        "original_language": "en",
+        "genre_ids": [
+          9648,
+          18
+        ],
+        "popularity": 113.53,
+        "first_air_date": "2023-03-09",
+        "vote_average": 7.7,
+        "vote_count": 153,
+        "origin_country": [
+          "US"
+        ]
+      }
+    ],
+    "total_pages": 500,
+    "total_results": 10000
+  }
+}
