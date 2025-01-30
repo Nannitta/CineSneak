@@ -1,6 +1,6 @@
-import { Arrow } from '@/lib/Svg';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { Arrow } from '@/lib/Svg';
 
 const BackTopButton = () => {
   const [scroll, setScroll] = useState(false);

@@ -1,8 +1,8 @@
 'use client';
 
 import { KeyboardEvent, MouseEvent, useEffect, useRef, useState } from 'react';
-import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { useRouter } from 'next/navigation';
+import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { useSearchMenuStore } from '@/store/searchMenu';
 import { useSeriesStore } from '@/store/series';
 import { useMoviesStore } from '@/store/movies';

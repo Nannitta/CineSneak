@@ -1,7 +1,7 @@
 'use client';
 
-import { useMoviesStore } from '@/store/movies';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
+import { useMoviesStore } from '@/store/movies';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/LoadingByScroll';
 import BackTopButton from '@/components/BackTopButton';

@@ -45,16 +45,20 @@ const WatchMedia = () => {
       resetMediaDetails();
       setLoading(true);
       if(media === 'movie') {
-        await fetchMediaDetails(id, false);
-        await fetchProviders(id, false);
-        await fetchCast(id, false);
-        await fetchSimilarMedia(id, false);
+        Promise.all([
+          fetchMediaDetails(id, false),
+          fetchProviders(id, false),
+          fetchCast(id, false),
+          fetchSimilarMedia(id, false)
+        ]);
       };
       if(media === 'tv') {
-        await fetchMediaDetails(id, true);
-        await fetchProviders(id, true);
-        await fetchCast(id, true);
-        await fetchSimilarMedia(id, true);
+        Promise.all([
+          fetchMediaDetails(id, true),
+          fetchProviders(id, true),
+          fetchCast(id, true),
+          fetchSimilarMedia(id, true)
+        ]);
       };
       setLoading(false);
     };

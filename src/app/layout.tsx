@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Onest } from 'next/font/google';
-import './globals.css';
 import Header from '@/components/Header';
 import SideMenu from '@/components/SideMenu';
 import SearchMenu from '@/components/SearchMenu';
 import Footer from '@/components/Footer';
+import './globals.css';
 
 const onest = Onest({ subsets: ['latin'] });
 

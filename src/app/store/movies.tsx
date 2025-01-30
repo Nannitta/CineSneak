@@ -36,7 +36,8 @@ export const useMoviesStore = create<State>((set) => {
     genericError: null,
     fetchUpcomingMovies: async () => {
       try {
-        const upcomingMovies = await getMoviesUpcoming();
+        const response = await getMoviesUpcoming();
+        const upcomingMovies = response.filter((movie: MovieDetails) => movie.backdrop_path !== null || movie.poster_path !== null);
         
         set({ upcomingMovies: Array.from(upcomingMovies) });
       } catch (error) {
@@ -46,7 +47,7 @@ export const useMoviesStore = create<State>((set) => {
     fetchMoviesNowPlaying: async (page: number) => {
       try {
         const response = await getMoviesNowPlaying(page);    
-        const newMoviesNowPlaying: MovieDetails[] = response.results;
+        const newMoviesNowPlaying: MovieDetails[] = response.results.filter((movie: MovieDetails) => movie.backdrop_path !== null || movie.poster_path !== null);
         const pagesMoviesNowPlaying = response.total_pages;
   
         set(state => {
@@ -92,7 +93,7 @@ export const useMoviesStore = create<State>((set) => {
     fetchPopularMovies: async (page: number) => {
       try {
         const response = await getPopularMovies(page);
-        const newPopularMovies: MovieDetails[] = response.results;
+        const newPopularMovies: MovieDetails[] = response.results.filter((movie: MovieDetails) => movie.backdrop_path !== null || movie.poster_path !== null);
         const pagesPopularMovies = response.total_pages;
   
         set(state => {
@@ -111,7 +112,7 @@ export const useMoviesStore = create<State>((set) => {
     fetchTopRatedMovies: async (page: number) => {
       try {
         const response = await getTopRatedMovies(page);
-        const newTopRatedMovies: MovieDetails[] = response.results;
+        const newTopRatedMovies: MovieDetails[] = response.results.filter((movie: MovieDetails) => movie.backdrop_path !== null || movie.poster_path !== null);
         const pagesTopRatedMovies = response.total_pages;
   
         set(state => {

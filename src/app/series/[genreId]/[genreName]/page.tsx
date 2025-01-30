@@ -2,9 +2,9 @@
 
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
+import { useScrollPagination } from '@/hooks/useScrollPagination';
 import { useSeriesByGenreId } from '@/store/seriesByGenreId';
 import ListMedia from '@/components/ListMedia';
-import { useScrollPagination } from '@/hooks/useScrollPagination';
 import LoadingByScroll from '@/components/LoadingByScroll';
 import BackTopButton from '@/components/BackTopButton';
 import ErrorPage from '@/components/ErrorPage';

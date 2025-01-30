@@ -1,5 +1,3 @@
-'use client';
-
 import CheckWindowWidth from '@/hooks/useWindowWidth';
 import BentoGrid from '@/components/BentoGrid';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';

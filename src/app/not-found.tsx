@@ -1,8 +1,8 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { League_Spartan } from 'next/font/google';
 import PrimaryButton from '@/components/PrimaryButton';
-import { useRouter } from 'next/navigation';
 
 const league = League_Spartan({ subsets: ['latin'] });
 

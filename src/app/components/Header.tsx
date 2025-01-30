@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import CheckWindowWidth from '@/hooks/useWindowWidth';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { useSideMenuStore } from '@/store/sideMenu';
 import { useSearchMenuStore } from '@/store/searchMenu';
 import Logo from '@/components/Logo';
