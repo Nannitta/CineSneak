@@ -1,15 +1,15 @@
 'use client';
 
+import { useEffect, Suspense, useState } from 'react';
 import { League_Spartan } from 'next/font/google';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchMediaAdvancedStore } from '@/store/advancedSearchMedia';
 import ListMedia from '@/components/ListMedia';
 import PrimaryButton from '@/components/PrimaryButton';
-import { Clapperboard, FilmSpool, LoadingSpinner } from '@/lib/Svg';
-import { useSearchMediaAdvancedStore } from '@/store/advancedSearchMedia';
-import { SearchedMedia } from '@/types/types';
-import { useEffect, Suspense, useState } from 'react';
 import BackTopButton from '@/components/BackTopButton';
 import ErrorPage from '@/components/ErrorPage';
+import { Clapperboard, FilmSpool, LoadingSpinner } from '@/lib/Svg';
+import { SearchedMedia } from '@/types/types';
 
 const league = League_Spartan({ subsets: ['latin'] });
 

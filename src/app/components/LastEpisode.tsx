@@ -1,8 +1,8 @@
 import Image from 'next/image';
+import SkeletonHorizontalCard from '@/components/Skeletons/SkeletonHorizontalCard';
 import { formatDate, formatEpisodeNumber, formatRuntime } from '@/lib/format';
 import { Clock } from '@/lib/Svg';
 import { SerieDetails } from '@/types/types';
-import SkeletonHorizontalCard from '@/components/Skeletons/SkeletonHorizontalCard';
 
 interface LastEpisodeProps {
   media: SerieDetails

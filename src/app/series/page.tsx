@@ -12,9 +12,9 @@ import WatchTrailer from '@/components/WatchTrailer';
 import MainCarousel from '@/components/mainCarousel/MainCarousel';
 import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import ListGenres from '@/components/ListGenres';
+import ErrorPage from '@/components/ErrorPage';
 import { formatEpisodeNumber } from '@/lib/format';
 import { SerieDetails } from '@/types/types';
-import ErrorPage from '@/components/ErrorPage';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -63,11 +63,13 @@ const Series = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      fetchSeriesOfTheDay();
-      fetchSerieGenre(true);
-      fetchAiringToday(1);
-      fetchSeriesByGenreId(10759, 1);
-      fetchTopRatedSeries(1);
+      Promise.all([
+        fetchSeriesOfTheDay(),
+        fetchSerieGenre(true),
+        fetchAiringToday(1),
+        fetchSeriesByGenreId(10759, 1),
+        fetchTopRatedSeries(1)
+      ]);
       setLoading(false);
     };
 

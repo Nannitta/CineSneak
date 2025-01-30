@@ -1,10 +1,8 @@
-'use client';
-
 import { League_Spartan } from 'next/font/google';
 import { useRouter } from 'next/navigation';
-import { MovieDetails, SearchedMedia, SerieDetails } from '@/types/types';
-import { LoadingSpinner, Clapperboard } from '@/lib/Svg';
 import PrimaryButton from '@/components/PrimaryButton';
+import { LoadingSpinner, Clapperboard } from '@/lib/Svg';
+import { MovieDetails, SearchedMedia, SerieDetails } from '@/types/types';
 
 const league = League_Spartan({ subsets: ['latin'] });
 

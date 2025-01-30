@@ -1,8 +1,6 @@
-'use client';
-
 import { useEffect, useState } from 'react';
-import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { usePathname } from 'next/navigation';
+import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { useInPictureModeStore } from '@/store/inPictureMode';
 import { useMoviesStore } from '@/store/movies';
 import { useSeriesStore } from '@/store/series';

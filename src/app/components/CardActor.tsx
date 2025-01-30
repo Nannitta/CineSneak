@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { Cast } from '@/types/types';
-import SkeletonActors from '@/components/Skeletons/SkeletonActors';
 import { useState } from 'react';
+import Image from 'next/image';
+import SkeletonActors from '@/components/Skeletons/SkeletonActors';
+import { Cast } from '@/types/types';
 
 interface CardActorProps {
   actor: Cast

@@ -1,10 +1,8 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
+import SkeletonBentoCards from '@/components/Skeletons/SkeletonBentoCards';
 import { Plus, RightArrow } from '@/lib/Svg';
 import { MovieDetails, SerieDetails } from '@/types/types';
-import SkeletonBentoCards from '@/components/Skeletons/SkeletonBentoCards';
 
 interface BentoGridProps {
   media: MovieDetails[] | SerieDetails[]

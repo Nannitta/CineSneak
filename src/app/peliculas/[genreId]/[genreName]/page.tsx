@@ -2,8 +2,8 @@
 
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
-import { useMoviesByGenreId } from '@/store/moviesByGenreId';
 import { useScrollPagination } from '@/hooks/useScrollPagination';
+import { useMoviesByGenreId } from '@/store/moviesByGenreId';
 import ListMedia from '@/components/ListMedia';
 import LoadingByScroll from '@/components/LoadingByScroll';
 import BackTopButton from '@/components/BackTopButton';

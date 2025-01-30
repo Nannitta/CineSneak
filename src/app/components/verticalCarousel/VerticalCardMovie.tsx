@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SkeletonVerticalCard from '@/components/Skeletons/SkeletonVerticalCard';
 import { Plus } from '@/lib/Svg';
 import { MovieDetails, SearchedMedia, SerieDetails } from '@/types/types';
-import { useState } from 'react';
-import SkeletonVerticalCard from '@/components/Skeletons/SkeletonVerticalCard';
 
 interface VerticalCard {
   media: MovieDetails | SerieDetails | SearchedMedia

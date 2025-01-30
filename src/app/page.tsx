@@ -53,14 +53,16 @@ const HomePageNotLog = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      await fetchUpcomingMovies();
-      await fetchMoviesNowPlaying(1);
-      await fetchMoviesGenre(false);
-      await fetchPopularMovies(1);
-      await fetchOnAirSeries(1);
-      await fetchPopularSeries(1);
-      await fetchTopRatedMovies(1);
-      await fetchTopRatedSeries(1);
+      Promise.all([
+        fetchUpcomingMovies(),
+        fetchMoviesNowPlaying(1),
+        fetchMoviesGenre(false),
+        fetchPopularMovies(1),
+        fetchOnAirSeries(1),
+        fetchPopularSeries(1),
+        fetchTopRatedMovies(1),
+        fetchTopRatedSeries(1)
+      ]);
       setLoading(false);
     };
 

@@ -49,11 +49,13 @@ const Movies = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      fetchMoviesGenre(false);
-      fetchPopularMovies(1);
-      fetchMoviesNowPlaying(1);
-      fetchMoviesByGenreId(28, 1);
-      fetchMoviesCollections();
+      Promise.all([
+        fetchMoviesGenre(false),
+        fetchPopularMovies(1),
+        fetchMoviesNowPlaying(1),
+        fetchMoviesByGenreId(28, 1),
+        fetchMoviesCollections()
+      ]);
       setLoading(false);
     };
 

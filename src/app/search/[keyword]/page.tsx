@@ -7,9 +7,9 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { useSearchMediaByKeywordStore } from '@/store/searchMediaByKeyword';
 import ListMedia from '@/components/ListMedia';
 import PrimaryButton from '@/components/PrimaryButton';
-import { Clapperboard, FilmSpool, LoadingSpinner } from '@/lib/Svg';
 import BackTopButton from '@/components/BackTopButton';
 import ErrorPage from '@/components/ErrorPage';
+import { Clapperboard, FilmSpool, LoadingSpinner } from '@/lib/Svg';
 
 const league = League_Spartan({ subsets: ['latin'] });
 

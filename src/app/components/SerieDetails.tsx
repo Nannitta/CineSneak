@@ -1,18 +1,18 @@
-import CheckWindowWidth from '@/hooks/useWindowWidth';
+import { useState } from 'react';
 import { League_Spartan } from 'next/font/google';
 import Image from 'next/image';
+import CheckWindowWidth from '@/hooks/useWindowWidth';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import PrimaryButton from '@/components/PrimaryButton';
 import LastEpisode from '@/components/LastEpisode';
 import ListLogoProviders from '@/components/ListLogoProviders';
+import MediaInfoSmallDevice from '@/components/MediaInfoSmallDevice';
+import MediaInfoLargeDevice from '@/components/MediaInfoLargeDevice';
+import SkeletonPoster from '@/components/Skeletons/SkeletonPoster';
+import SkeletonWallMedia from '@/components/Skeletons/SkeletonWallMedia';
 import { Play, Star } from '@/lib/Svg';
 import { formatVoteCount } from '@/lib/format';
 import type { Cast, Genre, ProvidersLogo, SerieDetails } from '@/types/types';
-import MediaInfoSmallDevice from '@/components/MediaInfoSmallDevice';
-import MediaInfoLargeDevice from '@/components/MediaInfoLargeDevice';
-import { useState } from 'react';
-import SkeletonPoster from '@/components/Skeletons/SkeletonPoster';
-import SkeletonWallMedia from '@/components/Skeletons/SkeletonWallMedia';
 
 const league = League_Spartan({ subsets: ['latin'] });
 

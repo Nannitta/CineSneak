@@ -45,7 +45,7 @@ export const useSeriesStore = create<State>((set) => {
     fetchOnAirSeries: async (page: number) => {
       try {
         const response = await getOnAirSeries(page);
-        const onAirSeries = response.results;
+        const onAirSeries = response.results.filter((serie: SerieDetails) => serie.backdrop_path !== null || serie.poster_path !== null);
         const pagesOnAirSeries = response.total_pages;
   
         set({ onAirSeries: Array.from(onAirSeries), pagesOnAirSeries });
@@ -56,7 +56,7 @@ export const useSeriesStore = create<State>((set) => {
     fetchPopularSeries: async (page: number) => {
       try {
         const response = await getPopularSeries(page);
-        const newPopularSeries: SerieDetails[] = response.results;
+        const newPopularSeries: SerieDetails[] = response.results.filter((serie: SerieDetails) => serie.backdrop_path !== null || serie.poster_path !== null);
         const pagesPopularSeries = response.total_pages;
   
         set(state => {
@@ -75,7 +75,7 @@ export const useSeriesStore = create<State>((set) => {
     fetchTopRatedSeries: async (page: number) => {
       try {
         const response = await getTopRatedSeries(page);
-        const newTopRatedSeries: SerieDetails[] = response.results;
+        const newTopRatedSeries: SerieDetails[] = response.results.filter((serie: SerieDetails) => serie.backdrop_path !== null || serie.poster_path !== null);
         const pagesTopRatedSeries = response.total_pages;
   
         set(state => {
@@ -94,7 +94,7 @@ export const useSeriesStore = create<State>((set) => {
     fetchSeriesOfTheDay: async () => {
       try {
         const response = await getSeriesOfTheDay();
-        const seriesOfTheDay = response.results;
+        const seriesOfTheDay = response.results.filter((serie: SerieDetails) => serie.backdrop_path !== null || serie.poster_path !== null);
   
         set({ seriesOfTheDay });
       } catch (error) {
@@ -131,7 +131,7 @@ export const useSeriesStore = create<State>((set) => {
     fetchAiringToday: async (page: number) => {
       try {
         const response = await getSeriesAiringToday(page);
-        const newAiringToday: SerieDetails[] = response.results;
+        const newAiringToday: SerieDetails[] = response.results.filter((serie: SerieDetails) => serie.backdrop_path !== null || serie.poster_path !== null);
         const pagesAiringToday = response.total_pages;
         
         set(state => {
