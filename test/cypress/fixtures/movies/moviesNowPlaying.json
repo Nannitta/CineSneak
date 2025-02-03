@@ -1,0 +1,403 @@
+{
+  "dates": {
+    "maximum": "2025-02-05",
+    "minimum": "2024-12-25"
+  },
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/h7r6LZ32dgLwtwSW3CxoWIYD9pr.jpg",
+      "genre_ids": [
+        27,
+        14
+      ],
+      "id": 426063,
+      "original_language": "en",
+      "original_title": "Nosferatu",
+      "overview": "Historia gótica de obsesión entre una joven hechizada y el aterrador vampiro encaprichado de ella que causa un indescriptible terror a su paso.",
+      "popularity": 1504.808,
+      "poster_path": "/jivUhECegXI3OYtPVflWoIDtENt.jpg",
+      "release_date": "2024-12-25",
+      "title": "Nosferatu",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 1659
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
+      "genre_ids": [
+        16,
+        14,
+        12
+      ],
+      "id": 823219,
+      "original_language": "lv",
+      "original_title": "Straume",
+      "overview": "El mundo parece estar llegando a su fin, repleto de vestigios de presencia humana. Gato es un animal solitario, pero como su hogar es arrasado por una gran inundación, encuentra refugio en un barco poblado por varias especies, y tendrá que hacer equipo con ellas a pesar de sus diferencias. En el solitario barco que navega por místicos paisajes desbordados, navegan por los desafíos y peligros de adaptarse a este nuevo mundo..",
+      "popularity": 463.158,
+      "poster_path": "/337MqZW7xii2evUDVeaWXAtopff.jpg",
+      "release_date": "2025-01-24",
+      "title": "Flow, un mundo que salvar",
+      "video": false,
+      "vote_average": 8.4,
+      "vote_count": 949
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/hctfNoMpQGfn3VXdBYb9p0P5bT5.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 1097549,
+      "original_language": "en",
+      "original_title": "Babygirl",
+      "overview": "Una alta ejecutiva pone en peligro su carrera y su familia cuando inicia un tórrido romance con su becario, mucho más joven que ella.",
+      "popularity": 503.334,
+      "poster_path": "/fCCZlnzf6yEGGO9UEdVADRVvfhM.jpg",
+      "release_date": "2025-01-17",
+      "title": "Babygirl",
+      "video": false,
+      "vote_average": 5.8,
+      "vote_count": 181
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/i3CAo9UMGsvlU9k3Svd63rRDeZx.jpg",
+      "genre_ids": [
+        16,
+        18,
+        35
+      ],
+      "id": 1064486,
+      "original_language": "en",
+      "original_title": "Memoir of a Snail",
+      "overview": "",
+      "popularity": 483.195,
+      "poster_path": "/sd8gt0GxVPruTQym9qgxFPzIDO9.jpg",
+      "release_date": "2025-01-31",
+      "title": "Memorias de un caracol",
+      "video": false,
+      "vote_average": 7.6,
+      "vote_count": 114
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dWkdmxIkH9y23s9v1PjQFhTGIwo.jpg",
+      "genre_ids": [
+        28,
+        18,
+        53,
+        10752
+      ],
+      "id": 1043905,
+      "original_language": "en",
+      "original_title": "Dirty Angels",
+      "overview": "",
+      "popularity": 468.157,
+      "poster_path": "/3O3qSGmjRGc10hMwFul8WDxKE5t.jpg",
+      "release_date": "2025-01-24",
+      "title": "Dirty Angels",
+      "video": false,
+      "vote_average": 6.269,
+      "vote_count": 169
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ag66gJCiZ06q1GSJuQlhGLi3Udx.jpg",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "id": 1138194,
+      "original_language": "en",
+      "original_title": "Heretic",
+      "overview": "Dos jóvenes misioneras se ven obligadas a demostrar su fe cuando llaman a la puerta equivocada y son recibidas por el diabólico Sr. Reed (Hugh Grant). Los tres se verán envueltos en un brutal juego del gato y el ratón durante una larga noche de tormenta.",
+      "popularity": 416.216,
+      "poster_path": "/rpo3DJFMOSAz27gDwxJ5LIwIFni.jpg",
+      "release_date": "2025-01-01",
+      "title": "Heretic",
+      "video": false,
+      "vote_average": 7.158,
+      "vote_count": 990
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7bIWKyWdT04HTY3PqLETT8CH7jo.jpg",
+      "genre_ids": [
+        28,
+        80,
+        53
+      ],
+      "id": 974453,
+      "original_language": "en",
+      "original_title": "Absolution",
+      "overview": "Un curtido y peligroso gangster (Liam Neeson) descubre que está empezando a perder la memoria. Decidido a enmendar las cosas con su hija y rectificar los errores del pasado, antes de que sea demasiado tarde intentará hacer lo que sea para redimirse. Pero las garras del mundo criminal no lo soltarán tan fácilmente y se verá obligado a enfrentarse a la organización para la que lleva más de 20 años trabajando.",
+      "popularity": 410.143,
+      "poster_path": "/6QsBGrKAs6pgypqkqVVyHICJnpY.jpg",
+      "release_date": "2025-01-01",
+      "title": "Absolution",
+      "video": false,
+      "vote_average": 5.816,
+      "vote_count": 286
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/mKIxSo3p1QKlsdegcOwapcbiV74.jpg",
+      "genre_ids": [
+        28,
+        80,
+        53
+      ],
+      "id": 604685,
+      "original_language": "en",
+      "original_title": "Den of Thieves 2: Pantera",
+      "overview": "Big Nick está buscando en Europa a Donnie, quien está envuelto en el peligroso mundo de los ladrones de diamantes y la infame mafia Panther, mientras planean un atraco masivo al mayor intercambio de diamantes del mundo.",
+      "popularity": 565.52,
+      "poster_path": "/wsfOvNfUGogZGfSDfMN4hCOM1kR.jpg",
+      "release_date": "2025-01-10",
+      "title": "Juego de Ladrones 2: Pantera",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 83
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/sc1abgWNXc29wSBaerrjGBih06l.jpg",
+      "genre_ids": [
+        27,
+        878,
+        53
+      ],
+      "id": 1084199,
+      "original_language": "en",
+      "original_title": "Companion",
+      "overview": "",
+      "popularity": 285.601,
+      "poster_path": "/vEh6RkgFJbElNTedvYSR3OAs3la.jpg",
+      "release_date": "2025-01-31",
+      "title": "La acompañante",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 24
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nGC3ZkXEcjGbqAAonS1xn6gaNpb.jpg",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "id": 1013850,
+      "original_language": "en",
+      "original_title": "A Real Pain",
+      "overview": "Dos primos viajan a Polonia tras la muerte de su abuela para ver de dónde vienen y acaban incorporándose a un tour sobre el Holocausto.",
+      "popularity": 250.956,
+      "poster_path": "/vWU2KEMssv8IFVUVkeN2rIOQLB.jpg",
+      "release_date": "2025-01-10",
+      "title": "A Real Pain",
+      "video": false,
+      "vote_average": 6.9,
+      "vote_count": 312
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        18,
+        53,
+        10749
+      ],
+      "id": 1323784,
+      "original_language": "es",
+      "original_title": "Mala influencia",
+      "overview": "Reese Russell disfruta de la vida perfecta, pero todo se complica cuando comienzan a suceder una serie de sucesos extraños a su alrededor y empieza a recibir amenazas anónimas. Su padre, Bruce, debe buscarle un trabajo al joven criminal Eros Douglas, y decide encargarle la protección de su hija. Así, el temido Eros se convierte en el nuevo guardaespaldas de la inocente Reese. Ambos pertenecen a mundos muy diferentes, pero cuando están juntos sienten una química especial. ¿Habrá sido una buena idea juntarlos?",
+      "popularity": 250.195,
+      "poster_path": "/8xBKZpQpWx8MbbTZm0jLgV4sXil.jpg",
+      "release_date": "2025-01-24",
+      "title": "Mala influencia",
+      "video": false,
+      "vote_average": 9,
+      "vote_count": 2
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/wwARk7hRIfHfh2n2ubN6N7lvTne.jpg",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "id": 710295,
+      "original_language": "en",
+      "original_title": "Wolf Man",
+      "overview": "Blake es un hombre casado y padre de familia residente en San Francisco que hereda la remota casa donde creció en una zona rural de Oregón tras la desaparición de su propio padre, dado por muerto. En plena crisis de pareja con su enérgica esposa Charlotte, Blake la convence para tomarse un descanso de la gran ciudad y visitar la propiedad con su hija Ginger. Todo se tuerce cuando, de camino a la granja y en plena noche, la familia sufre el brutal ataque de un animal al que no consiguen ver y, en un intento desesperado por huir, se atrincheran dentro de la casa mientras la criatura merodea por la zona. Pero, con el paso de las horas, Blake comienza a comportarse de un modo extraño y a convertirse en algo irreconocible, y Charlotte se verá obligada a decidir si esa monstruosidad es más letal que el peligro que acecha en el exterior.",
+      "popularity": 225.599,
+      "poster_path": "/rBSKGZuOZqkjrjyDlX2cx4lTaRW.jpg",
+      "release_date": "2025-01-17",
+      "title": "Hombre lobo",
+      "video": false,
+      "vote_average": 6.3,
+      "vote_count": 110
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/hmZnqijPaaACjenDkrbWcCmcADI.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 549509,
+      "original_language": "en",
+      "original_title": "The Brutalist",
+      "overview": "Después de sobrevivir al Holocausto, László emigra a los Estados Unidos de la posguerra con la aspiración de reconstruir su carrera y su vida junto a su esposa. Su suerte da un giro fundamental cuando un rico industrial encarga a László el diseño de un ambicioso monumento modernista.",
+      "popularity": 195.973,
+      "poster_path": "/zOHNOv5JHzDjDXt24mM9aSXKpSU.jpg",
+      "release_date": "2025-01-24",
+      "title": "The Brutalist",
+      "video": false,
+      "vote_average": 5.2,
+      "vote_count": 96
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jcEcle0wHoTpEkLmK4AcBKgWI45.jpg",
+      "genre_ids": [
+        10749,
+        18
+      ],
+      "id": 1100099,
+      "original_language": "en",
+      "original_title": "We Live in Time",
+      "overview": "Almut y Tobias se conocen en un encuentro inesperado que cambia sus vidas. A través de pasajes de su vida en común −se enamoran, construyen un hogar, forman una familia− se nos revela una difícil verdad que amenaza con sacudir sus cimientos. A medida que emprenden un camino que los límites del tiempo desafían, los protagonistas aprenderán a apreciar cada momento del inusual camino que ha tomado su historia de amor, que abarca una década.",
+      "popularity": 184.637,
+      "poster_path": "/qBVqPyNLdjMmQNzZFBZaBY1BDgL.jpg",
+      "release_date": "2025-01-01",
+      "title": "Vivir el momento",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 551
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/znHensXVb77zzwXsORDwCguJOCZ.jpg",
+      "genre_ids": [
+        18,
+        10749
+      ],
+      "id": 1059128,
+      "original_language": "en",
+      "original_title": "Queer",
+      "overview": "1950. William Lee, un expatriado estadounidense de unos 50 años en Ciudad de México, pasa sus días casi solo, salvo algunos contactos con otros miembros de la pequeña comunidad estadounidense. Su encuentro con Eugene Allerton, un joven estudiante recién llegado a la ciudad, le muestra, por primera vez, que finalmente podría ser posible establecer una conexión íntima con alguien.",
+      "popularity": 162.516,
+      "poster_path": "/w18FVX4a42hWZO6QB07IGBTEFGo.jpg",
+      "release_date": "2025-01-01",
+      "title": "Queer",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 140
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/hkJhGayONXn96CqIRM9GhWKnlCf.jpg",
+      "genre_ids": [
+        28,
+        12,
+        16,
+        14
+      ],
+      "id": 1014505,
+      "original_language": "ja",
+      "original_title": "劇場版「オーバーロード」聖王国編",
+      "overview": "Después de doce años de jugar a su juego MMORPG favorito, Momonga inicia sesión por última vez y se encuentra transportado a su mundo para jugarlo indefinidamente. A lo largo de sus aventuras, su avatar asciende al título de Rey Hechicero Ains Ooal Gown. El Reino Sagrado, que alguna vez fue próspero pero ahora está al borde de la ruina, disfrutó de años de paz después de la construcción de un enorme muro que los protegía de las invasiones vecinas. Pero, un día, esto llega a su fin cuando el Emperador Demonio Jaldabaoth llega con un ejército de semihumanos malvados. Temiendo la invasión de sus propias tierras, el territorio vecino de la Teocracia Slane se ve obligado a rogar a sus enemigos en el Reino Hechicero por ayuda. Atendiendo al llamado, Momonga, ahora conocido como el Rey Hechicero Ains Ooal Gown, reúne al Reino Hechicero y su ejército de no muertos para unirse a la lucha junto con el Reino Sagrado y la Teocracia Slane con la esperanza de derrotar al Emperador Demonio.",
+      "popularity": 136.445,
+      "poster_path": "/98P9gET45FeXKqeSAPkeiLVu44Q.jpg",
+      "release_date": "2025-01-10",
+      "title": "Overlord: El reino sagrado",
+      "video": false,
+      "vote_average": 7.7,
+      "vote_count": 35
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/iXU87IdtNsYt7n6OigPJBDdbFf1.jpg",
+      "genre_ids": [
+        10751,
+        16,
+        35,
+        28,
+        12
+      ],
+      "id": 774370,
+      "original_language": "en",
+      "original_title": "Dog Man",
+      "overview": "Un perro y un agente de policía resultan heridos juntos en el trabajo. Una operación quirúrgica que les salva la vida cambia el curso de la historia cuando nace Policán. Mitad perro, mitad hombre, Policán ha jurado proteger y servir -siempre que no le distraigan las ardillas- mientras persigue tenazmente a su archienemigo: el supervillano felino Petey el Gato. Pero la rivalidad entre Policán y Petey se ve alterada por la llegada de un adorable gatito clon de Petey, Lil Petey, que cambia las reglas del juego para ambos.",
+      "popularity": 109.748,
+      "poster_path": "/sccfhAcEkQGiyTjIAKoQZcIr0ti.jpg",
+      "release_date": "2025-01-31",
+      "title": "Policán",
+      "video": false,
+      "vote_average": 6,
+      "vote_count": 3
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bv9tOAIACAdQioCs80dKytYV3G7.jpg",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "id": 989662,
+      "original_language": "en",
+      "original_title": "A Different Man",
+      "overview": "El ambicioso actor neoyorquino Edward se somete a una intervención quirúrgica radical para transformar drásticamente su aspecto. Como resultado, muchas cosas cambian en su vida y, sin embargo, todo sigue perturbadoramente igual. Aunque haya cambiado exteriormente y pueda empezar una nueva vida, sigue siendo quien es y no quien quiere ser. Entonces se pierde el papel de su vida y su nuevo rostro de ensueño se convierte en una pesadilla.",
+      "popularity": 64.658,
+      "poster_path": "/x8nynAOohBR0fWp8TEVtdr34jzo.jpg",
+      "release_date": "2025-01-31",
+      "title": "A Different Man",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 156
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/s1PW2xCJPehFP4J5YNkg8GecBU7.jpg",
+      "genre_ids": [
+        18,
+        53,
+        36
+      ],
+      "id": 1211472,
+      "original_language": "en",
+      "original_title": "September 5",
+      "overview": "",
+      "popularity": 73.419,
+      "poster_path": "/lHNSCUtThlJlHYqWKuBaQk5tjMM.jpg",
+      "release_date": "2025-01-31",
+      "title": "Septiembre 5",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 19
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jtSCugyOC4gtKqVXK3WaaxRNzqZ.jpg",
+      "genre_ids": [
+        18,
+        35
+      ],
+      "id": 1103621,
+      "original_language": "th",
+      "original_title": "หลานม่า",
+      "overview": "Un hombre deja el trabajo para cuidar de su abuela moribunda, aunque sus aparentemente buenas intenciones vienen motivadas por la fortuna de la anciana. El nieto tratará de ganarse el favor de su abuela antes de que fallezca.",
+      "popularity": 70.077,
+      "poster_path": "/vYHtssH7aYrzQZafC4EsmyR4uB6.jpg",
+      "release_date": "2025-01-24",
+      "title": "Cómo ganar millones antes de que muera la abuela",
+      "video": false,
+      "vote_average": 8.061,
+      "vote_count": 123
+    }
+  ],
+  "total_pages": 7,
+  "total_results": 126
+}

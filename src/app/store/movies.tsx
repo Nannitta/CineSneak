@@ -41,6 +41,7 @@ export const useMoviesStore = create<State>((set) => {
         
         set({ upcomingMovies: Array.from(upcomingMovies) });
       } catch (error) {
+        console.log(error);
         set({ genericError: error });
       }
     },

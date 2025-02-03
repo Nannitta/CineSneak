@@ -1,0 +1,471 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/2meX1nMdScFOoV4370rqHWKmXhY.jpg",
+      "genre_ids": [
+          10759,
+          9648,
+          18
+      ],
+      "id": 93405,
+      "origin_country": [
+          "KR"
+      ],
+      "original_language": "ko",
+      "original_name": "오징어 게임",
+      "overview": "Cientos de personas con problemas de dinero aceptan una invitación rarísima para competir en juegos infantiles. Dentro los esperan un tentador premio y desafíos letales.",
+      "popularity": 2579.981,
+      "poster_path": "/74qMRUy0lwkBBi39vsQVerIDkHj.jpg",
+      "first_air_date": "2021-09-17",
+      "name": "El juego del calamar",
+      "vote_average": 7.859,
+      "vote_count": 15317
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/1LdoySO2wr2AtJUvxIoMEkCySZC.jpg",
+      "genre_ids": [
+          35,
+          10759,
+          10762,
+          16,
+          10751
+      ],
+      "id": 34860,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "忍たま乱太郎",
+      "overview": "",
+      "popularity": 1828.618,
+      "poster_path": "/raKlXyICQBeTxYavErIRybR6g8d.jpg",
+      "first_air_date": "1993-04-10",
+      "name": "Ninja Boy Rantaro",
+      "vote_average": 6.2,
+      "vote_count": 14
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/tJF9M5niAnb4fm881PGc2GwS0e1.jpg",
+      "genre_ids": [
+          16,
+          10759,
+          35,
+          10751,
+          10762
+      ],
+      "id": 80885,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "忍者ハットリくん",
+      "overview": "Trata de un ninja, Hanzo Hattori, que viene de Iga, a la ciudad donde vive Kenichi, un niño que no confiaba en sí mismo, Hattori elige a Kenichi para ser su amo. Junto a Shinzo, su hermano, y Shishimaru, su perro ninja, que hacen cosas maravillosas, técnicas, comportamientos, habilidades ninja, etc., con Kemuzo Kemumaki, ninja de Koga, que siempre lucha con Hattori y se mete con Kenichi, Shinzo y Shishimaru.",
+      "popularity": 1690.257,
+      "poster_path": "/9PUkpvq0wJnJ2M00dtgxKn6LptB.jpg",
+      "first_air_date": "1981-09-28",
+      "name": "Ninja Hattori",
+      "vote_average": 6.8,
+      "vote_count": 29
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/lt9fFOFhR6QI5oIAvfWVx4G7nt0.jpg",
+      "genre_ids": [
+          18,
+          10759
+      ],
+      "id": 66515,
+      "origin_country": [
+          "PH"
+      ],
+      "original_language": "tl",
+      "original_name": "Ang Probinsyano",
+      "overview": "",
+      "popularity": 1550.57,
+      "poster_path": "/uX5ldo2snjJuZ8P9AxOharboxJn.jpg",
+      "first_air_date": "2015-09-28",
+      "name": "Ang Probinsyano",
+      "vote_average": 6.6,
+      "vote_count": 33
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xMNH87maNLt9n2bMDYeI6db5VFm.jpg",
+      "genre_ids": [
+          10759,
+          10765,
+          16
+      ],
+      "id": 127532,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "俺だけレベルアップな件",
+      "overview": "Lo que no te mata te hace más fuerte, pero en el caso de Sung Jinwoo, lo que lo mató lo hizo más fuerte. Después de ser brutalmente asesinado por monstruos en una mazmorra de alto rango, Jinwoo regresó con el Sistema, un programa que solo él puede ver y que eleva su nivel en todos los sentidos. Ahora, está decidido a descubrir los secretos detrás de sus poderes y la mazmorra que los engendró.",
+      "popularity": 1454.379,
+      "poster_path": "/s0BBywCD4KVVkO31E2x8lYYp0SE.jpg",
+      "first_air_date": "2024-01-07",
+      "name": "Solo Leveling",
+      "vote_average": 8.5,
+      "vote_count": 661
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/hqqdoXdrp4o8ZqADHVYIXwBkn3Y.jpg",
+      "genre_ids": [
+          10759,
+          16,
+          35,
+          10765,
+          10762,
+          10751
+      ],
+      "id": 65733,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "ドラえもん",
+      "overview": "Doraemon es un gato robot cósmico que viene del futuro, es amigo de Novita, un niño muy despistado y algo torpe, al cual ayudara con sus grandiosos inventos futuristas los cuales saca de su bolsillo mágico, de este modo tratara de evitar los problemas que él ha provocado en el futuro.",
+      "popularity": 1277.523,
+      "poster_path": "/9YqdMXlPTQGLIG67vqZdsPdPC4T.jpg",
+      "first_air_date": "2005-04-22",
+      "name": "Doraemon, el gato cósmico",
+      "vote_average": 7.99,
+      "vote_count": 148
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rydgjijtjdfs4Aedi59a9gV5M65.jpg",
+      "genre_ids": [
+          10766,
+          10751,
+          10759,
+          18
+      ],
+      "id": 259172,
+      "origin_country": [
+          "BR"
+      ],
+      "original_language": "pt",
+      "original_name": "A Caverna Encantada",
+      "overview": "",
+      "popularity": 1133.335,
+      "poster_path": "/5GhlwbZ8ogQUf2Xuq8tE2lX7gk7.jpg",
+      "first_air_date": "2024-07-29",
+      "name": "A Caverna Encantada",
+      "vote_average": 8,
+      "vote_count": 2
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/1xlpfYGGFXOlYqQSUlFKEv4hqbt.jpg",
+      "genre_ids": [
+          10759,
+          16,
+          10765,
+          10762
+      ],
+      "id": 46392,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "デュエル・マスターズ",
+      "overview": "La historia se centra en el juego de cartas Duel Masters, que gira en torno a cinco civilizaciones (fuego, agua, luz, oscuridad, la Naturaleza).",
+      "popularity": 1124.976,
+      "poster_path": "/t5ijeKzOukACRktUfbjuMIlqwfr.jpg",
+      "first_air_date": "2002-10-21",
+      "name": "Duel Masters",
+      "vote_average": 5.8,
+      "vote_count": 16
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/j0meXFRhxwk13yUaLBSUtqOwx7I.jpg",
+      "genre_ids": [
+          10759,
+          16,
+          35,
+          10762,
+          10765,
+          10751
+      ],
+      "id": 67667,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "ベイブレードバースト",
+      "overview": "El estudiante de secundaria Valt Aoi, con su Beyblade Valkyrie (Valtryek), se enfrenta a amigos, compañeros de clase y rivales para convertirse en el Blader número uno del mundo.",
+      "popularity": 1078.372,
+      "poster_path": "/7gNPKHaW3VB2UlDVxpfcTQBPk9N.jpg",
+      "first_air_date": "2016-04-04",
+      "name": "Beyblade Burst",
+      "vote_average": 8.3,
+      "vote_count": 319
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vj5UkNjfPC1AC2ES1daJb64RWD8.jpg",
+      "genre_ids": [
+          10751,
+          10764,
+          10759
+      ],
+      "id": 3752,
+      "origin_country": [
+          "FR"
+      ],
+      "original_language": "fr",
+      "original_name": "Fort Boyard",
+      "overview": "",
+      "popularity": 1032.199,
+      "poster_path": "/nFQyP89WGXtsDeD7ShiERRZ0kVy.jpg",
+      "first_air_date": "1990-07-07",
+      "name": "Fort Boyard",
+      "vote_average": 7.4,
+      "vote_count": 25
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qmcoEOrTm6BcgR4iO7KBQKE9AKT.jpg",
+      "genre_ids": [
+          80,
+          18,
+          10759
+      ],
+      "id": 4614,
+      "origin_country": [
+          "US"
+      ],
+      "original_language": "en",
+      "original_name": "NCIS",
+      "overview": "Gibbs, agente especial del servicio de investigación criminal de la armada, dirige un equipo extravagante para resolver crímenes que van desde el terrorismo y el espionaje hasta el terrorismo.",
+      "popularity": 955.93,
+      "poster_path": "/i5dZG5SJ7NuApNneDDeJdz3k0Dl.jpg",
+      "first_air_date": "2003-09-23",
+      "name": "Navy: Investigación criminal",
+      "vote_average": 7.6,
+      "vote_count": 2306
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/tCKEZIJJcZHhGyROj7Wdsuf7Vhl.jpg",
+      "genre_ids": [
+          35,
+          18,
+          10751,
+          10759,
+          10762,
+          80
+      ],
+      "id": 247885,
+      "origin_country": [
+          "MX"
+      ],
+      "original_language": "es",
+      "original_name": "Papás por conveniencia",
+      "overview": "",
+      "popularity": 942.771,
+      "poster_path": "/y7yIu9PKx2WTphhYgbBq9C1RNzV.jpg",
+      "first_air_date": "2024-10-21",
+      "name": "Papás por conveniencia",
+      "vote_average": 7.8,
+      "vote_count": 45
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/exAYKMbS19gtoyJbeSUnlR2cXFO.jpg",
+      "genre_ids": [
+          16,
+          35,
+          80,
+          10751,
+          10759
+      ],
+      "id": 56426,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "こちら葛飾区亀有公園前派出所",
+      "overview": "La historia se centra en las aventuras y desventuras de una estación de policía donde conoceremos a una serie de personajes y entre ellos al protagonista. Kankichi Ryotsu es un hombre de 36 años del que podríamos pensar como en alguien corriente, pero las cosas no son lo que parecen. Si bien es cierto que Ryo ha conseguido un puesto como policía en la comisaría de Kameari , su capacidad de dedicación al trabajo es inversamente proporcional a su capacidad para maniobrar estrategias en las que la consecución de “elementos” que tengan valor es esencial. Así es, Ryotsu no puede permanecer inmóvil ante la posibilidad de conseguir dinero y excusa ese vicio diciendo que el sueldo del policía base es una miseria.",
+      "popularity": 892.477,
+      "poster_path": "/ujltFuzCZ9FLe07kTRLZ2gpIJVY.jpg",
+      "first_air_date": "1996-06-16",
+      "name": "Kochikame",
+      "vote_average": 7.9,
+      "vote_count": 5
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/blSthAPRbEOJBowdxppeQqNPRh9.jpg",
+      "genre_ids": [
+          16,
+          35,
+          10759
+      ],
+      "id": 207332,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "SAKAMOTO DAYS",
+      "overview": "Taro Sakamoto, el mejor de los sicarios, se retiró en nombre del amor. Pero cuando el pasado lo persigue, debe luchar para proteger a su adorada familia.",
+      "popularity": 868.42,
+      "poster_path": "/qTNIxDIzKjLLuS17fxdXjcKAlW7.jpg",
+      "first_air_date": "2025-01-11",
+      "name": "Sakamoto Days",
+      "vote_average": 8.3,
+      "vote_count": 66
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/zZqpAXxVSBtxV9qPBcscfXBcL2w.jpg",
+      "genre_ids": [
+          10765,
+          18,
+          10759
+      ],
+      "id": 1399,
+      "origin_country": [
+          "US"
+      ],
+      "original_language": "en",
+      "original_name": "Game of Thrones",
+      "overview": "En una tierra donde los veranos duran décadas y los inviernos pueden durar toda una vida, los problemas acechan. Desde las maquinaciones del sur a las salvajes tierras del este, pasando por el helado norte y el milenario muro que protege el reino de las fuerzas tenebrosas, dos poderosas familias mantienen un enfrentamiento letal por gobernar los Siete Reinos de Poniente. Mientras la traición, la lujuria y las fuerzas sobrenaturales sacuden los pilares de los reinos, la sangrienta batalla por el trono de Hierro tendrá consecuencias imprevistas y trascendentales. El invierno se acerca. Que empiece 'Juego de tronos'.",
+      "popularity": 804.4,
+      "poster_path": "/z9gCSwIObDOD2BEtmUwfasar3xs.jpg",
+      "first_air_date": "2011-04-17",
+      "name": "Juego de tronos",
+      "vote_average": 8.456,
+      "vote_count": 24531
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/oUmWLyeko3kYdUr8DBLIsxwcugl.jpg",
+      "genre_ids": [
+          16,
+          10759,
+          35,
+          10765
+      ],
+      "id": 236994,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "ドラゴンボールDAIMA",
+      "overview": "Misteriosamente transformados en mini versiones de sí mismos, Goku y sus amigos viajan al Reino de los Demonios para descubrir la verdad y encontrar una cura.",
+      "popularity": 794.745,
+      "poster_path": "/brd9Bp1MlH8oK2nzR6VV9imY46k.jpg",
+      "first_air_date": "2024-10-11",
+      "name": "Dragon Ball Daima",
+      "vote_average": 8.217,
+      "vote_count": 302
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jul2NzmmmlZqaXYfCNGUW3jc4hD.jpg",
+      "genre_ids": [
+          10759,
+          16,
+          35,
+          10765,
+          10762,
+          10751
+      ],
+      "id": 57911,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "ドラえもん",
+      "overview": "Serie de TV (1979-2005). 1787 episodios. Doraemon, un gato azul sin orejas, viene desde el siglo XXII, y en realidad es un gato-robot. Tiene un bolsillo mágico del que puede sacar los más sorprendentes artilugios. Aunque a veces sale mal parado por las travesuras de Nobita, su magia no tiene igual. Pero no está sólo, ya que le acompañan sus amigos. Juntos forman una divertida pandilla.",
+      "popularity": 793.293,
+      "poster_path": "/4YmYgCHm1EiQwmgrFMeuxpGttfv.jpg",
+      "first_air_date": "1979-04-02",
+      "name": "Doraemon",
+      "vote_average": 7.7,
+      "vote_count": 583
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/f1OoogO23fHdm7NzCsCxjFPoQit.jpg",
+      "genre_ids": [
+          10759,
+          16,
+          35,
+          10762,
+          10765,
+          18
+      ],
+      "id": 80559,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "パズドラ",
+      "overview": "",
+      "popularity": 714.801,
+      "poster_path": "/oW9rE2Zo38eTBcCcnDl5tZijYHq.jpg",
+      "first_air_date": "2018-04-02",
+      "name": "PazuDora",
+      "vote_average": 8,
+      "vote_count": 3
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/h6GOCc6YXytj8ioBftKxXjlx0y3.jpg",
+      "genre_ids": [
+          10759,
+          18,
+          80
+      ],
+      "id": 758,
+      "origin_country": [
+          "GB"
+      ],
+      "original_language": "en",
+      "original_name": "The Sweeney",
+      "overview": "",
+      "popularity": 712.823,
+      "poster_path": "/bB7er5lQytNjsX3qGL9N4RwXfgt.jpg",
+      "first_air_date": "1975-01-02",
+      "name": "The Sweeney",
+      "vote_average": 7.7,
+      "vote_count": 21
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9rdlZYoFcoSG7pVSxJ7XbzWxcDo.jpg",
+      "genre_ids": [
+          35,
+          10759,
+          16,
+          10765
+      ],
+      "id": 57706,
+      "origin_country": [
+          "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "らんま1/2",
+      "overview": "Ranma Saotome, un joven artista marcial de 16 años, sufre una maldición que lo convierte en mujer con el agua fría y en hombre con el agua caliente. Mientras busca una cura, debe afrontar su compromiso arreglado con Akane Tendo.",
+      "popularity": 706.11,
+      "poster_path": "/mMg0aLlS2dVo0ePInzZFoPXLGt9.jpg",
+      "first_air_date": "1989-04-15",
+      "name": "Ranma ½",
+      "vote_average": 8.6,
+      "vote_count": 1414
+    }
+  ],
+  "total_pages": 422,
+  "total_results": 8433
+}
