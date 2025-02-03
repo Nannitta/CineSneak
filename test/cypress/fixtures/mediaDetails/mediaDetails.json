@@ -1,0 +1,162 @@
+{
+  "adult": false,
+  "backdrop_path": "/2meX1nMdScFOoV4370rqHWKmXhY.jpg",
+  "created_by": [
+    {
+      "id": 1294471,
+      "credit_id": "677a62f8830a8f4cc766aacd",
+      "name": "황동혁",
+      "original_name": "황동혁",
+      "gender": 2,
+      "profile_path": "/xyr3b04ayyJtA5ZN3L0Af10WKIR.jpg"
+    }
+  ],
+  "episode_run_time": [],
+  "first_air_date": "2021-09-17",
+  "genres": [
+    {
+      "id": 10759,
+      "name": "Action & Adventure"
+    },
+    {
+      "id": 9648,
+      "name": "Misterio"
+    },
+    {
+      "id": 18,
+      "name": "Drama"
+    }
+  ],
+  "homepage": "https://www.netflix.com/title/81040344",
+  "id": 93405,
+  "in_production": true,
+  "languages": [
+    "en",
+    "ko",
+    "ur"
+  ],
+  "last_air_date": "2024-12-26",
+  "last_episode_to_air": {
+    "id": 5747919,
+    "name": "Amigos o enemigos",
+    "overview": "Los jugadores restantes idean una estrategia para sobrevivir a la noche. Gi-hun propone un plan arriesgado, pero necesitará aliados de confianza para llevarlo a cabo.",
+    "vote_average": 8.333,
+    "vote_count": 69,
+    "air_date": "2024-12-26",
+    "episode_number": 7,
+    "episode_type": "finale",
+    "production_code": "",
+    "runtime": 61,
+    "season_number": 2,
+    "show_id": 93405,
+    "still_path": "/tO8hO3jWp4JveXmBbPikd4IQbss.jpg"
+  },
+  "name": "El juego del calamar",
+  "next_episode_to_air": {
+    "id": 5884550,
+    "name": "Episodio 1",
+    "overview": "",
+    "vote_average": 0,
+    "vote_count": 0,
+    "air_date": "2025-06-27",
+    "episode_number": 1,
+    "episode_type": "standard",
+    "production_code": "",
+    "runtime": null,
+    "season_number": 3,
+    "show_id": 93405,
+    "still_path": null
+  },
+  "networks": [
+    {
+      "id": 213,
+      "logo_path": "/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "name": "Netflix",
+      "origin_country": ""
+    }
+  ],
+  "number_of_episodes": 22,
+  "number_of_seasons": 3,
+  "origin_country": [
+      "KR"
+  ],
+  "original_language": "ko",
+  "original_name": "오징어 게임",
+  "overview": "Cientos de personas con problemas de dinero aceptan una invitación rarísima para competir en juegos infantiles. Dentro los esperan un tentador premio y desafíos letales.",
+  "popularity": 2579.981,
+  "poster_path": "/74qMRUy0lwkBBi39vsQVerIDkHj.jpg",
+  "production_companies": [
+    {
+      "id": 112647,
+      "logo_path": null,
+      "name": "Siren Pictures",
+      "origin_country": "KR"
+    },
+    {
+      "id": 203249,
+      "logo_path": null,
+      "name": "Firstman Studio",
+      "origin_country": "KR"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    }
+  ],
+  "seasons": [
+    {
+      "air_date": "2021-09-17",
+      "episode_count": 9,
+      "id": 131977,
+      "name": "Temporada 1",
+      "overview": "Cientos de jugadores con problemas de dinero aceptan una invitación rarísima para competir en juegos infantiles. Dentro les esperan un tentador premio y desafíos letales.",
+      "poster_path": "/mLJGn8FlXNatunANsXNxZA9YTee.jpg",
+      "season_number": 1,
+      "vote_average": 8.2
+    },
+    {
+      "air_date": "2024-12-26",
+      "episode_count": 7,
+      "id": 287516,
+      "name": "Temporada 2",
+      "overview": "El jugador 456 vuelve para participar en juegos macabros y enfrentarse a nuevos y mortales desafíos, pero esta vez con un plan secreto bajo el brazo.",
+      "poster_path": "/zyAQIyneN4b1t0yjfvYdeooXjJA.jpg",
+      "season_number": 2,
+      "vote_average": 8.5
+    },
+    {
+      "air_date": "2025-06-27",
+      "episode_count": 6,
+      "id": 435948,
+      "name": "Temporada 3",
+      "overview": "",
+      "poster_path": "/6ds955mq79fJtnAvqkdEwX7nV3Q.jpg",
+      "season_number": 3,
+      "vote_average": 0
+    }
+  ],
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    },
+    {
+      "english_name": "Urdu",
+      "iso_639_1": "ur",
+      "name": "اردو"
+    }
+  ],
+  "status": "Returning Series",
+  "tagline": "Juegos, premios y desafios letales...",
+  "type": "Scripted",
+  "vote_average": 7.9,
+  "vote_count": 15317
+}

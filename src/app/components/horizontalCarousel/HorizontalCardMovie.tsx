@@ -34,7 +34,7 @@ const HorizontalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
   }
   
   return (
-    <Link href={`/${isSerie ? 'tv' : 'movie'}/${media.id}`}>
+    <Link href={`/${isSerie ? 'tv' : 'movie'}/${media.id}`} data-test='horizontalCard'>
       <article className='w-[300px]'>
         <div className='group'>
           <div className='w-[300px] h-[168px] relative rounded-lg overflow-hidden'>

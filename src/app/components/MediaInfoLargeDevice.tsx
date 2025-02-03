@@ -35,7 +35,7 @@ const MediaInfoLargeDevice = ({ mediaInfo, cast }: MediaInfoSmallDeviceProps) =>
         cast.length > 0 &&
           <h2 className="font-black col-start-4 row-start-5 row-end-6 pt-4 laptop:col-start-1 laptop:col-end-3 laptop:row-start-8 laptop:row-end-9">Reparto principal</h2>
       }
-      <section className="flex flex-wrap gap-4 col-start-4 row-start-5 row-end-8 pt-14 lg:h-fit laptop:col-start-1 laptop:col-end-5 laptop:row-start-9 laptop:row-end-10 laptop:pt-0">
+      <section className="flex flex-wrap gap-4 col-start-4 row-start-5 row-end-8 pt-14 lg:h-fit laptop:col-start-1 laptop:col-end-5 laptop:row-start-9 laptop:row-end-10 laptop:pt-0" data-test='actors'>
         {
           cast &&
           cast.filter((actor: Cast) => actor.profile_path !== null).map((actor: Cast) => {

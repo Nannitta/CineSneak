@@ -101,7 +101,7 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
         (screenSize === 'sm' || screenSize === 'md') &&
         <MediaInfoSmallDevice mediaInfo={media} cast={cast} />
       }
-      <section className='mt-4 laptop:mt-12 lg:mt-8'>
+      <section className='mt-4 laptop:mt-12 lg:mt-8' data-test='lastEpisode'>
         <h2 className="px-4 pb-4 font-black lg:px-6">
           Último capítulo en emisión
         </h2>
