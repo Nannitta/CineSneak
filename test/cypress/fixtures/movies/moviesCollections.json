@@ -1,0 +1,158 @@
+{
+  "id": 748,
+  "name": "X-Men - Colección",
+  "overview": "La colección de X-Men se basa en el popular cómic del mismo nombre de autor de culto Stan Lee. Esta colección incluye las versiones teatrales de estas películas.",
+  "poster_path": "/fTx4vrq48SMd4D4r8Yxk34c070b.jpg",
+  "backdrop_path": "/ykVHlrE3aSvHYeIXOrWDsYZ18vv.jpg",
+  "parts": [
+    {
+      "backdrop_path": "/a6MwSrIKmMjs5b8os7eEgQk05yx.jpg",
+      "id": 36657,
+      "title": "X-Men",
+      "original_title": "X-Men",
+      "overview": "En un futuro cercano, la humanidad comienza a ver aparecer una nueva raza; los mutantes. Dotados de extraños y variados poderes, están agrupados en dos bandos: los que abogan por la integración y el entendimiento con la humanidad, encabezados por el doctor Charles Xavier, y los que buscan el enfrentamiento con una raza que consideran inferior y que les odia, dirigidos por Magnus, alias Magneto, un peligroso mutante con extraordinarios poderes.",
+      "poster_path": "/aF170xLGytZcC0xeSlSamImgIi4.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        12,
+        28,
+        878
+      ],
+      "popularity": 2.906,
+      "release_date": "2000-07-13",
+      "video": false,
+      "vote_average": 7.003,
+      "vote_count": 11418
+    },
+    {
+      "backdrop_path": "/s8ftvFvafWWEhApISamHx32bx6h.jpg",
+      "id": 36658,
+      "title": "X-Men 2",
+      "original_title": "X2",
+      "overview": "Los mutantes son seres humanos con alguna variación genética que les dota de características especiales. También son la más moderna minoría perseguida del mundo. En medio de un clima de rabia y persecución, el profesor Xavier ha creado un instituto, un refugio, para estos seres poderosos. En este lugar los iniciados son preparados para aceptar y dominar sus habilidades, y ponerlas al servicio de la tolerancia y el combate contra la creciente histeria colectiva que está amenazando con su existencia. Pero la reputación de los mutantes será todavía peor cuando uno de ellos lanza un devastador ataque, lo que causa una pública recriminación hacia todos ellos y nuevos poderes para la Mutant Registration Act y William Stryker, un líder militar que pretende acabar con todos ellos centrándose en la escuela de X-Men.",
+      "poster_path": "/quih8FOtyoy0z2O3ijBJLol2F5q.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        12,
+        28,
+        878
+      ],
+      "popularity": 1.687,
+      "release_date": "2003-04-27",
+      "video": false,
+      "vote_average": 7.034,
+      "vote_count": 10184
+    },
+    {
+      "backdrop_path": "/sBl1n4Oi2wX81EtXIb8NsPqJf3W.jpg",
+      "id": 36668,
+      "title": "X-Men: La decisión final",
+      "original_title": "X-Men: The Last Stand",
+      "overview": "En X-Men: La decisión final, el último capítulo de la trilogía cinematográfica de los \"X-Men\", hay una \"cura\" para los mutantes que amenaza con alterar el curso de la historia. Por primera vez, los mutantes pueden elegir: seguir con su singularidad, aunque eso les aísle y les separe, o renunciar a sus poderes y convertirse en seres humanos normales. Los opuestos puntos de vista de los líderes mutantes, Charles Xavier, que aboga por la tolerancia, y Magneto, que cree en la supervivencia de los más aptos, se ven sometidos a la prueba definitiva: desencadenar la guerra que pondrá fin a todas las guerras...",
+      "poster_path": "/6FnWDI3mKZhfWv7NznKUFlvSdo0.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        12,
+        28,
+        878,
+        53
+      ],
+      "popularity": 1.539,
+      "release_date": "2006-05-24",
+      "video": false,
+      "vote_average": 6.408,
+      "vote_count": 9717
+    },
+    {
+      "backdrop_path": "/bMiOfPhplZu1Lql3hGTRV087QA.jpg",
+      "id": 49538,
+      "title": "X-Men: Primera Generación",
+      "original_title": "X-Men: First Class",
+      "overview": "Comienzo de la saga de los X-Men, esta es una historia secreta que alude a conocidos acontecimientos mundiales. Antes de que los mutantes se mostraran al mundo, y antes de que cambiaran sus nombres por los de Profesor X y Magneto, Charles Xavier (James McAvoy) y Erik Lehnsherr (Michael Fassbender) eran dos jóvenes que descubrían sus poderes. No había animadversión alguna entre ellos, sino que les unía una sincera amistad y la decisión de trabajar juntos y entrenar a un grupo de jóvenes mutantes para evitar el Armagedón nuclear. Su enemigo común: el malvado Sebastian Shaw (Kevin Bacon), un humano con poderes con el que Erik tiene una cuenta pendiente.",
+      "poster_path": "/6ED3G0lpBXRZtEDJD2xVYsqIwxI.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        878,
+        12
+      ],
+      "popularity": 1.964,
+      "release_date": "2011-06-01",
+      "video": false,
+      "vote_average": 7.299,
+      "vote_count": 12809
+    },
+    {
+      "backdrop_path": "/hUPgIibqZlwbhs4N08cPzzc4f5K.jpg",
+      "id": 127585,
+      "title": "X-Men: Días del futuro pasado",
+      "original_title": "X-Men: Days of Future Past",
+      "overview": "Ambientada en la década de los 70, los miembros de la famosa Patrulla X tendrán que evitar un futuro apocalíptico en el que los mutantes luchan por sobrevivir en campos de concentración controlados por los temibles Centinelas. Para ello, los héroes del universo Marvel deberán unificar sus fuerzas dejando a un lado la creciente enemistad de los bandos liderados por Charles Xavier y Magneto. Trask Industries, la empresa encargada de crear a estos gigantescos cazamutantes, será el origen de todos sus problemas. Tan sólo viajando en el tiempo podrán impedir la masacre que se avecina. ¿Serán capaces nuestros héroes de derrocar a la multinacional y evitar así el exterminio de su especie?",
+      "poster_path": "/ppxf3P06ixq1jwRYBD6Hf0mang8.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "popularity": 53.014,
+      "release_date": "2014-05-15",
+      "video": false,
+      "vote_average": 7.529,
+      "vote_count": 15396
+    },
+    {
+      "backdrop_path": "/2ex2beZ4ssMeOduLD0ILzXKCiep.jpg",
+      "id": 246655,
+      "title": "X-Men: Apocalipsis",
+      "original_title": "X-Men: Apocalypse",
+      "overview": "Desde los albores de la civilización, fue adorado como un dios. Apocalypse, el primer y más poderoso mutante del universo X-Men de Marvel, acumuló los poderes de muchos otros mutantes, convirtiéndose en inmortal e invencible. Pero al despertar tras miles de años, se encuentra desilusionado con el mundo en que se encuentra y decide reclutar un equipo de mutantes poderosos, entre ellos a un descorazonado Magneto (Michael Fassbender), con el fin de limpiar la humanidad y crear una nueva orden mundial, sobre la cual él reinará. A medida que el destino de la tierra está en juego, Raven (Jennifer Lawrence) con la ayuda del Profesor X (James McAvoy) se unirán junto a un equipo de jóvenes X-Men para detener a su mayor enemigo y salvar así a la humanidad de la destrucción total.",
+      "poster_path": "/iKqONIk0oX8rLvxkBCpnkZMTKE3.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        14
+      ],
+      "popularity": 50.337,
+      "release_date": "2016-05-18",
+      "video": false,
+      "vote_average": 6.514,
+      "vote_count": 13037
+    },
+    {
+      "backdrop_path": "/cjRUhKyt2Jo3V1KNzc5tpPNfccG.jpg",
+      "id": 320288,
+      "title": "X-Men: Fénix oscura",
+      "original_title": "Dark Phoenix",
+      "overview": "Los X-Men se enfrentan a su enemigo más poderoso: uno de sus miembros, Jean Grey. Durante una misión de rescate en el espacio, Jean casi muere al ser alcanzada por una misteriosa fuerza cósmica. Cuando regresa a casa, esa radiación la ha hecho más poderosa, pero mucho más inestable. Mientras lucha con la entidad que habita en su interior, Jean desata sus poderes de formas que no puede controlar ni comprender. Jean cae en una espiral fuera de control haciendo daño a aquellos que más ama y empieza a destruir los lazos que mantienen unidos a los X-Men.",
+      "poster_path": "/rdByKDkfyVuVSrkllzxKYXiZmTd.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        878,
+        28,
+        12
+      ],
+      "popularity": 38.967,
+      "release_date": "2019-06-05",
+      "video": false,
+      "vote_average": 6,
+      "vote_count": 6580
+    }
+  ]
+}

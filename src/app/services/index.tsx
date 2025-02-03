@@ -8,7 +8,7 @@ export async function getMoviesUpcoming() {
     }
   });
 
-  const response = await data.json(); 
+  const response = await data.json();
   return response.results.slice(0,10);
 }
 

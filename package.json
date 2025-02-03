@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cy:open": "cypress open",
+    "cy:test": "cypress run"
   },
   "dependencies": {
     "@babel/eslint-parser": "7.24.6",
