@@ -35,7 +35,7 @@ const VerticalCarousel: React.FC<PropType> = (props) => {
     <section className='embla'>
       <div className='embla__viewport' ref={emblaRef}>
         <div className='embla__container vertical__container flex mr-4 lg:mr-6'>
-          {media.map((media) => {
+          {media.map((media, index) => {
             if(isMovieDetails(media)) {
               return (
                 <div className='embla__slide vertical__slide' key={media.id}>

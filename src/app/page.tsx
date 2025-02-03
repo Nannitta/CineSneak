@@ -123,7 +123,7 @@ const HomePageNotLog = () => {
         </div>
         <VerticalCarousel media={onAirSeries} path={'/estrenos-series'} loading={loading}/>
       </section>
-      <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14'>
+      <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14' data-test='sectionMediaTest'>
         <div className='flex flex-col py-4 pl-4 md:py-0 md:gap-2 lg:px-6'>
           <h2 className='font-bold text-lg md:text-xl md:min-w-44 md:text-balance lg:text-2xl lg:min-w-56'>
             Series que están en boca de todos

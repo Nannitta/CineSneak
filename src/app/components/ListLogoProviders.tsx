@@ -16,7 +16,7 @@ const ListLogoProviders = ({ providersLogo }: ProvidersLogoProps) => {
           Disponible en
         </h3>
       }
-      <div className="flex gap-2 lg:gap-4">
+      <div className="flex gap-2 lg:gap-4" data-test='providers'>
         {
           providersLogo.filter((logo) => logo.logo_path !== null).map((logo) => {
             return (
