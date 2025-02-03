@@ -71,6 +71,7 @@ const WatchTrailer = ({ isSerie }: TrailerDetails) => {
                     : 'hidden'
               }`}
               onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+              data-test='closePlayer'
             >
               <Close width='36' height='36' fill='white'/>
             </div>
@@ -91,6 +92,7 @@ const WatchTrailer = ({ isSerie }: TrailerDetails) => {
           : (isMinimize === false ? 'h-[560px] w-[80%]' : 'h-[250px] w-[450px]'))}`} 
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          data-test='containerCloseButton'
           >
             <iframe
               id='youtube-iframe'

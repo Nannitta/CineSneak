@@ -16,6 +16,6 @@ export const useInPictureModeStore = create<State>((set) => ({
   isHover: false,
   openPictureMode: () => set({ isInPictureMode: true }),
   closePictureMode: () => set({ isInPictureMode: false, isMinimize: false }),
-  minimizePictureMode: () => set({ isMinimize: true}),
+  minimizePictureMode: () => set({ isMinimize: true, isHover: false }),
   setHover: (isHover) => set({ isHover })
 }));
