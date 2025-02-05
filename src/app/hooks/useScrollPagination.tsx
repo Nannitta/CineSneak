@@ -20,6 +20,8 @@ export const useScrollPagination = ({ fetchMedia, numberOfPages, resetOnKeywordC
     setLoading(false);
 
     if (numberOfPages && pageToLoad >= numberOfPages) {
+      console.log(numberOfPages);
+      
       setMoreMedia(false);
     } else {
       setPage(prevPage => prevPage + 1);

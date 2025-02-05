@@ -8,7 +8,7 @@ interface ListGenresProps {
 
 const ListGenres = ({ handleGenreClick, listGenres, selectedGenreId }: ListGenresProps) => {
   return(
-    <ul className="flex flex-wrap gap-4 px-4 *:flex *:items-center *:flex-none *:px-4 *:py-2 *:rounded-3xl *:border-2 *:border-white *:cursor-pointer lg:px-6 lg:flex-wrap">
+    <ul className="flex flex-wrap gap-4 px-4 *:flex *:items-center *:flex-none *:px-4 *:py-2 *:rounded-3xl *:border-2 *:border-white *:cursor-pointer lg:px-6 lg:flex-wrap" data-test='genresList'>
       {listGenres.map((genre) => {
         const isSelected = genre.id === selectedGenreId;
         return (
