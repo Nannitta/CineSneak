@@ -110,7 +110,7 @@ const Series = () => {
         isSerie={true}
       />
       <section>
-        <div className="flex flex-col p-4 md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6 items-baseline">
+        <div className="flex flex-col p-4 md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6 items-baseline" data-test='releasesToday'>
           <h2 className="font-bold text-lg md:text-xl lg:text-2xl">
 						¡No te lo pierdas! Se estrenan hoy
           </h2>

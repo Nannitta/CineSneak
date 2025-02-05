@@ -80,7 +80,7 @@ const HomePageNotLog = () => {
       <WatchTrailer isSerie={false} />
       <MainCarousel media={upcomingMovies} options={OPTIONS} genres={movieGenres} isSerie={false}/>
       <section>
-        <div className='flex flex-col p-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
+        <div className='flex flex-col p-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6' data-test='hits'>
           <h2 className='font-bold text-lg md:text-xl lg:text-2xl'>
             Éxitos en taquilla ¡No te los pierdas!
           </h2>
@@ -91,7 +91,7 @@ const HomePageNotLog = () => {
         <VerticalCarousel media={moviesNowPlaying} path={'/exitos-taquilla'} loading={loading}/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14'>
-        <div className='flex flex-col py-4 pl-4 items-baseline md:py-0 md:gap-2 lg:px-6'>
+        <div className='flex flex-col py-4 pl-4 items-baseline md:py-0 md:gap-2 lg:px-6' data-test='trendingMovies'>
           <h2 className='font-bold text-lg md:text-xl md:min-w-44 md:text-balance lg:text-2xl lg:min-w-56'>
             Descubre que películas son tendencia
           </h2>
