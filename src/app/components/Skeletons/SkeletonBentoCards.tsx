@@ -1,6 +1,6 @@
 const SkeletonBentoCards = () => {
   return (
-    <div className="max-w-[1920px] px-6 max-h-[897px]">
+    /* <div className="max-w-[1920px] px-6 max-h-[897px]">
       <div className="grid grid-cols-top-rated gap-4 grid-rows-top-rated *:bg-gradientSkeleton *:bg-skeleton *:bg-bgSizeGradient *:rounded-lg">
         <div className='waves'></div>
         <div className='waves row-span-2'></div>
@@ -14,7 +14,8 @@ const SkeletonBentoCards = () => {
         <div className='waves row-span-2'></div>
         <div></div>
       </div>
-    </div>
+    </div> */
+    <div className='bg-gradientSkeleton bg-skeleton bg-bgSizeGradient rounded-lg waves w-full h-full'></div>
   );
 };
 

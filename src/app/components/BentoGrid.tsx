@@ -3,26 +3,25 @@ import Image from 'next/image';
 import SkeletonBentoCards from '@/components/Skeletons/SkeletonBentoCards';
 import { Plus, RightArrow } from '@/lib/Svg';
 import { MovieDetails, SerieDetails } from '@/types/types';
+import { useState } from 'react';
 
 interface BentoGridProps {
   media: MovieDetails[] | SerieDetails[]
   isSerie: boolean
   path: string
-  loading: boolean
 }
 
-const BentoGrid = ({ media, isSerie, path, loading }: BentoGridProps) => {
+const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const [imgLoader, setImgLoader] = useState<boolean>(false);
+
+  const handleImgLoader = () => {
+    setImgLoader(true);
+  };
 
   const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
     return isSerie;
   };
-
-  if (loading) {
-    return (
-      <SkeletonBentoCards/>
-    );
-  }
 
   return (
     <div className="max-w-[1920px] px-6 max-h-[897px]">
@@ -51,11 +50,13 @@ const BentoGrid = ({ media, isSerie, path, loading }: BentoGridProps) => {
                             : ''
               }`}
             >
+              {!imgLoader && <SkeletonBentoCards/>}
               <Image
                 src={webpImageSrc}
                 alt={`Cartel de la película ${isSerieMedia(mediaItem) ? mediaItem.name : mediaItem.title}`}
                 fill={true}
                 className="rounded-lg object-cover"
+                onLoad={handleImgLoader}
               />
               <div className="overlay text-gray text-sm p-2 pl-4 rounded-b-lg">
                 {isSerieMedia(mediaItem) ? mediaItem.name : mediaItem.title}
