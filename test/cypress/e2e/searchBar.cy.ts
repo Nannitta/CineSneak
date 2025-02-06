@@ -55,7 +55,7 @@ describe('Check the search bar by keyword, with type and category and errors', (
     cy.get('ul > li > a > article > div > p').contains('Shrek');
   });
 
-  it.only('Check that the search bar works with keyword and category and genre', () => {
+  it('Check that the search bar works with keyword and category and genre', () => {
     cy.get('header button[data-test="searchButton"]').click();
     
     cy.get('div[data-test="containerSearchMenu"]').should('be.visible');
