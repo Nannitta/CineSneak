@@ -18,7 +18,7 @@ const TopRated = ({ media, isSerie, path, loading }: TopRatedProps) => {
       {
         screenSize !== 'lg'
           ? <VerticalCarousel media={media} path={path} loading={loading}/>
-          : <BentoGrid media={media} isSerie={isSerie} path={path} loading={loading}/>
+          : <BentoGrid media={media} isSerie={isSerie} path={path}/>
       }
     </>
   );
