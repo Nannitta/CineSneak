@@ -56,7 +56,7 @@ const Header = () => {
         : null
       }
       <div className='flex place-items-center gap-4 lg:h-9'>
-        <button title='Buscar' onClick={openSearchMenu}>
+        <button title='Buscar' onClick={openSearchMenu} data-test='searchButton'>
           <Search
             width={'24'}
             height={'24'}
