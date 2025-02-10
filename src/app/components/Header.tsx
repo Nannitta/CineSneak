@@ -18,7 +18,7 @@ const Header = () => {
   const { openSearchMenu, isSearchOpen } = useSearchMenuStore(state => state);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const pathName = usePathname();
-  const { user, token } = useUserStore(state => state);
+  const { user, token } = useUserStore(state => state);  
 
   const isActive = (path: string) => pathName === path ? 'text-white' : 'text-gray';
 
@@ -84,13 +84,13 @@ const Header = () => {
           />
         </button>
         {
-          token
+          token && user
             ? <button className="relative w-14 h-14 p-1 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-                <div className="absolute inset-0 bg-gradientButton rounded-full filter blur-[2px]"></div>
-                <div className="relative w-full h-full bg-black flex justify-center items-center font-extrabold rounded-full">
-                  {user?.displayName.charAt(0).toUpperCase()}
-                </div>
-              </button>          
+              <div className="absolute inset-0 bg-gradientButton rounded-full filter blur-[2px]"></div>
+              <div className="relative w-full h-full bg-black flex justify-center items-center font-extrabold rounded-full">
+                {user.displayName.charAt(0).toUpperCase()}
+              </div>
+            </button>          
             : <Link href={'/login'}>
               <PrimaryButton
                 text={'Inc. sesión'}

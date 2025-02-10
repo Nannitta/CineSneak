@@ -7,17 +7,33 @@ import CheckWindowWidth from '@/hooks/useWindowWidth';
 import { useState } from 'react';
 import { Eye, EyeOff, Google } from '@/lib/Svg';
 import Link from 'next/link';
+import { loginUserWithGoogle, loginUserWithUsernameAndPassword } from 'database/loginUser';
+import { useRouter } from 'next/navigation';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
 const Login = () => {
-  const [email, setEmail] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const { screenSize } = CheckWindowWidth();
+  const router = useRouter();
 
-  const handleRegister = async () => {
-    console.log('Inicio sesión');
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    loginUserWithUsernameAndPassword(username, password);
+    router.push('/');
+  };
+
+  const handleGoogleLogIn = async () => {
+    try {
+      await loginUserWithGoogle();
+      setError(null);
+      router.push('/');
+    } catch (error: any) {
+      setError(error.message);
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -44,16 +60,16 @@ const Login = () => {
             <div className='absolute top-0 left-0 w-full h-full bg-gradient-to-b from-1% from-black via-transparent to-100% to-[#0D0016]'></div>
           </div>
       }
-      <form onSubmit={handleRegister} className='flex flex-col gap-8 px-12 py-8 md:px-32 lg:w-1/3 lg:absolute lg:right-0 lg:px-10 2xl:px-32'>
+      <form onSubmit={handleLogin} className='flex flex-col gap-8 px-12 py-8 md:px-32 lg:w-1/3 lg:absolute lg:right-0 lg:px-10 2xl:px-32'>
         <h1 className={`${league.className} font-extrabold text-center text-2xl lg:text-3xl`}>
           Inicio sesión
         </h1>
         <input
           type="text"
           autoComplete='off'
-          placeholder="Escriba aquí su correo"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Escriba aquí su nombre de usuario"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           className='bg-transparent border-b border-b-gray placeholder:text-gray placeholder:opacity-70'
           required
         />
@@ -75,6 +91,9 @@ const Login = () => {
           </div>
         </div>
         <PrimaryButton text="Iniciar sesión" img="" />
+        { error && 
+          <p className='text-error text-sm'>{error}</p>
+        }
         <div className="flex items-center justify-center w-full gap-4">
           <div className="flex-grow border-t border-gray-400"></div>
           <span>o</span>
@@ -82,6 +101,7 @@ const Login = () => {
         </div>
         <button type="button" 
           className='flex gap-2 items-center border-white border rounded-lg justify-center py-2 hover:text-black hover:bg-white'
+          onClick={handleGoogleLogIn}
         >
           <Google/>
           Google
