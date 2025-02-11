@@ -2,14 +2,14 @@ import { createJSONStorage } from 'zustand/middleware';
 
 const storageToken = {
   getItem: (name: string) => {
-    const data = sessionStorage.getItem(name);
+    const data = localStorage.getItem(name);
     return data ? JSON.parse(data) : null;
   },
   setItem: (name: string, value: string) => {
-    sessionStorage.setItem(name, JSON.stringify(value));
+    localStorage.setItem(name, JSON.stringify(value));
   },
   removeItem: (name: string) => {
-    sessionStorage.removeItem(name);
+    localStorage.removeItem(name);
   },
 };
 

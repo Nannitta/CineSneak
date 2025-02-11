@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import SkeletonVerticalCard from '@/components/Skeletons/SkeletonVerticalCard';
-import { Plus } from '@/lib/Svg';
+import { Plus, Fav } from '@/lib/Svg';
 import { MovieDetails, SearchedMedia, SerieDetails } from '@/types/types';
+import { useLoginStore } from '@/store/userStore';
 
 interface VerticalCard {
   media: MovieDetails | SerieDetails | SearchedMedia
@@ -18,6 +19,9 @@ const VerticalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
   const webpImageSrc: string = `/api/convertImage?url=${imageSrc}`;
 
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+  const { token } = useLoginStore(state => state);
+  const [hovered, setHovered] = useState<boolean>(false);
+  const [color, setColor] = useState<string>('transparent');
 
   const isSerieMedia = (media: MovieDetails | SerieDetails | SearchedMedia): media is SerieDetails => {
     return isSerie;
@@ -25,6 +29,22 @@ const VerticalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
 
   const handleImageLoad = () => {
     setImageLoaded(true);
+  };
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
+  const onMouseEnter = () => {   
+    setColor('#fff');    
+  };
+
+  const onMouseLeave = () => {
+    setColor('transparent');
   };
   
   if (loading) {
@@ -46,7 +66,14 @@ const VerticalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
               onLoad={handleImageLoad}
               className='object-cover rounded-lg'
             />
-            <div className='absolute inset-0 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center'>
+            <div className='absolute inset-0 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              {
+                token && hovered
+                  ? <div className='absolute top-2 right-2 z-20'>
+                    <Fav width='24' height='24' color={color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
+                  </div>
+                  : null
+              }
               <span className='text-white text-sm font-bold opacity-0 lg:group-hover:opacity-100 transition duration-300 flex items-center gap-1'>
                 VER MÁS
                 <Plus width={'14'} height={'14'} fill={'white'}/>

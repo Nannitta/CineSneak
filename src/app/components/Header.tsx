@@ -11,7 +11,7 @@ import PrimaryButton from '@/components/PrimaryButton';
 import { Menu, Search, Avatar } from '@/lib/Svg';
 import { useLoginStore } from '@/store/userStore';
 import { useLoginMenuStore } from '@/store/loginMenu';
-import LoginMenu from '@/components/loginMenu';
+import LoginMenu from '@/components/LoginMenu';
 
 const Header = () => {
   const {screenSize} = CheckWindowWidth();
@@ -21,7 +21,7 @@ const Header = () => {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const pathName = usePathname();
   const { token, user } = useLoginStore(state => state);
-  const { isLoginMenuOpen, openLoginMenu, closeLoginMenu } = useLoginMenuStore(state => state);  
+  const { isLoginMenuOpen, openLoginMenu } = useLoginMenuStore(state => state);  
 
   const isActive = (path: string) => pathName === path ? 'text-white' : 'text-gray';
 
