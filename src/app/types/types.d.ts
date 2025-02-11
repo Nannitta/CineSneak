@@ -99,3 +99,9 @@ export type Provider = {
 export type CountryProvider = {
   [countryCode: string]: Provider[ProvidersLogo]
 }
+
+export type User = {
+  uid: string
+  displayName: string
+  email: string
+}

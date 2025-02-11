@@ -25,7 +25,6 @@ const ListLogoProviders = ({ providersLogo }: ProvidersLogoProps) => {
                 key={logo.logo_path}
                 width={40}
                 height={40}
-                priority
               />
             );
           }).slice(0, 3)

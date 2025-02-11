@@ -40,6 +40,30 @@ li:hover a svg path {
 	mask-composite: exclude;
 }
 
+@media (min-width: 1024px) {
+	.register:hover {
+		background: linear-gradient(to left, #7209b7, #4361ee, #4cc9f0);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		transition: background 0.5s ease-in-out;
+	}
+
+	.register::after {
+		content: '';
+		position: absolute;
+		bottom: 2.5px;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background: transparent;
+		transition: background 0.5s ease-in-out;
+	}
+
+	.register:hover::after {
+		background: linear-gradient(to left, #7209b7, #4361ee, #4cc9f0);
+	}
+}
+
 .side-menu-down {
 	animation: slideDown 0.5s ease-out forwards;
 }
