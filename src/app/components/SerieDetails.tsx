@@ -51,7 +51,7 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
       <div className="relative">
         <div className="w-full h-60 md:h-80 lg:h-[556px] bg-cover bg-no-repeat bg-center relative">
           {!imgLoader && <SkeletonWallMedia/>}
-          <Image src={webpImgSrc} alt={`Cabecera de la película ${media.name}`} fill={true} className='object-cover' onLoad={handleImgLoad} priority/>
+          <Image src={webpImgSrc} alt={`Cabecera de la película ${media.name}`} fill={true} className='object-cover' onLoad={handleImgLoad} />
         </div>
         <div className="w-full h-60 absolute bg-gradient-to-t from-black to-transparent md:h-80 lg:h-[556px] top-0"></div>
       </div>

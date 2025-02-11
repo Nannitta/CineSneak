@@ -15,14 +15,14 @@ const league = League_Spartan({ subsets: ['latin'] });
 const Login = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const { screenSize } = CheckWindowWidth();
   const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    loginUserWithUsernameAndPassword(username, password);
+    await loginUserWithUsernameAndPassword(username, password);
     router.push('/');
   };
 

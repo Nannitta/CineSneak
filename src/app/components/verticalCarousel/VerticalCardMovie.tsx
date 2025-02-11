@@ -45,7 +45,6 @@ const VerticalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
               fill={true}
               onLoad={handleImageLoad}
               className='object-cover rounded-lg'
-              priority
             />
             <div className='absolute inset-0 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center'>
               <span className='text-white text-sm font-bold opacity-0 lg:group-hover:opacity-100 transition duration-300 flex items-center gap-1'>

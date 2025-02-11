@@ -1,7 +1,7 @@
 import { app, auth, googleProvider } from '../firebase.mjs';
 import { signInWithEmailAndPassword, signInWithPopup, User, UserCredential } from 'firebase/auth';
 import { getDatabase, ref, get, orderByChild, equalTo, query, Query, DataSnapshot } from 'firebase/database';
-import { useUserStore } from '../src/app/store/userStore';
+import { useLoginStore } from '../src/app/store/userStore';
 
 const db = getDatabase(app);
 
@@ -13,23 +13,25 @@ const loginUserWithGoogle = async () => {
     const userRef: Query = query(ref(db, 'users'), orderByChild('id'), equalTo(user.uid));
     const snapshot: DataSnapshot = await get(userRef);
 
-    if (snapshot.exists()) {
+    if (snapshot.exists()) {      
       const userData = snapshot.val();
       const userKey: string = Object.keys(userData)[0];
       const existingUser = userData[userKey];     
       
       const token: string = await user.getIdToken();
 
-      useUserStore.getState().setUser({
+      useLoginStore.getState().setToken(token);
+      useLoginStore.getState().setUser({
         uid: existingUser.id,
         displayName: existingUser.username,
-        email: existingUser.email,
-      }, token);
-
-      localStorage.setItem('token', token);
+        email: existingUser.email
+      });
+    } else {
+      throw new Error('No existe ningún usuario con ese nombre o contraseña');
     }
   } catch (error) {
     console.error('Error al iniciar sesión con Google', error);
+    throw error;
   }
 };
 
@@ -44,17 +46,16 @@ const loginUserWithUsernameAndPassword = async (username: string, password: stri
       const existingUser = userData[userKey];
       
       if (existingUser) {
-        const authUser = await signInWithEmailAndPassword(auth, existingUser.email, password);   
+        const authUser: UserCredential = await signInWithEmailAndPassword(auth, existingUser.email, password);   
 
         const token: string = await authUser.user.getIdToken();
 
-        useUserStore.getState().setUser({
+        useLoginStore.getState().setToken(token);
+        useLoginStore.getState().setUser({
           uid: existingUser.id,
           displayName: existingUser.username,
           email: existingUser.email
-        }, token);
-
-        localStorage.setItem('token', token);
+        });
       } 
     }
   } catch (error) {

@@ -31,8 +31,8 @@ const registerUserWithgoogle = async () => {
 
 const registerUserWithPassAndEmail = async (email: string, password: string, username: string) => {
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user: any = userCredential.user;
+    const userCredential: UserCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user: User = userCredential.user;
 
     await saveUserInDb({
       displayName: username,

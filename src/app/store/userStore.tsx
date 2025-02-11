@@ -1,19 +1,29 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { userTokenStorage } from './storages/userTokenStorage';
+import { User } from '@/types/types';
 
-interface UserState {
-  user: {
-    uid: string;
-    displayName: string;
-    email: string;
-  } | null;
+interface LoginState {
   token: string | null;
-  setUser: (user: any, token: string) => void;
-  clearUser: () => void;
+  user: User | null;
+  setToken: (token: string) => void;
+  setUser: (user: User) => void;
+  clearSession: () => void;
 }
 
-export const useUserStore = create<UserState>((set) => ({
-  user: null,
-  token: null,
-  setUser: (user, token) => set({ user, token }),
-  clearUser: () => set({ user: null, token: null }),
-}));
+export const useLoginStore = create<LoginState> () (
+  persist(
+    (set) => ({
+      token: null,
+      user: null,
+      setToken: (token: string) => set({ token }),
+      setUser: (user) => set({ user }),
+      clearSession: () => set({ token: null, user: null }),
+    }),
+    {
+      name: 'loginUser',
+      storage: userTokenStorage,
+      partialize: (state) => ({ token: state.token, user: state.user })
+    }
+  )
+);

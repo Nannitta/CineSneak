@@ -9,7 +9,9 @@ import { useSearchMenuStore } from '@/store/searchMenu';
 import Logo from '@/components/Logo';
 import PrimaryButton from '@/components/PrimaryButton';
 import { Menu, Search, Avatar } from '@/lib/Svg';
-import { useUserStore } from '@/store/userStore';
+import { useLoginStore } from '@/store/userStore';
+import { useLoginMenuStore } from '@/store/loginMenu';
+import LoginMenu from '@/components/loginMenu';
 
 const Header = () => {
   const {screenSize} = CheckWindowWidth();
@@ -18,7 +20,8 @@ const Header = () => {
   const { openSearchMenu, isSearchOpen } = useSearchMenuStore(state => state);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const pathName = usePathname();
-  const { user, token } = useUserStore(state => state);  
+  const { token, user } = useLoginStore(state => state);
+  const { isLoginMenuOpen, openLoginMenu, closeLoginMenu } = useLoginMenuStore(state => state);  
 
   const isActive = (path: string) => pathName === path ? 'text-white' : 'text-gray';
 
@@ -85,12 +88,19 @@ const Header = () => {
         </button>
         {
           token && user
-            ? <button className="relative w-14 h-14 p-1 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-              <div className="absolute inset-0 bg-gradientButton rounded-full filter blur-[2px]"></div>
-              <div className="relative w-full h-full bg-black flex justify-center items-center font-extrabold rounded-full">
-                {user.displayName.charAt(0).toUpperCase()}
-              </div>
-            </button>          
+            ? <div className='relative'>
+              <button className="relative w-14 h-14 p-1 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" onClick={openLoginMenu}>
+                <div className="absolute inset-0 bg-gradientButton rounded-full filter blur-[2px]"></div>
+                <div className="relative w-full h-full bg-black flex justify-center items-center font-extrabold rounded-full">
+                  {user.displayName.charAt(0).toUpperCase()}
+                </div>
+              </button>        
+              {
+                isLoginMenuOpen
+                  ? <LoginMenu/>
+                  : null
+              } 
+            </div> 
             : <Link href={'/login'}>
               <PrimaryButton
                 text={'Inc. sesión'}
