@@ -33,8 +33,7 @@ const LoginMenu = () => {
       ref={menuRef}
     >
       <nav className='flex flex-col p-4 text-right *:pr-4'>
-        <Link href="/favoritas" className='hover:bg-[#131213d7] py-2'>Favoritas</Link>
-        <Link href="" className='hover:bg-[#131213d7] py-2 mb-2'>Ya vistas</Link>
+        <Link href="/favoritas" className='hover:bg-[#131213d7] py-2' onClick={closeLoginMenu}>Favoritas</Link>
         <hr className='border-gray opacity-30'/>
         <Link href="/" onClick={closeSesion} className='hover:bg-[#131213d7] py-2 mt-2'>Cerrar sesión</Link>
       </nav>

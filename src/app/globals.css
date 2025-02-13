@@ -40,6 +40,13 @@ li:hover a svg path {
 	mask-composite: exclude;
 }
 
+.welcome {
+	background: linear-gradient(84deg, #4cc9f0, #4361ee, #7209b7);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: background 0.5s ease-in-out;
+}
+
 @media (min-width: 1024px) {
 	.register:hover {
 		background: linear-gradient(to left, #7209b7, #4361ee, #4cc9f0);

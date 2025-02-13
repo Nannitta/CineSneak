@@ -3,8 +3,9 @@ import Image from 'next/image';
 import SkeletonBentoCards from '@/components/Skeletons/SkeletonBentoCards';
 import { Fav, Plus, RightArrow } from '@/lib/Svg';
 import { MovieDetails, SerieDetails } from '@/types/types';
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { useLoginStore } from '@/store/userStore';
+import { addFavorites } from 'database/favorites';
 
 interface BentoGridProps {
   media: MovieDetails[] | SerieDetails[]
@@ -15,7 +16,7 @@ interface BentoGridProps {
 const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const [imgLoader, setImgLoader] = useState<boolean>(false);
-  const { token } = useLoginStore(state => state);
+  const { token, user } = useLoginStore(state => state);
   const [hovered, setHovered] = useState<boolean>(false);
   const [color, setColor] = useState<string>('transparent');
 
@@ -41,6 +42,13 @@ const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
 
   const onMouseLeave = () => {
     setColor('transparent');
+  };
+
+  const handleFavorites = (e: MouseEvent<HTMLDivElement>, mediaItem: MovieDetails | SerieDetails, webpImageSrc: string) => {
+    e.preventDefault();
+    if(user) {
+      addFavorites(user.email, mediaItem.id, (isSerieMedia(mediaItem) ? mediaItem.name : mediaItem.title), webpImageSrc);
+    }
   };
 
   return (
@@ -85,7 +93,7 @@ const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
                 <span className='text-white text-sm font-bold opacity-0 lg:group-hover:opacity-100 transition duration-300 flex items-center gap-1'>
                   {
                     token && hovered
-                      ? <div className='absolute top-2 right-2 z-20'>
+                      ? <div className='absolute top-2 right-2 z-20' onClick={(e) => handleFavorites(e, mediaItem, webpImageSrc)}>
                         <Fav width='24' height='24' color={color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
                       </div>
                       : null
