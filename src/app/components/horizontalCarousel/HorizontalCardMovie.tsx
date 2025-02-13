@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import SkeletonHorizontalCard from '@/components/Skeletons/SkeletonHorizontalCard';
-import { Plus } from '@/lib/Svg';
+import { Plus, Fav } from '@/lib/Svg';
 import { MovieDetails, SerieDetails } from '@/types/types';
+import { useLoginStore } from '@/store/userStore';
+import { addFavorites } from 'database/favorites';
 
 interface VerticalCard {
   media: MovieDetails | SerieDetails
@@ -18,6 +20,9 @@ const HorizontalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
   const webpImageSrc: string = `/api/convertImage?url=${imageSrc}`;
 
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+  const { token, user } = useLoginStore(state => state);
+  const [hovered, setHovered] = useState<boolean>(false);
+  const [color, setColor] = useState<string>('transparent');
 
   const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
     return isSerie;
@@ -25,6 +30,29 @@ const HorizontalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
 
   const handleImageLoad = () => {
     setImageLoaded(true);
+  };
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
+  const onMouseEnter = () => {   
+    setColor('#fff');    
+  };
+
+  const onMouseLeave = () => {
+    setColor('transparent');
+  };
+
+  const handleFavorites = (e: MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if(user) {
+      addFavorites(user.email, media.id, (isSerieMedia(media) ? media.name : media.title), webpImageSrc);
+    }
   };
 
   if (loading) {
@@ -49,7 +77,14 @@ const HorizontalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
               className='object-cover rounded-lg'
               onLoad={handleImageLoad}
             />
-            <div className='absolute inset-0 z-10 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center'>
+            <div className='absolute inset-0 z-10 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              {
+                token && hovered
+                  ? <div className='absolute top-2 right-2 z-20' onClick={handleFavorites}>
+                    <Fav width='24' height='24' color={color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
+                  </div>
+                  : null
+              }
               <span className='text-white text-sm font-bold opacity-0 lg:group-hover:opacity-100 transition duration-300 flex items-center gap-1'>
                 VER MÁS
                 <Plus width={'14'} height={'14'} fill={'white'}/>

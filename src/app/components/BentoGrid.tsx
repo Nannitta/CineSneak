@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import SkeletonBentoCards from '@/components/Skeletons/SkeletonBentoCards';
-import { Plus, RightArrow } from '@/lib/Svg';
+import { Fav, Plus, RightArrow } from '@/lib/Svg';
 import { MovieDetails, SerieDetails } from '@/types/types';
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
+import { useLoginStore } from '@/store/userStore';
+import { addFavorites } from 'database/favorites';
 
 interface BentoGridProps {
   media: MovieDetails[] | SerieDetails[]
@@ -14,6 +16,9 @@ interface BentoGridProps {
 const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const [imgLoader, setImgLoader] = useState<boolean>(false);
+  const { token, user } = useLoginStore(state => state);
+  const [hovered, setHovered] = useState<boolean>(false);
+  const [color, setColor] = useState<string>('transparent');
 
   const handleImgLoader = () => {
     setImgLoader(true);
@@ -21,6 +26,29 @@ const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
 
   const isSerieMedia = (media: MovieDetails | SerieDetails): media is SerieDetails => {
     return isSerie;
+  };
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
+  const onMouseEnter = () => {   
+    setColor('#fff');    
+  };
+
+  const onMouseLeave = () => {
+    setColor('transparent');
+  };
+
+  const handleFavorites = (e: MouseEvent<HTMLDivElement>, mediaItem: MovieDetails | SerieDetails, webpImageSrc: string) => {
+    e.preventDefault();
+    if(user) {
+      addFavorites(user.email, mediaItem.id, (isSerieMedia(mediaItem) ? mediaItem.name : mediaItem.title), webpImageSrc);
+    }
   };
 
   return (
@@ -61,8 +89,15 @@ const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
               <div className="overlay text-gray text-sm p-2 pl-4 rounded-b-lg">
                 {isSerieMedia(mediaItem) ? mediaItem.name : mediaItem.title}
               </div>
-              <div className='absolute inset-0 z-20 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg'>
+              <div className='absolute inset-0 z-20 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <span className='text-white text-sm font-bold opacity-0 lg:group-hover:opacity-100 transition duration-300 flex items-center gap-1'>
+                  {
+                    token && hovered
+                      ? <div className='absolute top-2 right-2 z-20' onClick={(e) => handleFavorites(e, mediaItem, webpImageSrc)}>
+                        <Fav width='24' height='24' color={color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
+                      </div>
+                      : null
+                  }
                   VER MÁS
                   <Plus width={'14'} height={'14'} fill={'white'}/>
                 </span>

@@ -105,3 +105,9 @@ export type User = {
   displayName: string
   email: string
 }
+
+export type Favorite = {
+  id: number
+  title: string
+  img: string
+}
