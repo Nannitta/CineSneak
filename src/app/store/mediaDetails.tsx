@@ -62,8 +62,12 @@ export const useMediaDetailsStore = create<State>((set) => {
     },
     fetchSimilarMedia: async (id: number, isSerie: boolean) => {
       try {
-        const similarMedia = await getSimilarMedia(id, isSerie);
-        
+        const response = await getSimilarMedia(id, isSerie);
+        const similarMedia = response.map((media: MovieDetails) => ({
+          ...media,
+          ownType: isSerie ? 'tv' : 'movie'
+        }));    
+            
         set({ similarMedia });
       } catch (error) {
         set({ genericError: error });

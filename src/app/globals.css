@@ -16,7 +16,7 @@
 	scrollbar-color: #c3c3c3 black;
 }
 
-li:hover a svg path {
+.rrss > li:hover a svg path {
 	fill: white;
 }
 

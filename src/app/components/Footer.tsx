@@ -33,7 +33,7 @@ const Footer = () => {
       <div className='flex flex-col gap-4 place-items-center md:place-items-start lg:flex-row lg:gap-32'>
         <div className='flex flex-col gap-4'>
           <h2 className='font-bold text-xs text-center md:text-left lg:text-center md:text-sm'>CONTÁCTAME</h2>
-          <ul className='flex gap-6'>
+          <ul className='flex gap-6 rrss'>
             <li>
               <Github
                 width={screenSize === 'sm' ? '16' : '24'}

@@ -48,6 +48,7 @@ const VerticalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
     setColor('transparent');
   };
 
+
   const handleFavorites = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     if(user) {
@@ -77,7 +78,7 @@ const VerticalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
             <div className='absolute inset-0 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
               {
                 token && hovered
-                  ? <div className='absolute top-2 right-2 z-20' onClick={handleFavorites}>
+                  ? <div className='absolute top-2 right-2 z-[2]' onClick={handleFavorites}>
                     <Fav width='24' height='24' color={color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
                   </div>
                   : null
