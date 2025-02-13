@@ -10,7 +10,7 @@ import MediaInfoSmallDevice from '@/components/MediaInfoSmallDevice';
 import MediaInfoLargeDevice from '@/components/MediaInfoLargeDevice';
 import SkeletonPoster from '@/components/Skeletons/SkeletonPoster';
 import SkeletonWallMedia from '@/components/Skeletons/SkeletonWallMedia';
-import { Play, Star } from '@/lib/Svg';
+import { Fav, Play, Star } from '@/lib/Svg';
 import { formatVoteCount } from '@/lib/format';
 import type { Cast, Genre, ProvidersLogo, SerieDetails } from '@/types/types';
 
@@ -24,9 +24,10 @@ interface SerieDetailsProps {
   cast: Cast[]
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
   loading: boolean
+  token: string
 }
 
-const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, loading }: SerieDetailsProps) => {
+const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, loading, token }: SerieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const imgSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`;
@@ -38,12 +39,22 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
   const webpPosterSrc: string = `/api/convertImage?url=${posterSrc}`; 
   const [posterLoader, setPosterLoader] = useState<boolean>(false); 
 
+  const [color, setColor] = useState<string>('transparent');
+
   const handleImgLoad = () => {
     setImgLoader(true);
   };
 
   const handlePosterLoad = () => {
     setPosterLoader(true);
+  };
+
+  const onMouseEnter = () => {   
+    setColor('#fff');    
+  };
+
+  const onMouseLeave = () => {
+    setColor('transparent');
   };
 
   return (
@@ -79,7 +90,7 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
         <div className='flex font-light items-end col-start-2 col-end-4 justify-end row-start-4 row-end-5 gap-2 text-[10px] md:justify-start md:ml-2 md:gap-4 md:text-sm lg:ml-0'>
           {getGenreNames(media.genres)}
         </div>
-        <div className="flex col-start-2 col-end-4 justify-end row-start-5 row-end-6 items-end md:col-start-1 md:col-end-2 md:justify-start lg:col-start-2 lg:col-end-3 lg:ml-0 lg:row-start-7 lg:row-end-8 lg:items-start">
+        <div className="flex flex-row-reverse col-start-1 col-end-4 justify-between row-start-5 row-end-6 items-end md:col-start-1 md:col-end-2 md:flex-row lg:col-start-2 lg:col-end-3 lg:ml-0 lg:row-start-7 lg:row-end-8 lg:items-end lg:justify-start lg:gap-6">
           <PrimaryButton
             text={'Ver tráiler'}
             img={
@@ -91,6 +102,12 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
             }
             onClick={() => handleTrailerClick(media.id, true)}
           />
+          {
+            token && 
+            <div className='cursor-pointer w-8 h-8'>
+              <Fav width='32' height='32' color={color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
+            </div>
+          }
         </div>
         {
           (screenSize === 'laptop' || screenSize === 'lg') &&

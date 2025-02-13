@@ -5,7 +5,7 @@ import { Favorite } from '@/types/types';
 
 const db = getDatabase(app);
 
-const addFavorites = async (email: string, favoriteId: number, title: string, img: string) => {
+const addFavorites = async (email: string, favoriteId: number, title: string, img: string, ownType: string) => {
   const userKey: string | undefined = await getUserIdByEmail(email);
   const favoriteRef: DatabaseReference = ref(db, `/users/${userKey}/favorites`);
   
@@ -16,7 +16,8 @@ const addFavorites = async (email: string, favoriteId: number, title: string, im
     const newFavorite: Favorite = {
       id: favoriteId,
       title: title,
-      img: img
+      img: img,
+      type: ownType
     };
 
     const newKey: string = favoriteId.toString();

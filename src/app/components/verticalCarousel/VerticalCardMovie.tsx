@@ -51,7 +51,7 @@ const VerticalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
   const handleFavorites = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     if(user) {
-      addFavorites(user.email, media.id, (isSerieMedia(media) ? media.name : media.title), webpImageSrc);
+      addFavorites(user.email, media.id, (isSerieMedia(media) ? media.name : media.title), webpImageSrc, media.ownType);
     }
   };
   

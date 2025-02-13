@@ -9,7 +9,7 @@ import MediaInfoSmallDevice from '@/components/MediaInfoSmallDevice';
 import MediaInfoLargeDevice from '@/components/MediaInfoLargeDevice';
 import SkeletonPoster from '@/components/Skeletons/SkeletonPoster';
 import SkeletonWallMedia from '@/components/Skeletons/SkeletonWallMedia';
-import { Star, Calendar, Play } from '@/lib/Svg';
+import { Star, Calendar, Play, Fav } from '@/lib/Svg';
 import { formatDate, formatVoteCount } from '@/lib/format';
 import type { Cast, Genre, ProvidersLogo, MovieDetails } from '@/types/types';
 
@@ -23,9 +23,10 @@ interface MovieDetailsProps {
   cast: Cast[]
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
   loading: boolean
+  token: string
 }
 
-const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, loading }: MovieDetailsProps) => {
+const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, loading, token }: MovieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const imgSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`;
@@ -36,6 +37,8 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
   const posterSrc : string = `${posterURL + media.poster_path}`;
   const webpPosterSrc: string = `/api/convertImage?url=${posterSrc}`;
   const [posterLoader, setPosterLoader] = useState<boolean>(false); 
+
+  const [color, setColor] = useState<string>('transparent');
   
   const handleImgLoad = () => {
     setImgLoader(true);
@@ -43,6 +46,14 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
 
   const handlePosterLoad = () => {
     setPosterLoader(true);
+  };
+
+  const onMouseEnter = () => {   
+    setColor('#fff');    
+  };
+
+  const onMouseLeave = () => {
+    setColor('transparent');
   };
 
   return (
@@ -82,7 +93,7 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
         <div className={`flex font-light items-end col-start-2 col-end-4 justify-end row-start-4 row-end-5 md:justify-start md:ml-2 lg:ml-0 ${screenSize === 'sm' ? 'gap-2 text-[10px]' : 'gap-4 text-sm'}`}>
           {getGenreNames(media.genres)}
         </div>
-        <div className="flex col-start-2 col-end-4 justify-end row-start-5 row-end-6 items-end md:col-start-1 md:col-end-2 md:justify-start lg:col-start-2 lg:col-end-3 lg:ml-0 lg:row-start-7 lg:row-end-8 lg:items-start">
+        <div className="flex flex-row-reverse col-start-1 col-end-4 justify-between row-start-5 row-end-6 items-end md:col-start-1 md:col-end-2 md:flex-row lg:col-start-2 lg:col-end-3 lg:ml-0 lg:row-start-7 lg:row-end-8 lg:items-end lg:justify-start lg:gap-6">
           <PrimaryButton
             text={'Ver tráiler'}
             img={
@@ -94,6 +105,12 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
             }
             onClick={() => handleTrailerClick(media.id, false)}
           />
+          {
+            token && 
+            <div className='cursor-pointer w-8 h-8'>
+              <Fav width='32' height='32' color={color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
+            </div>
+          }
         </div>
         {
           (screenSize === 'laptop' || screenSize === 'lg') &&

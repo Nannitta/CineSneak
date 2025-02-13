@@ -47,7 +47,7 @@ const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
   const handleFavorites = (e: MouseEvent<HTMLDivElement>, mediaItem: MovieDetails | SerieDetails, webpImageSrc: string) => {
     e.preventDefault();
     if(user) {
-      addFavorites(user.email, mediaItem.id, (isSerieMedia(mediaItem) ? mediaItem.name : mediaItem.title), webpImageSrc);
+      addFavorites(user.email, mediaItem.id, (isSerieMedia(mediaItem) ? mediaItem.name : mediaItem.title), webpImageSrc, mediaItem.ownType);
     }
   };
 

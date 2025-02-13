@@ -13,10 +13,12 @@ import MovieDetailsComponent from '@/components/MovieDetails';
 import SerieDetailsComponent from '@/components/SerieDetails';
 import ErrorPage from '@/components/ErrorPage';
 import type { Genre, MovieDetails, ProvidersLogo, SerieDetails } from '@/types/types';
+import { useLoginStore } from '@/store/userStore';
 
 const WatchMedia = () => {
   const {media, id} = useParams<Params>();
   const [loading, setLoading] = useState<boolean>(true);
+  const { token } = useLoginStore(state => state);
 
   const { 
     fetchMediaDetails,
@@ -118,6 +120,7 @@ const WatchMedia = () => {
             cast={cast}
             getGenreNames={getGenreNames}
             loading={loading}
+            token={token}
           />
           : mediaDetails && media === 'tv' && cast
             ? <SerieDetailsComponent
@@ -128,6 +131,7 @@ const WatchMedia = () => {
               cast={cast}
               getGenreNames={getGenreNames}
               loading={loading}
+              token={token}
             />
             : null
       }

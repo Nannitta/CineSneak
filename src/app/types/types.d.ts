@@ -25,6 +25,7 @@ export interface MovieDetails extends MediaContent {
   release_date: string
   runtime: number
   video: boolean
+  ownType: string
 }
 
 export interface SerieDetails extends MediaContent {
@@ -35,11 +36,13 @@ export interface SerieDetails extends MediaContent {
   number_of_seasons: number
   first_air_date: string
   last_episode_to_air: LastEpisodeAir
+  ownType: string
 }
 
 export interface SearchedMedia extends MediaContent {
   title: string
   media_type: string
+  ownType: string
 }
 
 export type LastEpisodeAir = {
@@ -110,4 +113,5 @@ export type Favorite = {
   id: number
   title: string
   img: string
+  type: string
 }
