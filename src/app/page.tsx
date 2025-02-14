@@ -61,7 +61,7 @@ const HomePageNotLog = () => {
         fetchOnAirSeries(1),
         fetchPopularSeries(1),
         fetchTopRatedMovies(1),
-        fetchTopRatedSeries(1)
+        fetchTopRatedSeries(1),
       ]);
       setLoading(false);
     };
@@ -74,7 +74,7 @@ const HomePageNotLog = () => {
       <ErrorPage/>
     );
   }
-
+  
   return (
     <main className='flex-grow flex flex-col relative' onClick={closeMenu}>
       <WatchTrailer isSerie={false} />

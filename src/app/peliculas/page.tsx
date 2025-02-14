@@ -28,7 +28,6 @@ const Movies = () => {
   } = useMoviesStore((state) => state);
 
   const { moviesByGenre, fetchMoviesByGenreId, genericError: moviesGenreStoreError } = useMoviesByGenreId((state) => state);
-
   const { moviesCollection, fetchMoviesCollections, genericError: moviesCollectionStoreError } = useMoviesCollectionStore((state) => state);
 
   const OPTIONS: EmblaOptionsType = { loop: true };
@@ -65,7 +64,7 @@ const Movies = () => {
     fetchPopularMovies,
     fetchMoviesNowPlaying,
     fetchMoviesByGenreId,
-    fetchMoviesCollections,
+    fetchMoviesCollections
   ]);
 
   if (moviesGenreStoreError || moviesCollectionStoreError || moviesStoreError) {

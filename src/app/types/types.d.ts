@@ -115,3 +115,7 @@ export type Favorite = {
   img: string
   type: string
 }
+
+interface Favorites {
+  [key: string]: Favorite
+}

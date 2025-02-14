@@ -15,7 +15,7 @@ interface PropType {
 }
 
 const VerticalCarousel: React.FC<PropType> = (props) => { 
-  const { media, options, path, loading } = props;
+  const { media, options, path, loading } = props;  
   const [emblaRef] = useEmblaCarousel(options);
   const [color, setColor] = useState<string>('#C3C3C3');
 

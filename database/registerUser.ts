@@ -1,12 +1,12 @@
 import { signInWithPopup, createUserWithEmailAndPassword, User, UserCredential } from 'firebase/auth';
-import { getDatabase, ref, set, push } from 'firebase/database';
+import { getDatabase, ref, set, push, ThenableReference } from 'firebase/database';
 import { app, auth, googleProvider } from '../firebase.mjs';
 
 const db = getDatabase(app);
 
 const saveUserInDb = async (user: any) => {
   try {
-    const newUserRef = push(ref(db, 'users/'));
+    const newUserRef: ThenableReference = push(ref(db, 'users/'));
     
     await set(newUserRef, {
       username: user.displayName,
