@@ -19,7 +19,7 @@
 
 .embla__controls {
 	position: absolute;
-	bottom: 3%;
+	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
 	display: flex;
@@ -42,8 +42,8 @@
 	display: inline-flex;
 	text-decoration: none;
 	cursor: pointer;
-	width: 0.5rem;
-	height: 0.5rem;
+	width: 1rem;
+	height: 1rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;

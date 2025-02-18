@@ -26,12 +26,11 @@ interface SerieDetailsProps {
   similarMediaStore: SerieDetails[]
   cast: Cast[]
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
-  loading: boolean
   token: string
   user: User | null
 }
 
-const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, loading, token, user }: SerieDetailsProps) => {
+const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, token, user }: SerieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const imgSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`;
@@ -161,14 +160,14 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
         <h2 className="px-4 pb-4 font-black lg:px-6">
           Último capítulo en emisión
         </h2>
-        <LastEpisode media={media} loading={loading}/>
+        <LastEpisode media={media}/>
       </section>
       <section className="pb-5 lg:pb-8 2xl:mt-6">
         {
           similarMediaStore.length > 0 &&
           <>
             <h2 className="px-4 font-black pt-5 pb-4 md:text-xl lg:px-6">Explora series similares</h2>
-            <HorizontalCarousel media={similarMediaStore} isSerie={true} loading={loading}/>
+            <HorizontalCarousel media={similarMediaStore} isSerie={true}/>
           </>
         }
       </section>

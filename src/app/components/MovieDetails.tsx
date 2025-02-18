@@ -25,12 +25,11 @@ interface MovieDetailsProps {
   similarMediaStore: MovieDetails[]
   cast: Cast[]
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
-  loading: boolean
   token: string
   user: User | null
 }
 
-const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, loading, token, user }: MovieDetailsProps) => {
+const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, token, user }: MovieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const imgSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`;
@@ -163,7 +162,7 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
       { similarMediaStore.length > 0 &&  
         <section className="pb-5 lg:pb-8 2xl:mt-6">
           <h2 className="px-4 font-black pt-5 pb-4 md:text-xl lg:px-6">Explora películas similares</h2>
-          <HorizontalCarousel media={similarMediaStore} isSerie={false} loading={loading}/>
+          <HorizontalCarousel media={similarMediaStore} isSerie={false}/>
         </section>
       }
     </div>
