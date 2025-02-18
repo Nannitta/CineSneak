@@ -18,7 +18,7 @@ import { useLoginStore } from '@/store/userStore';
 const WatchMedia = () => {
   const {media, id} = useParams<Params>();
   const [loading, setLoading] = useState<boolean>(true);
-  const { token } = useLoginStore(state => state);
+  const { token, user } = useLoginStore(state => state);
 
   const { 
     fetchMediaDetails,
@@ -121,6 +121,7 @@ const WatchMedia = () => {
             getGenreNames={getGenreNames}
             loading={loading}
             token={token}
+            user={user}
           />
           : mediaDetails && media === 'tv' && cast
             ? <SerieDetailsComponent
@@ -132,6 +133,7 @@ const WatchMedia = () => {
               getGenreNames={getGenreNames}
               loading={loading}
               token={token}
+              user={user}
             />
             : null
       }

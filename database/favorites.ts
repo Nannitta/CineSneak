@@ -5,7 +5,7 @@ import { Favorite, Favorites } from '@/types/types';
 
 const db = getDatabase(app);
 
-const addFavorites = async (email: string, favoriteId: number, title: string, img: string, ownType: string) => {
+const addFavorites = async (email: string, favoriteId: number, title: string, img: string, type: string) => {
   const userKey: string | undefined = await getUserIdByEmail(email);
   const favoriteRef: DatabaseReference = ref(db, `/users/${userKey}/favorites`);
   
@@ -17,7 +17,7 @@ const addFavorites = async (email: string, favoriteId: number, title: string, im
       id: favoriteId,
       title: title,
       img: img,
-      type: ownType
+      type: type
     };
 
     const newKey: string = favoriteId.toString();
@@ -35,7 +35,7 @@ const addFavorites = async (email: string, favoriteId: number, title: string, im
   }
 };
 
-const getFavorites = async (email: string): Promise<Favorite[]> => {
+const getFavorites = async (email: string): Promise<number[]> => {
   const userKey: string | undefined = await getUserIdByEmail(email);
   const favoriteRef: DatabaseReference = ref(db, `/users/${userKey}/favorites`);
 
@@ -43,8 +43,8 @@ const getFavorites = async (email: string): Promise<Favorite[]> => {
     const snapshot: DataSnapshot = await get(favoriteRef);
     const existingFavorites: Favorites = snapshot.exists() ? snapshot.val() : {};    
 
-    const favoriteEntries: Favorite[] = Object.entries(existingFavorites).map((media) => {
-      const entries: Favorite = media[1];
+    const favoriteEntries: number[] = Object.entries(existingFavorites).map((media) => {
+      const entries: number = media[1].id;
       
       return entries;
     });

@@ -27,6 +27,8 @@ export const useMediaDetailsStore = create<State>((set) => {
     fetchMediaDetails: async (id: number, isSerie: boolean) => {
       try {
         const mediaDetails = await getDetails(id, isSerie);
+
+        mediaDetails.isFavorite = false;
   
         set({ mediaDetails });
       } catch (error) {
@@ -62,11 +64,7 @@ export const useMediaDetailsStore = create<State>((set) => {
     },
     fetchSimilarMedia: async (id: number, isSerie: boolean) => {
       try {
-        const response = await getSimilarMedia(id, isSerie);
-        const similarMedia = response.map((media: MovieDetails) => ({
-          ...media,
-          ownType: isSerie ? 'tv' : 'movie'
-        }));    
+        const similarMedia = await getSimilarMedia(id, isSerie);
             
         set({ similarMedia });
       } catch (error) {

@@ -17,6 +17,7 @@ export type MediaContent = {
   overview: string
   vote_average: number
   original_language: string
+  isFavorite: boolean
 }
 
 export interface MovieDetails extends MediaContent {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { League_Spartan } from 'next/font/google';
 import CheckWindowWidth from '@/hooks/useWindowWidth';
@@ -11,7 +11,10 @@ import SkeletonPoster from '@/components/Skeletons/SkeletonPoster';
 import SkeletonWallMedia from '@/components/Skeletons/SkeletonWallMedia';
 import { Star, Calendar, Play, Fav } from '@/lib/Svg';
 import { formatDate, formatVoteCount } from '@/lib/format';
-import type { Cast, Genre, ProvidersLogo, MovieDetails } from '@/types/types';
+import type { Cast, Genre, ProvidersLogo, MovieDetails, User } from '@/types/types';
+import { addFavorites, getFavorites } from 'database/favorites';
+import { useParams } from 'next/navigation';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
 const league = League_Spartan({ subsets: ['latin'] });
 
@@ -24,9 +27,10 @@ interface MovieDetailsProps {
   getGenreNames: (genres: Genre[]) => (JSX.Element | null)[]
   loading: boolean
   token: string
+  user: User | null
 }
 
-const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, loading, token }: MovieDetailsProps) => {
+const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaStore, cast, getGenreNames, loading, token, user }: MovieDetailsProps) => {
   const { screenSize } = CheckWindowWidth();
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const imgSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : imgURL + media.poster_path}`;
@@ -39,6 +43,8 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
   const [posterLoader, setPosterLoader] = useState<boolean>(false); 
 
   const [color, setColor] = useState<string>('transparent');
+  const [favorite, setFavorite] = useState<boolean>(false);
+  const { media: type } = useParams<Params>();  
   
   const handleImgLoad = () => {
     setImgLoader(true);
@@ -55,6 +61,25 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
   const onMouseLeave = () => {
     setColor('transparent');
   };
+
+  const handleAddFavorite = async () => {
+    if(user) {                       
+      await addFavorites(user.email, media.id, media.title, webpPosterSrc, type);
+      setFavorite(true);
+    }
+  };
+
+  useEffect(() => {
+    const checkFavorites = async () => {
+      if (user) {
+        const favs = await getFavorites(user.email);
+        const isCurrentFavorite = favs.some(fav => fav === media.id);        
+        setFavorite(isCurrentFavorite);
+      }
+    };
+  
+    checkFavorites();
+  }, [user, media.id, favorite]);
 
   return (
     <div className="relative">
@@ -107,8 +132,8 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
           />
           {
             token && 
-            <div className='cursor-pointer w-8 h-8'>
-              <Fav width='32' height='32' color={color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
+            <div className='cursor-pointer w-8 h-8' onClick={handleAddFavorite}>
+              <Fav width='32' height='32' color={favorite ? '#ffff' : color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
             </div>
           }
         </div>
