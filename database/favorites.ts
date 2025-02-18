@@ -1,6 +1,6 @@
 import { getUserIdByEmail } from 'database/user';
 import { app } from '../firebase.mjs';
-import { getDatabase, ref, update, get, DatabaseReference, DataSnapshot } from 'firebase/database';
+import { getDatabase, ref, update, get, DatabaseReference, DataSnapshot, remove } from 'firebase/database';
 import { Favorite, Favorites } from '@/types/types';
 
 const db = getDatabase(app);
@@ -56,8 +56,18 @@ const getFavorites = async (email: string): Promise<Favorite[]> => {
   }
 };
 
-const deleteFavorites = async (id: number) => {
+const deleteFavorites = async (email: string, id: number) => {
+  const userKey: string | undefined = await getUserIdByEmail(email);
+  const favoriteRef: DatabaseReference = ref(db, `/users/${userKey}/favorites/${id}`);
 
+  try {
+    const snapshot: DataSnapshot = await get(favoriteRef);
+    if (snapshot.exists()) {
+      await remove(favoriteRef);
+    }
+  } catch (error) {
+    console.error('Error al eliminar de favoritos:', error);
+  }
 };
 
-export { addFavorites, getFavorites };
+export { addFavorites, getFavorites, deleteFavorites };

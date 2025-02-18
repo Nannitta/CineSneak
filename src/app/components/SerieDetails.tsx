@@ -13,7 +13,7 @@ import SkeletonWallMedia from '@/components/Skeletons/SkeletonWallMedia';
 import { Fav, Play, Star } from '@/lib/Svg';
 import { formatVoteCount } from '@/lib/format';
 import type { Cast, Genre, ProvidersLogo, SerieDetails, User } from '@/types/types';
-import { addFavorites, getFavorites } from 'database/favorites';
+import { addFavorites, deleteFavorites, getFavorites } from 'database/favorites';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
@@ -64,9 +64,14 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
   };
 
   const handleAddFavorite = async () => {
-    if(user) {                       
-      await addFavorites(user.email, media.id, media.name, webpPosterSrc, type);
-      setFavorite(true);
+    if(user) {   
+      if(!favorite) {
+        await addFavorites(user.email, media.id, media.name, webpPosterSrc, type);
+        setFavorite(true);
+      } else {
+        await deleteFavorites(user.email, media.id);
+        setFavorite(false);
+      }             
     }
   };
 
