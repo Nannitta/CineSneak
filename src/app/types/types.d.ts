@@ -7,6 +7,7 @@ export type SvgProps = {
   color?: string
   onMouseEnter?: MouseEventHandler
   onMouseLeave?: MouseEventHandler
+  animation?: string
 }
 
 export type MediaContent = {

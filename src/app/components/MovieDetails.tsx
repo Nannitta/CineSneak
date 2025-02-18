@@ -12,7 +12,7 @@ import SkeletonWallMedia from '@/components/Skeletons/SkeletonWallMedia';
 import { Star, Calendar, Play, Fav } from '@/lib/Svg';
 import { formatDate, formatVoteCount } from '@/lib/format';
 import type { Cast, Genre, ProvidersLogo, MovieDetails, User } from '@/types/types';
-import { addFavorites, getFavorites } from 'database/favorites';
+import { addFavorites, deleteFavorites, getFavorites } from 'database/favorites';
 import { useParams } from 'next/navigation';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
@@ -63,9 +63,14 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
   };
 
   const handleAddFavorite = async () => {
-    if(user) {                       
-      await addFavorites(user.email, media.id, media.title, webpPosterSrc, type);
-      setFavorite(true);
+    if(user) {
+      if(!favorite) {
+        await addFavorites(user.email, media.id, media.title, webpPosterSrc, type);
+        setFavorite(true);
+      } else {
+        await deleteFavorites(user.email, media.id);
+        setFavorite(false);
+      }                       
     }
   };
 
@@ -135,7 +140,7 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
           {
             token && 
             <div className='cursor-pointer w-8 h-8' onClick={handleAddFavorite}>
-              <Fav width='32' height='32' color={favorite ? '#ffff' : color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
+              <Fav width='32' height='32' color={favorite ? '#ffff' : color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} animation={`${favorite ? 'like' : 'dislike'}`}/>
             </div>
           }
         </div>
