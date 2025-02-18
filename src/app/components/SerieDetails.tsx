@@ -74,7 +74,9 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
     const checkFavorites = async () => {
       if (user) {
         const favs = await getFavorites(user.email);
-        const isCurrentFavorite = favs.some(fav => fav === media.id);        
+        const favoriteIds = favs.map((mediaFav) => mediaFav.id);
+        const isCurrentFavorite = favoriteIds.includes(media.id);
+        
         setFavorite(isCurrentFavorite);
       }
     };

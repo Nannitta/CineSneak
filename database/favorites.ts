@@ -35,7 +35,7 @@ const addFavorites = async (email: string, favoriteId: number, title: string, im
   }
 };
 
-const getFavorites = async (email: string): Promise<number[]> => {
+const getFavorites = async (email: string): Promise<Favorite[]> => {
   const userKey: string | undefined = await getUserIdByEmail(email);
   const favoriteRef: DatabaseReference = ref(db, `/users/${userKey}/favorites`);
 
@@ -43,8 +43,8 @@ const getFavorites = async (email: string): Promise<number[]> => {
     const snapshot: DataSnapshot = await get(favoriteRef);
     const existingFavorites: Favorites = snapshot.exists() ? snapshot.val() : {};    
 
-    const favoriteEntries: number[] = Object.entries(existingFavorites).map((media) => {
-      const entries: number = media[1].id;
+    const favoriteEntries: Favorite[] = Object.entries(existingFavorites).map((media) => {
+      const entries: Favorite = media[1];
       
       return entries;
     });
