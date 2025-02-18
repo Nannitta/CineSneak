@@ -9,10 +9,10 @@ const loginUserWithGoogle = async () => {
   try {
     const result: UserCredential = await signInWithPopup(auth, googleProvider);
     const user: User = result.user;
-
-    const userRef: Query = query(ref(db, 'users'), orderByChild('id'), equalTo(user.uid));
-    const snapshot: DataSnapshot = await get(userRef);
-
+    
+    const userRef: Query = query(ref(db, '/users'), orderByChild('id'), equalTo(user.uid));    
+    const snapshot: DataSnapshot = await get(userRef);  
+    
     if (snapshot.exists()) {      
       const userData = snapshot.val();
       const userKey: string = Object.keys(userData)[0];
