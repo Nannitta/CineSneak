@@ -137,7 +137,7 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
           {
             token && 
             <div className='cursor-pointer w-8 h-8' onClick={handleAddFavorite}>
-              <Fav width='32' height='32' color={favorite ? '#fff' : color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
+              <Fav width='32' height='32' color={favorite ? '#fff' : color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} animation={`${favorite ? 'like' : 'dislike'}`}/>
             </div>
           }
         </div>
