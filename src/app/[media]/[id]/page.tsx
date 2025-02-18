@@ -17,7 +17,6 @@ import { useLoginStore } from '@/store/userStore';
 
 const WatchMedia = () => {
   const {media, id} = useParams<Params>();
-  const [loading, setLoading] = useState<boolean>(true);
   const { token, user } = useLoginStore(state => state);
 
   const { 
@@ -45,7 +44,6 @@ const WatchMedia = () => {
     const fetchData = async () => {
       resetCast();
       resetMediaDetails();
-      setLoading(true);
       if(media === 'movie') {
         Promise.all([
           fetchMediaDetails(id, false),
@@ -62,7 +60,6 @@ const WatchMedia = () => {
           fetchSimilarMedia(id, true)
         ]);
       };
-      setLoading(false);
     };
 
     fetchData();
@@ -119,7 +116,6 @@ const WatchMedia = () => {
             similarMediaStore={similarMedia as MovieDetails[]}
             cast={cast}
             getGenreNames={getGenreNames}
-            loading={loading}
             token={token}
             user={user}
           />
@@ -131,7 +127,6 @@ const WatchMedia = () => {
               similarMediaStore={similarMedia as SerieDetails[]}
               cast={cast}
               getGenreNames={getGenreNames}
-              loading={loading}
               token={token}
               user={user}
             />

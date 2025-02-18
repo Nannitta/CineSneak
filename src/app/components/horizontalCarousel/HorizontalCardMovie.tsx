@@ -8,10 +8,9 @@ import { MovieDetails, SerieDetails } from '@/types/types';
 interface VerticalCard {
   media: MovieDetails | SerieDetails
   isSerie: boolean
-  loading?: boolean
 }
 
-const HorizontalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
+const HorizontalCardCarousel = ({ media, isSerie }: VerticalCard) => {
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
   const posterURL: string | undefined = process.env.NEXT_PUBLIC_POSTER_IMAGE_342;
   const imageSrc: string = `${media.backdrop_path ? imgURL + media.backdrop_path : posterURL + media.poster_path}`;  
@@ -26,12 +25,6 @@ const HorizontalCardCarousel = ({ media, isSerie, loading }: VerticalCard) => {
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-
-  if (loading) {
-    return (
-      <SkeletonHorizontalCard/>
-    );
-  }
   
   return (
     <Link href={`/${isSerie ? 'tv' : 'movie'}/${media.id}`} data-test='horizontalCard'>

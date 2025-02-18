@@ -3,23 +3,22 @@ import SkeletonHorizontalCard from '@/components/Skeletons/SkeletonHorizontalCar
 import { formatDate, formatEpisodeNumber, formatRuntime } from '@/lib/format';
 import { Clock } from '@/lib/Svg';
 import { SerieDetails } from '@/types/types';
+import { useState } from 'react';
 
 interface LastEpisodeProps {
   media: SerieDetails
-  loading: boolean
 }
 
-const LastEpisode = ({ media, loading }: LastEpisodeProps) => {
+const LastEpisode = ({ media }: LastEpisodeProps) => {
   const imgURL = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
   const posterURL = process.env.NEXT_PUBLIC_POSTER_IMAGE_342;
   const stillURL = process.env.NEXT_PUBLIC_STILL_IMAGE_300;
   const imgSrc: string = `${media.last_episode_to_air?.still_path ? stillURL + media.last_episode_to_air.still_path : (media.backdrop_path ? imgURL + media.backdrop_path : posterURL + media.poster_path)}`;
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
-  if (loading) {
-    return (
-      <SkeletonHorizontalCard/>
-    );
-  }
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
   
   return(
     <div className='flex flex-col px-4 gap-4 lg:px-6 lg:flex-row lg:gap-6'>
@@ -27,12 +26,14 @@ const LastEpisode = ({ media, loading }: LastEpisodeProps) => {
         <div
           className='w-full h-[169px] absolute z-10 bg-gradient-to-t from-black to-transparent'>
         </div>
+        {!imageLoaded && <SkeletonHorizontalCard />}
         <Image
           src={imgSrc}
           alt={`Portada del episodio ${media.last_episode_to_air?.name}`}
           fill={true}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className='object-cover rounded-lg'
+          onLoad={handleImageLoad}
         />
       </div>
       <div>

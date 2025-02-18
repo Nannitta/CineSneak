@@ -34,7 +34,6 @@ const Movies = () => {
 
   const [selectedGenreId, setSelectedGenreId] = useState<number>(28);
   const [selectedGenreName, setSelectedGenreName] = useState<string>('Acción');
-  const [loading, setLoading] = useState<boolean>(true);
 
   const backdropURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
   const posterURL: string | undefined = process.env.NEXT_PUBLIC_POSTER_IAMGE_342;
@@ -47,7 +46,6 @@ const Movies = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       Promise.all([
         fetchMoviesGenre(false),
         fetchPopularMovies(1),
@@ -55,7 +53,6 @@ const Movies = () => {
         fetchMoviesByGenreId(28, 1),
         fetchMoviesCollections()
       ]);
-      setLoading(false);
     };
 
     fetchData();
@@ -97,7 +94,6 @@ const Movies = () => {
         <VerticalCarousel
           media={moviesNowPlaying}
           path={'/exitos-taquilla'}
-          loading={loading}
         />
       </section>
       <section>
@@ -110,7 +106,6 @@ const Movies = () => {
             <VerticalCarousel
               media={moviesByGenre}
               path={`/peliculas/${selectedGenreId}/${selectedGenreName}`}
-              loading={loading}
             />
           )}
         </div>
@@ -128,7 +123,7 @@ const Movies = () => {
 						    <p className='relative z-[1] px-4 mb-4 lg:px-6 text-sm font-normal text-gray text-balance line-clamp-6 md:w-[85%] lg:text-wrap md:text-base lg:w-[60%]'>{moviesCollection.overview}</p>
 						  </div>
 						  <div className='mb-8 lg:mb-20'>
-						    <HorizontalCarousel media={moviesCollection.parts} isSerie={false} loading={loading}/>
+						    <HorizontalCarousel media={moviesCollection.parts} isSerie={false}/>
 						  </div>
 						</div>
         }

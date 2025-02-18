@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { EmblaOptionsType } from 'embla-carousel';
 import { useMoviesStore } from '@/store/movies';
@@ -41,7 +41,6 @@ const HomePageNotLog = () => {
   
   const closeSideMenu = useSideMenuStore(state => state.closeSideMenu);
   const closeSearchMenu = useSearchMenuStore(state => state.closeSearchMenu);
-  const [loading, setLoading] = useState<boolean>(true);
 
   const closeMenu = () => {
     closeSideMenu();
@@ -52,7 +51,6 @@ const HomePageNotLog = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       Promise.all([
         fetchUpcomingMovies(),
         fetchMoviesNowPlaying(1),
@@ -63,7 +61,6 @@ const HomePageNotLog = () => {
         fetchTopRatedMovies(1),
         fetchTopRatedSeries(1),
       ]);
-      setLoading(false);
     };
 
     fetchData();
@@ -88,7 +85,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <VerticalCarousel media={moviesNowPlaying} path={'/exitos-taquilla'} loading={loading}/>
+        <VerticalCarousel media={moviesNowPlaying} path={'/exitos-taquilla'}/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14'>
         <div className='flex flex-col py-4 pl-4 items-baseline md:py-0 md:gap-2 lg:px-6' data-test='trendingMovies'>
@@ -99,7 +96,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <HorizontalCarousel media={popularMovies} isSerie={false} path={'/peliculas-en-tendencia'} loading={loading}/>
+        <HorizontalCarousel media={popularMovies} isSerie={false} path={'/peliculas-en-tendencia'}/>
       </section>
       <section className='mb-4 lg:mb-9'>
         <div className='flex flex-col p-4 items-baseline md:gap-4 md:flex-row md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
@@ -110,7 +107,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <TopRated media={topRatedMovies} isSerie={false} path={'/top-peliculas'} loading={loading}/>
+        <TopRated media={topRatedMovies} isSerie={false} path={'/top-peliculas'}/>
       </section>
       <section>
         <div className='flex flex-col py-4 pl-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
@@ -121,7 +118,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <VerticalCarousel media={onAirSeries} path={'/estrenos-series'} loading={loading}/>
+        <VerticalCarousel media={onAirSeries} path={'/estrenos-series'}/>
       </section>
       <section className='flex flex-col md:flex-row md:items-center md:gap-2 md:pt-[30px] lg:pt-14' data-test='sectionMediaTest'>
         <div className='flex flex-col py-4 pl-4 md:py-0 md:gap-2 lg:px-6'>
@@ -132,7 +129,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <HorizontalCarousel media={popularSeries} isSerie={true} path={'/series-en-tendencia'} loading={loading}/>
+        <HorizontalCarousel media={popularSeries} isSerie={true} path={'/series-en-tendencia'}/>
       </section>
       <section className='mb-4 lg:mb-14'>
         <div className='flex flex-col p-4 items-baseline md:flex-row md:gap-4 md:pt-[30px] md:pb-5 lg:pt-9 lg:pb-6 lg:px-6'>
@@ -143,7 +140,7 @@ const HomePageNotLog = () => {
             Ver todo
           </Link>
         </div>
-        <TopRated media={topRatedSeries} isSerie={true} path={'/top-series'} loading={loading}/>
+        <TopRated media={topRatedSeries} isSerie={true} path={'/top-series'}/>
       </section>
     </main>
   );
