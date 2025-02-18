@@ -44,6 +44,7 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
 
   const [color, setColor] = useState<string>('transparent');
   const [favorite, setFavorite] = useState<boolean>(false);
+  const [isAnimate, setAnimate]= useState<boolean>(false);
   const { media: type } = useParams<Params>();  
   
   const handleImgLoad = () => {
@@ -67,11 +68,17 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
       if(!favorite) {
         await addFavorites(user.email, media.id, media.title, webpPosterSrc, type);
         setFavorite(true);
+        setAnimate(true);
       } else {
         await deleteFavorites(user.email, media.id);
         setFavorite(false);
+        setAnimate(true);
       }                       
     }
+  };
+
+  const handleAnimationEnd = () => {
+    setAnimate(false);
   };
 
   useEffect(() => {
@@ -139,8 +146,8 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
           />
           {
             token && 
-            <div className='cursor-pointer w-8 h-8' onClick={handleAddFavorite}>
-              <Fav width='32' height='32' color={favorite ? '#ffff' : color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} animation={`${favorite ? 'like' : 'dislike'}`}/>
+            <div className='cursor-pointer w-8 h-8' onClick={handleAddFavorite} onAnimationEnd={handleAnimationEnd}>
+              <Fav width='32' height='32' color={favorite ? '#ffff' : color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} animation={isAnimate ? `${favorite ? 'like' : 'dislike'}` : 'none'}/>
             </div>
           }
         </div>
