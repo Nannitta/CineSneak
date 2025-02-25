@@ -64,7 +64,7 @@ const SearchMenuLargeDevice = ({
       <div className="fixed inset-0 bg-black opacity-60 z-[1] w-full h-full"></div>
       <div className={`absolute top-0 right-0 z-10 w-1/4 bg-black max-h-screen h-screen flex flex-col p-6 gap-4 ${isClosing ? 'side-menu-left' : 'side-menu-right'}`} data-test='containerSearchMenu'>
         <button onClick={closeSearchMenu} className='self-end'>
-          <Close width='24' height='24' fill='white'/>
+          <Close width='24' height='24' />
         </button>
         <div className='min-h-20 2xl:min-h-[60px]'>
           <div className='flex placeholder:text-gray placeholder:font-normal bg-[#222222f3] border border-[#2e2d2df3] p-2 rounded'>
@@ -75,7 +75,7 @@ const SearchMenuLargeDevice = ({
           </div>
           {errorMessage && (
             <div className="flex gap-2 items-center mt-2 text-xs 2xl:text-sm text-error" data-test='errorMessage'>
-              <Error width='14' height='14' fill='#ef5350'/>
+              <Error />
               {errorMessage}
             </div>
           )}

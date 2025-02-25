@@ -61,10 +61,7 @@ const CardMainCarousel = ({ media, genres, isSerie, handleTrailerClick }: CardMa
         </h2>
         <p className='text-sm font-normal text-gray text-balance line-clamp-6 lg:w-3/4 lg:text-wrap md:text-base'>{media.overview}</p>
         <div className='flex gap-1 place-items-center text-xs font-light self-end md:self-start py-2 md:pt-2 md:pb-4 md:text-sm'>
-          <Calendar
-            width={screenSize === 'sm' ? '12' : '15'}
-            height={screenSize === 'sm' ? '12' : '15'}
-          />
+          <Calendar />
           <span className='text-gray'>{formatDate(isSerieMedia(media) ? media.first_air_date : media.release_date)}</span>
         </div>
         {screenSize && screenSize === 'sm'
@@ -72,11 +69,7 @@ const CardMainCarousel = ({ media, genres, isSerie, handleTrailerClick }: CardMa
             <PrimaryButton
               text={'Ver tráiler'}
               img={
-                <Play
-                  width={screenSize === 'sm' ? '12' : '16'}
-                  height={screenSize === 'sm' ? '12' : '16'}
-                  fill={'white'}
-                />
+                <Play />
               }
               onClick={isSerie ? () => handleTrailerClick(media.id, true) : () => handleTrailerClick(media.id, false)}
             />
@@ -94,13 +87,7 @@ const CardMainCarousel = ({ media, genres, isSerie, handleTrailerClick }: CardMa
             </div>
             <PrimaryButton
               text={'Ver tráiler'}
-              img={
-                <Play
-                  width={screenSize === 'sm' ? '12' : '16'}
-                  height={screenSize === 'sm' ? '12' : '16'}
-                  fill={'white'}
-                />
-              }
+              img={<Play />}
               onClick={isSerie ? () => handleTrailerClick(media.id, true) : () => handleTrailerClick(media.id, false)}
             />
           </>

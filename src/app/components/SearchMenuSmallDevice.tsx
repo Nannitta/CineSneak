@@ -64,7 +64,7 @@ const SearchMenuSmallDevice = ({
       <div className="fixed inset-0 bg-black opacity-60 z-[1] w-full h-full"></div>
       <div className={`w-full h-full md:h-1/2 bg-black fixed top-0 z-10 p-4 flex flex-col ${isClosing ? 'side-menu-up' : 'side-menu-down'}`}>
         <button onClick={closeSearchMenu} className='self-end pb-4'>
-          <Close width='24' height='24' fill='white'/>
+          <Close width='24' height='24' />
         </button>
         <div className='min-h-16'>
           <div className='flex placeholder:text-gray placeholder:font-normal bg-[#222222f3] border border-[#2e2d2df3] p-2 rounded'>
@@ -75,7 +75,7 @@ const SearchMenuSmallDevice = ({
           </div>
           {errorMessage && (
             <div className="flex gap-2 items-center mt-2 text-xs 2xl:text-sm text-error">
-              <Error width='14' height='14' fill='#EF5350'/>
+              <Error />
               {errorMessage}
             </div>
           )}

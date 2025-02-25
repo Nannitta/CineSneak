@@ -26,7 +26,6 @@ const SideMenu = () => {
               <Close 
                 width={'24'}
                 height={'24'}
-                fill='white'
               />
             </button>
             <nav className='flex jus gap-5 *:text-sm'>

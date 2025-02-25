@@ -45,7 +45,7 @@ const HorizontalCarousel: React.FC<PropType> = (props) => {
                   onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
                 >
                   VER TODO
-                  <RightArrow width={'14'} height={'14'} fill={color}/>
+                  <RightArrow fill={color}/>
                 </div>
               </Link>
           }

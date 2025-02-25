@@ -12,8 +12,17 @@ interface BentoGridProps {
 }
 
 const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
+  const [color, setColor] = useState<string>('#C3C3C3');
   const imgURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
   const [imgLoader, setImgLoader] = useState<boolean>(false);
+
+  const handleMouseEnter = () => {
+    setColor('white');
+  };
+
+  const handleMouseLeave = () => {
+    setColor('#C3C3C3');
+  };
 
   const handleImgLoader = () => {
     setImgLoader(true);
@@ -64,7 +73,7 @@ const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
               <div className='absolute inset-0 z-20 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg'>
                 <span className='text-white text-sm font-bold opacity-0 lg:group-hover:opacity-100 transition duration-300 flex items-center gap-1'>
                   VER MÁS
-                  <Plus width={'14'} height={'14'} fill={'white'}/>
+                  <Plus />
                 </span>
               </div>
             </Link>
@@ -73,10 +82,11 @@ const BentoGrid = ({ media, isSerie, path }: BentoGridProps) => {
         <Link
           href={path}
           className='min-w-[300px] bg-black bg-opacity-60 flex items-center justify-center rounded-lg text-sm font-bold text-gray hover:text-white gap-1 row-start-2 row-end-4 col-start-3 col-end-4'
+          onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
         >
           <div className='flex items-center justify-center'>
             VER TODO
-            <RightArrow width={'14'} height={'14'} fill={'white'}/>
+            <RightArrow fill={color}/>
           </div>
         </Link>
       </div>

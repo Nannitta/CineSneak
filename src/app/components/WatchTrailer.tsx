@@ -73,7 +73,7 @@ const WatchTrailer = ({ isSerie }: TrailerDetails) => {
               onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
               data-test='closePlayer'
             >
-              <Close width='36' height='36' fill='white'/>
+              <Close width='36' height='36' />
             </div>
             : null
         }

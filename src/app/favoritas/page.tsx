@@ -73,7 +73,7 @@ const Favoritas = () => {
                                 <div className='absolute inset-0 bg-black bg-opacity-0 lg:group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center'>
                                   <span className='text-white text-sm font-bold opacity-0 lg:group-hover:opacity-100 transition duration-300 flex items-center gap-1'>
                                     VER MÁS
-                                    <Plus width={'14'} height={'14'} fill={'white'}/>
+                                    <Plus />
                                   </span>
                                 </div>
                               </div>

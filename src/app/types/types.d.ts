@@ -1,8 +1,8 @@
 import { EventHandler, MouseEventHandler, ReactNode } from 'react';
 
 export type SvgProps = {
-  width: string
-  height: string
+  width?: string
+  height?: string
   fill?: string
   color?: string
   onMouseEnter?: MouseEventHandler

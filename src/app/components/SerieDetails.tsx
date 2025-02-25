@@ -118,7 +118,7 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
           <span className="text-[8px] text-gray flex gap-[2px] pt-[1px] md:text-xs md:items-end md:pt-0 md:pb-[3px] md:gap-1 lg:text-sm lg:items-end">
           10
             <div className="mb-[2px] flex items-end md:mb-[1px]">
-              <Star width={screenSize === 'sm' ? '12' : '16'} height={screenSize === 'sm' ? '12' : '16'} fill="white" />
+              <Star />
             </div>
           </span>
         </div>
@@ -132,11 +132,7 @@ const SerieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
           <PrimaryButton
             text={'Ver tráiler'}
             img={
-              <Play
-                width={screenSize === 'sm' ? '12' : '16'}
-                height={screenSize === 'sm' ? '12' : '16'}
-                fill={'white'}
-              />
+              <Play />
             }
             onClick={() => handleTrailerClick(media.id, true)}
           />

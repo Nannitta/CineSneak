@@ -11,14 +11,8 @@ const Footer = () => {
     <footer className='flex flex-col place-items-center gap-4 p-4 md:flex-row md:gap-36 md:pb-6 lg:items-start lg:gap-32 lg:py-6 lg:px-6'>
       <div className='flex flex-col gap-4 lg:flex-row lg:gap-32'>
         <div className='flex font-nimbus h-[1.3rem] gap-2'>
-          <Logo
-            width={screenSize === 'sm' ? '16' : (screenSize === 'md' ? '25' : '40')}
-            height={screenSize === 'sm' ? '16' : (screenSize === 'md' ? '25' : '40')}
-            fill={'white'}
-          />
-          {
-            screenSize && screenSize === 'sm' ? 'CineSneak' : null
-          }
+          <Logo />
+          <p className='md:hidden'>CineSneak</p>
         </div>
         <div className='flex flex-col'>
           <h1 className='font-bold text-xs md:text-sm lg:min-w-max'>DESARROLLADO CON</h1>
@@ -35,32 +29,16 @@ const Footer = () => {
           <h2 className='font-bold text-xs text-center md:text-left lg:text-center md:text-sm'>CONTÁCTAME</h2>
           <ul className='flex gap-6 rrss'>
             <li>
-              <Github
-                width={screenSize === 'sm' ? '16' : '24'}
-                height={screenSize === 'sm' ? '16' : '24'}
-                fill={screenSize === 'sm' ? 'white' : '#C3C3C3'}
-              />
+              <Github fill={screenSize === 'sm' || screenSize === 'md' ? 'white' : '#C3C3C3'} />
             </li>
             <li>
-              <Linkedin
-                width={screenSize === 'sm' ? '16' : '24'}
-                height={screenSize === 'sm' ? '16' : '24'}
-                fill={screenSize === 'sm' ? 'white' : '#C3C3C3'}
-              />
+              <Linkedin fill={screenSize === 'sm' || screenSize === 'md' ? 'white' : '#C3C3C3'} />
             </li>
             <li>
-              <Gmail
-                width={screenSize === 'sm' ? '16' : '24'}
-                height={screenSize === 'sm' ? '16' : '24'}
-                fill={screenSize === 'sm' ? 'white' : '#C3C3C3'}
-              />
+              <Gmail fill={screenSize === 'sm' || screenSize === 'md' ? 'white' : '#C3C3C3'} />
             </li>
             <li>
-              <Figma
-                width={screenSize === 'sm' ? '16' : '24'}
-                height={screenSize === 'sm' ? '16' : '24'}
-                fill={screenSize === 'sm' ? 'white' : '#C3C3C3'}
-              />
+              <Figma fill={screenSize === 'sm' || screenSize === 'md' ? 'white' : '#C3C3C3'} />
             </li>
           </ul>
         </div>

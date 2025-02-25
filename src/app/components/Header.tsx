@@ -44,11 +44,7 @@ const Header = () => {
       <header className='flex justify-between p-4 items-center lg:p-6' id='top'>
         <div className='flex place-items-center gap-2'>
           <Link href={'/'}>
-            <Logo
-              width={screenSize === 'sm' ? '24' : (screenSize === 'md' ? '25' : '40')}
-              height={screenSize === 'sm' ? '24' : (screenSize === 'md' ? '25' : '40')}
-              fill={'white'}
-            />
+            <Logo />
           </Link>
         </div>
       </header>
@@ -59,11 +55,7 @@ const Header = () => {
     <header className='flex justify-between p-4 items-center lg:p-6' id='top'>
       <div className='flex place-items-center gap-2'>
         <Link href={'/'}>
-          <Logo
-            width={screenSize === 'sm' ? '24' : (screenSize === 'md' ? '25' : '40')}
-            height={screenSize === 'sm' ? '24' : (screenSize === 'md' ? '25' : '40')}
-            fill={'white'}
-          />
+          <Logo />
         </Link>
         <button onClick={openSideMenu} className='md:hidden'><Menu/></button>
       </div>
@@ -104,13 +96,7 @@ const Header = () => {
             : <Link href={'/login'}>
               <PrimaryButton
                 text={'Inc. sesión'}
-                img={
-                  <Avatar
-                    width={screenSize === 'sm' ? '12' : '16'}
-                    height={screenSize === 'sm' ? '12' : '16'}
-                    fill={'white'}
-                  />
-                }
+                img={<Avatar />}
               />
             </Link>
         }

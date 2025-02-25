@@ -117,15 +117,12 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
           <span className="text-[8px] text-gray flex gap-[2px] pt-[1px] md:text-xs md:items-end md:pt-0 md:pb-[3px] md:gap-1 lg:text-sm lg:items-end">
             10
             <div className="mb-[2px] flex items-end md:mb-[1px]">
-              <Star width={screenSize === 'sm' ? '12' : '16'} height={screenSize === 'sm' ? '12' : '16'} fill="white" />
+              <Star />
             </div>
           </span>
         </div>
         <div className="flex gap-1 text-[10px] items-center justify-end col-start-2 col-end-4 row-start-3 row-end-4 md:text-sm md:justify-start md:ml-2 lg:ml-0">
-          <Calendar
-            width={screenSize === 'sm' ? '12' : '16'}
-            height={screenSize === 'sm' ? '12' : '16'}
-          />
+          <Calendar />
           <span className="text-gray">{formatDate(media.release_date?.toString())}</span>
         </div>
         <div className={`flex font-light items-end col-start-2 col-end-4 justify-end row-start-4 row-end-5 md:justify-start md:ml-2 lg:ml-0 ${screenSize === 'sm' ? 'gap-2 text-[10px]' : 'gap-4 text-sm'}`}>
@@ -135,18 +132,14 @@ const MovieDetails = ({ media, providersLogo, handleTrailerClick, similarMediaSt
           <PrimaryButton
             text={'Ver tráiler'}
             img={
-              <Play
-                width={screenSize === 'sm' ? '12' : '16'}
-                height={screenSize === 'sm' ? '12' : '16'}
-                fill={'white'}
-              />
+              <Play />
             }
             onClick={() => handleTrailerClick(media.id, false)}
           />
           {
             token && 
             <div className='cursor-pointer w-8 h-8' onClick={handleAddFavorite} onAnimationEnd={handleAnimationEnd}>
-              <Fav width='32' height='32' color={favorite ? '#ffff' : color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} animation={isAnimate ? `${favorite ? 'like' : 'dislike'}` : 'none'}/>
+              <Fav color={favorite ? '#ffff' : color} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} animation={isAnimate ? `${favorite ? 'like' : 'dislike'}` : 'none'}/>
             </div>
           }
         </div>

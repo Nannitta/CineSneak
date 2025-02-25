@@ -1,7 +1,7 @@
 import { SvgProps } from '@/types/types';
 import Link from 'next/link';
 
-export function Menu() {
+export function Menu () {
   return(
     <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
       <path fill='#FFFFFF' d='M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1m0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1M3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1'/>
@@ -19,18 +19,18 @@ export function Search({width, height, color, onMouseEnter, onMouseLeave}: SvgPr
   );
 };
 
-export function Avatar({width, height, fill}: SvgProps) {
+export function Avatar () {
   return(
-    <svg width={width} height={height} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <path d='M10.6667 4.66667C10.6667 5.37391 10.3857 6.05219 9.88561 6.55229C9.38552 7.05238 8.70724 7.33333 8 7.33333C7.29275 7.33333 6.61447 7.05238 6.11438 6.55229C5.61428 6.05219 5.33333 5.37391 5.33333 4.66667C5.33333 3.95942 5.61428 3.28115 6.11438 2.78105C6.61447 2.28095 7.29275 2 8 2C8.70724 2 9.38552 2.28095 9.88561 2.78105C10.3857 3.28115 10.6667 3.95942 10.6667 4.66667ZM8 9.33333C6.76232 9.33333 5.57533 9.825 4.70016 10.7002C3.82499 11.5753 3.33333 12.7623 3.33333 14H12.6667C12.6667 12.7623 12.175 11.5753 11.2998 10.7002C10.4247 9.825 9.23767 9.33333 8 9.33333Z' stroke={fill} strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5'/>
+    <svg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' className='w-3 h-3 md:w-4 md:h-4'>
+      <path d='M10.6667 4.66667C10.6667 5.37391 10.3857 6.05219 9.88561 6.55229C9.38552 7.05238 8.70724 7.33333 8 7.33333C7.29275 7.33333 6.61447 7.05238 6.11438 6.55229C5.61428 6.05219 5.33333 5.37391 5.33333 4.66667C5.33333 3.95942 5.61428 3.28115 6.11438 2.78105C6.61447 2.28095 7.29275 2 8 2C8.70724 2 9.38552 2.28095 9.88561 2.78105C10.3857 3.28115 10.6667 3.95942 10.6667 4.66667ZM8 9.33333C6.76232 9.33333 5.57533 9.825 4.70016 10.7002C3.82499 11.5753 3.33333 12.7623 3.33333 14H12.6667C12.6667 12.7623 12.175 11.5753 11.2998 10.7002C10.4247 9.825 9.23767 9.33333 8 9.33333Z' stroke='white' strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5'/>
     </svg>
   );
 };
 
-export function Github({width, height, fill}: SvgProps) {
+export function Github ({fill}: SvgProps) {
   return(
     <Link href={'https://github.com/Nannitta'} target='_blank' title='GitHub'>
-      <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 32 32'>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' className='w-4 h-4 md:w-6 md:h-6'>
         <path fill={fill} d='M16 .396c-8.839 0-16 7.167-16 16c0 7.073 4.584 13.068 10.937
         15.183c.803.151 1.093-.344 1.093-.772c0-.38-.009-1.385-.015-2.719c-4.453.964-5.391-2.151-5.391-2.151c-.729-1.844-1.781-2.339-1.781-2.339c-1.448-.989.115-.968.115-.968c1.604.109
         2.448 1.645 2.448 1.645c1.427 2.448 3.744 1.74 4.661 1.328c.14-1.031.557-1.74
@@ -44,10 +44,10 @@ export function Github({width, height, fill}: SvgProps) {
   );
 };
 
-export function Linkedin({width, height, fill}: SvgProps) {
+export function Linkedin ({fill}: SvgProps) {
   return(
     <Link href={'https://www.linkedin.com/in/nairglez/'} target='_blank' title='Linkedin'>
-      <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 16 16'>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' className='w-4 h-4 md:w-6 md:h-6'>
         <path fill={fill} d='M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 
         .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 
         0 1.358-.554 1.358-1.248c-.015-.709-.52-1.248-1.342-1.248c-.822 0-1.359.54-1.359 1.248c0 .694.521 
@@ -59,78 +59,67 @@ export function Linkedin({width, height, fill}: SvgProps) {
   );
 };
 
-export function Gmail({width, height, fill}: SvgProps) {
+export function Gmail ({fill}: SvgProps) {
   return(
     <Link href={'mailto:nanaa.gonzalez@gmail.com'} title='Email'>
-      <svg width={width} height={height} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <svg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' className='w-4 h-4 md:w-6 md:h-6'>
         <path d='M8.32 7.28V9.46667H13.5467C13.3867 10.6933 12.978 11.5913 12.3553 12.222C11.5907 12.9867 10.4 13.822 8.32 13.822C5.102 13.822 2.58667 11.2267 2.58667 8.00867C2.58667 4.79067 5.102 2.19533 8.32 2.19533C10.0533 2.19533 11.3247 2.88 12.258 3.76L13.796 2.222C12.498 0.96 10.7553 0 8.32 0C3.91133 0 0.204666 3.59133 0.204666 8C0.204666 12.4087 3.91133 16 8.32 16C10.702 16 12.498 15.218 13.902 13.76C15.342 12.32 15.7953 10.2847 15.7953 8.64867C15.7953 8.142 15.76 7.67067 15.68 7.28H8.32Z' fill={fill}/>
       </svg>
     </Link>
   );
 };
 
-export function Figma({width, height, fill}: SvgProps) {
+export function Figma ({fill}: SvgProps) {
   return(
     <Link href={'https://www.figma.com/@nairgonzalez'} target='_blank' title='Figma Community'>
-      <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 256 256'>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256' className='w-4 h-4 md:w-6 md:h-6'>
         <path fill={fill} d='M192 96a40 40 0 0 0-24-72H96a40 40 0 0 0-24 72a40 40 0 0 0 1.37 65A44 44 0 1 0 144 196v-36a40 40 0 1 0 48-64m0-32a24 24 0 0 1-24 24h-24V40h24a24 24 0 0 1 24 24M72 64a24 24 0 0 1 24-24h32v48H96a24 24 0 0 1-24-24m24 88a24 24 0 0 1 0-48h32v48zm32 44a28 28 0 1 1-28-28h28Zm40-44a24 24 0 1 1 24-24a24 24 0 0 1-24 24'/>
       </svg>
     </Link>
   );
 };
 
-export function Calendar({width, height}: SvgProps) {
+export function Calendar () {
   return(
-    <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 24 24'>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='w-3 h3 md:w-4 md:h-4'>
       <path fill='#C3C3C3' d='M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V3q0-.425.288-.712T7 2t.713.288T8 3v1h8V3q0-.425.288-.712T17 2t.713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5z'/>
     </svg>
   );
 };
 
-export function Play({width, height, fill}: SvgProps) {
+export function Play () {
   return(
-    <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 24 24'>
-      <path fill={fill} d='M8 17.175V6.825q0-.425.3-.713t.7-.287q.125 0 .263.037t.262.113l8.15 5.175q.225.15.338.375t.112.475t-.112.475t-.338.375l-8.15 5.175q-.125.075-.262.113T9 18.175q-.4 0-.7-.288t-.3-.712'/>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='w-3 h3 md:w-4 md:h-4'>
+      <path fill='white' d='M8 17.175V6.825q0-.425.3-.713t.7-.287q.125 0 .263.037t.262.113l8.15 5.175q.225.15.338.375t.112.475t-.112.475t-.338.375l-8.15 5.175q-.125.075-.262.113T9 18.175q-.4 0-.7-.288t-.3-.712'/>
     </svg>
   );
 };
 
-export function Close({width, height, fill}: SvgProps) {
+export function Close ({width, height}: SvgProps) {
   return(
     <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 24 24'>
-      <path fill={fill} d='m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z'/>
+      <path fill='white' d='m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z'/>
     </svg>
   );
 }
 
-export function InPicture({width, height, fill}: SvgProps) {
+export function Plus () {
   return(
-    <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 24 24'>
-      <g fill={fill}>
-        <path d='M20 12h-6v5h6z'/>
-        <path fillRule='evenodd' d='M1 6a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2zm2 0h18v12H3z' clip-rule='evenodd'/>
-      </g>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='w-[14px] h-[14px]'>
+      <path fill='white' stroke='white' d='M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z'/>
     </svg>
   );
 }
 
-export function Plus({width, height, fill}: SvgProps) {
+export function RightArrow ({fill}: SvgProps) {
   return(
-    <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 24 24'>
-      <path fill={fill} stroke={fill} d='M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z'/>
-    </svg>
-  );
-}
-
-export function RightArrow({width, height, fill}: SvgProps) {
-  return(
-    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='w-[14px] h-[14px]'>
       <path fill={fill} stroke={fill} d="M9.29 15.88L13.17 12L9.29 8.12a.996.996 0 1 1 1.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3a.996.996 0 0 1-1.41 0c-.38-.39-.39-1.03 0-1.42"/>
     </svg>
   );
 }
 
-export function Clock({width, height}: SvgProps) {
+export function Clock ({width, height}: SvgProps) {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24">
       <path fill="#C3C3C3" d="M17 3.34a10 10 0 1 1-14.995 8.984L2 12l.005-.324A10 10 0 0 1 17 3.34M12 6a1 1 0 0 0-.993.883L11 7v5l.009.131a1 1 0 0 0 .197.477l.087.1l3 3l.094.082a1 1 0 0 0 1.226 0l.094-.083l.083-.094a1 1 0 0 0 0-1.226l-.083-.094L13 11.585V7l-.007-.117A1 1 0 0 0 12 6"/>
@@ -138,15 +127,15 @@ export function Clock({width, height}: SvgProps) {
   );
 }
 
-export function Star({width, height, fill}: SvgProps) {
+export function Star () {
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24">
-      <path fill={fill} d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='w-3 h3 md:w-4 md:h-4'>
+      <path fill='white' d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
     </svg>
   );
 }
 
-export function LoadingSpinner() {
+export function LoadingSpinner () {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <g>
@@ -164,11 +153,11 @@ export function LoadingSpinner() {
   );
 }
 
-export function Error({width, height, fill}: SvgProps) {
+export function Error () {
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24">
-      <path fill={fill} d="M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10s10-4.486 10-10S17.493 2 11.953 2M12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8"/>
-      <path fill={fill} d="M11 7h2v7h-2zm0 8h2v2h-2z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='w-[14px] h-[14px]'>
+      <path fill='#EF5350' d="M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10s10-4.486 10-10S17.493 2 11.953 2M12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8"/>
+      <path fill='#EF5350' d="M11 7h2v7h-2zm0 8h2v2h-2z"/>
     </svg>
   );
 }
@@ -187,9 +176,9 @@ export function Clapperboard () {
   );
 }
 
-export function FilmSpool ({ width, height }: SvgProps) {
+export function FilmSpool () {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 512 512">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className='w-40 h-40'>
       <path fill="#fff" d="M208 25C106.8 25 25 106.8 25 208s81.8 183 183 183s183-81.8 183-183S309.2 25 208 25m121.3 22.81c21 15.91 
       38.7 35.83 52.1 58.59c49.1 41.7 93.4 100.9 92 179.2c-.6 34.4-7.3 75.5-19.4 110.3c-12.1 34.7-30.1 62.3-49.7 
       71.7c-3.9 1.8-9.5 2.2-17.5.6c-8-1.7-17.9-5.3-29.3-10c-22.7-9.5-51.2-23.4-84.2-33.5c-66.2-20.1-152-24.2-247.5 50.6l11.1 14.2c91.2-71.5 
@@ -241,10 +230,10 @@ export function EyeOff () {
   );
 }
 
-export function Fav ({ width, height, color, onMouseEnter, onMouseLeave, animation }: SvgProps) {
+export function Fav ({color, onMouseEnter, onMouseLeave, animation}: SvgProps) {
   return (
     <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className={animation}>
-      <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24">
+      <svg xmlns="http://www.w3.org/2000/svg" width='32' height='32' viewBox="0 0 24 24">
         <path fill={color} stroke="#fff" strokeWidth="1.5" d="m12 19.654l-.758-.685q-2.448-2.236-4.05-3.828q-1.601-1.593-2.528-2.81t-1.296-2.2T3 8.15q0-1.908 1.296-3.204T7.5 3.65q1.32 0 2.475.675T12 6.289Q12.87 5 14.025 4.325T16.5 3.65q1.908 0 3.204 1.296T21 8.15q0 .996-.368 1.98q-.369.986-1.296 2.202t-2.519 2.809q-1.592 1.592-4.06 3.828z"/>
       </svg>
     </div>

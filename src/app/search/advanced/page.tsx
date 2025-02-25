@@ -83,7 +83,7 @@ const SearchPage = () => {
               <BackTopButton/>
             </>
             : <div className='flex flex-col items-center gap-4 py-8'>
-              <FilmSpool width={'150'} height={'150'}/>
+              <FilmSpool />
               <p className={`${league.className} font-bold text-center text-2xl px-4 lg:px-6`}>No se han encontrado resultados para {keyword && decodeURIComponent(keyword)}.</p>
               <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
             </div>
