@@ -12,12 +12,18 @@ import { Menu, Search, Avatar } from '@/lib/Svg';
 import { useLoginStore } from '@/store/userStore';
 import { useLoginMenuStore } from '@/store/loginMenu';
 import LoginMenu from '@/components/LoginMenu';
+import { useInPictureModeStore } from '@/store/inPictureMode';
+import { useSeriesStore } from '@/store/series';
+import { useMoviesStore } from '@/store/movies';
 
 const Header = () => {
   const {screenSize} = CheckWindowWidth();
   const [color, setColor] = useState<string>('#C3C3C3');
   const openSideMenu = useSideMenuStore(state => state.openSideMenu);
   const { openSearchMenu, isSearchOpen } = useSearchMenuStore(state => state);
+  const { closePictureMode } = useInPictureModeStore(state => state);
+  const { resetSerieTrailer } = useSeriesStore(state => state);
+  const { resetMovieTrailer } = useMoviesStore(state => state);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const pathName = usePathname();
   const { token, user } = useLoginStore(state => state);
@@ -31,6 +37,13 @@ const Header = () => {
 
   const handleMouseLeave = () => {
     setColor('#9ca3af');
+  };
+
+  const handleOpenSearchMenu = () => {
+    closePictureMode();
+    resetMovieTrailer();
+    resetSerieTrailer();
+    openSearchMenu();
   };
 
   useEffect(() => {
@@ -69,7 +82,7 @@ const Header = () => {
         : null
       }
       <div className='flex place-items-center gap-4 lg:h-9'>
-        <button title='Buscar' onClick={openSearchMenu} data-test='searchButton'>
+        <button title='Buscar' onClick={handleOpenSearchMenu} data-test='searchButton'>
           <Search
             width={'24'}
             height={'24'}
