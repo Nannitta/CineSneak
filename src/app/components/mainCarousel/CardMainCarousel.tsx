@@ -44,14 +44,14 @@ const CardMainCarousel = ({ media, genres, isSerie, handleTrailerClick }: CardMa
   };
   
   return (
-    <article className='embla__slide__number w-full h-96 md:h-[420px] lg:h-[700px] relative px-2 pb-4 md:px-4 md:pb-8'>
+    <article className='embla__slide__number w-full h-96 md:h-[420px] lg:h-[750px] relative px-2 pb-4 md:px-4 md:pb-8'>
       {!imageLoaded && <SkeletonMainCard />}
       <Image 
         src={webpImageSrc}
         alt={`Portada de la película ${isSerieMedia(media) ? media.name : media.title}`}
         fill={true}
         onLoad={handleImageLoad}
-        className='object-cover relative w-full h-96 md:h-[420px] lg:h-[700px]'
+        className='object-cover relative w-full h-96 md:h-[420px] lg:h-[750px] object-top'
       />
       <div className='overlay px-4 pt-4 pb-8 lg:p-6 md:pb-10'>
         <h2 className={`uppercase font-black ${league.className} md:text-2xl lg:text-4xl`}>

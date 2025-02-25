@@ -57,14 +57,14 @@ const Register = () => {
         screenSize === 'sm' || screenSize === 'md'
           ? <div className='w-full h-full absolute top-0 left-0 opacity-20 -z-10'>
             <Image 
-              src={'/img/mobileRegister.png'} 
+              src={'/img/mobileRegister.webp'} 
               alt='Register image' 
               fill={true} 
               className='object-cover'/>
             <div className='absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/80 via-transparent to-black/80'></div>
           </div>
           : <div className='absolute top-0 left-0 w-2/3 h-full opacity-50'>
-            <Image src={'/img/desktopRegister.png'}
+            <Image src={'/img/desktopRegister.webp'}
               alt='Register image'
               fill={true}
               className='object-cover'/>

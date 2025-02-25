@@ -58,10 +58,7 @@ const SearchPage = () => {
   }
 
   return (
-    <main className="flex flex-col flex-grow">
-      <h1 className="font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6">
-      Resultados para tu búsqueda
-      </h1>
+    <main className="flex flex-col flex-grow justify-center">
       {
         loading
           ? <p className='flex items-center justify-center gap-4 text-gray'>
@@ -70,6 +67,9 @@ const SearchPage = () => {
           </p>
           : searchedMedia.length > 0 
             ? <>
+              <h1 className="font-bold py-6 px-4 pt-6 text-2xl text-balance md:text-center lg:text-left lg:px-6">
+                Resultados para tu búsqueda
+              </h1>
               <ListMedia media={filterCategory}/>
               <div className='flex flex-col gap-4 justify-center items-center py-8'>
                 <div className='w-fit -rotate-12'>
