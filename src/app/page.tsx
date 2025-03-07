@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { EmblaOptionsType } from 'embla-carousel';
 import { useMoviesStore } from '@/store/movies';
@@ -13,6 +13,7 @@ import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import TopRated from '@/components/TopRated';
 import ErrorPage from '@/components/ErrorPage';
+import LoadingScreen from '@/components/LoadingScreen';
 
 const HomePageNotLog = () => {
   const { 
@@ -47,10 +48,13 @@ const HomePageNotLog = () => {
     closeSearchMenu();
   };
 
+  const [loading, setLoading] = useState<boolean>(true);
+
   const OPTIONS: EmblaOptionsType = { loop: true };
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       Promise.all([
         fetchUpcomingMovies(),
         fetchMoviesNowPlaying(1),
@@ -61,6 +65,9 @@ const HomePageNotLog = () => {
         fetchTopRatedMovies(1),
         fetchTopRatedSeries(1),
       ]);
+      setTimeout(() => {
+        setLoading(false);
+      }, 50);
     };
 
     fetchData();
@@ -72,6 +79,12 @@ const HomePageNotLog = () => {
     );
   }
   
+  if (loading) {
+    return (
+      <LoadingScreen/>
+    );
+  }
+
   return (
     <main className='flex-grow flex flex-col relative' onClick={closeMenu}>
       <WatchTrailer isSerie={false} />
