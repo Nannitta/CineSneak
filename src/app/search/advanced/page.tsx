@@ -78,14 +78,14 @@ const SearchPage = () => {
                 <p className={`${league.className} font-bold text-xl md:text-2xl`}>
                   ¡Vaya!, has llegado al final
                 </p>
-                <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
+                <PrimaryButton text={'Volver al inicio'} onClick={handleBackHome}/>
               </div>
               <BackTopButton/>
             </>
             : <div className='flex flex-col items-center gap-4 py-8'>
               <FilmSpool />
               <p className={`${league.className} font-bold text-center text-2xl px-4 lg:px-6`}>No se han encontrado resultados para {keyword && decodeURIComponent(keyword)}.</p>
-              <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
+              <PrimaryButton text={'Volver al inicio'} onClick={handleBackHome}/>
             </div>
       }
     </main>

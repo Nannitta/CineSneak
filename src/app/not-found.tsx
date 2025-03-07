@@ -22,7 +22,7 @@ const NotFound = () => {
         <p className={`${league.className} font-bold text-8xl md:text-9xl`}>404</p>
         <p className={`${league.className} text-center pb-4 md:text-2xl`}>¡Error de transmisión! Esta página se ha desintonizado.</p>
         <div>
-          <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
+          <PrimaryButton text={'Volver al inicio'} onClick={handleBackHome}/>
         </div>
       </div>
     </main>

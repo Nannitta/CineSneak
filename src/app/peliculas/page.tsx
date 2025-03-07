@@ -35,8 +35,8 @@ const Movies = () => {
   const [selectedGenreId, setSelectedGenreId] = useState<number>(28);
   const [selectedGenreName, setSelectedGenreName] = useState<string>('Acción');
 
-  const backdropURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE_300;
-  const posterURL: string | undefined = process.env.NEXT_PUBLIC_POSTER_IAMGE_342;
+  const backdropURL: string | undefined = process.env.NEXT_PUBLIC_BACKDROP_IMAGE;
+  const posterURL: string | undefined = process.env.NEXT_PUBLIC_POSTER_IAMGE_780;
 
   const handleGenreClick = (id: number, name: string) => {
     setSelectedGenreId(id);

@@ -2,7 +2,7 @@ import { MouseEvent, ReactNode } from 'react';
 
 interface ButtonProps {
   text: string
-  img: ReactNode
+  img?: ReactNode
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void
 }
 

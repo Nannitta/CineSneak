@@ -91,7 +91,7 @@ const Favoritas = () => {
                   <Popcorns/>
                   <div className='flex flex-col gap-4 text-center mb-8 px-12 2xl:w-96 2xl:mb-0'>
                     <p className='2xl:text-2xl'>¡Explora el catálogo y guarda tus joyas favoritas!</p>
-                    <PrimaryButton text={'Explora'} img={''} onClick={handleBackHome}/>
+                    <PrimaryButton text={'Explora'} onClick={handleBackHome}/>
                   </div>
                 </div>
             }

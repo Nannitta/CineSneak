@@ -118,7 +118,7 @@ const SearchMenuSmallDevice = ({
               </button>
               <div className='flex h-full justify-end'>
                 <div className='flex gap-4 h-8 self-end mb-4 *:w-20 *:justify-center'>
-                  <PrimaryButton text='Buscar' img={''} onClick={handleClickSearch}/>
+                  <PrimaryButton text='Buscar' onClick={handleClickSearch}/>
                   <button className='tag relative before:absolute before:inset-0 before:rounded-[0.35rem] px-2 py-1 w-fit md:px-3 md:py-[5px] text-xs font-semibold' onClick={closeSearchMenu}>Cancelar</button>
                 </div>
               </div>

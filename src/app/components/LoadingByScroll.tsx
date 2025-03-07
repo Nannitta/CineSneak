@@ -35,7 +35,7 @@ const LoadingByScroll = ({ loading, moreMedia, dataMedia, text }: LoadingByScrol
         <p className={`${league.className} font-bold text-xl md:text-2xl`}>
           ¡Vaya!, has llegado al final
         </p>
-        <PrimaryButton text={'Volver al inicio'} img={''} onClick={handleBackHome}/>
+        <PrimaryButton text={'Volver al inicio'} onClick={handleBackHome}/>
       </div> 
       }
       {!moreMedia && dataMedia.length === 0 && <p className='text-center py-4'>No se han encontrado {text}.</p>} 
