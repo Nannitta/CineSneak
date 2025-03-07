@@ -67,7 +67,7 @@ const HomePageNotLog = () => {
       ]);
       setTimeout(() => {
         setLoading(false);
-      }, 50);
+      }, 1000);
     };
 
     fetchData();
