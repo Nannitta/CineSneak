@@ -52,6 +52,7 @@ const CardMainCarousel = ({ media, genres, isSerie, handleTrailerClick }: CardMa
         fill={true}
         onLoad={handleImageLoad}
         className='object-cover relative w-full h-96 md:h-[420px] lg:h-[750px] object-top'
+        priority
       />
       <div className='overlay px-4 pt-4 pb-8 lg:p-6 md:pb-10'>
         <h2 className={`uppercase font-black ${league.className} md:text-2xl lg:text-4xl`}>

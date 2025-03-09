@@ -13,7 +13,6 @@ import VerticalCarousel from '@/components/verticalCarousel/VerticalCarousel';
 import HorizontalCarousel from '@/components/horizontalCarousel/HorizontalCarousel';
 import TopRated from '@/components/TopRated';
 import ErrorPage from '@/components/ErrorPage';
-import LoadingScreen from '@/components/LoadingScreen';
 
 const HomePageNotLog = () => {
   const { 
@@ -48,15 +47,12 @@ const HomePageNotLog = () => {
     closeSearchMenu();
   };
 
-  const [loading, setLoading] = useState<boolean>(true);
-
   const OPTIONS: EmblaOptionsType = { loop: true };
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
+      fetchUpcomingMovies(),
       Promise.all([
-        fetchUpcomingMovies(),
         fetchMoviesNowPlaying(1),
         fetchMoviesGenre(false),
         fetchPopularMovies(1),
@@ -65,9 +61,6 @@ const HomePageNotLog = () => {
         fetchTopRatedMovies(1),
         fetchTopRatedSeries(1),
       ]);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
     };
 
     fetchData();
@@ -76,12 +69,6 @@ const HomePageNotLog = () => {
   if (moviesStoreError || seriesStoreError) {
     return (
       <ErrorPage/>
-    );
-  }
-  
-  if (loading) {
-    return (
-      <LoadingScreen/>
     );
   }
 
